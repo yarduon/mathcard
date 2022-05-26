@@ -1,0 +1,16 @@
+.max-width {
+  width: 100%;
+}
+
+.max-height {
+  height: 100%;
+}
+
+.background-grey {
+  background-color: #575757;
+}
+
+.calculator {
+  width: 40vh;
+  height: 55vh;
+}
