@@ -21,7 +21,13 @@
 }
 
 .screen {
-  width: 33vh;
+  width: 34vh;
   height: 10vh;
   border-radius: 4.5vh;
+}
+
+.buttons{
+    background-color: red;
+    height: 10vh;
+    width: 34vh;
 }
