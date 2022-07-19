@@ -30,8 +30,8 @@
   background-color: #111111;
 }
 
-.border-grey {
-  border: 0.2vh solid grey;
+.border-black {
+  border: 0.2vh solid rgb(34, 31, 31);
 }
 
 .text-white {
@@ -58,17 +58,34 @@
   height: 20vh;
 }
 
+.circle {
+  border-radius: 1vh;
+  width: 2vh;
+  height: 2vh;
+}
+
+.line {
+  width: 40vh;
+  height: 3.6vh;
+  border-bottom-left-radius: 1.3vh;
+  border-bottom-right-radius: 1.3vh;
+}
+
 .screen {
   width: 34vh;
   height: 10vh;
   border-radius: 4.5vh;
 }
 
+.middle {
+  margin-top: 1vh;
+  height: 4vh;
+  border-radius: 1vh;
+}
+
 .buttons-container {
   padding: 1.2vh 1.2vh 6vh 1.2vh;
   font-size: 2.3vh;
-  border-bottom-left-radius: 1.3vh;
-  border-bottom-right-radius: 1.3vh;
   gap: 1.2vh 0.5vh;
 }
 
