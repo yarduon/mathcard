@@ -18,6 +18,14 @@
   justify-content: space-around;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
 .align-center {
   align-items: center;
 }
@@ -26,7 +34,15 @@
   position: relative;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .off {
-  bottom: 1vh;
+  bottom: 0.6vh;
   right: 1.2vh;
+}
+
+.secondary {
+  right: 0.7vh;
 }

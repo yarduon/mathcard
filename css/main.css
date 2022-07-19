@@ -26,20 +26,20 @@
   background-color: #007a00;
 }
 
-.background-black{
+.background-black {
   background-color: #111111;
 }
 
-.text-white{
+.border-grey {
+  border: 0.2vh solid grey;
+}
+
+.text-white {
   color: white;
 }
 
 .no-border {
   border: none;
-}
-
-.shadow{
-  outline: .3vh solid black;
 }
 
 .biryani {
@@ -55,7 +55,7 @@
 .top-calculator {
   border-top-left-radius: 1.3vh;
   border-top-right-radius: 1.3vh;
-  height: 17vh;
+  height: 20vh;
 }
 
 .screen {
@@ -65,27 +65,36 @@
 }
 
 .buttons-container {
-  padding: 1.2vh;
+  padding: 1.2vh 1.2vh 6vh 1.2vh;
   font-size: 2.3vh;
   border-bottom-left-radius: 1.3vh;
   border-bottom-right-radius: 1.3vh;
-  gap: .5vh;
+  gap: 1.2vh 0.5vh;
 }
 
 .off {
-  width: 3vh;
+  width: 2.5vh;
   height: 1.5vh;
 }
 
 .button {
   width: 6vh;
   height: 6vh;
-  border: 1px solid grey;
   border-radius: 1vh;
 }
 
-.additional{
+.additional {
   width: 5vh;
   height: 5vh;
   font-size: 1.9vh;
+}
+
+.symbols {
+  gap: 0.7vh 1.7vh;
+}
+
+.secondary {
+  border-radius: 1vh;
+  width: 4vh;
+  height: 4vh;
 }
