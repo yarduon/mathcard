@@ -26,8 +26,12 @@
   border-radius: 4.5vh;
 }
 
-.buttons{
-    background-color: red;
-    height: 10vh;
-    width: 34vh;
+.buttons {
+  height: 31vh;
+  width: 34vh;
+}
+
+.button{
+  width: 7vh;
+  height: 6vh;
 }

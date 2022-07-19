@@ -1,15 +1,23 @@
-.flex{
-    display: flex;
+.flex {
+  display: flex;
 }
 
-.direction-column{
-    flex-direction: column;
+.wrap{
+    flex-wrap: wrap;
 }
 
-.justify-center{
-    justify-content: center;
+.direction-column {
+  flex-direction: column;
 }
 
-.align-center{
-    align-items: center;
+.justify-center {
+  justify-content: center;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
 }
