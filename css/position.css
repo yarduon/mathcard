@@ -2,8 +2,8 @@
   display: flex;
 }
 
-.wrap{
-    flex-wrap: wrap;
+.wrap {
+  flex-wrap: wrap;
 }
 
 .direction-column {
@@ -20,4 +20,13 @@
 
 .align-center {
   align-items: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.off {
+  bottom: 1vh;
+  right: 1.2vh;
 }
