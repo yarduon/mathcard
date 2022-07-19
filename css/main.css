@@ -14,12 +14,17 @@
   background-color: whitesmoke;
 }
 
-.background-orange{
+.background-orange {
   background-color: #f28b44;
 }
 
-.background-yellow{
+.background-yellow {
   background-color: #f2e767;
+}
+
+.biryani{
+  font-family: Biryani;
+  font-weight: bold;
 }
 
 .calculator {
@@ -28,7 +33,9 @@
   font-size: 3vh;
 }
 
-.top-calculator{
+.top-calculator {
+  border-top-left-radius: 1.3vh;
+  border-top-right-radius: 1.3vh;
   height: 17vh;
 }
 
@@ -38,12 +45,13 @@
   border-radius: 4.5vh;
 }
 
-.buttons {
-  height: 35vh;
-  font-size: 2.5vh;
+.buttons-container {
+  padding: 1.2vh;
+  font-size: 2.3vh;
 }
 
-.button{
-  width: 7vh;
+.button {
+  width: 6vh;
   height: 6vh;
+  border-radius: 1vh;
 }
