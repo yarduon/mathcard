@@ -75,7 +75,7 @@
 }
 
 .border-full-shadow {
-  border: 0.3vh solid black;
+  border: 3px solid black;
 }
 
 .border-bottom-shadow-button {
@@ -140,7 +140,7 @@
 .middle-base {
   height: 5vh;
   border-radius: 1vh;
-  margin-top: -1.4vh;
+  margin-top: -1.6vh;
 }
 
 .buttons-container {
