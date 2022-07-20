@@ -1,3 +1,23 @@
+#circle1,
+#circle2 {
+  margin-bottom: 15vh;
+}
+
+#circle2,
+#circle3 {
+  margin-left: 34vh;
+}
+
+#circle1,
+#circle4 {
+  margin-right: 34vh;
+}
+
+#circle3,
+#circle4 {
+  margin-top: 15vh;
+}
+
 .max-width {
   width: 100%;
 }
@@ -6,8 +26,12 @@
   height: 100%;
 }
 
+.background-screw {
+  background-color: #c9c6bd;
+}
+
 .background-grey {
-  background-color: #575757;
+  background-color: #69665b;
 }
 
 .background-white {
@@ -15,7 +39,15 @@
 }
 
 .background-orange {
-  background-color: #f28b44;
+  background-color: #e67e07;
+}
+
+.background-blue {
+  background-color: #323cca;
+}
+
+.background-purple {
+  background-color: #b85ba8;
 }
 
 .background-yellow {
@@ -30,16 +62,16 @@
   background-color: #111111;
 }
 
-.border-black {
-  border: 0.2vh solid rgb(34, 31, 31);
+.border-bottom-shadow {
+  border-bottom: 0.6vh solid rgb(107, 102, 102);
+}
+
+.border-right-shadow {
+  border-right: 0.4vh solid rgb(107, 102, 102);
 }
 
 .text-white {
   color: white;
-}
-
-.no-border {
-  border: none;
 }
 
 .biryani {
@@ -72,32 +104,37 @@
 }
 
 .screen {
-  width: 34vh;
-  height: 10vh;
+  width: 35vh;
+  height: 11vh;
   border-radius: 4.5vh;
 }
 
 .middle {
-  margin-top: 1vh;
+  margin-top: 2vh;
   height: 4vh;
   border-radius: 1vh;
 }
 
 .buttons-container {
+  margin-top: -0.5vh;
   padding: 1.2vh 1.2vh 6vh 1.2vh;
   font-size: 2.3vh;
   gap: 1.2vh 0.5vh;
 }
 
-.off {
-  width: 2.5vh;
+.off-on {
+  width: 2vh;
   height: 1.5vh;
+  margin-top: 1.2vh;
+}
+
+.round-border {
+  border-radius: 1vh;
 }
 
 .button {
   width: 6vh;
   height: 6vh;
-  border-radius: 1vh;
 }
 
 .additional {

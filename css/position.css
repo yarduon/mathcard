@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.column {
+  flex-direction: column;
+}
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -38,40 +42,13 @@
   position: absolute;
 }
 
-.off {
+.off-on {
   bottom: 0.6vh;
   right: 1.2vh;
 }
 
-#circle1,
-#circle2 {
-  top: 13.5vh;
-}
-
-#circle3,
-#circle4 {
-  top: 28.5vh;
-}
-
-#circle1 {
-  left: 85vh;
-}
-
-#circle2 {
-  top: 13.5vh;
-  right: 85vh;
-}
-
-#circle3 {
-  left: 85vh;
-}
-
-#circle4 {
-  right: 85vh;
-}
-
-.line{
-    top: 88vh;
+.line {
+  top: 88vh;
 }
 
 .secondary {
