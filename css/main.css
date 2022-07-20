@@ -1,21 +1,21 @@
 #circle1,
 #circle2 {
-  margin-bottom: 15vh;
+  margin-bottom: 17vh;
 }
 
 #circle2,
 #circle3 {
-  margin-left: 34vh;
+  margin-left: 35vh;
 }
 
 #circle1,
 #circle4 {
-  margin-right: 34vh;
+  margin-right: 35vh;
 }
 
 #circle3,
 #circle4 {
-  margin-top: 15vh;
+  margin-top: 17vh;
 }
 
 .max-width {
@@ -26,7 +26,7 @@
   height: 100%;
 }
 
-.overflow-hidden{
+.overflow-hidden {
   overflow: hidden;
 }
 
@@ -74,6 +74,10 @@
   border: 0.3vh solid black;
 }
 
+.border-full-shadow {
+  border: 0.3vh solid black;
+}
+
 .border-bottom-shadow-button {
   border-bottom: 0.6vh solid black;
 }
@@ -97,7 +101,7 @@
 }
 
 .top-calculator {
-  height: 20vh;
+  height: 22vh;
 }
 
 .circle {
@@ -133,17 +137,19 @@
   font-size: 2.7vh;
 }
 
-.middle {
-  margin-top: 2vh;
-  height: 4vh;
+.middle-base {
+  height: 5vh;
   border-radius: 1vh;
+  margin-top: -1.4vh;
 }
 
 .buttons-container {
-  margin-top: -0.5vh;
+  margin-top: -0.8vh;
   padding: 1.2vh 1.2vh 6vh 1.2vh;
   font-size: 2.3vh;
   gap: 1.2vh 0.5vh;
+  border-bottom-left-radius: 1.3vh;
+  border-bottom-right-radius: 1.3vh;
 }
 
 .off-on {
