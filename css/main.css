@@ -70,19 +70,19 @@
   background-color: #292929ff;
 }
 
-.shadow-screw {
-  border: 0.3vh solid black;
-}
-
-.border-full-shadow {
-  border: 3px solid black;
-}
-
 .border-bottom-shadow-button {
   border-bottom: 0.6vh solid black;
 }
 
 .border-right-shadow-button {
+  border-right: 0.4vh solid black;
+}
+
+.border-bottom-shadow-light {
+  border-bottom: 0.4vh solid black;
+}
+
+.border-right-shadow-light {
   border-right: 0.4vh solid black;
 }
 
@@ -106,8 +106,8 @@
 
 .circle {
   border-radius: 2vh;
-  width: 2.5vh;
-  height: 2.5vh;
+  width: 2.9vh;
+  height: 2.9vh;
 }
 
 .line {
@@ -115,6 +115,10 @@
   height: 3.6vh;
   border-bottom-left-radius: 1.3vh;
   border-bottom-right-radius: 1.3vh;
+}
+
+.cross {
+  width: 1.8vh;
 }
 
 .screen {
@@ -126,6 +130,7 @@
 
 .logo {
   font-size: 2.2vh;
+  margin-bottom: -0.3vh;
 }
 
 #operations {
@@ -156,6 +161,8 @@
   width: 2vh;
   height: 1.5vh;
   margin-top: 1.2vh;
+  border-top-right-radius: 1vh;
+  border-bottom-right-radius: 1vh;
 }
 
 .round-border {
