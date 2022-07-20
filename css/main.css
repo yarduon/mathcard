@@ -26,6 +26,10 @@
   height: 100%;
 }
 
+.overflow-hidden{
+  overflow: hidden;
+}
+
 .background-screw {
   background-color: #c9c6bd;
 }
@@ -42,12 +46,16 @@
   background-color: #e67e07;
 }
 
+.background-red {
+  background-color: rgb(224, 51, 51);
+}
+
 .background-blue {
   background-color: #323cca;
 }
 
 .background-purple {
-  background-color: #b85ba8;
+  background-color: #99598f;
 }
 
 .background-yellow {
@@ -59,15 +67,19 @@
 }
 
 .background-black {
-  background-color: #111111;
+  background-color: #292929ff;
 }
 
-.border-bottom-shadow {
-  border-bottom: 0.6vh solid rgb(107, 102, 102);
+.shadow-screw {
+  border: 0.3vh solid black;
 }
 
-.border-right-shadow {
-  border-right: 0.4vh solid rgb(107, 102, 102);
+.border-bottom-shadow-button {
+  border-bottom: 0.6vh solid black;
+}
+
+.border-right-shadow-button {
+  border-right: 0.4vh solid black;
 }
 
 .text-white {
@@ -85,15 +97,13 @@
 }
 
 .top-calculator {
-  border-top-left-radius: 1.3vh;
-  border-top-right-radius: 1.3vh;
   height: 20vh;
 }
 
 .circle {
-  border-radius: 1vh;
-  width: 2vh;
-  height: 2vh;
+  border-radius: 2vh;
+  width: 2.5vh;
+  height: 2.5vh;
 }
 
 .line {
@@ -104,9 +114,23 @@
 }
 
 .screen {
-  width: 35vh;
-  height: 11vh;
-  border-radius: 4.5vh;
+  width: 29vh;
+  height: 14vh;
+  border: 1vh solid black;
+  border-bottom: 3.3vh solid black;
+}
+
+.logo {
+  font-size: 2.2vh;
+}
+
+#operations {
+  font-size: 2.3vh;
+  margin-left: 0.4vh;
+}
+
+#result {
+  font-size: 2.7vh;
 }
 
 .middle {

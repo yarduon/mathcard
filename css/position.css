@@ -34,6 +34,14 @@
   align-items: center;
 }
 
+.self-flex-start {
+  align-self: flex-start;
+}
+
+.self-flex-end {
+  align-self: flex-end;
+}
+
 .relative {
   position: relative;
 }
@@ -42,9 +50,18 @@
   position: absolute;
 }
 
+.logo {
+  bottom: 73.8vh;
+}
+
+#result {
+  top: 2vh;
+  right: 0.4vh;
+}
+
 .off-on {
   bottom: 0.6vh;
-  right: 1.2vh;
+  right: 1.3vh;
 }
 
 .line {
