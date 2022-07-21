@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html class="max-width max-height" lang="en" translate="no">
+<html class="flex max-width max-height" lang="en" translate="no">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="Beautiful calculator totally customizable "
@@ -16,15 +17,15 @@
     <link rel="stylesheet" href="./css/responsive.css" />
   </head>
   <body
-    class="flex justify-center align-center max-width max-height biryani overflow-hidden"
+    class="flex justify-center align-center max-width max-height biryani"
   >
-    <div class="max-width max-height flex justify-center align-center absolute">
+    <div class="max-width max-height flex justify-center align-center absolute overflow-hidden">
       <div class="max-height half-width side-background background-black"></div>
       <div class="max-height half-width side-background background-blue"></div>
+      <div class="absolute background-black" id="square1"></div>
+      <div class="absolute background-blue" id="square2"></div>
+      <div class="absolute background-red" id="square3"></div>
     </div>
-    <div class="absolute background-black" id="square1"></div>
-    <div class="absolute background-blue" id="square2"></div>
-    <div class="absolute background-red" id="square3"></div>
     <main class="flex column justify-center align-center max-width max-height">
       <div class="calculator round-border flex direction-column">
         <div
