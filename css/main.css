@@ -127,6 +127,11 @@
   border-radius: 1vh;
 }
 
+.touch:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
+
 .biryani {
   font-family: Biryani;
 }
