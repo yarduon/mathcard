@@ -1,3 +1,13 @@
+.calculator,
+.line {
+  width: 40vh;
+}
+
+#square1,
+#square2 {
+  height: 210vh;
+}
+
 #circle1,
 #circle2 {
   margin-bottom: 17vh;
@@ -18,8 +28,23 @@
   margin-top: 17vh;
 }
 
+.line,
+.buttons-container {
+  border-bottom-left-radius: 1.3vh;
+  border-bottom-right-radius: 1.3vh;
+}
+
+#operations,
+.buttons-container {
+  font-size: 2.3vh;
+}
+
 .max-width {
   width: 100%;
+}
+
+.icon {
+  width: 2.3vh;
 }
 
 .half-width {
@@ -34,7 +59,7 @@
   overflow: hidden;
 }
 
-.background-screw {
+.background-lightgrey {
   background-color: #c9c6bd;
 }
 
@@ -78,16 +103,12 @@
   border-bottom: 0.6vh solid black;
 }
 
-.border-right-shadow-button {
+.border-right-shadow {
   border-right: 0.4vh solid black;
 }
 
 .border-bottom-shadow-light {
   border-bottom: 0.4vh solid black;
-}
-
-.border-right-shadow-light {
-  border-right: 0.4vh solid black;
 }
 
 .text-white {
@@ -98,12 +119,19 @@
   font-weight: bold;
 }
 
+.medium-text {
+  font-size: 1.8vh;
+}
+
+.round-border {
+  border-radius: 1vh;
+}
+
 .biryani {
   font-family: Biryani;
 }
 
 .calculator {
-  width: 40vh;
   font-size: 3vh;
 }
 
@@ -111,17 +139,17 @@
   height: 22vh;
 }
 
-.circle {
-  border-radius: 2vh;
+.circle-shape {
+  border-radius: 100%;
+}
+
+.screw {
   width: 2.9vh;
   height: 2.9vh;
 }
 
 .line {
-  width: 40vh;
   height: 3.6vh;
-  border-bottom-left-radius: 1.3vh;
-  border-bottom-right-radius: 1.3vh;
 }
 
 .screen {
@@ -137,7 +165,6 @@
 }
 
 #operations {
-  font-size: 2.3vh;
   margin-left: 0.4vh;
 }
 
@@ -153,10 +180,7 @@
 .buttons-container {
   margin-top: -0.8vh;
   padding: 1.2vh 1.2vh 6vh 1.2vh;
-  font-size: 2.3vh;
   gap: 1.2vh 0.5vh;
-  border-bottom-left-radius: 1.3vh;
-  border-bottom-right-radius: 1.3vh;
 }
 
 .off-on-light {
@@ -170,17 +194,8 @@
 .power {
   width: 4.5vh;
   height: 4.5vh;
-  border-radius: 100%;
-  margin-bottom: 44.5vh;
+  margin-bottom: 41vh;
   margin-left: 32.2vh;
-}
-
-.icon {
-  width: 2.3vh;
-}
-
-.round-border {
-  border-radius: 1vh;
 }
 
 .button {
@@ -189,31 +204,22 @@
 }
 
 .additional {
-  width: 5vh;
-  height: 5vh;
-  font-size: 1.9vh;
+  width: 5.4vh;
+  height: 3.5vh;
 }
 
 .symbols {
   gap: 0.7vh 1.7vh;
 }
 
-.secondary {
-  width: 5.5vh;
-  height: 3.5vh;
-  font-size: 2vh;
-}
-
 #square1 {
   width: 150vh;
-  height: 210vh;
   margin-right: 200vh;
   transform: rotate(150deg);
 }
 
 #square2 {
   width: 100vh;
-  height: 210vh;
   margin: 50vh 0 0 200vh;
   transform: rotate(65deg);
 }

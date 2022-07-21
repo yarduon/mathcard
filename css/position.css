@@ -51,7 +51,7 @@
 }
 
 .logo {
-  bottom: 72.3vh;
+  bottom: 70.8vh;
 }
 
 #result {
@@ -71,14 +71,15 @@
   right: 0.7vh;
 }
 
-.calculator{
-  z-index: 3;
-}
-
-.top-calculator, #square1, #square2 {
+.top-calculator,
+#square2 {
   z-index: 1;
 }
 
-#square1{
+#square1 {
   z-index: 2;
+}
+
+.calculator {
+  z-index: 3;
 }
