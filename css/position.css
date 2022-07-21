@@ -71,6 +71,14 @@
   right: 0.7vh;
 }
 
-.top-calculator {
+.calculator{
+  z-index: 3;
+}
+
+.top-calculator, #square1, #square2 {
   z-index: 1;
+}
+
+#square1{
+  z-index: 2;
 }

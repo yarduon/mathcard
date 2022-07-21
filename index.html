@@ -15,7 +15,16 @@
     <link rel="stylesheet" href="./css/animation.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
   </head>
-  <body class="max-width max-height biryani">
+  <body
+    class="flex justify-center align-center max-width max-height biryani overflow-hidden"
+  >
+    <div class="max-width max-height flex justify-center align-center absolute">
+      <div class="max-height half-width side-background background-black"></div>
+      <div class="max-height half-width side-background background-blue"></div>
+    </div>
+    <div class="absolute background-black" id="square1"></div>
+    <div class="absolute background-blue" id="square2"></div>
+    <div class="absolute background-red" id="square3"></div>
     <main class="flex column justify-center align-center max-width max-height">
       <div class="calculator round-border flex direction-column">
         <div
@@ -24,9 +33,9 @@
           <div
             class="screen overflow-hidden flex column align-center background-white"
           >
-            <p id="operations" class="self-flex-start">2+2+3*5</p>
-            <p id="result" class="relative self-flex-end">999</p>
-            <p class="logo text-white absolute">Mathcard</p>
+            <p id="operations" class="self-flex-start bold">2+2+3*5</p>
+            <p id="result" class="relative self-flex-end bold">999</p>
+            <p class="logo text-white absolute bold">Mathcard</p>
           </div>
 
           <div
@@ -59,52 +68,52 @@
             ></button>
           </div>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow bold"
           >
             M+
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow bold"
           >
             M-
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow bold"
           >
             MC
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow bold"
           >
             MR
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow bold"
           >
             MS
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-yellow bold"
           >
             CE
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-blue text-white"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-blue text-white bold"
           >
             LOG
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-blue text-white"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-blue text-white bold"
           >
             SEN
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-blue text-white"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-blue text-white bold"
           >
             COS
           </button>
           <button
-            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-blue text-white"
+            class="additional round-border border-right-shadow-button border-bottom-shadow-button background-blue text-white bold"
           >
             TAN
           </button>
@@ -120,17 +129,17 @@
           </button>
           <div class="symbols max-width flex wrap justify-center">
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               7
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               8
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               9
             </button>
@@ -145,17 +154,17 @@
               ^
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               4
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               5
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               6
             </button>
@@ -170,17 +179,17 @@
               ÷
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               1
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               2
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               3
             </button>
@@ -195,12 +204,12 @@
               -
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               0
             </button>
             <button
-              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white"
+              class="button round-border border-right-shadow-button border-bottom-shadow-button background-black text-white bold"
             >
               .
             </button>
