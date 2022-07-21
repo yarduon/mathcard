@@ -147,7 +147,6 @@
 
 .middle-base {
   height: 5vh;
-  border-radius: 1vh;
   margin-top: -1.6vh;
 }
 
@@ -160,12 +159,24 @@
   border-bottom-right-radius: 1.3vh;
 }
 
-.off-on {
+.off-on-light {
   width: 2vh;
   height: 1.5vh;
   margin-top: 1.2vh;
   border-top-right-radius: 1vh;
   border-bottom-right-radius: 1vh;
+}
+
+.power {
+  width: 4.5vh;
+  height: 4.5vh;
+  border-radius: 100%;
+  margin-bottom: 45vh;
+  margin-left: 32.2vh;
+}
+
+.icon {
+  width: 2.3vh;
 }
 
 .round-border {
@@ -188,9 +199,9 @@
 }
 
 .secondary {
-  border-radius: 1vh;
-  width: 4vh;
-  height: 4vh;
+  width: 5.5vh;
+  height: 3.5vh;
+  font-size: 2vh;
 }
 
 #square1 {
