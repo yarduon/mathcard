@@ -1,8 +1,11 @@
+const buttons = Array.from(document.getElementsByClassName("calc-button"));
+let topScreen = document.getElementById("operations");
+
 function add(n1, n2){
     return n1 + n2;
 }
 
-function subtract(){
+function substract(){
     return n1 - n2;
 }
 
@@ -20,7 +23,7 @@ function operate(n1, n2, operator){
             add(n1, n2)
             break;
         case "-":
-            subtract(n1, n2);
+            substract(n1, n2);
             break;
         case "*":
             multiply(n1, n2);
@@ -30,3 +33,10 @@ function operate(n1, n2, operator){
             break;
     }
 }
+
+
+buttons.forEach(e => {
+    e.addEventListener("click", () => {
+        topScreen.innerText += e.innerText;
+    })
+})
