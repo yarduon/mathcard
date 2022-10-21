@@ -15,39 +15,6 @@ function updateRates(json, currentDate) {
   localStorage.setItem("updateTime", addHours(currentDate, 24));
 }
 
-function add(n1, n2) {
-  return n1 + n2;
-}
-
-function substract() {
-  return n1 - n2;
-}
-
-function multiply() {
-  return n1 * n2;
-}
-
-function divide() {
-  return n1 / n2;
-}
-
-function operate(n1, n2, operator) {
-  switch (operator) {
-    case "+":
-      add(n1, n2);
-      break;
-    case "-":
-      substract(n1, n2);
-      break;
-    case "*":
-      multiply(n1, n2);
-      break;
-    case "/":
-      divide(n1, n2);
-      break;
-  }
-}
-
 window.onload = () => {
   if (
     !localStorage.getItem("updateTime") ||
@@ -61,4 +28,14 @@ buttons.forEach((e) => {
   e.addEventListener("click", () => {
     topScreen.innerText += e.innerText;
   });
+});
+
+document.getElementById("del").addEventListener("click", () => {
+  // Create a copy of screen without last element 
+  topScreen.innerText = topScreen.innerText.slice(0, -1);
+});
+
+document.getElementById("ac").addEventListener("click", () => {
+  // Reset screen
+  topScreen.innerText = "";
 });
