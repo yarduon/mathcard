@@ -4,6 +4,8 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("operations"),
   result = document.getElementById("result");
 
+let usingFloat = false;
+
 function operate(operator, nums, total, firstTime) {
   // Avoid first time to do wrong operations like multiplying by zero
   if (!firstTime) {
@@ -78,9 +80,25 @@ window.onload = () => {
 
 buttons.forEach((e) => {
   e.addEventListener("click", () => {
-    topScreen.innerText += e.innerText;
+    if (!usingFloat || e.innerText != ".") {
+      topScreen.innerText += e.innerText;
+      // Avoid user to use more than one dot in a group of numbers
+      if (e.innerText === ".") {
+        usingFloat = true;
+      }
+      // Reset uses of dots
+      if (
+        Array.from(document.getElementsByClassName("operator")).includes(
+          document.getElementById(e.innerText)
+        )
+      ) {
+        usingFloat = false;
+      }
+    }
   });
 });
+
+// Keyboard support
 
 document.getElementById("equal").addEventListener("click", () => {
   result.innerText = stringToMath(topScreen.innerText);
