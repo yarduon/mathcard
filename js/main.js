@@ -6,6 +6,16 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
 
 let usingFloat = false;
 
+function deleteNumber() {
+  // Create a copy of screen without last element
+  topScreen.innerText = topScreen.innerText.slice(0, -1);
+
+  // Prevent NaN or zero values and calculate the result by deleting numbers
+  isNaN(stringToMath(topScreen.innerText)) || result.innerText == 0
+    ? (result.innerText = 0)
+    : (result.innerText = stringToMath(topScreen.innerText));
+}
+
 function operate(operator, nums, total, firstTime) {
   // Avoid first time to do wrong operations like multiplying by zero
   if (!firstTime) {
@@ -16,13 +26,10 @@ function operate(operator, nums, total, firstTime) {
       case "-":
         total -= +nums;
         break;
-      case "x":
-        // 12 + 7 - 5 * 3 = should yield 42
-        console.log("Me llegó: " + nums);
+      case "*":
         total *= +nums;
-        console.log("Lo convertí en: " + total);
         break;
-      case "÷":
+      case "/":
         total /= +nums;
         break;
     }
@@ -80,7 +87,8 @@ window.onload = () => {
 
 buttons.forEach((e) => {
   e.addEventListener("click", () => {
-    if (!usingFloat || e.innerText != ".") {
+    // Write on screen except equal or dot when is repeated
+    if ((!usingFloat || e.innerText != ".") && e.innerText != "=") {
       topScreen.innerText += e.innerText;
       // Avoid user to use more than one dot in a group of numbers
       if (e.innerText === ".") {
@@ -98,20 +106,51 @@ buttons.forEach((e) => {
   });
 });
 
-// Keyboard support
+window.addEventListener("keydown", (e) => {
+  switch (e.key) {
+    case "Backspace":
+      deleteNumber();
+      break;
+    case "=":
+      result.innerText = stringToMath(topScreen.innerText);
+      break;
+    // Character value and key are different
+    case "Dead":
+      topScreen.innerText += "^";
+      break;
+    case ".":
+      if (!usingFloat) {
+        topScreen.innerText += e.key;
+      }
+      // Avoid user to use more than one dot in a group of numbers
+      usingFloat = true;
+      break;
+    default:
+      // Write on screen except when key is not assigned to any button
+      if (
+        Array.from(document.getElementsByClassName("calc-button")).includes(
+          document.getElementById(e.key)
+        )
+      ) {
+        topScreen.innerText += e.key;
+        // Reset uses of dots
+        if (
+          Array.from(document.getElementsByClassName("operator")).includes(
+            document.getElementById(e.key)
+          )
+        ) {
+          usingFloat = false;
+        }
+      }
+  }
+});
 
-document.getElementById("equal").addEventListener("click", () => {
+document.getElementById("=").addEventListener("click", () => {
   result.innerText = stringToMath(topScreen.innerText);
 });
 
 document.getElementById("del").addEventListener("click", () => {
-  // Create a copy of screen without last element
-  topScreen.innerText = topScreen.innerText.slice(0, -1);
-
-  // Prevent NaN or zero values and calculate the result by deleting numbers
-  isNaN(stringToMath(topScreen.innerText)) || result.innerText == 0
-    ? (result.innerText = 0)
-    : (result.innerText = stringToMath(topScreen.innerText));
+  deleteNumber();
 });
 
 document.getElementById("ac").addEventListener("click", () => {
