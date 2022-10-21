@@ -86,9 +86,16 @@ document.getElementById("equal").addEventListener("click", () => {
 document.getElementById("del").addEventListener("click", () => {
   // Create a copy of screen without last element
   topScreen.innerText = topScreen.innerText.slice(0, -1);
+  if(isNaN(stringToMath(topScreen.innerText)) || result.innerText == 0){
+    result.innerText = 0;
+  } else {
+    result.innerText = stringToMath(topScreen.innerText);
+  }
+  
 });
 
 document.getElementById("ac").addEventListener("click", () => {
   // Reset screen
   topScreen.innerText = "";
+  result.innerText = 0;
 });
