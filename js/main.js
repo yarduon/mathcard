@@ -4,29 +4,25 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("operations"),
   result = document.getElementById("result");
 
-function operations(operator, nums, total, firstTime) {
-  switch (operator) {
-    case "+":
-      total += parseInt(nums);
-      break;
-    case "-":
-      if (firstTime) {
-        total = nums;
-      } else {
-        total -= parseInt(nums);
-      }
-      break;
-    case "x":
-      if (total === 0) total = 1;
-      total *= parseInt(nums);
-      break;
-    case "÷":
-      if (firstTime) {
-        total = nums;
-      } else {
-        total /= parseInt(nums);
-      }
-      break;
+function operate(operator, nums, total, firstTime) {
+  // Avoid first time to do wrong operations like multiplying by zero
+  if (!firstTime) {
+    switch (operator) {
+      case "+":
+        total += +nums;
+        break;
+      case "-":
+        total -= +nums;
+        break;
+      case "x":
+        total *= +nums;
+        break;
+      case "÷":
+        total /= +nums;
+        break;
+    }
+  } else {
+    total = +nums;
   }
   return total;
 }
@@ -37,16 +33,20 @@ function stringToMath(s) {
     lastOperator = "",
     firstTime = true;
   Array.from(s).forEach((e, i) => {
+    // Gather group of numbers
     if (!isNaN(e)) {
       nums += e;
     } else {
-      total = operations(e, nums, total, firstTime);
+      // Calculate every time find an operator
+      total = operate(e, nums, total, firstTime);
       firstTime = false;
       lastOperator = e;
+      // Reset group of numbers
       nums = "";
     }
+    // Calculate last numbers after the last operator
     if (i == Array.from(s).length - 1) {
-      total = operations(lastOperator, nums, total);
+      total = operate(lastOperator, nums, total);
     }
   });
   return total;
@@ -86,12 +86,11 @@ document.getElementById("equal").addEventListener("click", () => {
 document.getElementById("del").addEventListener("click", () => {
   // Create a copy of screen without last element
   topScreen.innerText = topScreen.innerText.slice(0, -1);
-  if(isNaN(stringToMath(topScreen.innerText)) || result.innerText == 0){
-    result.innerText = 0;
-  } else {
-    result.innerText = stringToMath(topScreen.innerText);
-  }
-  
+
+  // Prevent NaN or zero values and calculate the result by deleting numbers
+  isNaN(stringToMath(topScreen.innerText)) || result.innerText == 0
+    ? (result.innerText = 0)
+    : (result.innerText = stringToMath(topScreen.innerText));
 });
 
 document.getElementById("ac").addEventListener("click", () => {
