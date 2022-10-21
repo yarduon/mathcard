@@ -15,7 +15,10 @@ function operate(operator, nums, total, firstTime) {
         total -= +nums;
         break;
       case "x":
+        // 12 + 7 - 5 * 3 = should yield 42
+        console.log("Me llegó: " + nums);
         total *= +nums;
+        console.log("Lo convertí en: " + total);
         break;
       case "÷":
         total /= +nums;
@@ -34,7 +37,7 @@ function stringToMath(s) {
     firstTime = true;
   Array.from(s).forEach((e, i) => {
     // Gather group of numbers
-    if (!isNaN(e)) {
+    if (!isNaN(e) || e === ".") {
       nums += e;
     } else {
       // Calculate every time find an operator
