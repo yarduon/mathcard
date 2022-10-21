@@ -1,7 +1,56 @@
 import { addHours } from "./utility.js";
 
-const buttons = Array.from(document.getElementsByClassName("calc-button"));
-let topScreen = document.getElementById("operations");
+const buttons = Array.from(document.getElementsByClassName("calc-button")),
+  topScreen = document.getElementById("operations"),
+  result = document.getElementById("result");
+
+function operations(operator, nums, total, firstTime) {
+  switch (operator) {
+    case "+":
+      total += parseInt(nums);
+      break;
+    case "-":
+      if (firstTime) {
+        total = nums;
+      } else {
+        total -= parseInt(nums);
+      }
+      break;
+    case "x":
+      if (total === 0) total = 1;
+      total *= parseInt(nums);
+      break;
+    case "÷":
+      if (firstTime) {
+        total = nums;
+      } else {
+        total /= parseInt(nums);
+      }
+      break;
+  }
+  return total;
+}
+
+function stringToMath(s) {
+  let total = 0,
+    nums = "",
+    lastOperator = "",
+    firstTime = true;
+  Array.from(s).forEach((e, i) => {
+    if (!isNaN(e)) {
+      nums += e;
+    } else {
+      total = operations(e, nums, total, firstTime);
+      firstTime = false;
+      lastOperator = e;
+      nums = "";
+    }
+    if (i == Array.from(s).length - 1) {
+      total = operations(lastOperator, nums, total);
+    }
+  });
+  return total;
+}
 
 function updateRates(json, currentDate) {
   // Obtain current conversion rates
@@ -30,8 +79,12 @@ buttons.forEach((e) => {
   });
 });
 
+document.getElementById("equal").addEventListener("click", () => {
+  result.innerText = stringToMath(topScreen.innerText);
+});
+
 document.getElementById("del").addEventListener("click", () => {
-  // Create a copy of screen without last element 
+  // Create a copy of screen without last element
   topScreen.innerText = topScreen.innerText.slice(0, -1);
 });
 
