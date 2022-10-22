@@ -131,7 +131,8 @@
   border-radius: 1vh;
 }
 
-.touch:hover {
+.touch:hover,
+.touch:focus {
   cursor: pointer;
   opacity: 0.9;
 }

@@ -108,6 +108,7 @@ buttons.forEach((e) => {
 
 window.addEventListener("keydown", (e) => {
   switch (e.key) {
+    // Character value and key are different
     case "Backspace":
       deleteNumber();
       break;
@@ -143,13 +144,21 @@ window.addEventListener("keydown", (e) => {
         }
       }
   }
+  // Apply an style when a pressed key has focus except key is not assigned to any button
+  if (
+    Array.from(document.getElementsByClassName("calc-button")).includes(
+      document.getElementById(e.key)
+    )
+  ) {
+    document.getElementById(e.key).focus();
+  }
 });
 
 document.getElementById("=").addEventListener("click", () => {
   result.innerText = stringToMath(topScreen.innerText);
 });
 
-document.getElementById("del").addEventListener("click", () => {
+document.getElementById("Backspace").addEventListener("click", () => {
   deleteNumber();
 });
 
