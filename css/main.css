@@ -173,10 +173,14 @@
   border-bottom: 3.3vh solid black;
 }
 
-#operations {
-  width: 96%;
+.container-operations {
+  width: 93.7%;
   height: 4.3vh;
-  margin-left: 0.4vh;
+}
+
+#operations {
+  height: 4.3vh;
+  margin-right: 0.1vh;
 }
 
 #result {
@@ -185,7 +189,7 @@
 
 .logo {
   font-size: 2.2vh;
-  margin-bottom: -0.3vh;
+  margin-bottom: -0.2vh;
 }
 
 .middle-base {
