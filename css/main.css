@@ -83,7 +83,7 @@
   background-color: #1d44f2;
 }
 
-.brown{
+.brown {
   background-color: #a85f2f;
 }
 
@@ -91,7 +91,7 @@
   background-color: #970de6;
 }
 
-.pink{
+.pink {
   background-color: #e60dc9;
 }
 
@@ -138,7 +138,7 @@
 .touch:hover,
 .touch:focus {
   cursor: pointer;
-  opacity: 0.9;
+  outline: 0.3vh solid white;
 }
 
 .biryani {
