@@ -61,7 +61,8 @@ function stringToMath(s) {
       total = operate(lastOperator, nums, total);
     }
   });
-  return total;
+  // Avoid NaN or infinity values
+  return isNaN(total) || !isFinite(total) ? "Syntax Error" : total;
 }
 
 function updateRates(json, currentDate) {
@@ -88,7 +89,11 @@ window.onload = () => {
 buttons.forEach((e) => {
   e.addEventListener("click", () => {
     // Write on screen except equal or dot when is repeated
-    if ((!usingFloat || e.innerText != ".") && e.innerText != "=") {
+    if (
+      (!usingFloat || e.innerText != ".") &&
+      e.innerText != "=" &&
+      e.innerText != "DEL"
+    ) {
       topScreen.innerText += e.innerText;
       // Avoid user to use more than one dot in a group of numbers
       if (e.innerText === ".") {
