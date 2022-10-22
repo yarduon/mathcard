@@ -63,43 +63,47 @@
   overflow: hidden;
 }
 
-.background-lightgrey {
-  background-color: #c9c6bd;
+.grey {
+  background-color: #4a4a4a;
 }
 
-.background-grey {
-  background-color: #69665b;
-}
-
-.background-white {
+.white {
   background-color: whitesmoke;
 }
 
-.background-orange {
-  background-color: #e67e07;
+.orange {
+  background-color: #f25a1d;
 }
 
-.background-red {
-  background-color: rgb(224, 51, 51);
+.red {
+  background-color: #f21d28;
 }
 
-.background-blue {
-  background-color: #323cca;
+.blue {
+  background-color: #1d44f2;
 }
 
-.background-purple {
-  background-color: #99598f;
+.brown{
+  background-color: #a85f2f;
 }
 
-.background-yellow {
-  background-color: #f2e767;
+.purple {
+  background-color: #970de6;
 }
 
-.background-green {
-  background-color: #007a00;
+.pink{
+  background-color: #e60dc9;
 }
 
-.background-black {
+.yellow {
+  background-color: #f2e41d;
+}
+
+.green {
+  background-color: #1df228;
+}
+
+.black {
   background-color: #292929ff;
 }
 

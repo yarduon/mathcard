@@ -23,58 +23,54 @@
     <div
       class="max-width max-height flex justify-center align-center absolute overflow-hidden"
     >
-      <div class="max-height half-width side-background background-black"></div>
-      <div class="max-height half-width side-background background-blue"></div>
-      <div class="absolute background-black" id="square1"></div>
-      <div class="absolute background-blue" id="square2"></div>
-      <div class="absolute background-red" id="square3"></div>
+      <div class="max-height half-width side-background grey"></div>
+      <div class="max-height half-width side-background white"></div>
+      <div class="absolute grey" id="square1"></div>
+      <div class="absolute white" id="square2"></div>
+      <div class="absolute black" id="square3"></div>
     </div>
     <main class="flex column justify-center align-center max-width max-height">
       <div class="calculator round-border flex direction-column">
         <div
-          class="top-calculator round-border max-width flex justify-center align-center background-orange"
+          class="top-calculator round-border max-width flex justify-center align-center purple"
         >
-          <div
-            class="screen overflow-hidden flex column align-center background-white"
-          >
+          <div class="screen overflow-hidden flex column align-center white">
             <p id="operations" class="self-flex-start bold overflow-hidden"></p>
             <p id="result" class="relative self-flex-end bold">0</p>
             <p class="logo text-white absolute bold">Mathcard</p>
           </div>
 
           <div
-            class="circle-shape screw flex justify-center align-center background-lightgrey absolute"
+            class="circle-shape screw flex justify-center align-center absolute white"
             id="circle1"
           ></div>
           <div
-            class="circle-shape screw flex justify-center align-center background-lightgrey absolute"
+            class="circle-shape screw flex justify-center align-center absolute white"
             id="circle2"
           ></div>
           <div
-            class="circle-shape screw flex justify-center align-center background-lightgrey absolute"
+            class="circle-shape screw flex justify-center align-center absolute white"
             id="circle3"
           ></div>
           <div
-            class="circle-shape screw flex justify-center align-center background-lightgrey absolute"
+            class="circle-shape screw flex justify-center align-center absolute white"
             id="circle4"
           ></div>
         </div>
+        <div class="middle-base round-border relative max-width grey"></div>
         <div
-          class="middle-base round-border relative max-width background-blue"
-        ></div>
-        <div
-          class="buttons-container max-width flex wrap justify-around align-center background-white"
+          class="buttons-container max-width flex wrap justify-around align-center orange"
         >
           <div class="flex column max-width">
             <div
-              class="off-on-light border-bottom-shadow-light border-right-shadow background-green relative"
+              class="off-on-light border-bottom-shadow-light border-right-shadow relative green"
             ></div>
             <div
-              class="off-on-light border-bottom-shadow-light border-right-shadow background-grey relative"
+              class="off-on-light border-bottom-shadow-light border-right-shadow relative black"
             ></div>
           </div>
           <button
-            class="flex justify-center align-center absolute power circle-shape border-bottom-shadow-light border-right-shadow background-black touch"
+            class="flex justify-center align-center absolute power circle-shape border-bottom-shadow-light border-right-shadow touch black"
           >
             <img
               class="medium-icon"
@@ -83,175 +79,197 @@
             />
           </button>
           <button
-            class="additional round-border border-right-shadow border-bottom-shadow-button background-yellow bold medium-text touch"
+            class="additional round-border border-right-shadow border-bottom-shadow-button bold medium-text touch white"
           >
             M+
           </button>
           <button
-            class="additional round-border border-right-shadow border-bottom-shadow-button background-yellow bold medium-text touch"
+            class="additional round-border border-right-shadow border-bottom-shadow-button bold medium-text touch white"
           >
             M-
           </button>
           <button
-            class="additional round-border border-right-shadow border-bottom-shadow-button background-yellow bold medium-text touch"
+            class="additional round-border border-right-shadow border-bottom-shadow-button bold medium-text touch white"
           >
             MC
           </button>
           <button
-            class="additional round-border border-right-shadow border-bottom-shadow-button background-yellow bold medium-text touch"
+            class="additional round-border border-right-shadow border-bottom-shadow-button bold medium-text touch white"
           >
             MR
           </button>
           <button
-            class="additional round-border border-right-shadow border-bottom-shadow-button background-yellow bold medium-text touch"
+            class="additional round-border border-right-shadow border-bottom-shadow-button bold medium-text touch white"
           >
             MS
           </button>
           <button
-            class="additional round-border border-right-shadow border-bottom-shadow-button background-yellow bold medium-text touch"
+            class="additional round-border border-right-shadow border-bottom-shadow-button bold medium-text touch white"
           >
             CE
           </button>
           <button
-            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button background-blue text-white bold medium-text touch"
+            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button text-white bold medium-text touch grey"
           >
             LOG
           </button>
           <button
-            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button background-blue text-white bold medium-text touch"
+            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button text-white bold medium-text touch grey"
           >
             SEN
           </button>
           <button
-            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button background-blue text-white bold medium-text touch"
+            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button text-white bold medium-text touch grey"
           >
             COS
           </button>
           <button
-            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button background-blue text-white bold medium-text touch"
+            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button text-white bold medium-text touch grey"
           >
             TAN
           </button>
           <button
-            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button background-blue text-white bold medium-text touch"
+            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button text-white bold medium-text touch grey"
           >
             PI
           </button>
           <button
-            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button background-blue text-white bold medium-text touch"
+            class="calc-button additional round-border border-right-shadow border-bottom-shadow-button text-white bold medium-text touch grey"
           >
             SQR
           </button>
           <div class="symbols max-width flex wrap justify-center">
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="7"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="7"
             >
               7
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="8"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="8"
             >
               8
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="9"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="9"
             >
               9
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id="%"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id="%"
             >
               %
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id="Dead"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id="Dead"
             >
               ^
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="4"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="4"
             >
               4
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="5"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="5"
             >
               5
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="6"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="6"
             >
               6
             </button>
             <button
-              class="calc-button operator main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id="*"
+              class="calc-button operator main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id="*"
             >
               *
             </button>
             <button
-              class="calc-button operator main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id="/"
+              class="calc-button operator main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id="/"
             >
               /
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="1"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="1"
             >
               1
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="2"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="2"
             >
               2
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="3"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="3"
             >
               3
             </button>
             <button
-              class="calc-button operator main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id="+"
+              class="calc-button operator main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id="+"
             >
               +
             </button>
             <button
-              class="calc-button operator main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id="-"
+              class="calc-button operator main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id="-"
             >
               -
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="0"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="0"
             >
               0
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-black text-white bold touch" id="."
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button text-white bold touch grey"
+              id="."
             >
               .
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id="("
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id="("
             >
               (
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id=")"
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id=")"
             >
               )
             </button>
             <button
-              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button background-red bold touch" id="="
+              class="calc-button main-button round-border border-right-shadow border-bottom-shadow-button bold touch white"
+              id="="
             >
               =
             </button>
           </div>
           <div class="max-width flex symbols justify-end">
             <button
-              class="calc-button additional secondary round-border border-right-shadow border-bottom-shadow-button relative bold text-white background-black medium-text touch" id="Backspace"
+              class="calc-button additional secondary round-border border-right-shadow border-bottom-shadow-button relative bold text-white medium-text touch black"
+              id="Backspace"
             >
               DEL
             </button>
             <button
-              class="calc-button additional secondary round-border border-right-shadow border-bottom-shadow-button relative bold text-white background-black medium-text touch" id="ac"
+              class="calc-button additional secondary round-border border-right-shadow border-bottom-shadow-button relative bold text-white medium-text touch black"
+              id="ac"
             >
               AC
             </button>
