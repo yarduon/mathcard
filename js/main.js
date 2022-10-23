@@ -11,30 +11,27 @@ function deleteNumber() {
   topScreen.innerText = topScreen.innerText.slice(0, -1);
 
   // Prevent NaN or zero values and calculate the result by deleting numbers
-  isNaN(stringToMath(topScreen.innerText)) || result.innerText == 0
+  isNaN(mathToOperations(mathToArray(topScreen.innerText))) ||
+  result.innerText == 0
     ? (result.innerText = 0)
-    : (result.innerText = stringToMath(topScreen.innerText));
+    : (result.innerText = mathToOperations(mathToArray(topScreen.innerText)));
 }
 
-function operate(operator, nums, total, firstTime) {
-  // Avoid first time to do wrong operations like multiplying by zero
-  if (!firstTime) {
-    switch (operator) {
-      case "+":
-        total += nums;
-        break;
-      case "-":
-        total -= nums;
-        break;
-      case "*":
-        total *= nums;
-        break;
-      case "/":
-        total /= nums;
-        break;
-    }
-  } else {
-    total = nums;
+function operate(operator, num1, num2) {
+  let total = 0;
+  switch (operator) {
+    case "+":
+      total = +num1 + +num2;
+      break;
+    case "-":
+      total = +num1 - +num2;
+      break;
+    case "*":
+      total = +num1 * +num2;
+      break;
+    case "/":
+      total = +num1 / +num2;
+      break;
   }
   return total;
 }
@@ -62,7 +59,104 @@ function mathToArray(string) {
   return operations;
 }
 
-console.log(mathToArray("2+22-(4/73)"));
+function mathToOperations(array) {
+  let j = 0,
+    firstPos = 0,
+    secondPos = 0,
+    quantity = 0,
+    fragment = [];
+  // If there are brackets in the operations
+  while (array.includes("(") && array.includes(")")) {
+    let i = 0;
+    // Find last open bracket
+    while (array.indexOf("(", i) != -1) {
+      i = array.indexOf("(", i);
+      // Last open bracket location and last element of iterations
+      firstPos = i;
+      i++;
+    }
+    secondPos = array.indexOf(")", firstPos);
+    quantity = (firstPos - secondPos) * -1 + 1;
+    fragment = array.slice(firstPos + 1, secondPos);
+
+    if (fragment.includes("/")) {
+      j = fragment.indexOf("/");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+    if (fragment.includes("*")) {
+      j = fragment.indexOf("*");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
+    if (fragment.includes("+")) {
+      j = fragment.indexOf("+");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
+    if (fragment.includes("-")) {
+      j = fragment.indexOf("-");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
+    array.splice(firstPos, quantity, ...fragment);
+  }
+  // Extra after brackets
+  while (array.includes("/")) {
+    j = 0;
+    while (array.indexOf("/", j) != -1) {
+      j = array.indexOf("/", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
+  while (array.includes("*")) {
+    j = 0;
+    while (array.indexOf("*", j) != -1) {
+      j = array.indexOf("*", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
+  while (array.includes("+")) {
+    j = 0;
+    while (array.indexOf("+", j) != -1) {
+      j = array.indexOf("+", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+  while (array.includes("-")) {
+    j = 0;
+    while (array.indexOf("-", j) != -1) {
+      j = array.indexOf("-", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+  return array;
+}
 
 function updateRates(json, currentDate) {
   // Obtain current conversion rates
@@ -117,7 +211,7 @@ window.addEventListener("keydown", (e) => {
       deleteNumber();
       break;
     case "=":
-      result.innerText = stringToMath(topScreen.innerText);
+      result.innerText = mathToOperations(mathToArray(topScreen.innerText));
       break;
     // Character value and key are different
     case "Dead":
@@ -159,7 +253,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 document.getElementById("=").addEventListener("click", () => {
-  result.innerText = stringToMath(topScreen.innerText);
+  result.innerText = mathToOperations(mathToArray(topScreen.innerText));
 });
 
 document.getElementById("Backspace").addEventListener("click", () => {

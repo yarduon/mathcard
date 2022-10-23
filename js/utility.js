@@ -12,6 +12,8 @@ export function isOperator(operator, nextValue, lastValue) {
     operator === "-" ||
     operator === "*" ||
     operator === "/" ||
+    operator === "^" ||
+    operator === "%" ||
     operator === "(" ||
     operator === ")"
   );
