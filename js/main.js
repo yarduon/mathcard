@@ -36,7 +36,23 @@ function operate(operator, num1, num2) {
       total = Math.pow(num1, num2);
       break;
     case "%":
-      total = ((num1 / 100) * num1);
+      total = (num1 / 100) * parseInt(num1);
+      break;
+    case "LOG":
+      total = Math.log10(num2);
+      break;
+    case "SIN":
+      total = Math.sin(num2);
+      break;
+    case "COS":
+      total = Math.cos(num2);
+      break;
+    case "TAN":
+      total = Math.tan(num2);
+      break;
+    case "SQR":
+      total = Math.sqrt(num2);
+      break;
   }
   return total;
 }
@@ -83,6 +99,56 @@ function mathToOperations(array) {
     secondPos = array.indexOf(")", firstPos);
     quantity = (firstPos - secondPos) * -1 + 1;
     fragment = array.slice(firstPos + 1, secondPos);
+
+    if (fragment.includes("LOG")) {
+      j = fragment.indexOf("LOG");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
+    if (fragment.includes("SIN")) {
+      j = fragment.indexOf("SIN");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
+    if (fragment.includes("COS")) {
+      j = fragment.indexOf("COS");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
+    if (fragment.includes("TAN")) {
+      j = fragment.indexOf("TAN");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
+    if (fragment.includes("PI")) {
+      j = fragment.indexOf("PI");
+      fragment.splice(j, 1, Math.PI);
+    }
+
+    if (fragment.includes("SQR")) {
+      j = fragment.indexOf("SQR");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
 
     if (fragment.includes("%")) {
       j = fragment.indexOf("%");
@@ -140,12 +206,73 @@ function mathToOperations(array) {
     array.splice(firstPos, quantity, ...fragment);
   }
   // Extra after brackets
+  while (array.includes("LOG")) {
+    j = 0;
+    while (array.indexOf("LOG", j) != -1) {
+      j = array.indexOf("LOG", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
+  while (array.includes("SIN")) {
+    j = 0;
+    while (array.indexOf("SIN", j) != -1) {
+      j = array.indexOf("SIN", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
+  while (array.includes("COS")) {
+    j = 0;
+    while (array.indexOf("COS", j) != -1) {
+      j = array.indexOf("COS", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
+  while (array.includes("TAN")) {
+    j = 0;
+    while (array.indexOf("TAN", j) != -1) {
+      j = array.indexOf("TAN", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
+  while (array.includes("PI")) {
+    j = 0;
+    while (array.indexOf("PI", j) != -1) {
+      j = array.indexOf("PI", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j, 1, Math.PI);
+      j++;
+    }
+  }
+
+  while (array.includes("SQR")) {
+    j = 0;
+    while (array.indexOf("SQR", j) != -1) {
+      j = array.indexOf("SQR", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
   while (array.includes("%")) {
     j = 0;
     while (array.indexOf("%", j) != -1) {
+      console.log(array);
       j = array.indexOf("%", j);
       // Last open bracket location and last element of iterations
-      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
+      array.splice(j, j + 1, operate(array[j], array[j - 1], array[j + 1]));
       j++;
     }
   }
