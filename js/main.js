@@ -1,4 +1,4 @@
-import { addHours } from "./utility.js";
+import { addHours, isOperator } from "./utility.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("operations"),
@@ -21,49 +21,48 @@ function operate(operator, nums, total, firstTime) {
   if (!firstTime) {
     switch (operator) {
       case "+":
-        total += +nums;
+        total += nums;
         break;
       case "-":
-        total -= +nums;
+        total -= nums;
         break;
       case "*":
-        total *= +nums;
+        total *= nums;
         break;
       case "/":
-        total /= +nums;
+        total /= nums;
         break;
     }
   } else {
-    total = +nums;
+    total = nums;
   }
   return total;
 }
 
-function stringToMath(s) {
-  let total = 0,
-    nums = "",
-    lastOperator = "",
-    firstTime = true;
-  Array.from(s).forEach((e, i) => {
-    // Gather group of numbers
-    if (!isNaN(e) || e === ".") {
-      nums += e;
+function mathToArray(string) {
+  let group = "",
+    operations = [];
+  Array.from(string).forEach((e, i) => {
+    // Accumulate characters only when there aren't operators
+    if (!isOperator(e)) {
+      group += e;
     } else {
-      // Calculate every time find an operator
-      total = operate(e, nums, total, firstTime);
-      firstTime = false;
-      lastOperator = e;
-      // Reset group of numbers
-      nums = "";
+      // Avoid empty spaces when there are two operators consecutively
+      if (group.length >= 1) operations.push(group);
+      // Fill with current operator
+      operations.push(e);
+      // Reset current group
+      group = "";
     }
-    // Calculate last numbers after the last operator
-    if (i == Array.from(s).length - 1) {
-      total = operate(lastOperator, nums, total);
+    // Fill last space when there are no more operators
+    if (i == Array.from(string).length - 1 && !isOperator(e)) {
+      operations.push(group);
     }
   });
-  // Avoid NaN or infinity values
-  return isNaN(total) || !isFinite(total) ? "Syntax Error" : total;
+  return operations;
 }
+
+console.log(mathToArray("2+22-(4/73)"));
 
 function updateRates(json, currentDate) {
   // Obtain current conversion rates
@@ -94,7 +93,7 @@ buttons.forEach((e) => {
       e.innerText != "=" &&
       e.innerText != "DEL"
     ) {
-      topScreen.innerText += e.innerText;
+      topScreen.innerText += e.id;
       // Avoid user to use more than one dot in a group of numbers
       if (e.innerText === ".") {
         usingFloat = true;
