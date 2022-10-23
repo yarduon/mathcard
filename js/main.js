@@ -32,6 +32,11 @@ function operate(operator, num1, num2) {
     case "/":
       total = +num1 / +num2;
       break;
+    case "^":
+      total = Math.pow(num1, num2);
+      break;
+    case "%":
+      total = ((num1 / 100) * num1);
   }
   return total;
 }
@@ -79,6 +84,24 @@ function mathToOperations(array) {
     quantity = (firstPos - secondPos) * -1 + 1;
     fragment = array.slice(firstPos + 1, secondPos);
 
+    if (fragment.includes("%")) {
+      j = fragment.indexOf("%");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
+    if (fragment.includes("^")) {
+      j = fragment.indexOf("^");
+      fragment.splice(
+        j - 1,
+        j + 2,
+        operate(fragment[j], fragment[j - 1], fragment[j + 1])
+      );
+    }
+
     if (fragment.includes("/")) {
       j = fragment.indexOf("/");
       fragment.splice(
@@ -117,6 +140,26 @@ function mathToOperations(array) {
     array.splice(firstPos, quantity, ...fragment);
   }
   // Extra after brackets
+  while (array.includes("%")) {
+    j = 0;
+    while (array.indexOf("%", j) != -1) {
+      j = array.indexOf("%", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
+  while (array.includes("^")) {
+    j = 0;
+    while (array.indexOf("^", j) != -1) {
+      j = array.indexOf("^", j);
+      // Last open bracket location and last element of iterations
+      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
+      j++;
+    }
+  }
+
   while (array.includes("/")) {
     j = 0;
     while (array.indexOf("/", j) != -1) {
