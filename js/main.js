@@ -2,8 +2,22 @@ import { addHours, isOperator } from "./utility.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("operations"),
-  result = document.getElementById("result");
-
+  result = document.getElementById("result"),
+  // The order of operators determines preference when resolving operations
+  operators = [
+    "PI",
+    "LOG",
+    "SIN",
+    "COS",
+    "TAN",
+    "SQR",
+    "%",
+    "^",
+    "/",
+    "*",
+    "+",
+    "-",
+  ];
 let usingFloat = false;
 
 function deleteNumber() {
@@ -50,6 +64,9 @@ function operate(operator, num1, num2) {
     case "TAN":
       total = Math.tan(num2);
       break;
+    case "PI":
+      total = Math.PI;
+      break;
     case "SQR":
       total = Math.sqrt(num2);
       break;
@@ -80,6 +97,42 @@ function mathToArray(string) {
   return operations;
 }
 
+function findAndReplaceCalc(operator, array) {
+  let pos = 0,
+    quantity = 0;
+  // Find the specified operator until there are none left
+  while (array.indexOf(operator, pos) != -1) {
+    // Current location of operator
+    pos = array.indexOf(operator, pos);
+    // Total elements to delete
+    quantity = (pos - 1 - (pos + 1)) * -1 + 1;
+    // Replace operations by the result
+    if (
+      operator === "+" ||
+      operator === "-" ||
+      operator === "*" ||
+      operator === "/" ||
+      operator === "^"
+    ) {
+      array.splice(
+        pos - 1,
+        quantity,
+        operate(array[pos], array[pos - 1], array[pos + 1])
+      );
+    } else {
+      array.splice(
+        pos,
+        quantity,
+        operate(array[pos], array[pos - 1], array[pos + 1])
+      );
+    }
+
+    console.log(array);
+  }
+  // Search for next same operator
+  pos++;
+}
+
 function mathToOperations(array) {
   let j = 0,
     firstPos = 0,
@@ -100,231 +153,16 @@ function mathToOperations(array) {
     quantity = (firstPos - secondPos) * -1 + 1;
     fragment = array.slice(firstPos + 1, secondPos);
 
-    if (fragment.includes("LOG")) {
-      j = fragment.indexOf("LOG");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("SIN")) {
-      j = fragment.indexOf("SIN");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("COS")) {
-      j = fragment.indexOf("COS");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("TAN")) {
-      j = fragment.indexOf("TAN");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("PI")) {
-      j = fragment.indexOf("PI");
-      fragment.splice(j, 1, Math.PI);
-    }
-
-    if (fragment.includes("SQR")) {
-      j = fragment.indexOf("SQR");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("%")) {
-      j = fragment.indexOf("%");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("^")) {
-      j = fragment.indexOf("^");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("/")) {
-      j = fragment.indexOf("/");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-    if (fragment.includes("*")) {
-      j = fragment.indexOf("*");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("+")) {
-      j = fragment.indexOf("+");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
-
-    if (fragment.includes("-")) {
-      j = fragment.indexOf("-");
-      fragment.splice(
-        j - 1,
-        j + 2,
-        operate(fragment[j], fragment[j - 1], fragment[j + 1])
-      );
-    }
+    operators.forEach((e) => {
+      findAndReplaceCalc(e, array);
+    });
 
     array.splice(firstPos, quantity, ...fragment);
   }
-  // Extra after brackets
-  while (array.includes("LOG")) {
-    j = 0;
-    while (array.indexOf("LOG", j) != -1) {
-      j = array.indexOf("LOG", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("SIN")) {
-    j = 0;
-    while (array.indexOf("SIN", j) != -1) {
-      j = array.indexOf("SIN", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("COS")) {
-    j = 0;
-    while (array.indexOf("COS", j) != -1) {
-      j = array.indexOf("COS", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("TAN")) {
-    j = 0;
-    while (array.indexOf("TAN", j) != -1) {
-      j = array.indexOf("TAN", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("PI")) {
-    j = 0;
-    while (array.indexOf("PI", j) != -1) {
-      j = array.indexOf("PI", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j, 1, Math.PI);
-      j++;
-    }
-  }
-
-  while (array.includes("SQR")) {
-    j = 0;
-    while (array.indexOf("SQR", j) != -1) {
-      j = array.indexOf("SQR", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j, 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("%")) {
-    j = 0;
-    while (array.indexOf("%", j) != -1) {
-      console.log(array);
-      j = array.indexOf("%", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j, j + 1, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("^")) {
-    j = 0;
-    while (array.indexOf("^", j) != -1) {
-      j = array.indexOf("^", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("/")) {
-    j = 0;
-    while (array.indexOf("/", j) != -1) {
-      j = array.indexOf("/", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("*")) {
-    j = 0;
-    while (array.indexOf("*", j) != -1) {
-      j = array.indexOf("*", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-
-  while (array.includes("+")) {
-    j = 0;
-    while (array.indexOf("+", j) != -1) {
-      j = array.indexOf("+", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
-  while (array.includes("-")) {
-    j = 0;
-    while (array.indexOf("-", j) != -1) {
-      j = array.indexOf("-", j);
-      // Last open bracket location and last element of iterations
-      array.splice(j - 1, j + 2, operate(array[j], array[j - 1], array[j + 1]));
-      j++;
-    }
-  }
+  // After cleaning parentheses
+  operators.forEach((e) => {
+    findAndReplaceCalc(e, array);
+  });
   return array;
 }
 
