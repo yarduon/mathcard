@@ -98,71 +98,61 @@ function mathToArray(string) {
 }
 
 function findAndReplaceCalc(operator, array) {
-  let pos = 0,
-    quantity = 0;
+  let pos = 0;
   // Find the specified operator until there are none left
   while (array.indexOf(operator, pos) != -1) {
     // Current location of operator
     pos = array.indexOf(operator, pos);
-    // Total elements to delete
-    quantity = (pos - 1 - (pos + 1)) * -1 + 1;
     // Replace operations by the result
-    if (
-      operator === "+" ||
-      operator === "-" ||
-      operator === "*" ||
-      operator === "/" ||
-      operator === "^"
-    ) {
-      array.splice(
-        pos - 1,
-        quantity,
-        operate(array[pos], array[pos - 1], array[pos + 1])
-      );
-    } else {
-      array.splice(
-        pos,
-        quantity,
-        operate(array[pos], array[pos - 1], array[pos + 1])
-      );
-    }
-
-    console.log(array);
+    isOperator(operator)
+      ? array.splice(
+          pos - 1,
+          (pos - 1 - (pos + 1)) * -1 + 1,
+          operate(array[pos], array[pos - 1], array[pos + 1])
+        )
+      : array.splice(
+          pos,
+          (pos - 1 - (pos + 1)) * -1 + 1,
+          operate(array[pos], array[pos - 1], array[pos + 1])
+        );
   }
   // Search for next same operator
   pos++;
 }
 
 function mathToOperations(array) {
-  let j = 0,
-    firstPos = 0,
-    secondPos = 0,
-    quantity = 0,
-    fragment = [];
-  // If there are brackets in the operations
+  let firstPos = 0;
+  // If there are parentheses in the operations
   while (array.includes("(") && array.includes(")")) {
     let i = 0;
-    // Find last open bracket
+    // Find last open parentheses
     while (array.indexOf("(", i) != -1) {
       i = array.indexOf("(", i);
-      // Last open bracket location and last element of iterations
+      // Last open parentheses location and last element of iterations
       firstPos = i;
       i++;
     }
-    secondPos = array.indexOf(")", firstPos);
-    quantity = (firstPos - secondPos) * -1 + 1;
-    fragment = array.slice(firstPos + 1, secondPos);
-
+    // Resolve operations inside that pair of parentheses
     operators.forEach((e) => {
-      findAndReplaceCalc(e, array);
+      findAndReplaceCalc(
+        e,
+        array.slice(firstPos + 1, array.indexOf(")", firstPos))
+      );
     });
 
-    array.splice(firstPos, quantity, ...fragment);
+    // Replace the parentheses with the final result
+    array.splice(
+      firstPos,
+      (firstPos - array.indexOf(")", firstPos)) * -1 + 1,
+      ...array.slice(firstPos + 1, array.indexOf(")", firstPos))
+    );
   }
-  // After cleaning parentheses
+
+  // After cleaning parentheses calculate final operations
   operators.forEach((e) => {
     findAndReplaceCalc(e, array);
   });
+
   return array;
 }
 
