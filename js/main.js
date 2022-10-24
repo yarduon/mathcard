@@ -51,19 +51,19 @@ function operate(operator, num1, num2) {
       total = Math.pow(num1, num2);
       break;
     case "%":
-      total = (num1 / 100) * parseInt(num1);
+      total = num1 / 100;
       break;
     case "LOG":
       total = Math.log10(num2);
       break;
     case "SIN":
-      total = Math.sin(num2);
+      total = Math.sin(num2 * (Math.PI / 180));
       break;
     case "COS":
-      total = Math.cos(num2);
+      total = Math.cos(num2 * (Math.PI / 180));
       break;
     case "TAN":
-      total = Math.tan(num2);
+      total = Math.tan(num2 * (Math.PI / 180));
       break;
     case "PI":
       total = Math.PI;
@@ -154,7 +154,7 @@ function mathToOperations(array) {
     findAndReplaceCalc(e, array);
   });
 
-  return array;
+  return Math.round(array[0] * 10000000000) / 10000000000;
 }
 
 function updateRates(json, currentDate) {
