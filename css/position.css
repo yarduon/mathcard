@@ -1,4 +1,9 @@
 /* https://yarduon.com */
+.top-calculator,
+#square2 {
+  z-index: 1;
+}
+
 .flex {
   display: flex;
 }
@@ -52,7 +57,7 @@
 }
 
 .logo {
-  bottom: 70.8vh;
+  bottom: 71.5vh;
 }
 
 #result {
@@ -70,11 +75,6 @@
 
 .secondary {
   right: 0.7vh;
-}
-
-.top-calculator,
-#square2 {
-  z-index: 1;
 }
 
 #square1 {

@@ -40,6 +40,12 @@
   font-size: 2.3vh;
 }
 
+.touch:hover,
+.touch:focus {
+  cursor: pointer;
+  outline: 0.3vh solid white;
+}
+
 .max-width {
   width: 100%;
 }
@@ -136,14 +142,8 @@
   border-radius: 1vh;
 }
 
-.touch:hover,
-.touch:focus {
-  cursor: pointer;
-  outline: 0.3vh solid white;
-}
-
-.biryani {
-  font-family: Biryani;
+.ptSans {
+  font-family: PT Sans;
 }
 
 .calculator {
@@ -175,12 +175,16 @@
 }
 
 .container-operations {
-  width: 93.7%;
-  height: 4.3vh;
+  width: 94.9%;
+  height: 4.2vh;
+  margin: 0.4vh 0 0 0;
 }
 
 #operations {
-  height: 4.3vh;
+  height: 2.8vh;
+  padding: 0 0.2vh 0 0;
+  border-right: 0.4vh solid black;
+  animation: typing 1.5s steps(1) infinite;
 }
 
 #result {
@@ -189,7 +193,6 @@
 
 .logo {
   font-size: 2.2vh;
-  margin-bottom: -0.2vh;
 }
 
 .middle-base {
@@ -214,8 +217,11 @@
 .power {
   width: 4.5vh;
   height: 4.5vh;
-  margin-bottom: 41vh;
-  margin-left: 32.2vh;
+  margin: 0 0 41vh 32.2vh;
+}
+
+.power img {
+  margin-left: 0.2vh;
 }
 
 .main-button {

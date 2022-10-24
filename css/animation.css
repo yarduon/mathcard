@@ -1,1 +1,14 @@
 /* https://yarduon.com */
+@keyframes typing {
+    0% {
+      border-right-color: black;
+    }
+  
+    50% {
+      border-right-color: transparent;
+    }
+  
+    100% {
+      border-right-color: black;
+    }
+  }

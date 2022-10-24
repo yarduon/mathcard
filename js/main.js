@@ -176,6 +176,10 @@ window.onload = () => {
   ) {
     updateRates("https://api.exchangerate-api.com/v4/latest/euro", new Date());
   }
+
+  if (!localStorage.getItem("power")) {
+    localStorage.setItem("power", true);
+  }
 };
 
 buttons.forEach((e) => {
@@ -293,4 +297,33 @@ document.getElementById("mc").addEventListener("click", () => {
 
 document.getElementById("ce").addEventListener("click", () => {
   result.innerText = 0;
+});
+
+console.log(localStorage.getItem("power"));
+
+document.getElementById("power").addEventListener("click", () => {
+  if (localStorage.getItem("power") === "true") {
+    result.innerText = "";
+    topScreen.innerText = "";
+    document.getElementById("on").classList.remove("green");
+    document.getElementById("on").classList.add("black");
+    document.getElementById("off").classList.remove("black");
+    document.getElementById("off").classList.add("red");
+    document.getElementById("operations").classList.add("hidden");
+    Array.from(document.getElementsByClassName("button")).forEach((e) => {
+      e.disabled = true;
+    });
+    localStorage.setItem("power", false);
+  } else {
+    result.innerText = 0;
+    document.getElementById("on").classList.add("green");
+    document.getElementById("on").classList.remove("black");
+    document.getElementById("off").classList.add("black");
+    document.getElementById("off").classList.remove("red");
+    document.getElementById("operations").classList.remove("hidden");
+    Array.from(document.getElementsByClassName("button")).forEach((e) => {
+      e.disabled = false;
+    });
+    localStorage.setItem("power", true);
+  }
 });
