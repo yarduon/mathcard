@@ -1,3 +1,4 @@
+// https://yarduon.com
 import { addHours, isOperator } from "./utility.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),

@@ -1,1 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Biryani:wght@200&display=swap");
+/* https://yarduon.com */
+@font-face {
+  font-family: "Biryani";
+  src: url("./../fonts/biryani.ttf");
+  font-display: swap;
+}
