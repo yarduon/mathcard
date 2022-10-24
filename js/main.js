@@ -264,3 +264,33 @@ document.getElementById("ac").addEventListener("click", () => {
   topScreen.innerText = "";
   result.innerText = 0;
 });
+
+document.getElementById("m+").addEventListener("click", () => {
+  localStorage.setItem(
+    "memory",
+    +localStorage.getItem("memory") + +result.innerText
+  );
+});
+
+document.getElementById("m-").addEventListener("click", () => {
+  localStorage.setItem(
+    "memory",
+    +localStorage.getItem("memory") - +result.innerText
+  );
+});
+
+document.getElementById("mr").addEventListener("click", () => {
+  topScreen.innerText += localStorage.getItem("memory");
+});
+
+document.getElementById("ms").addEventListener("click", () => {
+  localStorage.setItem("memory", result.innerText);
+});
+
+document.getElementById("mc").addEventListener("click", () => {
+  localStorage.removeItem("memory");
+});
+
+document.getElementById("ce").addEventListener("click", () => {
+  result.innerText = 0;
+});
