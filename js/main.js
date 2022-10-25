@@ -1,5 +1,10 @@
 // https://yarduon.com
-import { addHours, isOperator } from "./utility.js";
+import {
+  addHours,
+  isOperator,
+  swapClasses,
+  stringToBoolean,
+} from "./utility.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("operations"),
@@ -20,17 +25,6 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "-",
   ];
 let usingFloat = false;
-
-function deleteNumber() {
-  // Create a copy of screen without last element
-  topScreen.innerText = topScreen.innerText.slice(0, -1);
-
-  // Prevent NaN or zero values and calculate the result by deleting numbers
-  isNaN(mathToOperations(mathToArray(topScreen.innerText))) ||
-  result.innerText == 0
-    ? (result.innerText = 0)
-    : (result.innerText = mathToOperations(mathToArray(topScreen.innerText)));
-}
 
 function operate(operator, num1, num2) {
   let total = 0;
@@ -157,6 +151,69 @@ function mathToOperations(array) {
   return Math.round(array[0] * 10000000000) / 10000000000;
 }
 
+function deleteNumber() {
+  // Create a copy of screen without last element
+  topScreen.innerText = topScreen.innerText.slice(0, -1);
+  // Update saved data
+  localStorage.setItem("topScreen", topScreen.innerText);
+
+  // Prevent NaN or zero values and calculate the result by deleting numbers
+  isNaN(mathToOperations(mathToArray(topScreen.innerText)))
+    ? (result.innerText = 0)
+    : (result.innerText = mathToOperations(mathToArray(topScreen.innerText)));
+
+  // Update saved data
+  localStorage.setItem("result", result.innerText);
+}
+
+// Turn on and turn off
+function powerOnOff(event) {
+  // Change status when button is pressed or clicked
+  if (event) {
+    let status = stringToBoolean(localStorage.getItem("power"));
+    localStorage.setItem("power", !status);
+  }
+
+  if (localStorage.getItem("power") === "true") {
+    // Only when button is pressed or clicked
+    if (event) {
+      // Fill and show data values
+      result.innerText = 0;
+      document.getElementById("operations").classList.remove("hidden");
+      // Updated saved data
+      localStorage.setItem("result", result.innerText);
+    }
+
+    // Activate all buttons
+    Array.from(document.getElementsByClassName("button")).forEach((e) => {
+      e.disabled = false;
+    });
+
+    // Change power status buttons colors
+    swapClasses(document.getElementById("on"), "green", "black");
+    swapClasses(document.getElementById("off"), "black", "red");
+  } else {
+    // Empty and hide data values
+    topScreen.innerText = "";
+    result.innerText = "";
+    document.getElementById("operations").classList.add("hidden");
+
+    // Updated saved data
+    localStorage.setItem("result", result.innerText);
+    localStorage.setItem("topScreen", result.innerText);
+
+    // Deactivate all buttons
+    Array.from(document.getElementsByClassName("button")).forEach((e) => {
+      e.disabled = true;
+    });
+
+    // Change power status buttons colors
+    swapClasses(document.getElementById("on"), "black", "green");
+    swapClasses(document.getElementById("off"), "red", "black");
+  }
+  return stringToBoolean(localStorage.getItem("power"));
+}
+
 function updateRates(json, currentDate) {
   // Obtain current conversion rates
   fetch(json)
@@ -170,6 +227,14 @@ function updateRates(json, currentDate) {
 }
 
 window.onload = () => {
+  if (!localStorage.getItem("power")) {
+    localStorage.setItem("power", true);
+  }
+
+  if (!localStorage.getItem("memory")) {
+    localStorage.setItem("memory", 0);
+  }
+
   if (
     !localStorage.getItem("updateTime") ||
     new Date() >= new Date(localStorage.getItem("updateTime"))
@@ -177,8 +242,10 @@ window.onload = () => {
     updateRates("https://api.exchangerate-api.com/v4/latest/euro", new Date());
   }
 
-  if (!localStorage.getItem("power")) {
-    localStorage.setItem("power", true);
+  // Refresh values according with data storage
+  if (powerOnOff()) {
+    topScreen.innerText = localStorage.getItem("topScreen");
+    result.innerText = localStorage.getItem("result");
   }
 };
 
@@ -191,6 +258,8 @@ buttons.forEach((e) => {
       e.innerText != "DEL"
     ) {
       topScreen.innerText += e.id;
+      // Update saved data
+      localStorage.setItem("topScreen", topScreen.innerText);
       // Avoid user to use more than one dot in a group of numbers
       if (e.innerText === ".") {
         usingFloat = true;
@@ -215,14 +284,21 @@ window.addEventListener("keydown", (e) => {
       break;
     case "=":
       result.innerText = mathToOperations(mathToArray(topScreen.innerText));
+      // Save result
+      localStorage.setItem("result", result.innerText);
+      console.log(result.innerText);
       break;
     // Character value and key are different
     case "Dead":
       topScreen.innerText += "^";
+      // Update saved data
+      localStorage.setItem("topScreen", topScreen.innerText);
       break;
     case ".":
       if (!usingFloat) {
         topScreen.innerText += e.key;
+        // Update saved data
+        localStorage.setItem("topScreen", topScreen.innerText);
       }
       // Avoid user to use more than one dot in a group of numbers
       usingFloat = true;
@@ -235,6 +311,8 @@ window.addEventListener("keydown", (e) => {
         )
       ) {
         topScreen.innerText += e.key;
+        // Update saved data
+        localStorage.setItem("topScreen", topScreen.innerText);
         // Reset uses of dots
         if (
           Array.from(document.getElementsByClassName("operator")).includes(
@@ -257,6 +335,8 @@ window.addEventListener("keydown", (e) => {
 
 document.getElementById("=").addEventListener("click", () => {
   result.innerText = mathToOperations(mathToArray(topScreen.innerText));
+  // Save result
+  localStorage.setItem("result", result.innerText);
 });
 
 document.getElementById("Backspace").addEventListener("click", () => {
@@ -267,6 +347,9 @@ document.getElementById("ac").addEventListener("click", () => {
   // Reset screen
   topScreen.innerText = "";
   result.innerText = 0;
+  // Reset data
+  localStorage.setItem("topScreen", topScreen.innerText);
+  localStorage.setItem("result", result.innerText);
 });
 
 document.getElementById("m+").addEventListener("click", () => {
@@ -285,6 +368,8 @@ document.getElementById("m-").addEventListener("click", () => {
 
 document.getElementById("mr").addEventListener("click", () => {
   topScreen.innerText += localStorage.getItem("memory");
+  // Update saved data
+  localStorage.setItem("topScreen", topScreen.innerText);
 });
 
 document.getElementById("ms").addEventListener("click", () => {
@@ -297,33 +382,11 @@ document.getElementById("mc").addEventListener("click", () => {
 
 document.getElementById("ce").addEventListener("click", () => {
   result.innerText = 0;
+  // Update saved data
+  localStorage.setItem("result", result.innerText);
 });
 
-console.log(localStorage.getItem("power"));
-
-document.getElementById("power").addEventListener("click", () => {
-  if (localStorage.getItem("power") === "true") {
-    result.innerText = "";
-    topScreen.innerText = "";
-    document.getElementById("on").classList.remove("green");
-    document.getElementById("on").classList.add("black");
-    document.getElementById("off").classList.remove("black");
-    document.getElementById("off").classList.add("red");
-    document.getElementById("operations").classList.add("hidden");
-    Array.from(document.getElementsByClassName("button")).forEach((e) => {
-      e.disabled = true;
-    });
-    localStorage.setItem("power", false);
-  } else {
-    result.innerText = 0;
-    document.getElementById("on").classList.add("green");
-    document.getElementById("on").classList.remove("black");
-    document.getElementById("off").classList.add("black");
-    document.getElementById("off").classList.remove("red");
-    document.getElementById("operations").classList.remove("hidden");
-    Array.from(document.getElementsByClassName("button")).forEach((e) => {
-      e.disabled = false;
-    });
-    localStorage.setItem("power", true);
-  }
+document.getElementById("power").addEventListener("click", (e) => {
+  // Turn on and turn off
+  powerOnOff(e);
 });

@@ -19,3 +19,12 @@ export function isOperator(operator) {
     operator === ")"
   );
 }
+
+export function swapClasses(e, cAdd, cDelete) {
+  e.classList.add(cAdd);
+  e.classList.remove(cDelete);
+}
+
+export function stringToBoolean(s){
+  return Boolean(s === "true");
+}

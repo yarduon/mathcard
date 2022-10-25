@@ -70,6 +70,10 @@
   overflow: hidden;
 }
 
+.black {
+  background-color: #292929ff;
+}
+
 .grey {
   background-color: #4a4a4a;
 }
@@ -110,10 +114,6 @@
   background-color: #1df228;
 }
 
-.black {
-  background-color: #292929ff;
-}
-
 .border-bottom-shadow-button {
   border-bottom: 0.6vh solid black;
 }
@@ -124,6 +124,10 @@
 
 .border-bottom-shadow-light {
   border-bottom: 0.4vh solid black;
+}
+
+.text-black {
+  color: black;
 }
 
 .text-white {
