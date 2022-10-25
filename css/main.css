@@ -75,12 +75,16 @@
   overflow: hidden;
 }
 
+.darker-black {
+  background-color: rgb(29, 28, 28);
+}
+
 .black {
   background-color: #292929ff;
 }
 
 .grey {
-  background-color: #4a4a4a;
+  background-color: #444242;
 }
 
 .white {
@@ -88,7 +92,7 @@
 }
 
 .orange {
-  background-color: #f25a1d;
+  background-color: #e75d26;
 }
 
 .red {
@@ -104,7 +108,7 @@
 }
 
 .purple {
-  background-color: #970de6;
+  background-color: #a026e7;
 }
 
 .pink {
