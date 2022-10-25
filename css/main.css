@@ -34,12 +34,6 @@
   margin-top: 17vh;
 }
 
-.line,
-.buttons-container {
-  border-bottom-left-radius: 1.3vh;
-  border-bottom-right-radius: 1.3vh;
-}
-
 #operations,
 .buttons-container {
   font-size: 2.3vh;
@@ -270,4 +264,9 @@
   width: 230vh;
   height: 100vh;
   margin: 0 0 70vh 60vh;
+}
+
+.line {
+  border-bottom-left-radius: 1.3vh;
+  border-bottom-right-radius: 1.3vh;
 }

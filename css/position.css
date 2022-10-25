@@ -60,11 +60,6 @@
   z-index: 3;
 }
 
-.logo {
-  bottom: 4.3vh;
-  z-index: 5;
-}
-
 #result {
   top: 1.5vh;
   right: 1vh;
@@ -72,10 +67,6 @@
 
 .off-on-light {
   right: 1.2vh;
-}
-
-.line {
-  top: 87.7vh;
 }
 
 .secondary {
