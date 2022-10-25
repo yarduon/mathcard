@@ -285,6 +285,27 @@ window.addEventListener("keydown", (e) => {
     case "Backspace":
       deleteNumber();
       break;
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+      usingFloat = false;
+      if (
+        Array.from(topScreen.innerText)[
+          Array.from(topScreen.innerText).length - 1
+        ] !== "0" ||
+        Array.from(topScreen.innerText)[
+          Array.from(topScreen.innerText).length - 2
+        ] === "."
+      ) {
+        topScreen.innerText += e.key;
+      }
+      break;
     case "+":
     case "*":
     case "-":
