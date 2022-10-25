@@ -313,10 +313,23 @@ window.addEventListener("keydown", (e) => {
     case "Dead":
     case "%":
       // Character value and key are different
-      if (e.key != "Dead") {
-        topScreen.innerText += e.key;
-      } else {
-        topScreen.innerText += "^";
+      if (
+        Array.from(topScreen.innerText)[
+          Array.from(topScreen.innerText).length - 1
+        ] != e.key
+      ) {
+        if (e.key != "Dead") {
+          topScreen.innerText += e.key;
+        } else {
+          if (
+            "^" !=
+            Array.from(topScreen.innerText)[
+              Array.from(topScreen.innerText).length - 1
+            ]
+          ) {
+            topScreen.innerText += "^";
+          }
+        }
       }
       // Update saved data
       localStorage.setItem("topScreen", topScreen.innerText);
