@@ -285,17 +285,43 @@ window.addEventListener("keydown", (e) => {
     case "Backspace":
       deleteNumber();
       break;
+    case "+":
+    case "*":
+    case "-":
+    case "/":
+    case "Dead":
+    case "%":
+      // Character value and key are different
+      if (e.key != "Dead") {
+        topScreen.innerText += e.key;
+      } else {
+        topScreen.innerText += "^";
+      }
+      // Update saved data
+      localStorage.setItem("topScreen", topScreen.innerText);
+      if (
+        String(
+          Array.from(topScreen.innerText)[
+            Array.from(topScreen.innerText).length - 2
+          ]
+        ) === "undefined" ||
+        String(
+          Array.from(topScreen.innerText)[
+            Array.from(topScreen.innerText).length - 2
+          ]
+        ) === "("
+      ) {
+        let x = Array.from(topScreen.innerText);
+        x.splice(Array.from(topScreen.innerText).length - 1, 0, "0");
+        topScreen.innerText = x.join("");
+        localStorage.setItem("topScreen", topScreen.innerText);
+      }
+      break;
     case "=":
       result.innerText = mathToOperations(mathToArray(topScreen.innerText));
       // Save result
       localStorage.setItem("result", result.innerText);
       console.log(result.innerText);
-      break;
-    // Character value and key are different
-    case "Dead":
-      topScreen.innerText += "^";
-      // Update saved data
-      localStorage.setItem("topScreen", topScreen.innerText);
       break;
     case ".":
       if (!usingFloat) {
