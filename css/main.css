@@ -50,12 +50,12 @@
   width: 100%;
 }
 
-.medium-icon {
-  width: 2.3vh;
-}
-
 .half-width {
   width: 50%;
+}
+
+.medium-icon {
+  width: 2.3vh;
 }
 
 .max-height {
@@ -187,7 +187,6 @@
 #operations {
   height: 2.8vh;
   padding: 0 0.2vh 0 0;
-  border-right: 0.4vh solid black;
   animation: typing 1.5s steps(1) infinite;
 }
 

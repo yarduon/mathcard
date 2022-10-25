@@ -7,4 +7,6 @@
   box-sizing: border-box;
   font: inherit;
   border: none;
+  outline: none;
+  background: none;
 }

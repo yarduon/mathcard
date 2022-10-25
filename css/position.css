@@ -16,10 +16,6 @@
   flex-wrap: wrap;
 }
 
-.direction-column {
-  flex-direction: column;
-}
-
 .justify-center {
   justify-content: center;
 }
@@ -56,6 +52,14 @@
   position: absolute;
 }
 
+#square1 {
+  z-index: 2;
+}
+
+.calculator {
+  z-index: 3;
+}
+
 .logo {
   bottom: 71.5vh;
 }
@@ -75,12 +79,4 @@
 
 .secondary {
   right: 0.7vh;
-}
-
-#square1 {
-  z-index: 2;
-}
-
-.calculator {
-  z-index: 3;
 }
