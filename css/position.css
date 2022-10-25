@@ -61,7 +61,8 @@
 }
 
 .logo {
-  bottom: 71.5vh;
+  bottom: 4.3vh;
+  z-index: 5;
 }
 
 #result {

@@ -33,7 +33,7 @@
     <main class="flex column justify-center align-center max-width max-height">
       <div class="calculator round-border flex column">
         <div
-          class="top-calculator round-border max-width flex justify-center align-center purple"
+          class="top-calculator round-border max-width flex justify-center align-center purple relative"
         >
           <div class="screen overflow-hidden flex column align-center white">
             <div class="container-operations flex justify-start">
@@ -43,9 +43,11 @@
               ></p>
             </div>
             <p id="result" class="relative self-flex-end">0</p>
-            <p class="logo text-white absolute">Mathcard</p>
           </div>
-
+          <div class="logo-container flex justify-center align-center absolute">
+            <p class="logo text-white">Mathcard</p>
+          </div>
+         
           <div
             class="circle-shape screw flex justify-center align-center absolute white"
             id="circle1"
