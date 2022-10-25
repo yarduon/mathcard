@@ -45,7 +45,10 @@ function operate(operator, num1, num2) {
       total = Math.pow(num1, num2);
       break;
     case "%":
-      total = num1 / 100;
+      // Calculate percentage or remainder
+      !isOperator(num2) && String(num2) != "undefined"
+        ? (total = num1 % num2)
+        : (total = num1 / 100);
       break;
     case "LOG":
       total = Math.log10(num2);
