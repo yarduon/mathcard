@@ -155,8 +155,19 @@ function mathToOperations(array) {
 }
 
 function deleteNumber() {
+  if (
+    String(
+      Array.from(topScreen.innerText)[
+        Array.from(topScreen.innerText).length - 1
+      ]
+    ) === "."
+  ) {
+    usingFloat = false;
+  }
   // Create a copy of screen without last element
   topScreen.innerText = topScreen.innerText.slice(0, -1);
+  console.log;
+
   // Update saved data
   localStorage.setItem("topScreen", topScreen.innerText);
 
@@ -294,7 +305,6 @@ window.addEventListener("keydown", (e) => {
     case "7":
     case "8":
     case "9":
-      usingFloat = false;
       if (
         Array.from(topScreen.innerText)[
           Array.from(topScreen.innerText).length - 1
@@ -312,6 +322,7 @@ window.addEventListener("keydown", (e) => {
     case "/":
     case "Dead":
     case "%":
+      usingFloat = false;
       // Character value and key are different
       if (
         Array.from(topScreen.innerText)[
