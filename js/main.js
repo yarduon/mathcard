@@ -21,8 +21,8 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "^",
     "/",
     "*",
-    "+",
     "-",
+    "+",
   ];
 let usingFloat = false;
 
@@ -33,7 +33,8 @@ function operate(operator, num1, num2) {
       total = +num1 + +num2;
       break;
     case "-":
-      total = +num1 - +num2;
+      // Calculate subtraction or transform to negative
+      total = +num2 - num2 * 2;
       break;
     case "*":
       total = +num1 * +num2;
@@ -98,21 +99,39 @@ function mathToArray(string) {
 function findAndReplaceCalc(operator, array) {
   let pos = 0;
   // Find the specified operator until there are none left
-  while (array.indexOf(operator, pos) != -1) {
+  if (array.indexOf(operator, pos) != -1) {
     // Current location of operator
     pos = array.indexOf(operator, pos);
     // Replace operations by the result
-    isOperator(operator)
-      ? array.splice(
+    if (operator === "-") {
+      if (isOperator(operator) && !isNaN(String(array[pos - 1]))) {
+        array.splice(
           pos - 1,
           (pos - 1 - (pos + 1)) * -1 + 1,
           operate(array[pos], array[pos - 1], array[pos + 1])
-        )
-      : array.splice(
+        );
+      } else {
+        array.splice(
           pos,
-          (pos - 1 - (pos + 1)) * -1 + 1,
+          (pos - 1 - (pos + 1)) * -1,
           operate(array[pos], array[pos - 1], array[pos + 1])
         );
+        console.log(array);
+      }
+    } else {
+      isOperator(operator)
+        ? array.splice(
+            pos - 1,
+            (pos - 1 - (pos + 1)) * -1 + 1,
+            operate(array[pos], array[pos - 1], array[pos + 1])
+          )
+        : array.splice(
+            pos,
+            (pos - 1 - (pos + 1)) * -1,
+            operate(array[pos], array[pos - 1], array[pos + 1])
+          );
+      console.log(array);
+    }
   }
   // Search for next same operator
   pos++;
@@ -150,7 +169,6 @@ function mathToOperations(array) {
   operators.forEach((e) => {
     findAndReplaceCalc(e, array);
   });
-
   return Math.round(array[0] * 10000000000) / 10000000000;
 }
 
@@ -166,7 +184,6 @@ function deleteNumber() {
   }
   // Create a copy of screen without last element
   topScreen.innerText = topScreen.innerText.slice(0, -1);
-  console.log;
 
   // Update saved data
   localStorage.setItem("topScreen", topScreen.innerText);
@@ -318,7 +335,6 @@ window.addEventListener("keydown", (e) => {
       break;
     case "+":
     case "*":
-    case "-":
     case "/":
     case "Dead":
     case "%":
@@ -366,7 +382,6 @@ window.addEventListener("keydown", (e) => {
       result.innerText = mathToOperations(mathToArray(topScreen.innerText));
       // Save result
       localStorage.setItem("result", result.innerText);
-      console.log(result.innerText);
       break;
     case ".":
       if (!usingFloat) {
