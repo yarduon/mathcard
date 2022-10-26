@@ -9,8 +9,9 @@ import {
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("operations"),
   result = document.getElementById("result"),
-  // The order of operators determines preference when resolving operations
-  operators = [
+  operators = Array.from(document.getElementsByClassName("operators")),
+  // The order of symbols determines preference when resolving operations
+  symbols = [
     "PI",
     "LOG",
     "SIN",
@@ -33,8 +34,8 @@ function operate(operator, num1, num2) {
       total = +num1 + +num2;
       break;
     case "-":
-      // Calculate subtraction or transform to negative
-      total = +num2 - num2 * 2;
+      // Calculate subtract or transform into negative
+      !isNaN(num1) ? (total = +num1 - +num2) : (total = +num2 - +num2 * 2);
       break;
     case "*":
       total = +num1 * +num2;
@@ -99,39 +100,21 @@ function mathToArray(string) {
 function findAndReplaceCalc(operator, array) {
   let pos = 0;
   // Find the specified operator until there are none left
-  if (array.indexOf(operator, pos) != -1) {
+  while (array.indexOf(operator, pos) != -1) {
     // Current location of operator
     pos = array.indexOf(operator, pos);
     // Replace operations by the result
-    if (operator === "-") {
-      if (isOperator(operator) && !isNaN(String(array[pos - 1]))) {
-        array.splice(
+    isOperator(operator) && !isNaN(String(array[pos - 1]))
+      ? array.splice(
           pos - 1,
           (pos - 1 - (pos + 1)) * -1 + 1,
           operate(array[pos], array[pos - 1], array[pos + 1])
-        );
-      } else {
-        array.splice(
+        )
+      : array.splice(
           pos,
           (pos - 1 - (pos + 1)) * -1,
           operate(array[pos], array[pos - 1], array[pos + 1])
         );
-        console.log(array);
-      }
-    } else {
-      isOperator(operator)
-        ? array.splice(
-            pos - 1,
-            (pos - 1 - (pos + 1)) * -1 + 1,
-            operate(array[pos], array[pos - 1], array[pos + 1])
-          )
-        : array.splice(
-            pos,
-            (pos - 1 - (pos + 1)) * -1,
-            operate(array[pos], array[pos - 1], array[pos + 1])
-          );
-      console.log(array);
-    }
   }
   // Search for next same operator
   pos++;
@@ -150,7 +133,7 @@ function mathToOperations(array) {
       i++;
     }
     // Resolve operations inside that pair of parentheses
-    operators.forEach((e) => {
+    symbols.forEach((e) => {
       findAndReplaceCalc(
         e,
         array.slice(firstPos + 1, array.indexOf(")", firstPos))
@@ -166,10 +149,70 @@ function mathToOperations(array) {
   }
 
   // After cleaning parentheses calculate final operations
-  operators.forEach((e) => {
+  symbols.forEach((e) => {
     findAndReplaceCalc(e, array);
   });
-  return Math.round(array[0] * 10000000000) / 10000000000;
+
+  return !isNaN(array[0])
+    ? Math.round(array[0] * 10000000000) / 10000000000
+    : "Syntax Error";
+}
+
+function selectButton(name) {
+  // Storage the last and next to last elements displaying on screen
+  let lastSelected = topScreen.innerText.charAt(topScreen.innerText.length - 1),
+    nextToLastSelected = topScreen.innerText.charAt(
+      topScreen.innerText.length - 2
+    );
+  // Write on screen and apply focus except when key is not assigned to any button
+  if (buttons.includes(document.getElementById(name))) {
+    // Highlight button
+    document.getElementById(name).focus();
+    // Write on screen but avoid user to use more than one dot in a group of numbers, special characters or numbers
+    if (
+      isNaN(name) &&
+      name !== "Backspace" &&
+      name !== "=" &&
+      name !== "Dead" &&
+      (name !== "." || !usingFloat)
+    ) {
+      topScreen.innerText += name;
+      fillEmptyOperation(name, lastSelected);
+    }
+
+    // Write on screen numbers and avoid placing together zeros an numbers
+    if ((!isNaN(name) && lastSelected !== "0") || nextToLastSelected === ".") {
+      console.log(isNaN(name));
+      console.log(name);
+      topScreen.innerText += name;
+    }
+
+    // Update saved data
+    localStorage.setItem("topScreen", topScreen.innerText);
+    // Buttons with special behaviour
+    switch (name) {
+      case ".":
+        usingFloat = true;
+        break;
+      case "Backspace":
+        deleteNumber();
+        break;
+      case "Dead":
+        // Character value and key are different
+        topScreen.innerText += "^";
+        fillEmptyOperation(name, lastSelected);
+        // Update saved data
+        localStorage.setItem("topScreen", topScreen.innerText);
+        break;
+      case "=":
+        result.innerText = mathToOperations(mathToArray(topScreen.innerText));
+        // Save result
+        localStorage.setItem("result", result.innerText);
+        break;
+    }
+    // Reset uses of dots
+    if (operators.includes(document.getElementById(name))) usingFloat = false;
+  }
 }
 
 function deleteNumber() {
@@ -188,13 +231,26 @@ function deleteNumber() {
   // Update saved data
   localStorage.setItem("topScreen", topScreen.innerText);
 
-  // Prevent NaN or zero values and calculate the result by deleting numbers
+  // Prevent NaN and calculate the result by deleting numbers
   isNaN(mathToOperations(mathToArray(topScreen.innerText)))
     ? (result.innerText = 0)
     : (result.innerText = mathToOperations(mathToArray(topScreen.innerText)));
 
   // Update saved data
   localStorage.setItem("result", result.innerText);
+}
+
+function fillEmptyOperation(operator, lastSelected) {
+  // Convert screen to an array
+  let screen = Array.from(topScreen.innerText);
+  if ((isOperator(operator) && operator != "(") || operator === "Dead") {
+    // When there is only an operator without any numbers on the left
+    if (lastSelected === "" || lastSelected === "(") {
+      // Modify screen adding a zero in empty operations
+      screen.splice(screen.length - 1, 0, "0");
+      topScreen.innerText = screen.join("");
+    }
+  }
 }
 
 // Turn on and turn off
@@ -282,144 +338,12 @@ window.onload = () => {
 
 buttons.forEach((e) => {
   e.addEventListener("click", () => {
-    // Write on screen except equal or dot when is repeated
-    if (
-      (!usingFloat || e.innerText != ".") &&
-      e.innerText != "=" &&
-      e.innerText != "DEL"
-    ) {
-      topScreen.innerText += e.id;
-      // Update saved data
-      localStorage.setItem("topScreen", topScreen.innerText);
-      // Avoid user to use more than one dot in a group of numbers
-      if (e.innerText === ".") {
-        usingFloat = true;
-      }
-      // Reset uses of dots
-      if (
-        Array.from(document.getElementsByClassName("operator")).includes(
-          document.getElementById(e.innerText)
-        )
-      ) {
-        usingFloat = false;
-      }
-    }
+    selectButton(e.id);
   });
 });
 
 window.addEventListener("keydown", (e) => {
-  switch (e.key) {
-    // Character value and key are different
-    case "Backspace":
-      deleteNumber();
-      break;
-    case "1":
-    case "2":
-    case "3":
-    case "4":
-    case "5":
-    case "6":
-    case "7":
-    case "8":
-    case "9":
-      if (
-        Array.from(topScreen.innerText)[
-          Array.from(topScreen.innerText).length - 1
-        ] !== "0" ||
-        Array.from(topScreen.innerText)[
-          Array.from(topScreen.innerText).length - 2
-        ] === "."
-      ) {
-        topScreen.innerText += e.key;
-      }
-      break;
-    case "+":
-    case "*":
-    case "/":
-    case "Dead":
-    case "%":
-      usingFloat = false;
-      // Character value and key are different
-      if (
-        Array.from(topScreen.innerText)[
-          Array.from(topScreen.innerText).length - 1
-        ] != e.key
-      ) {
-        if (e.key != "Dead") {
-          topScreen.innerText += e.key;
-        } else {
-          if (
-            "^" !=
-            Array.from(topScreen.innerText)[
-              Array.from(topScreen.innerText).length - 1
-            ]
-          ) {
-            topScreen.innerText += "^";
-          }
-        }
-      }
-      // Update saved data
-      localStorage.setItem("topScreen", topScreen.innerText);
-      if (
-        String(
-          Array.from(topScreen.innerText)[
-            Array.from(topScreen.innerText).length - 2
-          ]
-        ) === "undefined" ||
-        String(
-          Array.from(topScreen.innerText)[
-            Array.from(topScreen.innerText).length - 2
-          ]
-        ) === "("
-      ) {
-        let x = Array.from(topScreen.innerText);
-        x.splice(Array.from(topScreen.innerText).length - 1, 0, "0");
-        topScreen.innerText = x.join("");
-        localStorage.setItem("topScreen", topScreen.innerText);
-      }
-      break;
-    case "=":
-      result.innerText = mathToOperations(mathToArray(topScreen.innerText));
-      // Save result
-      localStorage.setItem("result", result.innerText);
-      break;
-    case ".":
-      if (!usingFloat) {
-        topScreen.innerText += e.key;
-        // Update saved data
-        localStorage.setItem("topScreen", topScreen.innerText);
-      }
-      // Avoid user to use more than one dot in a group of numbers
-      usingFloat = true;
-      break;
-    default:
-      // Write on screen except when key is not assigned to any button
-      if (
-        Array.from(document.getElementsByClassName("calc-button")).includes(
-          document.getElementById(e.key)
-        )
-      ) {
-        topScreen.innerText += e.key;
-        // Update saved data
-        localStorage.setItem("topScreen", topScreen.innerText);
-        // Reset uses of dots
-        if (
-          Array.from(document.getElementsByClassName("operator")).includes(
-            document.getElementById(e.key)
-          )
-        ) {
-          usingFloat = false;
-        }
-      }
-  }
-  // Apply an style when a pressed key has focus except key is not assigned to any button
-  if (
-    Array.from(document.getElementsByClassName("calc-button")).includes(
-      document.getElementById(e.key)
-    )
-  ) {
-    document.getElementById(e.key).focus();
-  }
+  selectButton(e.key);
 });
 
 document.getElementById("=").addEventListener("click", () => {
