@@ -43,7 +43,6 @@ export function stringToBoolean(s) {
 }
 
 export function writeAndSave(name, save, place, accumulate) {
-  console.log(place);
   if (accumulate) {
     place.innerText += save;
     localStorage.setItem(name, localStorage.getItem(name) + save);

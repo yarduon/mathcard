@@ -29,6 +29,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "+",
   ];
 let usingFloat = false,
+  usingCircumflex = false,
   totalOpenParenthesis = 0;
 
 function operate(operator, num1, num2) {
@@ -48,7 +49,7 @@ function operate(operator, num1, num2) {
       total = +num1 / +num2;
       break;
     case "^":
-      total = Math.pow(num1, num2);
+      total = num1 ** num2;
       break;
     case "%":
       // Calculate percentage or remainder
@@ -122,7 +123,6 @@ function mathToOperations(array) {
           array.slice(firstPos + 1, array.indexOf(")", firstPos))
         );
       });
-
       // Replace the parentheses with the final result
       array.splice(
         firstPos,
@@ -148,17 +148,20 @@ function findAndReplaceCalc(operator, array) {
     // Current location of operator
     pos = array.indexOf(operator, pos);
     // Replace operations by the result
-    isOperator(operator) && !isNaN(String(array[pos - 1]))
-      ? array.splice(
-          pos - 1,
-          (pos - 1 - (pos + 1)) * -1 + 1,
-          operate(array[pos], array[pos - 1], array[pos + 1])
-        )
-      : array.splice(
-          pos,
-          (pos - 1 - (pos + 1)) * -1,
-          operate(array[pos], array[pos - 1], array[pos + 1])
-        );
+    if (isOperator(operator)) {
+      array.splice(
+        pos - 1,
+        (pos - 1 - (pos + 1)) * -1 + 1,
+        operate(array[pos], array[pos - 1], array[pos + 1])
+      );
+      console.log(array);
+    } else {
+      array.splice(
+        pos,
+        (pos - 1 - (pos + 1)) * -1,
+        operate(array[pos], array[pos - 1], array[pos + 1])
+      );
+    }
   }
   // Search for next same operator
   pos++;
@@ -250,12 +253,22 @@ function selectButton(name) {
       default:
         // When the value is a operator
         if (isOperator(name)) {
-          // When the last value is not an operator or closed parenthesis
-          if (!operators.includes(document.getElementById(lastSelected))) {
+          // When the last value is not an operator or circumflex
+          if (
+            !operators.includes(document.getElementById(lastSelected)) &&
+            lastSelected !== "^"
+          ) {
             // Character value and key are different
-            name === "Dead"
-              ? writeAndSave(topScreen.id, "^", topScreen, true)
-              : writeAndSave(topScreen.id, name, topScreen, true);
+            if (name === "Dead" && !usingCircumflex) {
+              writeAndSave(topScreen.id, "^", topScreen, true);
+              usingCircumflex = true;
+            }
+
+            if (name !== "Dead") {
+              writeAndSave(topScreen.id, name, topScreen, true);
+              usingCircumflex = false;
+            }
+
             // Avoid single operators without a number on the left
             fillEmptyOperation(name, lastSelected);
             // Reset uses of dots
