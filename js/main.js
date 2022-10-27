@@ -4,12 +4,14 @@ import {
   isOperator,
   swapClasses,
   stringToBoolean,
+  writeAndSave,
+  countElements,
 } from "./utility.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
-  topScreen = document.getElementById("operations"),
+  topScreen = document.getElementById("topScreen"),
   result = document.getElementById("result"),
-  operators = Array.from(document.getElementsByClassName("operators")),
+  operators = Array.from(document.getElementsByClassName("operator")),
   // The order of symbols determines preference when resolving operations
   symbols = [
     "PI",
@@ -26,7 +28,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "+",
   ];
 let usingFloat = false;
-
+// ((2+2) * (0+2)
 function operate(operator, num1, num2) {
   let total = 0;
   switch (operator) {
@@ -97,6 +99,47 @@ function mathToArray(string) {
   return operations;
 }
 
+function mathToOperations(array) {
+  let firstPos = 0;
+
+  // If there are parentheses in the operations
+  if (countElements("(", array) === countElements(")", array)) {
+    while (array.includes("(") && array.includes(")")) {
+      let i = 0;
+      // Find last open parentheses
+      while (array.indexOf("(", i) != -1) {
+        i = array.indexOf("(", i);
+        // Last open parentheses location and last element of iterations
+        firstPos = i;
+        i++;
+      }
+      // Resolve operations inside that pair of parentheses
+      symbols.forEach((e) => {
+        findAndReplaceCalc(
+          e,
+          array.slice(firstPos + 1, array.indexOf(")", firstPos))
+        );
+        console.log(array);
+      });
+
+      // Replace the parentheses with the final result
+      array.splice(
+        firstPos,
+        (firstPos - array.indexOf(")", firstPos)) * -1 + 1,
+        ...array.slice(firstPos + 1, array.indexOf(")", firstPos))
+      );
+    }
+  }
+
+  // After cleaning parentheses calculate final operations
+  symbols.forEach((e) => {
+    findAndReplaceCalc(e, array);
+  });
+  return isFinite(array[0])
+    ? Math.round(array[0] * 10000000000) / 10000000000
+    : "Syntax Error";
+}
+
 function findAndReplaceCalc(operator, array) {
   let pos = 0;
   // Find the specified operator until there are none left
@@ -118,101 +161,6 @@ function findAndReplaceCalc(operator, array) {
   }
   // Search for next same operator
   pos++;
-}
-
-function mathToOperations(array) {
-  let firstPos = 0;
-  // If there are parentheses in the operations
-  while (array.includes("(") && array.includes(")")) {
-    let i = 0;
-    // Find last open parentheses
-    while (array.indexOf("(", i) != -1) {
-      i = array.indexOf("(", i);
-      // Last open parentheses location and last element of iterations
-      firstPos = i;
-      i++;
-    }
-    // Resolve operations inside that pair of parentheses
-    symbols.forEach((e) => {
-      findAndReplaceCalc(
-        e,
-        array.slice(firstPos + 1, array.indexOf(")", firstPos))
-      );
-    });
-
-    // Replace the parentheses with the final result
-    array.splice(
-      firstPos,
-      (firstPos - array.indexOf(")", firstPos)) * -1 + 1,
-      ...array.slice(firstPos + 1, array.indexOf(")", firstPos))
-    );
-  }
-
-  // After cleaning parentheses calculate final operations
-  symbols.forEach((e) => {
-    findAndReplaceCalc(e, array);
-  });
-
-  return !isNaN(array[0])
-    ? Math.round(array[0] * 10000000000) / 10000000000
-    : "Syntax Error";
-}
-
-function selectButton(name) {
-  // Storage the last and next to last elements displaying on screen
-  let lastSelected = topScreen.innerText.charAt(topScreen.innerText.length - 1),
-    nextToLastSelected = topScreen.innerText.charAt(
-      topScreen.innerText.length - 2
-    );
-  // Write on screen and apply focus except when key is not assigned to any button
-  if (buttons.includes(document.getElementById(name))) {
-    // Highlight button
-    document.getElementById(name).focus();
-    // Write on screen but avoid user to use more than one dot in a group of numbers, special characters or numbers
-    if (
-      isNaN(name) &&
-      name !== "Backspace" &&
-      name !== "=" &&
-      name !== "Dead" &&
-      (name !== "." || !usingFloat)
-    ) {
-      topScreen.innerText += name;
-      fillEmptyOperation(name, lastSelected);
-    }
-
-    // Write on screen numbers and avoid placing together zeros an numbers
-    if ((!isNaN(name) && lastSelected !== "0") || nextToLastSelected === ".") {
-      console.log(isNaN(name));
-      console.log(name);
-      topScreen.innerText += name;
-    }
-
-    // Update saved data
-    localStorage.setItem("topScreen", topScreen.innerText);
-    // Buttons with special behaviour
-    switch (name) {
-      case ".":
-        usingFloat = true;
-        break;
-      case "Backspace":
-        deleteNumber();
-        break;
-      case "Dead":
-        // Character value and key are different
-        topScreen.innerText += "^";
-        fillEmptyOperation(name, lastSelected);
-        // Update saved data
-        localStorage.setItem("topScreen", topScreen.innerText);
-        break;
-      case "=":
-        result.innerText = mathToOperations(mathToArray(topScreen.innerText));
-        // Save result
-        localStorage.setItem("result", result.innerText);
-        break;
-    }
-    // Reset uses of dots
-    if (operators.includes(document.getElementById(name))) usingFloat = false;
-  }
 }
 
 function deleteNumber() {
@@ -248,8 +196,64 @@ function fillEmptyOperation(operator, lastSelected) {
     if (lastSelected === "" || lastSelected === "(") {
       // Modify screen adding a zero in empty operations
       screen.splice(screen.length - 1, 0, "0");
-      topScreen.innerText = screen.join("");
+      writeAndSave(topScreen.id, screen.join(""), topScreen);
     }
+  }
+}
+
+function selectButton(name) {
+  // Storage the last and next to last elements displaying on screen
+  let lastSelected = topScreen.innerText.charAt(topScreen.innerText.length - 1),
+    nextToLastSelected = topScreen.innerText.charAt(
+      topScreen.innerText.length - 2
+    );
+  // Apply focus and check value except when key is not assigned to any button
+  if (buttons.includes(document.getElementById(name))) {
+    // Buttons behaviour
+    switch (name) {
+      case ".":
+        if (!usingFloat) {
+          writeAndSave(topScreen.id, name, topScreen, true);
+          usingFloat = true;
+        }
+        break;
+      case "Backspace":
+        deleteNumber();
+        break;
+      case "=":
+        writeAndSave(
+          result.id,
+          mathToOperations(mathToArray(topScreen.innerText)),
+          result
+        );
+        break;
+      default:
+        // When the value is a operator
+        if (isOperator(name)) {
+          // When the last value is not an operator
+          if (!operators.includes(document.getElementById(lastSelected))) {
+            console.log(operators);
+            // Character value and key are different
+            name === "Dead"
+              ? writeAndSave(topScreen.id, "^", topScreen, true)
+              : writeAndSave(topScreen.id, name, topScreen, true);
+              // Avoid single operators without a number on the left
+              fillEmptyOperation(name, lastSelected);
+            // Reset uses of dots
+            usingFloat = false;
+          }
+
+          // When the value is a number
+        } else if (!isNaN(name)) {
+          if (lastSelected !== "0" || nextToLastSelected === ".") {
+            writeAndSave(topScreen.id, name, topScreen, true);
+          }
+        } else {
+          writeAndSave(topScreen.id, name, topScreen, true);
+        }
+    }
+    // Highlight button
+    document.getElementById(name).focus();
   }
 }
 
@@ -266,7 +270,7 @@ function powerOnOff(event) {
     if (event) {
       // Fill and show data values
       result.innerText = 0;
-      document.getElementById("operations").classList.remove("hidden");
+      document.getElementById("topScreen").classList.remove("hidden");
       // Updated saved data
       localStorage.setItem("result", result.innerText);
     }
@@ -283,7 +287,7 @@ function powerOnOff(event) {
     // Empty and hide data values
     topScreen.innerText = "";
     result.innerText = "";
-    document.getElementById("operations").classList.add("hidden");
+    document.getElementById("topScreen").classList.add("hidden");
 
     // Updated saved data
     localStorage.setItem("result", result.innerText);

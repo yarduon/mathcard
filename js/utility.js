@@ -14,6 +14,7 @@ export function isOperator(operator) {
     operator === "*" ||
     operator === "/" ||
     operator === "^" ||
+    operator === "Dead" ||
     operator === "%" ||
     operator === "(" ||
     operator === ")"
@@ -25,6 +26,26 @@ export function swapClasses(e, cAdd, cDelete) {
   e.classList.remove(cDelete);
 }
 
-export function stringToBoolean(s){
+export function stringToBoolean(s) {
   return Boolean(s === "true");
+}
+
+export function writeAndSave(name, save, place, accumulate) {
+  if (accumulate) {
+    place.innerText += save;
+    localStorage.setItem(name, localStorage.getItem(name) + save);
+  } else {
+    place.innerText = save;
+    localStorage.setItem(name, save);
+  }
+}
+
+export function countElements(element, array) {
+  let total = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      total++;
+    }
+  }
+  return total;
 }

@@ -34,7 +34,7 @@
   margin-top: 17vh;
 }
 
-#operations,
+#topScreen,
 .buttons-container {
   font-size: 2.3vh;
 }
@@ -186,7 +186,7 @@
   margin: 0.4vh 0 0 0;
 }
 
-#operations {
+#topScreen {
   height: 2.8vh;
   padding: 0 0.2vh 0 0;
   animation: typing 1.5s steps(1) infinite;
