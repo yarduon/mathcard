@@ -6,6 +6,7 @@ import {
   stringToBoolean,
   writeAndSave,
   countElements,
+  isEqual,
 } from "./utility.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
@@ -27,7 +28,8 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "-",
     "+",
   ];
-let usingFloat = false;
+let usingFloat = false,
+  totalOpenParenthesis = 0;
 
 function operate(operator, num1, num2) {
   let total = 0;
@@ -163,8 +165,12 @@ function findAndReplaceCalc(operator, array) {
 }
 
 function deleteNumber(lastDeleted) {
-  // Reset use of dots
-  if (lastDeleted) usingFloat = false;
+  // Reset use of dots when deleting these
+  if (lastDeleted === ".") usingFloat = false;
+  // Increments use of closed parenthesis when deleting these
+  if (lastDeleted === ")") totalOpenParenthesis++;
+  // Decrement use of closed parenthesis when deleting opened ones
+  if (lastDeleted === "(" && totalOpenParenthesis >= 0) totalOpenParenthesis--;
 
   // Create a copy of screen without last element
   writeAndSave(topScreen.id, topScreen.innerText.slice(0, -1), topScreen);
@@ -174,7 +180,8 @@ function deleteNumber(lastDeleted) {
     ? writeAndSave(result.id, 0, result)
     : writeAndSave(
         result.id,
-        mathToOperations(mathToArray(topScreen.innerText), result)
+        mathToOperations(mathToArray(topScreen.innerText)),
+        result
       );
 
   // Update saved data
@@ -200,10 +207,29 @@ function selectButton(name) {
     nextToLastSelected = topScreen.innerText.charAt(
       topScreen.innerText.length - 2
     );
-  // Apply focus and check value except when key is not assigned to any button
+  // Check value except when key is not assigned to any button
   if (buttons.includes(document.getElementById(name))) {
     // Buttons behaviour
     switch (name) {
+      case "(":
+        // When a previous element was a math operator, empty or circumflex
+        if (
+          operators.includes(document.getElementById(lastSelected)) ||
+          isEqual(lastSelected, "", "^", "(")
+        ) {
+          writeAndSave(topScreen.id, name, topScreen, true);
+          totalOpenParenthesis++;
+        }
+        break;
+      case ")":
+        // Avoid writing closed parenthesis without opening previously opening ones
+        if (totalOpenParenthesis >= 1) {
+          writeAndSave(topScreen.id, name, topScreen, true);
+          totalOpenParenthesis--;
+          // Avoid single operators without a number on the left
+          fillEmptyOperation(name, lastSelected);
+        }
+        break;
       case ".":
         if (!usingFloat) {
           writeAndSave(topScreen.id, name, topScreen, true);
@@ -220,15 +246,12 @@ function selectButton(name) {
           result
         );
         break;
+      // Remaining buttons
       default:
         // When the value is a operator
         if (isOperator(name)) {
-          // When the last value is not an operator
-          if (
-            !operators.includes(document.getElementById(lastSelected)) ||
-            name === "(" ||
-            name === ")"
-          ) {
+          // When the last value is not an operator or closed parenthesis
+          if (!operators.includes(document.getElementById(lastSelected))) {
             // Character value and key are different
             name === "Dead"
               ? writeAndSave(topScreen.id, "^", topScreen, true)
@@ -241,6 +264,17 @@ function selectButton(name) {
           // When the value is a number
         } else if (!isNaN(name)) {
           if (lastSelected !== "0" || nextToLastSelected === ".") {
+            writeAndSave(topScreen.id, name, topScreen, true);
+          }
+          // When the value is a special function or value
+        } else if (
+          isEqual(name, "LOG(", "SIN(", "COS(", "TAN(", "PI", "SQR(")
+        ) {
+          // Avoid numbers next to functions without operators or repeated PI
+          if (
+            (isNaN(lastSelected) && lastSelected !== "I") ||
+            lastSelected === ""
+          ) {
             writeAndSave(topScreen.id, name, topScreen, true);
           }
         } else {

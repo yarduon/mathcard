@@ -21,6 +21,18 @@ export function isOperator(operator) {
   );
 }
 
+// Only checks if one of the elements is equal to the first parameter
+export function isEqual(toCompare, ...elements) {
+  let boolean = false;
+  for (let i = 0; i < elements.length; i++) {
+    if (toCompare === elements[i]) {
+      boolean = true;
+      break;
+    }
+  }
+  return boolean;
+}
+
 export function swapClasses(e, cAdd, cDelete) {
   e.classList.add(cAdd);
   e.classList.remove(cDelete);
@@ -31,6 +43,7 @@ export function stringToBoolean(s) {
 }
 
 export function writeAndSave(name, save, place, accumulate) {
+  console.log(place);
   if (accumulate) {
     place.innerText += save;
     localStorage.setItem(name, localStorage.getItem(name) + save);
