@@ -28,7 +28,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "+",
   ];
 let usingFloat = false;
-// ((2+2) * (0+2)
+
 function operate(operator, num1, num2) {
   let total = 0;
   switch (operator) {
@@ -119,7 +119,6 @@ function mathToOperations(array) {
           e,
           array.slice(firstPos + 1, array.indexOf(")", firstPos))
         );
-        console.log(array);
       });
 
       // Replace the parentheses with the final result
@@ -163,26 +162,20 @@ function findAndReplaceCalc(operator, array) {
   pos++;
 }
 
-function deleteNumber() {
-  if (
-    String(
-      Array.from(topScreen.innerText)[
-        Array.from(topScreen.innerText).length - 1
-      ]
-    ) === "."
-  ) {
-    usingFloat = false;
-  }
-  // Create a copy of screen without last element
-  topScreen.innerText = topScreen.innerText.slice(0, -1);
+function deleteNumber(lastDeleted) {
+  // Reset use of dots
+  if (lastDeleted) usingFloat = false;
 
-  // Update saved data
-  localStorage.setItem("topScreen", topScreen.innerText);
+  // Create a copy of screen without last element
+  writeAndSave(topScreen.id, topScreen.innerText.slice(0, -1), topScreen);
 
   // Prevent NaN and calculate the result by deleting numbers
   isNaN(mathToOperations(mathToArray(topScreen.innerText)))
-    ? (result.innerText = 0)
-    : (result.innerText = mathToOperations(mathToArray(topScreen.innerText)));
+    ? writeAndSave(result.id, 0, result)
+    : writeAndSave(
+        result.id,
+        mathToOperations(mathToArray(topScreen.innerText), result)
+      );
 
   // Update saved data
   localStorage.setItem("result", result.innerText);
@@ -191,7 +184,7 @@ function deleteNumber() {
 function fillEmptyOperation(operator, lastSelected) {
   // Convert screen to an array
   let screen = Array.from(topScreen.innerText);
-  if ((isOperator(operator) && operator != "(") || operator === "Dead") {
+  if ((isOperator(operator) && operator !== "(") || operator === "Dead") {
     // When there is only an operator without any numbers on the left
     if (lastSelected === "" || lastSelected === "(") {
       // Modify screen adding a zero in empty operations
@@ -218,7 +211,7 @@ function selectButton(name) {
         }
         break;
       case "Backspace":
-        deleteNumber();
+        deleteNumber(lastSelected);
         break;
       case "=":
         writeAndSave(
@@ -231,18 +224,20 @@ function selectButton(name) {
         // When the value is a operator
         if (isOperator(name)) {
           // When the last value is not an operator
-          if (!operators.includes(document.getElementById(lastSelected))) {
-            console.log(operators);
+          if (
+            !operators.includes(document.getElementById(lastSelected)) ||
+            name === "(" ||
+            name === ")"
+          ) {
             // Character value and key are different
             name === "Dead"
               ? writeAndSave(topScreen.id, "^", topScreen, true)
               : writeAndSave(topScreen.id, name, topScreen, true);
-              // Avoid single operators without a number on the left
-              fillEmptyOperation(name, lastSelected);
+            // Avoid single operators without a number on the left
+            fillEmptyOperation(name, lastSelected);
             // Reset uses of dots
             usingFloat = false;
           }
-
           // When the value is a number
         } else if (!isNaN(name)) {
           if (lastSelected !== "0" || nextToLastSelected === ".") {
@@ -269,10 +264,8 @@ function powerOnOff(event) {
     // Only when button is pressed or clicked
     if (event) {
       // Fill and show data values
-      result.innerText = 0;
+      writeAndSave(result.id, 0, result);
       document.getElementById("topScreen").classList.remove("hidden");
-      // Updated saved data
-      localStorage.setItem("result", result.innerText);
     }
 
     // Activate all buttons
@@ -285,13 +278,9 @@ function powerOnOff(event) {
     swapClasses(document.getElementById("off"), "black", "red");
   } else {
     // Empty and hide data values
-    topScreen.innerText = "";
-    result.innerText = "";
+    writeAndSave(topScreen.id, "", topScreen);
+    writeAndSave(result.id, "", result);
     document.getElementById("topScreen").classList.add("hidden");
-
-    // Updated saved data
-    localStorage.setItem("result", result.innerText);
-    localStorage.setItem("topScreen", result.innerText);
 
     // Deactivate all buttons
     Array.from(document.getElementsByClassName("button")).forEach((e) => {
@@ -350,23 +339,9 @@ window.addEventListener("keydown", (e) => {
   selectButton(e.key);
 });
 
-document.getElementById("=").addEventListener("click", () => {
-  result.innerText = mathToOperations(mathToArray(topScreen.innerText));
-  // Save result
-  localStorage.setItem("result", result.innerText);
-});
-
-document.getElementById("Backspace").addEventListener("click", () => {
-  deleteNumber();
-});
-
 document.getElementById("ac").addEventListener("click", () => {
-  // Reset screen
-  topScreen.innerText = "";
-  result.innerText = 0;
-  // Reset data
-  localStorage.setItem("topScreen", topScreen.innerText);
-  localStorage.setItem("result", result.innerText);
+  writeAndSave(topScreen.id, "", topScreen);
+  writeAndSave(result.id, 0, result);
 });
 
 document.getElementById("m+").addEventListener("click", () => {
@@ -385,7 +360,6 @@ document.getElementById("m-").addEventListener("click", () => {
 
 document.getElementById("mr").addEventListener("click", () => {
   topScreen.innerText += localStorage.getItem("memory");
-  // Update saved data
   localStorage.setItem("topScreen", topScreen.innerText);
 });
 
@@ -398,9 +372,7 @@ document.getElementById("mc").addEventListener("click", () => {
 });
 
 document.getElementById("ce").addEventListener("click", () => {
-  result.innerText = 0;
-  // Update saved data
-  localStorage.setItem("result", result.innerText);
+  writeAndSave(result.id, 0, result);
 });
 
 document.getElementById("power").addEventListener("click", (e) => {
