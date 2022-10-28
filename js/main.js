@@ -136,7 +136,7 @@ function mathToOperations(array) {
   symbols.forEach((e) => {
     findAndReplaceCalc(e, array);
   });
-  
+
   return isFinite(array[0])
     ? Number.isInteger(array[0])
       ? array[0]
@@ -157,7 +157,6 @@ function findAndReplaceCalc(operator, array) {
         (pos - 1 - (pos + 1)) * -1 + 1,
         operate(array[pos], array[pos - 1], array[pos + 1])
       );
-      console.log(array);
     } else {
       array.splice(
         pos,
@@ -191,9 +190,6 @@ function deleteNumber(lastDeleted) {
         mathToOperations(mathToArray(topScreen.innerText)),
         result
       );
-
-  // Update saved data
-  localStorage.setItem("result", result.innerText);
 }
 
 function fillEmptyOperation(operator, lastSelected) {
@@ -220,9 +216,9 @@ function selectButton(name) {
     // Buttons behaviour
     switch (name) {
       case "-":
-        if (nextToLastSelected === "" && lastSelected === "") {
-          writeAndSave(topScreen.id, name, topScreen, true);
-        } else if (
+        // Avoid three minus signs consecutively
+        if (
+          (nextToLastSelected === "" && lastSelected === "") ||
           (nextToLastSelected !== "-" && nextToLastSelected !== "") ||
           !isNaN(lastSelected)
         ) {
@@ -290,6 +286,7 @@ function selectButton(name) {
           }
           // When the value is a number
         } else if (!isNaN(name)) {
+          // When this number is different to zero or equal to dot
           if (lastSelected !== "0" || nextToLastSelected === ".") {
             writeAndSave(topScreen.id, name, topScreen, true);
           }
@@ -401,6 +398,12 @@ window.addEventListener("keydown", (e) => {
   selectButton(e.key);
 });
 
+document.getElementById("power").addEventListener("click", (e) => {
+  // Turn on and turn off
+  powerOnOff(e);
+});
+
+// Memory buttons
 document.getElementById("ac").addEventListener("click", () => {
   writeAndSave(topScreen.id, "", topScreen);
   writeAndSave(result.id, 0, result);
@@ -437,7 +440,21 @@ document.getElementById("ce").addEventListener("click", () => {
   writeAndSave(result.id, 0, result);
 });
 
-document.getElementById("power").addEventListener("click", (e) => {
-  // Turn on and turn off
-  powerOnOff(e);
-});
+function onScanSuccess(decodedText, decodedResult) {
+  // handle the scanned code as you like, for example:
+  window.open(decodedText, "test")
+  console.log(`Code matched = ${decodedText}`, decodedResult);
+}
+
+function onScanFailure(error) {
+  // handle scan failure, usually better to ignore and keep scanning.
+  // for example:
+  console.warn(`Code scan error = ${error}`);
+}
+
+let html5QrcodeScanner = new Html5QrcodeScanner(
+  "reader",
+  { fps: 10, qrbox: { width: 250, height: 250 } },
+  /* verbose= */ false
+);
+html5QrcodeScanner.render(onScanSuccess, onScanFailure);
