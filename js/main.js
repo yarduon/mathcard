@@ -170,6 +170,8 @@ function findAndReplaceCalc(operator, array) {
 function deleteNumber(lastDeleted) {
   // Reset use of dots when deleting these
   if (lastDeleted === ".") usingFloat = false;
+  // Reset use of circumflex when deleting these
+  if (lastDeleted === "^") usingCircumflex = false;
   // Increments use of closed parenthesis when deleting these
   if (lastDeleted === ")") totalOpenParenthesis++;
   // Decrement use of closed parenthesis when deleting opened ones
@@ -214,6 +216,25 @@ function selectButton(name) {
   if (buttons.includes(document.getElementById(name))) {
     // Buttons behaviour
     switch (name) {
+      case "-":
+        if (nextToLastSelected === "" && lastSelected === "") {
+          writeAndSave(topScreen.id, name, topScreen, true);
+        } else if (
+          (nextToLastSelected !== "-" && nextToLastSelected !== "") ||
+          !isNaN(lastSelected)
+        ) {
+          writeAndSave(topScreen.id, name, topScreen, true);
+        }
+        break;
+      // Character value and key are different
+      case "Dead":
+        if (!usingCircumflex) {
+          writeAndSave(topScreen.id, "^", topScreen, true);
+          // Avoid single operators without a number on the left
+          fillEmptyOperation(name, lastSelected);
+          usingCircumflex = true;
+        }
+        break;
       case "(":
         // When a previous element was a math operator, empty or circumflex
         if (
@@ -254,23 +275,13 @@ function selectButton(name) {
         // When the value is a operator
         if (isOperator(name)) {
           // When the last value is not an operator or circumflex
-          if (
-            !operators.includes(document.getElementById(lastSelected)) &&
-            lastSelected !== "^"
-          ) {
-            // Character value and key are different
-            if (name === "Dead" && !usingCircumflex) {
-              writeAndSave(topScreen.id, "^", topScreen, true);
-              usingCircumflex = true;
-            }
-
-            if (name !== "Dead") {
-              writeAndSave(topScreen.id, name, topScreen, true);
-              usingCircumflex = false;
-            }
+          if (!operators.includes(document.getElementById(lastSelected))) {
+            writeAndSave(topScreen.id, name, topScreen, true);
+            usingCircumflex = false;
 
             // Avoid single operators without a number on the left
             fillEmptyOperation(name, lastSelected);
+
             // Reset uses of dots
             usingFloat = false;
           }
@@ -289,6 +300,7 @@ function selectButton(name) {
             lastSelected === ""
           ) {
             writeAndSave(topScreen.id, name, topScreen, true);
+            totalOpenParenthesis++;
           }
         } else {
           writeAndSave(topScreen.id, name, topScreen, true);
