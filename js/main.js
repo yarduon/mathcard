@@ -9,6 +9,9 @@ import {
   isEqual,
 } from "./utility.js";
 
+// Need to import JSON as JS without backend
+import currencies from "../json/currencies.js";
+
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("topScreen"),
   result = document.getElementById("result"),
@@ -27,7 +30,9 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "*",
     "-",
     "+",
-  ];
+  ],
+  firstCurrency = document.getElementById("firstCurrency"),
+  secondCurrency = document.getElementById("secondCurrency");
 let usingFloat = false,
   usingCircumflex = false,
   totalOpenParenthesis = 0;
@@ -324,7 +329,7 @@ function powerOnOff(event) {
     if (event) {
       // Fill and show data values
       writeAndSave(result.id, 0, result);
-      document.getElementById("topScreen").classList.remove("hidden");
+      document.getElementById("topScreen").classList.remove("invisible");
     }
 
     // Activate all buttons
@@ -339,7 +344,7 @@ function powerOnOff(event) {
     // Empty and hide data values
     writeAndSave(topScreen.id, "", topScreen);
     writeAndSave(result.id, "", result);
-    document.getElementById("topScreen").classList.add("hidden");
+    document.getElementById("topScreen").classList.add("invisible");
 
     // Deactivate all buttons
     Array.from(document.getElementsByClassName("button")).forEach((e) => {
@@ -359,12 +364,21 @@ function updateRates(json, currentDate) {
     .then((response) => response.json())
     .then((data) => {
       // Convert rates to local data
-      localStorage.setItem("currency", JSON.stringify(data));
+      localStorage.setItem("exchangeRates", JSON.stringify(data));
     });
   // Rates won't be updated until next 24 hours
   localStorage.setItem("updateTime", addHours(currentDate, 24));
 }
 
+function getCurrencies(json) {
+  // Obtain name of currencies
+  fetch(json)
+    .then((response) => response.json())
+    .then((data) => {
+      // Convert rates to local data
+      localStorage.setItem("exchangeRates", JSON.stringify(data));
+    });
+}
 window.onload = () => {
   if (!localStorage.getItem("power")) {
     localStorage.setItem("power", true);
@@ -380,6 +394,36 @@ window.onload = () => {
   ) {
     updateRates("https://api.exchangerate-api.com/v4/latest/euro", new Date());
   }
+
+  Object.keys(currencies).forEach((e) => {
+    let option = document.createElement("option");
+    option.innerText = e + " - " + currencies[e];
+    option.value = JSON.parse(localStorage.getItem("exchangeRates")).rates[e];
+    firstCurrency.append(option);
+  });
+
+  firstCurrency.addEventListener("change", () => {
+    document.getElementById("secondCurrency").innerText = "";
+    Object.keys(currencies).forEach((e) => {
+      let currentCurrency = e + " - " + currencies[e];
+      if (
+        String(firstCurrency.options[firstCurrency.selectedIndex].innerText) !==
+        currentCurrency
+      ) {
+        let option = document.createElement("option");
+        option.innerText = e + " - " + currencies[e];
+        option.value = JSON.parse(localStorage.getItem("exchangeRates")).rates[
+          e
+        ];
+        document.getElementById("secondCurrency").append(option);
+      }
+    });
+    calculateExchange(firstCurrency.value, secondCurrency.value);
+  });
+
+  secondCurrency.addEventListener("change", () => {
+    calculateExchange(firstCurrency.value, secondCurrency.value);
+  });
 
   // Refresh values according with data storage
   if (powerOnOff()) {
@@ -468,9 +512,7 @@ Html5Qrcode.getCameras()
           });
       });
       // QR is detected
-      const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-        
-      };
+      const qrCodeSuccessCallback = (decodedText, decodedResult) => {};
       const config = { fps: 20, qrbox: { width: 150, height: 150 } };
 
       document.getElementById("camera").addEventListener("click", () => {
@@ -486,3 +528,10 @@ Html5Qrcode.getCameras()
   .catch((err) => {
     // handle err
   });
+
+function calculateExchange(v1, v2) {
+  quantity = document.getElementById("quantity").value;
+  console.log(document.getElementById("exchanged").innerText);
+  document.getElementById("exchanged").value =
+    Math.round(((quantity / v1) * v2 + Number.EPSILON) * 100) / 100;
+}

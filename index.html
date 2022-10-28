@@ -301,12 +301,34 @@
         </div>
         <div class="line grey relative"></div>
       </div>
-      <div class="absolute">
-        <div id="reader" class="white absolute" width="600px"></div>
-      </div>
-      <a id="hola" href="" target="_blank">sss</a>
-      <input style="z-index:3" type="file" id="qr-input-file" accept="image/*">
+      <input
+        class="hidden"
+        style="z-index: 3"
+        type="file"
+        id="qr-input-file"
+        accept="image/*"
+      />
+      <button class="touch hidden" style="z-index: 4" id="camera">
+        camera
+      </button>
     </main>
-    <button class="touch" style="z-index:3" id="camera">camera</button>
+    <div style="z-index: 3" class="absolute">
+      <div id="reader"></div>
+    </div>
+    <div style="z-index: 3">
+      <label for="firstCurrency">first Currency</label>
+      <div>
+        <select name="firstCurrency" id="firstCurrency"></select>
+      </div>
+      <label for="secondCurrency">Second Currency</label>
+      <div>
+        <select name="secondCurrency" id="secondCurrency"></select>
+      </div>
+      <input type="text" id="exchanged" />
+      <div>
+        <label for="">Quantity</label>
+      </div>
+      <input type="number" id="quantity" />
+    </div>
   </body>
 </html>
