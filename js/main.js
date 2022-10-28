@@ -136,8 +136,11 @@ function mathToOperations(array) {
   symbols.forEach((e) => {
     findAndReplaceCalc(e, array);
   });
+  
   return isFinite(array[0])
-    ? Math.round(array[0] * 10000000000) / 10000000000
+    ? Number.isInteger(array[0])
+      ? array[0]
+      : Math.round(array[0] * 10000000000) / 10000000000
     : "Syntax Error";
 }
 
