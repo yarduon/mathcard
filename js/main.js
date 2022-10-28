@@ -440,21 +440,49 @@ document.getElementById("ce").addEventListener("click", () => {
   writeAndSave(result.id, 0, result);
 });
 
-function onScanSuccess(decodedText, decodedResult) {
-  // handle the scanned code as you like, for example:
-  window.open(decodedText, "test")
-  console.log(`Code matched = ${decodedText}`, decodedResult);
-}
+// This method will trigger user permissions
+Html5Qrcode.getCameras()
+  .then((devices) => {
+    if (devices && devices.length) {
+      // Start scanning
+      const html5QrCode = new Html5Qrcode("reader");
+      // Files
+      const fileinput = document.getElementById("qr-input-file");
+      fileinput.addEventListener("change", (e) => {
+        if (e.target.files.length == 0) {
+          // No file selected, ignore
+          return;
+        }
+        const imageFile = e.target.files[0];
 
-function onScanFailure(error) {
-  // handle scan failure, usually better to ignore and keep scanning.
-  // for example:
-  console.warn(`Code scan error = ${error}`);
-}
+        // Scan QR Code with file
+        html5QrCode
+          .scanFile(imageFile, true)
+          .then((decodedText) => {
+            // success, use decodedText
+            console.log(decodedText);
+          })
+          .catch((err) => {
+            // failure, handle it.
+            console.log(`Error scanning file. Reason: ${err}`);
+          });
+      });
+      // QR is detected
+      const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+        
+      };
+      const config = { fps: 20, qrbox: { width: 150, height: 150 } };
 
-let html5QrcodeScanner = new Html5QrcodeScanner(
-  "reader",
-  { fps: 10, qrbox: { width: 250, height: 250 } },
-  /* verbose= */ false
-);
-html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+      document.getElementById("camera").addEventListener("click", () => {
+        // Scan QR code with camra
+        html5QrCode.start(
+          { facingMode: "environment" },
+          config,
+          qrCodeSuccessCallback
+        );
+      });
+    }
+  })
+  .catch((err) => {
+    // handle err
+  });
