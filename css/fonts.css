@@ -1,6 +1,78 @@
 /* https://yarduon.com */
 @font-face {
+  font-family: "Alatsi";
+  src: url("./../fonts/alatsi.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Anton";
+  src: url("./../fonts/anton.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chivo";
+  src: url("./../fonts/chivo.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("./../fonts/lato.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libre Franklin";
+  src: url("./../fonts/libre_franklin.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("./../fonts/merriweather.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./../fonts/open_sans.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("./../fonts/outfit.ttf");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "PT Sans";
   src: url("./../fonts/pt_sans.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./../fonts/roboto.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./../fonts/rubik.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Signika";
+  src: url("./../fonts/signika.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./../fonts/ubuntu.ttf");
   font-display: swap;
 }

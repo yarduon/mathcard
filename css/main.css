@@ -65,7 +65,7 @@
   opacity: 0;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -73,51 +73,51 @@
   overflow: hidden;
 }
 
-.darker-black {
+.darker-black-background {
   background-color: rgb(29, 28, 28);
 }
 
-.black {
+.normal-black-background {
   background-color: #292929ff;
 }
 
-.grey {
+.normal-grey-background {
   background-color: #444242;
 }
 
-.white {
+.normal-white-background {
   background-color: whitesmoke;
 }
 
-.orange {
+.normal-orange-background {
   background-color: #e75d26;
 }
 
-.red {
+.normal-red-background {
   background-color: #f21d28;
 }
 
-.blue {
+.normal-red-blue-background {
   background-color: #1d44f2;
 }
 
-.brown {
+.normal-brown-background {
   background-color: #a85f2f;
 }
 
-.purple {
+.normal-purple-background {
   background-color: #a026e7;
 }
 
-.pink {
+.normal-pink-background {
   background-color: #e60dc9;
 }
 
-.yellow {
+.normal-yellow-background {
   background-color: #f2e41d;
 }
 
-.green {
+.normal-green-background {
   background-color: #1df228;
 }
 
@@ -153,8 +153,52 @@
   border-radius: 1vh;
 }
 
+.alatsi {
+  font-family: Alatsi;
+}
+
+.chivo {
+  font-family: Chivo;
+}
+
+.lato {
+  font-family: Lato;
+}
+
+.libreFranklin {
+  font-family: "Libre Franklin";
+}
+
+.merriweather {
+  font-family: Merriweather;
+}
+
+.openSans {
+  font-family: "Open Sans";
+}
+
+.outfit {
+  font-family: Opensans;
+}
+
 .ptSans {
   font-family: PT Sans;
+}
+
+.roboto {
+  font-family: Roboto;
+}
+
+.rubik {
+  font-family: Rubik;
+}
+
+.signika {
+  font-family: Signika;
+}
+
+.ubuntu {
+  font-family: Ubuntu;
 }
 
 .calculator {
