@@ -4,6 +4,12 @@
   z-index: 1;
 }
 
+.calculator,
+#reader,
+.currency {
+  z-index: 3;
+}
+
 .flex {
   display: flex;
 }
@@ -56,11 +62,6 @@
   z-index: 2;
 }
 
-.calculator,
-#reader, .currency {
-  z-index: 3;
-}
-
 #result {
   top: 1.5vh;
   right: 1vh;
@@ -72,4 +73,8 @@
 
 .secondary {
   right: 0.7vh;
+}
+
+.logo-container {
+  bottom: 4vh;
 }
