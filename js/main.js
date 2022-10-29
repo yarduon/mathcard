@@ -31,8 +31,11 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "-",
     "+",
   ],
-  firstCurrency = document.getElementById("firstCurrency"),
-  secondCurrency = document.getElementById("secondCurrency");
+  currenciesSelect = [
+    document.getElementById("firstCurrency"),
+    document.getElementById("secondCurrency"),
+  ];
+
 let usingFloat = false,
   usingCircumflex = false,
   totalOpenParenthesis = 0;
@@ -370,24 +373,77 @@ function updateRates(json, currentDate) {
   localStorage.setItem("updateTime", addHours(currentDate, 24));
 }
 
-function getCurrencies(json) {
-  // Obtain name of currencies
-  fetch(json)
-    .then((response) => response.json())
-    .then((data) => {
-      // Convert rates to local data
-      localStorage.setItem("exchangeRates", JSON.stringify(data));
+// Fill select input by using JSON and external API
+function fillSelect(json, values, select, symbol) {
+  Object.keys(json).forEach((e) => {
+    let option = document.createElement("option");
+    option.innerText = e + symbol + json[e];
+    option.value = values.rates[e];
+    select.append(option);
+  });
+}
+
+// Convert one currency into another rounded two decimals
+function calculateExchange(n1, n2, quantity, result) {
+  result.value =
+    Math.round(((quantity / n1) * n2 + Number.EPSILON) * 100) / 100;
+}
+
+// Scan QR codes by camera or images provided
+function readQR() {
+  // This method will trigger user permissions
+  Html5Qrcode.getCameras()
+    .then((devices) => {
+      if (devices && devices.length) {
+        // Start scanning
+        const html5QrCode = new Html5Qrcode("reader");
+        // Files
+        const fileinput = document.getElementById("qr-input-file");
+        fileinput.addEventListener("change", (e) => {
+          if (e.target.files.length == 0) {
+            // No file selected, ignore
+            return;
+          }
+          const imageFile = e.target.files[0];
+
+          // Scan QR Code with file
+          html5QrCode
+            .scanFile(imageFile, true)
+            .then((decodedText) => {
+              // success, use decodedText
+              console.log(decodedText);
+            })
+            .catch((err) => {
+              // failure, handle it.
+              console.log(`Error scanning file. Reason: ${err}`);
+            });
+        });
+        // QR is detected
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {};
+        const config = { fps: 20, qrbox: { width: 150, height: 150 } };
+
+        document.getElementById("camera").addEventListener("click", () => {
+          // Scan QR code with camra
+          html5QrCode.start(
+            { facingMode: "environment" },
+            config,
+            qrCodeSuccessCallback
+          );
+        });
+      }
+    })
+    .catch((err) => {
+      // handle err
     });
 }
+
+// When the page is refreshed or loaded for the first time
 window.onload = () => {
-  if (!localStorage.getItem("power")) {
-    localStorage.setItem("power", true);
-  }
+  // Load default values when the cache is deleted or first time
+  if (!localStorage.getItem("power")) localStorage.setItem("power", true);
+  if (!localStorage.getItem("memory")) localStorage.setItem("memory", 0);
 
-  if (!localStorage.getItem("memory")) {
-    localStorage.setItem("memory", 0);
-  }
-
+  // Update rates each 24h or when it's the first time
   if (
     !localStorage.getItem("updateTime") ||
     new Date() >= new Date(localStorage.getItem("updateTime"))
@@ -395,35 +451,13 @@ window.onload = () => {
     updateRates("https://api.exchangerate-api.com/v4/latest/euro", new Date());
   }
 
-  Object.keys(currencies).forEach((e) => {
-    let option = document.createElement("option");
-    option.innerText = e + " - " + currencies[e];
-    option.value = JSON.parse(localStorage.getItem("exchangeRates")).rates[e];
-    firstCurrency.append(option);
-  });
-
-  firstCurrency.addEventListener("change", () => {
-    document.getElementById("secondCurrency").innerText = "";
-    Object.keys(currencies).forEach((e) => {
-      let currentCurrency = e + " - " + currencies[e];
-      if (
-        String(firstCurrency.options[firstCurrency.selectedIndex].innerText) !==
-        currentCurrency
-      ) {
-        let option = document.createElement("option");
-        option.innerText = e + " - " + currencies[e];
-        option.value = JSON.parse(localStorage.getItem("exchangeRates")).rates[
-          e
-        ];
-        document.getElementById("secondCurrency").append(option);
-      }
-    });
-    calculateExchange(firstCurrency.value, secondCurrency.value);
-  });
-
-  secondCurrency.addEventListener("change", () => {
-    calculateExchange(firstCurrency.value, secondCurrency.value);
-  });
+  // Fill first currency input
+  fillSelect(
+    currencies,
+    JSON.parse(localStorage.getItem("exchangeRates")),
+    currenciesSelect[0],
+    " - "
+  );
 
   // Refresh values according with data storage
   if (powerOnOff()) {
@@ -484,54 +518,24 @@ document.getElementById("ce").addEventListener("click", () => {
   writeAndSave(result.id, 0, result);
 });
 
-// This method will trigger user permissions
-Html5Qrcode.getCameras()
-  .then((devices) => {
-    if (devices && devices.length) {
-      // Start scanning
-      const html5QrCode = new Html5Qrcode("reader");
-      // Files
-      const fileinput = document.getElementById("qr-input-file");
-      fileinput.addEventListener("change", (e) => {
-        if (e.target.files.length == 0) {
-          // No file selected, ignore
-          return;
-        }
-        const imageFile = e.target.files[0];
+// Fill both currencies selects when
+currenciesSelect.forEach((e, i) => {
+  e.addEventListener("change", () => {
+    // Reset previous values
+    e.innerText = "";
 
-        // Scan QR Code with file
-        html5QrCode
-          .scanFile(imageFile, true)
-          .then((decodedText) => {
-            // success, use decodedText
-            console.log(decodedText);
-          })
-          .catch((err) => {
-            // failure, handle it.
-            console.log(`Error scanning file. Reason: ${err}`);
-          });
-      });
-      // QR is detected
-      const qrCodeSuccessCallback = (decodedText, decodedResult) => {};
-      const config = { fps: 20, qrbox: { width: 150, height: 150 } };
+    fillSelect(
+      currencies,
+      JSON.parse(localStorage.getItem("exchangeRates")),
+      e,
+      " - "
+    );
 
-      document.getElementById("camera").addEventListener("click", () => {
-        // Scan QR code with camra
-        html5QrCode.start(
-          { facingMode: "environment" },
-          config,
-          qrCodeSuccessCallback
-        );
-      });
-    }
-  })
-  .catch((err) => {
-    // handle err
+    calculateExchange(
+      firstCurrency.value,
+      secondCurrency.value,
+      document.getElementById("quantity").value,
+      document.getElementById("resultCurrencies")
+    );
   });
-
-function calculateExchange(v1, v2) {
-  quantity = document.getElementById("quantity").value;
-  console.log(document.getElementById("exchanged").innerText);
-  document.getElementById("exchanged").value =
-    Math.round(((quantity / v1) * v2 + Number.EPSILON) * 100) / 100;
-}
+});

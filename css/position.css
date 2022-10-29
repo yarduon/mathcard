@@ -57,7 +57,7 @@
 }
 
 .calculator,
-#reader {
+#reader, .currency {
   z-index: 3;
 }
 

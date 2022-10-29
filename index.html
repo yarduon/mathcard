@@ -301,34 +301,31 @@
         </div>
         <div class="line grey relative"></div>
       </div>
-      <input
-        class="hidden"
-        style="z-index: 3"
-        type="file"
-        id="qr-input-file"
-        accept="image/*"
-      />
-      <button class="touch hidden" style="z-index: 4" id="camera">
-        camera
-      </button>
+      <section class="currency absolute red">
+        <label for="firstCurrency">First Currency</label>
+        <select name="firstCurrency" id="firstCurrency"></select>
+        <label for="secondCurrency">Second Currency</label>
+        <select name="secondCurrency" id="secondCurrency"></select>
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" id="quantity" />
+        <label for="resultCurrencies">Result</label>
+        <input
+          type="number"
+          name="resultCurrencies"
+          id="resultCurrencies"
+          readonly
+        />
+      </section>
     </main>
-    <div style="z-index: 3" class="absolute">
+    <!--  <div style="z-index: 3" class="absolute">
       <div id="reader"></div>
     </div>
-    <div style="z-index: 3">
-      <label for="firstCurrency">first Currency</label>
-      <div>
-        <select name="firstCurrency" id="firstCurrency"></select>
-      </div>
-      <label for="secondCurrency">Second Currency</label>
-      <div>
-        <select name="secondCurrency" id="secondCurrency"></select>
-      </div>
-      <input type="text" id="exchanged" />
-      <div>
-        <label for="">Quantity</label>
-      </div>
-      <input type="number" id="quantity" />
-    </div>
+    <input
+      class="hidden"
+      style="z-index: 3"
+      type="file"
+      id="qr-input-file"
+      accept="image/*"
+    /> -->
   </body>
 </html>
