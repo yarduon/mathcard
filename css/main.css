@@ -72,49 +72,117 @@
 .overflow-hidden {
   overflow: hidden;
 }
-/**/
+
 .darker-black-background {
-  background-color: rgb(29, 28, 28);
+  background-color: #0e0d0c;
 }
 
 .darker-black-text {
-  color: rgb(29, 28, 28);
+  color: #0e0d0c;
 }
 
 .darker-black-border-full {
-  border: 0.8vh solid rgb(29, 28, 28);
+  border: 0.8vh solid #0e0d0c;
 }
 
 .darker-black-border-bottom {
-  border-bottom: 0.5vh solid rgb(29, 28, 28);
+  border-bottom: 0.5vh solid #0e0d0c;
 }
 
 .darker-black-border-right {
-  border-right: 0.4vh solid rgb(29, 28, 28);
+  border-right: 0.4vh solid #0e0d0c;
+}
+
+/**/
+.darker-grey-background {
+  background-color: rgb(61, 56, 51);
 }
 /**/
+
+/**/
+.darker-white-background {
+  background-color: rgb(231, 227, 222);
+}
+/**/
+
+/**/
+.darker-orange-background {
+  background-color: #df4a0f;
+}
+/**/
+
+/**/
+.darker-red-background {
+  background-color: #df1d0f;
+}
+/**/
+
+/**/
+.darker-blue-background {
+  background-color: #1d0fdf;
+}
+/**/
+
+/**/
+.darker-brown-background {
+  background-color: #8a440b;
+}
+/**/
+
+/**/
+.darker-purple-background {
+  background-color: #6c0b8a;
+}
+/**/
+
+/**/
+.darker-pink-background {
+  background-color: #e42fb6;
+}
+/**/
+
+/**/
+.darker-yellow-background {
+  background-color: #f7cb07;
+}
+/**/
+
+/**/
+.darker-green-background {
+  background-color: #0b8a11;
+}
+/**/
+
 .normal-black-background {
-  background-color: #292929;
+  background-color: rgb(29, 28, 28);
 }
 
 .normal-black-text {
-  color: #292929;
+  color: rgb(29, 28, 28);
+}
+
+.normal-black-border-full {
+  border: 0.8vh solid rgb(29, 28, 28);
 }
 
 .normal-black-border-bottom {
-  border-bottom: 0.5vh solid #292929;
+  border-bottom: 0.5vh solid rgb(29, 28, 28);
 }
 
 .normal-black-border-right {
-  border-right: 0.4vh solid #292929;
+  border-right: 0.4vh solid rgb(29, 28, 28);
 }
-/**/
+
 .normal-grey-background {
   background-color: #444242;
 }
 
 .normal-grey-text {
   color: #444242;
+}
+
+.normal-grey-border-full {
+  border: 0.8vh solid #444242;
 }
 
 .normal-grey-border-bottom {
@@ -124,13 +192,17 @@
 .normal-grey-border-right {
   border-right: 0.4vh solid #444242;
 }
-/**/
+
 .normal-white-background {
-  background-color: whitesmoke;
+  background-color: rgb(245, 238, 238);
 }
 
 .normal-white-text {
   color: whitesmoke;
+}
+
+.normal-white-border-full {
+  border: 0.8vh solid whitesmoke;
 }
 
 .normal-white-border-bottom {
@@ -140,38 +212,232 @@
 .normal-white-border-right {
   border-right: 0.4vh solid whitesmoke;
 }
-/**/
+
 .normal-orange-background {
   background-color: #e75d26;
+}
+
+.normal-orange-text {
+  color: #e75d26;
+}
+
+.normal-orange-border-full {
+  border: 0.8vh solid #e75d26;
+}
+
+.normal-orange-border-bottom {
+  border-bottom: 0.5vh solid #e75d26;
+}
+
+.normal-orange-border-right {
+  border-right: 0.4vh solid #e75d26;
 }
 
 .normal-red-background {
   background-color: #f21d28;
 }
 
-.normal-red-blue-background {
+.normal-red-text {
+  color: #f21d28;
+}
+
+.normal-red-border-full {
+  border: 0.8vh solid #f21d28;
+}
+
+.normal-red-border-bottom {
+  border-bottom: 0.5vh solid #f21d28;
+}
+
+.normal-red-border-right {
+  border-right: 0.4vh solid #f21d28;
+}
+
+.normal-blue-background {
   background-color: #1d44f2;
+}
+
+.normal-blue-text {
+  color: #1d44f2;
+}
+
+.normal-blue-border-full {
+  border: 0.8vh solid #1d44f2;
+}
+
+.normal-blue-border-bottom {
+  border-bottom: 0.5vh solid #1d44f2;
+}
+
+.normal-blue-border-right {
+  border-right: 0.4vh solid #1d44f2;
 }
 
 .normal-brown-background {
   background-color: #a85f2f;
 }
 
+.normal-brown-text {
+  color: #a85f2f;
+}
+
+.normal-brown-border-full {
+  border: 0.8vh solid #a85f2f;
+}
+
+.normal-brown-border-bottom {
+  border-bottom: 0.5vh solid #a85f2f;
+}
+
+.normal-brown-border-right {
+  border-right: 0.4vh solid #a85f2f;
+}
+
 .normal-purple-background {
   background-color: #a026e7;
 }
 
+.normal-purple-text {
+  color: #a026e7;
+}
+
+.normal-purple-border-full {
+  border: 0.8vh solid #a026e7;
+}
+
+.normal-purple-border-bottom {
+  border-bottom: 0.5vh solid #a026e7;
+}
+
+.normal-purple-border-right {
+  border-right: 0.4vh solid #a026e7;
+}
+
 .normal-pink-background {
-  background-color: #e60dc9;
+  background-color: #e959d6;
+}
+
+.normal-pink-text {
+  color: #e959d6;
+}
+
+.normal-pink-border-full {
+  border: 0.8vh solid #e959d6;
+}
+
+.normal-pink-border-bottom {
+  border-bottom: 0.5vh solid #e959d6;
+}
+
+.normal-pink-border-right {
+  border-right: 0.4vh solid #e959d6;
 }
 
 .normal-yellow-background {
   background-color: #f2e41d;
 }
 
+.normal-yellow-text {
+  color: #f2e41d;
+}
+
+.normal-yellow-border-full {
+  border: 0.8vh solid #f2e41d;
+}
+
+.normal-yellow-border-bottom {
+  border-bottom: 0.5vh solid #f2e41d;
+}
+
+.normal-yellow-border-right {
+  border-right: 0.4vh solid #f2e41d;
+}
+
 .normal-green-background {
   background-color: #1df228;
 }
+
+.normal-green-text {
+  color: #1df228;
+}
+
+.normal-green-border-full {
+  border: 0.8vh solid #1df228;
+}
+
+.normal-green-border-bottom {
+  border-bottom: 0.5vh solid #1df228;
+}
+
+.normal-green-border-right {
+  border-right: 0.4vh solid #1df228;
+}
+
+/**/
+.light-black-background {
+  background-color: #292929;
+}
+/**/
+
+/**/
+.light-grey-background {
+  background-color: #cfcfc4;
+}
+/**/
+
+/**/
+.light-white-background {
+  background-color: rgb(255, 255, 255);
+}
+/**/
+
+/**/
+.light-orange-background {
+  background-color: #ffb347;
+}
+/**/
+
+/**/
+.light-red-background {
+  background-color: #ff6961;
+}
+/**/
+
+/**/
+.light-blue-background {
+  background-color: #aec6cf;
+}
+/**/
+
+/**/
+.light-brown-background {
+  background-color: #b1907f;
+}
+/**/
+
+/**/
+.light-purple-background {
+  background-color: #b19cd9;
+}
+/**/
+
+/**/
+.light-pink-background {
+  background-color: #ffd1dc;
+}
+/**/
+
+/**/
+.light-yellow-background {
+  background-color: #fdfd96;
+}
+/**/
+
+/**/
+.light-green-background {
+  background-color: #77dd77;
+}
+/**/
 
 .bold {
   font-weight: bold;
@@ -338,4 +604,20 @@
 .line {
   border-bottom-left-radius: 1.3vh;
   border-bottom-right-radius: 1.3vh;
+}
+
+.colors {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  flex-wrap: wrap;
+  background-color: rgb(255, 254, 254);
+}
+
+.color {
+  width: 3vh;
+  height: 3vh;
+  margin: 1vh 2vh 1vh 2vh;
+  box-shadow: 0px 0px 1px black;
 }
