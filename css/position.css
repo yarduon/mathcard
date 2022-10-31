@@ -75,6 +75,11 @@
   right: 0.7vh;
 }
 
+.qr {
+  bottom: 1.7vh;
+  left: 1.5vh;
+}
+
 .logo-container {
   bottom: 4vh;
 }
