@@ -341,8 +341,16 @@ function powerOnOff(event) {
     });
 
     // Change power status buttons colors
-    swapClasses(document.getElementById("on"), "normal-green-background", "normal-black-background");
-    swapClasses(document.getElementById("off"), "normal-black-background", "normal-red-background");
+    swapClasses(
+      document.getElementById("on"),
+      "normal-green-background",
+      "normal-black-background"
+    );
+    swapClasses(
+      document.getElementById("off"),
+      "normal-black-background",
+      "normal-red-background"
+    );
   } else {
     // Empty and hide data values
     writeAndSave(topScreen.id, "", topScreen);
@@ -355,8 +363,16 @@ function powerOnOff(event) {
     });
 
     // Change power status buttons colors
-    swapClasses(document.getElementById("on"), "normal-black-background", "normal-green-background");
-    swapClasses(document.getElementById("off"), "normal-red-background", "normal-black-background");
+    swapClasses(
+      document.getElementById("on"),
+      "normal-black-background",
+      "normal-green-background"
+    );
+    swapClasses(
+      document.getElementById("off"),
+      "normal-red-background",
+      "normal-black-background"
+    );
   }
   return stringToBoolean(localStorage.getItem("power"));
 }
@@ -374,18 +390,32 @@ function updateRates(json, currentDate) {
 }
 
 // Fill select input by using JSON and external API
-function fillSelect(json, values, select, symbol) {
+function fillSelect(json, values, select, symbol, firstTime) {
+  select.innerText = "";
+  // Save current item selected on the firs input
+  let currentSelected;
+  if(!firstTime){
+    currentSelected =
+    currenciesSelect[0].options[currenciesSelect[0].selectedIndex].getAttribute(
+      "currency"
+    );
+  }
+
   Object.keys(json).forEach((e) => {
-    let option = document.createElement("option");
-    option.innerText = e + symbol + json[e];
-    option.value = values.rates[e];
-    select.append(option);
+    if (firstTime || currentSelected != e) {
+      let option = document.createElement("option");
+      option.innerText = e + symbol + json[e];
+      option.value = values.rates[e];
+      option.setAttribute("currency", e);
+      select.append(option);
+    }
   });
 }
 
 // Convert one currency into another rounded two decimals
 function calculateExchange(n1, n2, quantity, result) {
-  result.value =
+  console.log(quantity);
+  result.innerText =
     Math.round(((quantity / n1) * n2 + Number.EPSILON) * 100) / 100;
 }
 
@@ -456,7 +486,22 @@ window.onload = () => {
     currencies,
     JSON.parse(localStorage.getItem("exchangeRates")),
     currenciesSelect[0],
-    " - "
+    " - ",
+    true
+  );
+
+  fillSelect(
+    currencies,
+    JSON.parse(localStorage.getItem("exchangeRates")),
+    currenciesSelect[1],
+    " - ",
+    false
+  );
+  calculateExchange(
+    currenciesSelect[0].value,
+    currenciesSelect[1].value,
+    document.getElementById("topScreen").innerText,
+    document.getElementById("result")
   );
 
   // Refresh values according with data storage
@@ -519,23 +564,28 @@ document.getElementById("ce").addEventListener("click", () => {
 });
 
 // Fill both currencies selects when
-currenciesSelect.forEach((e, i) => {
-  e.addEventListener("change", () => {
-    // Reset previous values
-    e.innerText = "";
+currenciesSelect[0].addEventListener("change", () => {
+  fillSelect(
+    currencies,
+    JSON.parse(localStorage.getItem("exchangeRates")),
+    currenciesSelect[1],
+    " - ",
+    false
+  );
+  calculateExchange(
+    currenciesSelect[0].value,
+    currenciesSelect[1].value,
+    document.getElementById("topScreen").innerText,
+    document.getElementById("result")
+  );
+});
 
-    fillSelect(
-      currencies,
-      JSON.parse(localStorage.getItem("exchangeRates")),
-      e,
-      " - "
-    );
 
-    calculateExchange(
-      firstCurrency.value,
-      secondCurrency.value,
-      document.getElementById("quantity").value,
-      document.getElementById("resultCurrencies")
-    );
-  });
+currenciesSelect[1].addEventListener("change", () => {
+  calculateExchange(
+    currenciesSelect[0].value,
+    currenciesSelect[1].value,
+    document.getElementById("topScreen").innerText,
+    document.getElementById("result")
+  );
 });

@@ -9,12 +9,6 @@
   width: 29vh;
 }
 
-.main-button,
-.qr {
-  width: 6vh;
-  height: 6vh;
-}
-
 #square1,
 #square2 {
   height: 210vh;
@@ -60,16 +54,16 @@
   width: 50%;
 }
 
+.max-height {
+  height: 100%;
+}
+
 .medium-icon {
   width: 2.3vh;
 }
 
 .large-icon {
-  width: 4.5vh;
-}
-
-.max-height {
-  height: 100%;
+  width: 5.5vh;
 }
 
 .circle-shape {
@@ -866,6 +860,11 @@
   margin: 0 0 41vh 32.2vh;
 }
 
+.main-button {
+  width: 6vh;
+  height: 6vh;
+}
+
 .additional {
   width: 5.4vh;
   height: 3.5vh;
@@ -873,6 +872,17 @@
 
 .symbols {
   gap: 0.7vh 1.7vh;
+}
+
+.qr {
+  width: 7vh;
+  height: 7vh;
+}
+
+.line {
+  height: 3.6vh;
+  border-bottom-left-radius: 1.3vh;
+  border-bottom-right-radius: 1.3vh;
 }
 
 #square1 {
@@ -891,10 +901,4 @@
   width: 230vh;
   height: 100vh;
   margin: 0 0 70vh 60vh;
-}
-
-.line {
-  height: 3.6vh;
-  border-bottom-left-radius: 1.3vh;
-  border-bottom-right-radius: 1.3vh;
 }
