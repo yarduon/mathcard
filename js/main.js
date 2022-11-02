@@ -7,6 +7,7 @@ import {
   writeAndSave,
   countElements,
   isEqual,
+  getCurrentSelectValue,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
@@ -112,7 +113,6 @@ function mathToArray(string) {
 
 function mathToOperations(array) {
   let firstPos = 0;
-
   // If there are parentheses in the operations
   if (countElements("(", array) === countElements(")", array)) {
     while (array.includes("(") && array.includes(")")) {
@@ -391,18 +391,18 @@ function updateRates(json, currentDate) {
 
 // Fill select input by using JSON and external API
 function fillSelect(json, values, select, symbol, firstTime) {
-  select.innerText = "";
-  // Save current item selected on the firs input
   let currentSelected;
-  if(!firstTime){
-    currentSelected =
-    currenciesSelect[0].options[currenciesSelect[0].selectedIndex].getAttribute(
-      "currency"
-    );
+  // Reset previously saved values
+  select.innerText = "";
+  // Avoid null values when fill first select the first time
+  if (!firstTime) {
+    currentSelected = getCurrentSelectValue(currenciesSelect[0], "currency");
   }
 
   Object.keys(json).forEach((e) => {
+    // Only when the value is different from the first select or second select is empty
     if (firstTime || currentSelected != e) {
+      // Create option
       let option = document.createElement("option");
       option.innerText = e + symbol + json[e];
       option.value = values.rates[e];
@@ -412,11 +412,33 @@ function fillSelect(json, values, select, symbol, firstTime) {
   });
 }
 
+// Fill second select when first one is manipulated and calculate results in both
+function fillSecondSelect(i) {
+  // Only when first select change status
+  if (i === 0) {
+    fillSelect(
+      currencies,
+      JSON.parse(localStorage.getItem("exchangeRates")),
+      currenciesSelect[1],
+      " - ",
+      false
+    );
+  }
+  calculateExchange(
+    ...currenciesSelect,
+    document.getElementById("topScreen").innerText,
+    document.getElementById("result"),
+    getCurrentSelectValue(currenciesSelect[1], "currency")
+  );
+}
+
 // Convert one currency into another rounded two decimals
-function calculateExchange(n1, n2, quantity, result) {
-  console.log(quantity);
+function calculateExchange(n1, n2, quantity, result, currencyName) {
   result.innerText =
-    Math.round(((quantity / n1) * n2 + Number.EPSILON) * 100) / 100;
+    Math.round(((quantity / n1.value) * n2.value + Number.EPSILON) * 100) /
+      100 +
+    " " +
+    currencyName;
 }
 
 // Scan QR codes by camera or images provided
@@ -481,7 +503,7 @@ window.onload = () => {
     updateRates("https://api.exchangerate-api.com/v4/latest/euro", new Date());
   }
 
-  // Fill first currency input
+  // Fill first currency select
   fillSelect(
     currencies,
     JSON.parse(localStorage.getItem("exchangeRates")),
@@ -490,19 +512,8 @@ window.onload = () => {
     true
   );
 
-  fillSelect(
-    currencies,
-    JSON.parse(localStorage.getItem("exchangeRates")),
-    currenciesSelect[1],
-    " - ",
-    false
-  );
-  calculateExchange(
-    currenciesSelect[0].value,
-    currenciesSelect[1].value,
-    document.getElementById("topScreen").innerText,
-    document.getElementById("result")
-  );
+  // Refill first and second currency select
+  for (let i = 0; i < 2; i++) fillSecondSelect(i);
 
   // Refresh values according with data storage
   if (powerOnOff()) {
@@ -526,12 +537,13 @@ document.getElementById("power").addEventListener("click", (e) => {
   powerOnOff(e);
 });
 
-// Memory buttons
+// Delete all operations
 document.getElementById("ac").addEventListener("click", () => {
   writeAndSave(topScreen.id, "", topScreen);
   writeAndSave(result.id, 0, result);
 });
 
+// Add current result with stored result
 document.getElementById("m+").addEventListener("click", () => {
   localStorage.setItem(
     "memory",
@@ -539,6 +551,7 @@ document.getElementById("m+").addEventListener("click", () => {
   );
 });
 
+// Subtract current result with stored result
 document.getElementById("m-").addEventListener("click", () => {
   localStorage.setItem(
     "memory",
@@ -546,46 +559,29 @@ document.getElementById("m-").addEventListener("click", () => {
   );
 });
 
+// Use stored result as an operation value
 document.getElementById("mr").addEventListener("click", () => {
   topScreen.innerText += localStorage.getItem("memory");
   localStorage.setItem("topScreen", topScreen.innerText);
 });
 
+// Save current result
 document.getElementById("ms").addEventListener("click", () => {
   localStorage.setItem("memory", result.innerText);
 });
 
+// Delete stored result
 document.getElementById("mc").addEventListener("click", () => {
   localStorage.removeItem("memory");
 });
 
+// Delete current result
 document.getElementById("ce").addEventListener("click", () => {
   writeAndSave(result.id, 0, result);
 });
 
-// Fill both currencies selects when
-currenciesSelect[0].addEventListener("change", () => {
-  fillSelect(
-    currencies,
-    JSON.parse(localStorage.getItem("exchangeRates")),
-    currenciesSelect[1],
-    " - ",
-    false
-  );
-  calculateExchange(
-    currenciesSelect[0].value,
-    currenciesSelect[1].value,
-    document.getElementById("topScreen").innerText,
-    document.getElementById("result")
-  );
-});
-
-
-currenciesSelect[1].addEventListener("change", () => {
-  calculateExchange(
-    currenciesSelect[0].value,
-    currenciesSelect[1].value,
-    document.getElementById("topScreen").innerText,
-    document.getElementById("result")
-  );
+currenciesSelect.forEach((e, i) => {
+  e.addEventListener("change", () => {
+    fillSecondSelect(i);
+  });
 });
