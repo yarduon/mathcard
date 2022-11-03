@@ -42,9 +42,8 @@
 }
 
 #topScreen,
-.buttons-container,
 #result {
-  font-size: 2.3vh;
+  font-size: 2.1vh;
 }
 
 .touch:hover,
@@ -835,13 +834,13 @@
 }
 
 .container-operations {
-  width: 94.9%;
-  height: 4.2vh;
-  margin: 0.4vh 0 0 0;
+  width: 92.5%;
+  height: 3vh;
+  margin: 0.6vh 0 0 0;
 }
 
 #topScreen {
-  height: 2.8vh;
+  height: 2.6vh;
   padding: 0 0.2vh 0 0;
   animation: typing 1.5s steps(1) infinite;
 }
@@ -859,6 +858,7 @@
   height: 54vh;
   margin-top: -0.8vh;
   padding: 1.2vh 1.2vh 6vh 1.2vh;
+  font-size: 2.3vh;
 }
 
 .off-on-light {
@@ -873,19 +873,15 @@
   height: 2vh;
 }
 
-.switch-icon {
-  width: 7vh;
-  height: 5vh;
-}
-
 .switch-line {
+  width: 7vh;
   height: 3.2vh;
 }
 
 .switch-circle {
   width: 1.8vh;
   height: 1.8vh;
-  margin-bottom: 0.2vh;
+  margin-bottom: 0.3vh;
 }
 
 #switch-mode:checked ~ .container-currencies {

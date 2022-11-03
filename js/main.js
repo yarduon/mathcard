@@ -192,7 +192,7 @@ function deleteNumber(lastDeleted) {
 
   // Prevent NaN and calculate the result by deleting numbers
   isNaN(mathToOperations(mathToArray(topScreen.innerText)))
-    ? writeAndSave(result.id, 0, result)
+    ? writeAndSave(result.id, "", result)
     : writeAndSave(
         result.id,
         mathToOperations(mathToArray(topScreen.innerText)),
