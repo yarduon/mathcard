@@ -917,9 +917,14 @@
   margin: 0.5vh 0.4vh 0.5vh 0.4vh;
 }
 
-.qr {
-  width: 7vh;
-  height: 7vh;
+.extra-container {
+  width: 19.5vh;
+}
+
+.extra-button {
+  width: 5.5vh;
+  height: 5.5vh;
+  padding: 0.9vh;
 }
 
 .line {
