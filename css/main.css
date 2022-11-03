@@ -1,4 +1,11 @@
 /* https://yarduon.com */
+.hidden,
+#switch-mode:checked ~ .function,
+#switch-mode:checked ~ .symbols .operator,
+#switch-mode:checked ~ .symbols .parenthesis {
+  display: none;
+}
+
 .calculator,
 .line {
   width: 40vh;
@@ -72,10 +79,6 @@
 
 .invisible {
   opacity: 0;
-}
-
-.hidden {
-  display: none;
 }
 
 .hidden-webstyles {
@@ -856,7 +859,6 @@
   height: 54vh;
   margin-top: -0.8vh;
   padding: 1.2vh 1.2vh 6vh 1.2vh;
-  gap: 1.2vh 0.5vh;
 }
 
 .off-on-light {
@@ -872,36 +874,22 @@
 }
 
 .switch-icon {
-  width: 8vh;
-  height: 4vh;
+  width: 7vh;
+  height: 5vh;
 }
 
 .switch-line {
-  width: 90%;
-  height: 1.5vh;
+  height: 3.2vh;
 }
 
 .switch-circle {
-  width: 2vh;
-  border-radius: 100%;
-  height: 2vh;
-  left: 0;
-  transition: left 1s;
-}
-
-#switch-mode:checked ~ label .switch-icon .switch-circle {
-  left: 90%;
-  transition: left 1s;
+  width: 1.8vh;
+  height: 1.8vh;
+  margin-bottom: 0.2vh;
 }
 
 #switch-mode:checked ~ .container-currencies {
   display: flex;
-}
-
-#switch-mode:checked ~ .function,
-#switch-mode:checked ~ .symbols .operator,
-#switch-mode:checked ~ .symbols .parenthesis {
-  display: none;
 }
 
 .power {
@@ -921,6 +909,7 @@
 .additional {
   width: 5.4vh;
   height: 3.5vh;
+  margin: 0.5vh 0.4vh 0.5vh 0.4vh;
 }
 
 .main-button {
@@ -928,8 +917,8 @@
   height: 6vh;
 }
 
-.symbols {
-  gap: 0.7vh 1.7vh;
+.symbols .button {
+  margin: 0.5vh 0.4vh 0.5vh 0.4vh;
 }
 
 .qr {
