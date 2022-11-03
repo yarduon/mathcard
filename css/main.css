@@ -868,19 +868,20 @@
 }
 
 .switch-mode-container {
+  height: 2vh;
+}
+
+.switch-icon {
   width: 8vh;
   height: 4vh;
-  top: 2vh;
 }
 
 .switch-line {
-  background-color: black;
   width: 90%;
   height: 1.5vh;
 }
 
 .switch-circle {
-  background-color: white;
   width: 2vh;
   border-radius: 100%;
   height: 2vh;
@@ -888,7 +889,7 @@
   transition: left 1s;
 }
 
-#switch-mode:checked ~ label .switch-mode-container .switch-circle {
+#switch-mode:checked ~ label .switch-icon .switch-circle {
   left: 90%;
   transition: left 1s;
 }

@@ -59,6 +59,8 @@
 }
 
 .invisible {
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
@@ -69,6 +71,10 @@
 #result {
   top: 1.5vh;
   right: 1vh;
+}
+
+.logo-container {
+  bottom: 4vh;
 }
 
 .off-on-light {
@@ -84,6 +90,7 @@
   left: 1.5vh;
 }
 
-.logo-container {
-  bottom: 4vh;
+.switch-mode-container {
+  left: 11.4vh;
+  bottom: 2vh;
 }
