@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/animation.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
     <script defer src="./js/html5_qrcode.js"></script>
     <script type="module" defer src="./js/main.js"></script>
   </head>
@@ -87,6 +86,15 @@
               id="off"
             ></div>
           </div>
+          <input  name="switch-mode" id="switch-mode" type="checkbox" />
+          <label class="absolute" for="switch-mode">
+            <div
+              class="switch-mode-container flex justify-center align-center absolute"
+            >
+              <div class="switch-line"></div>
+              <div class="absolute switch-circle"></div>
+            </div>
+          </label>
           <button
             class="flex justify-center align-center absolute power circle-shape touch darker-black-border-right darker-black-border-bottom normal-black-background"
             id="power"
@@ -139,7 +147,9 @@
           >
             CE
           </button>
-          <div class="max-width container-currencies flex column justify-between">
+          <div
+            class="hidden max-width container-currencies flex column justify-between"
+          >
             <label for="firstCurrency">
               <select
                 class="select max-width hidden-webstyles round-border medium-text darker-black-border-right darker-black-border-bottom touch normal-grey-background darker-white-text center"
@@ -156,37 +166,37 @@
             </label>
           </div>
           <button
-            class="button hidden calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
+            class="button calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
             id="LOG("
           >
             LOG
           </button>
           <button
-            class="button hidden calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
+            class="button calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
             id="SIN("
           >
             SIN
           </button>
           <button
-            class="button hidden calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
+            class="button calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
             id="COS("
           >
             COS
           </button>
           <button
-            class="button hidden calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
+            class="button calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
             id="TAN("
           >
             TAN
           </button>
           <button
-            class="button hidden calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
+            class="button calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
             id="PI"
           >
             PI
           </button>
           <button
-            class="button hidden calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
+            class="button calc-button additional round-border medium-text touch darker-black-border-right darker-black-border-bottom normal-white-text normal-grey-background"
             id="SQR("
           >
             SQR
@@ -211,13 +221,13 @@
               9
             </button>
             <button
-              class="button hidden calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
+              class="button calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
               id="%"
             >
               %
             </button>
             <button
-              class="button hidden calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
+              class="button calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
               id="Dead"
             >
               ^
@@ -241,13 +251,13 @@
               6
             </button>
             <button
-              class="button hidden calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
+              class="button calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
               id="*"
             >
               *
             </button>
             <button
-              class="button hidden calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
+              class="button calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
               id="/"
             >
               /
@@ -271,13 +281,13 @@
               3
             </button>
             <button
-              class="button hidden calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
+              class="button calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
               id="+"
             >
               +
             </button>
             <button
-              class="button hidden calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
+              class="button calc-button operator main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
               id="-"
             >
               -
@@ -295,13 +305,13 @@
               .
             </button>
             <button
-              class="button hidden calc-button main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
+              class="button calc-button main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
               id="("
             >
               (
             </button>
             <button
-              class="button hidden calc-button main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
+              class="button calc-button main-button round-border touch darker-black-border-right darker-black-border-bottom darker-black-text normal-white-background"
               id=")"
             >
               )
