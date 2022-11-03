@@ -11,7 +11,7 @@ export default {
   AUD: "Australian Dollar",
   AWG: "Aruban Florin",
   AZN: "Azerbaijani Manat",
-  BAM: "Bosnia and Herzegovina Convertible Mark",
+  BAM: "Bosnia and Herzegovina Mark",
   BBD: "Barbados Dollar",
   BDT: "Bangladeshi Taka",
   BGN: "Bulgarian Lev",

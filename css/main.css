@@ -78,6 +78,14 @@
   display: none;
 }
 
+.hidden-webstyles {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -746,6 +754,10 @@
   font-weight: bold;
 }
 
+.center {
+  text-align: center;
+}
+
 .medium-text {
   font-size: 1.8vh;
 }
@@ -841,6 +853,7 @@
 }
 
 .buttons-container {
+  height: 54vh;
   margin-top: -0.8vh;
   padding: 1.2vh 1.2vh 6vh 1.2vh;
   gap: 1.2vh 0.5vh;
@@ -858,6 +871,14 @@
   width: 4.6vh;
   height: 4.6vh;
   margin: 0 0 41vh 32.2vh;
+}
+
+.container-currencies {
+  height: 9vh;
+}
+
+.select {
+  height: 3.7vh;
 }
 
 .main-button {

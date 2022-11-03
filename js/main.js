@@ -276,6 +276,14 @@ function selectButton(name) {
           mathToOperations(mathToArray(topScreen.innerText)),
           result
         );
+        /*
+            calculateExchange(
+            ...currenciesSelect,
+            document.getElementById("topScreen").innerText,
+            document.getElementById("result"),
+            getCurrentSelectValue(currenciesSelect[1], "currency")
+           );
+        */
         break;
       // Remaining buttons
       default:
@@ -424,12 +432,6 @@ function fillSecondSelect(i) {
       false
     );
   }
-  calculateExchange(
-    ...currenciesSelect,
-    document.getElementById("topScreen").innerText,
-    document.getElementById("result"),
-    getCurrentSelectValue(currenciesSelect[1], "currency")
-  );
 }
 
 // Convert one currency into another rounded two decimals
