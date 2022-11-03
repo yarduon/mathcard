@@ -58,6 +58,10 @@
   position: absolute;
 }
 
+.invisible {
+  z-index: -1;
+}
+
 #square1 {
   z-index: 2;
 }
