@@ -385,14 +385,12 @@ function powerOnOff(event) {
   return stringToBoolean(localStorage.getItem("power"));
 }
 
-function updateRates(json, currentDate) {
+async function updateRates(json, currentDate) {
   // Obtain current conversion rates
-  fetch(json)
-    .then((response) => response.json())
-    .then((data) => {
-      // Convert rates to local data
-      localStorage.setItem("exchangeRates", JSON.stringify(data));
-    });
+  const response = await fetch(json);
+  const data = await response.json();
+  // Convert rates to local data
+  localStorage.setItem("exchangeRates", JSON.stringify(data));
   // Rates won't be updated until next 24 hours
   localStorage.setItem("updateTime", addHours(currentDate, 24));
 }
@@ -492,7 +490,7 @@ function readQR() {
 }
 
 // When the page is refreshed or loaded for the first time
-window.onload = () => {
+window.onload = async () => {
   // Load default values when the cache is deleted or first time
   if (!localStorage.getItem("power")) localStorage.setItem("power", true);
   if (!localStorage.getItem("memory")) localStorage.setItem("memory", 0);
@@ -502,7 +500,11 @@ window.onload = () => {
     !localStorage.getItem("updateTime") ||
     new Date() >= new Date(localStorage.getItem("updateTime"))
   ) {
-    updateRates("https://api.exchangerate-api.com/v4/latest/euro", new Date());
+    // Wait until all currency data is loaded on app
+    await updateRates(
+      "https://api.exchangerate-api.com/v4/latest/euro",
+      new Date()
+    );
   }
 
   // Fill first currency select
