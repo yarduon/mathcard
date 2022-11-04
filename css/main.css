@@ -939,17 +939,16 @@
 }
 
 .extra-button {
-  width: 5.5vh;
-  height: 5.5vh;
+  width: 5vh;
+  height: 5vh;
 }
 
 .paint {
-  width: 4vh;
-  height: 4vh;
+  padding: .6vh .6vh .6vh .7vh;
 }
 
 .line {
-  height: 3.6vh;
+  height: 4.7vh;
   border-bottom-left-radius: 1.3vh;
   border-bottom-right-radius: 1.3vh;
 }

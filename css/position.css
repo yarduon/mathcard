@@ -91,8 +91,9 @@
 }
 
 .switch-mode-container {
-  right: 8.5vh;
-  bottom: 2.5vh;
+  bottom: -3.4vh;
+  right: 4.7vh;
+  z-index: 3;
 }
 
 #switch-mode:checked ~ label .switch-icon .switch-circle {
