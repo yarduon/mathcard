@@ -8,6 +8,7 @@ import {
   countElements,
   isEqual,
   getCurrentSelectValue,
+  cleanText,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
@@ -32,6 +33,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     "-",
     "+",
   ],
+  switchModes = document.getElementById("switch-mode"),
   currenciesSelect = [
     document.getElementById("firstCurrency"),
     document.getElementById("secondCurrency"),
@@ -190,8 +192,20 @@ function deleteNumber(lastDeleted) {
   // Create a copy of screen without last element
   writeAndSave(topScreen.id, topScreen.innerText.slice(0, -1), topScreen);
 
-  // Prevent NaN and calculate the result by deleting numbers
-  isNaN(mathToOperations(mathToArray(topScreen.innerText)))
+  // Calculate the result by deleting numbers and will be different in each mode
+  stringToBoolean(localStorage.getItem("currencyMode"))
+    ? // Calculate exchange currency
+      writeAndSave(
+        result.id,
+        calculateExchange(
+          ...currenciesSelect,
+          topScreen.innerText,
+          getCurrentSelectValue(currenciesSelect[1], "currency")
+        ),
+        result
+      )
+    : // Prevent NaN and calculate math operations
+    isNaN(mathToOperations(mathToArray(topScreen.innerText)))
     ? writeAndSave(result.id, "", result)
     : writeAndSave(
         result.id,
@@ -271,19 +285,22 @@ function selectButton(name) {
         deleteNumber(lastSelected);
         break;
       case "=":
-        writeAndSave(
-          result.id,
-          mathToOperations(mathToArray(topScreen.innerText)),
-          result
-        );
-        /*
-            calculateExchange(
-            ...currenciesSelect,
-            document.getElementById("topScreen").innerText,
-            document.getElementById("result"),
-            getCurrentSelectValue(currenciesSelect[1], "currency")
-           );
-        */
+        // Calculate the result according to selected mode
+        stringToBoolean(localStorage.getItem("currencyMode"))
+          ? writeAndSave(
+              result.id,
+              calculateExchange(
+                ...currenciesSelect,
+                topScreen.innerText,
+                getCurrentSelectValue(currenciesSelect[1], "currency")
+              ),
+              result
+            )
+          : writeAndSave(
+              result.id,
+              mathToOperations(mathToArray(topScreen.innerText)),
+              result
+            );
         break;
       // Remaining buttons
       default:
@@ -433,12 +450,13 @@ function fillSecondSelect(i) {
 }
 
 // Convert one currency into another rounded two decimals
-function calculateExchange(n1, n2, quantity, result, currencyName) {
-  result.innerText =
+function calculateExchange(n1, n2, quantity, currencyName) {
+  return (
     Math.round(((quantity / n1.value) * n2.value + Number.EPSILON) * 100) /
       100 +
     " " +
-    currencyName;
+    currencyName
+  );
 }
 
 // Scan QR codes by camera or images provided
@@ -494,6 +512,8 @@ window.onload = async () => {
   // Load default values when the cache is deleted or first time
   if (!localStorage.getItem("power")) localStorage.setItem("power", true);
   if (!localStorage.getItem("memory")) localStorage.setItem("memory", 0);
+  if (!localStorage.getItem("currencyMode"))
+    localStorage.setItem("currencyMode", false);
 
   // Update rates each 24h or when it's the first time
   if (
@@ -518,6 +538,9 @@ window.onload = async () => {
 
   // Refill first and second currency select
   for (let i = 0; i < 2; i++) fillSecondSelect(i);
+
+  // Set previous selected mode
+  switchModes.checked = stringToBoolean(localStorage.getItem("currencyMode"));
 
   // Refresh values according with data storage
   if (powerOnOff()) {
@@ -571,7 +594,10 @@ document.getElementById("mr").addEventListener("click", () => {
 
 // Save current result
 document.getElementById("ms").addEventListener("click", () => {
-  localStorage.setItem("memory", result.innerText);
+  // Prevent currency names to be stored
+  isNaN(localStorage.getItem("memory"))
+    ? localStorage.setItem("memory", cleanText(result.innerText))
+    : localStorage.setItem("memory", result.innerText);
 });
 
 // Delete stored result
@@ -584,8 +610,18 @@ document.getElementById("ce").addEventListener("click", () => {
   writeAndSave(result.id, 0, result);
 });
 
+// Fill second select when editing the options on the first
 currenciesSelect.forEach((e, i) => {
   e.addEventListener("change", () => {
     fillSecondSelect(i);
   });
+});
+
+// Save on local data current mode status
+switchModes.addEventListener("click", () => {
+  if (switchModes.checked) {
+    localStorage.setItem("currencyMode", true);
+  } else {
+    localStorage.setItem("currencyMode", false);
+  }
 });

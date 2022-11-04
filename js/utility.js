@@ -42,6 +42,44 @@ export function stringToBoolean(s) {
   return Boolean(s === "true");
 }
 
+// Clean letters, characters or white spaces from a string with numbers
+export function cleanText(n) {
+  n = n.toLowerCase();
+  let matches = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "ñ",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "y",
+    "z",
+    "",
+  ];
+  matches.forEach((e) => {
+    n = n.replaceAll(e, "");
+  });
+  return n;
+}
+
 export function writeAndSave(name, save, place, accumulate) {
   if (accumulate) {
     place.innerText += save;
