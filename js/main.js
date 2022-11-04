@@ -619,9 +619,10 @@ currenciesSelect.forEach((e, i) => {
 
 // Save on local data current mode status
 switchModes.addEventListener("click", () => {
-  if (switchModes.checked) {
-    localStorage.setItem("currencyMode", true);
-  } else {
-    localStorage.setItem("currencyMode", false);
-  }
+  switchModes.checked
+    ? localStorage.setItem("currencyMode", true)
+    : localStorage.setItem("currencyMode", false);
+  // Reset values
+  writeAndSave(result.id, "0", result);
+  writeAndSave(topScreen.id, "", topScreen);
 });
