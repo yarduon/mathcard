@@ -16,6 +16,12 @@
   width: 29vh;
 }
 
+.settings,
+.paint {
+  width: 3.8vh;
+  height: 3.8vh;
+}
+
 #square1,
 #square2 {
   height: 210vh;
@@ -884,21 +890,6 @@
   border-bottom-right-radius: 1vh;
 }
 
-.switch-line {
-  width: 7vh;
-  height: 3.2vh;
-}
-
-.switch-circle {
-  width: 1.8vh;
-  height: 1.8vh;
-  margin-bottom: 0.3vh;
-}
-
-#switch-mode:checked ~ .buttons-container .container-currencies {
-  display: flex;
-}
-
 .power {
   width: 4.6vh;
   height: 4.6vh;
@@ -918,7 +909,7 @@
 }
 
 .extra-symbols {
-  margin-left: 3vh;
+  margin-right: 0.4vh;
 }
 
 .extra-symbols .additional {
@@ -934,16 +925,30 @@
   height: 7vh;
 }
 
-.settings {
-  width: 3.8vh;
-  height: 3.8vh;
-}
-
 .line {
   height: 5.3vh;
   padding: 0.7vh;
   border-bottom-left-radius: 1.3vh;
   border-bottom-right-radius: 1.3vh;
+}
+
+.footer-buttons {
+  width: 8.5vh;
+}
+
+.switch-line {
+  width: 7vh;
+  height: 3.2vh;
+}
+
+.switch-circle {
+  width: 1.8vh;
+  height: 1.8vh;
+  margin-bottom: 0.3vh;
+}
+
+#switch-mode:checked ~ .buttons-container .container-currencies {
+  display: flex;
 }
 
 #square1 {
