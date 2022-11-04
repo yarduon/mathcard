@@ -69,7 +69,8 @@
 }
 
 .large-icon {
-  width: 5.5vh;
+  width: 4vh;
+  height: 4vh;
 }
 
 .circle-shape {
@@ -861,10 +862,14 @@
   font-size: 2.3vh;
 }
 
+.lights-container {
+  margin-bottom: 1vh;
+}
+
 .off-on-light {
   width: 2vh;
   height: 1.5vh;
-  margin-top: 1.2vh;
+  margin-top: 1vh;
   border-top-right-radius: 1vh;
   border-bottom-right-radius: 1vh;
 }
@@ -904,8 +909,8 @@
 
 .additional {
   width: 5.4vh;
-  height: 3.5vh;
-  margin: 0.5vh 0.4vh 0.5vh 0.4vh;
+  height: 3.3vh;
+  margin: 0vh 0.4vh 0vh 0.4vh;
 }
 
 .main-button {
@@ -914,7 +919,19 @@
 }
 
 .symbols .button {
-  margin: 0.5vh 0.4vh 0.5vh 0.4vh;
+  margin: 0.2vh 0.4vh 0.5vh 0.4vh;
+}
+
+.extra-symbols {
+  margin-left: 3vh;
+}
+
+.extra-symbols .additional {
+  margin: -0.3vh 0 0 0;
+}
+
+#Backspace {
+  margin-right: 1vh;
 }
 
 .extra-container {
@@ -924,7 +941,11 @@
 .extra-button {
   width: 5.5vh;
   height: 5.5vh;
-  padding: 0.9vh;
+}
+
+.paint {
+  width: 4vh;
+  height: 4vh;
 }
 
 .line {
