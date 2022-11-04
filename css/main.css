@@ -69,7 +69,7 @@
 }
 
 .large-icon {
-  width: 4vh;
+  width: 5.5vh;
 }
 
 .circle-shape {
@@ -927,6 +927,11 @@
 
 #Backspace {
   margin-right: 1vh;
+}
+
+.qr {
+  width: 7vh;
+  height: 7vh;
 }
 
 .settings {

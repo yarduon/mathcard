@@ -81,8 +81,9 @@
   right: 1.2vh;
 }
 
-.secondary {
-  right: 0.7vh;
+.qr {
+  left: 1.5vh;
+  bottom: 2vh;
 }
 
 #switch-mode:checked ~ .line .switch-circle {
