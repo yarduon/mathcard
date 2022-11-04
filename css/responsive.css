@@ -1,1 +1,7 @@
 /* https://yarduon.com */
+@media screen and (max-width: 550px) {
+  .calculator {
+    width: 100%;
+    height: 100%;
+  }
+}

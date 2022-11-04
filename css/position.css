@@ -85,18 +85,7 @@
   right: 0.7vh;
 }
 
-.extra-container {
-  bottom: 1.8vh;
-  left: 1.5vh;
-}
-
-.switch-mode-container {
-  bottom: -3.4vh;
-  right: 4.7vh;
-  z-index: 3;
-}
-
-#switch-mode:checked ~ label .switch-icon .switch-circle {
+#switch-mode:checked ~ .line .switch-circle {
   left: 4.4vh;
 }
 
