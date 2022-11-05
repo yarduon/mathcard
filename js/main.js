@@ -415,22 +415,16 @@ async function updateRates(json, currentDate) {
 }
 
 // Fill select input by using JSON and external API
-function fillSelect(json, values, select, symbol, firstTime) {
-  // Current selected element on first select
-  let currentSelected,
-    previousSelected = getCurrentSelectValue(currenciesSelect[1]);
+function fillSelect(json, values, select, symbol) {
+  // Previous selected element on second select
+  let previousSelected = getCurrentSelectValue(currenciesSelect[1]);
 
   // Reset previously saved values
   select.innerText = "";
 
-  // Avoid null values when fill first select the first time
-  if (!firstTime) {
-    currentSelected = getCurrentSelectValue(currenciesSelect[0], "currency");
-  }
-
   Object.keys(json).forEach((e) => {
     // Only when the value is different from the first select or second select is empty
-    if (firstTime || currentSelected != e) {
+    if (select.id === "firstCurrency" || currenciesSelect[0].value != e) {
       // Create option
       let option = document.createElement("option");
       option.innerText = e + symbol + json[e];
@@ -439,23 +433,14 @@ function fillSelect(json, values, select, symbol, firstTime) {
       select.append(option);
     }
   });
-  
-  if (previousSelected) {
-    currenciesSelect[1].value = previousSelected.value;
-  }
-}
 
-// Fill second select when first one is manipulated and calculate results in both
-function fillSecondSelect(i, firstTime) {
-  // Only when first select change status
-  if (i === 0) {
-    fillSelect(
-      currencies,
-      JSON.parse(localStorage.getItem("exchangeRates")),
-      currenciesSelect[1],
-      " - ",
-      firstTime
-    );
+  // Avoid null values when second select is empty
+  if (previousSelected) {
+    // Select first option when is equal to the value of first select
+    currenciesSelect[0].value === previousSelected.value
+      ? (currenciesSelect[1].value = currenciesSelect[1].options[0].value)
+      : // Re-select previous option
+        (currenciesSelect[1].value = previousSelected.value);
   }
 }
 
@@ -521,8 +506,15 @@ window.onload = async () => {
   // Load default values when the cache is deleted or first time
   if (!localStorage.getItem("power")) localStorage.setItem("power", true);
   if (!localStorage.getItem("memory")) localStorage.setItem("memory", 0);
-  if (!localStorage.getItem("currencyMode"))
+  if (!localStorage.getItem("currencyMode")) {
     localStorage.setItem("currencyMode", false);
+  }
+
+  // Power on or off light of calculator according to previous actions
+  if (powerOnOff()) {
+    topScreen.innerText = localStorage.getItem("topScreen");
+    result.innerText = localStorage.getItem("result");
+  }
 
   // Update rates each 24h or when it's the first time
   if (
@@ -536,30 +528,24 @@ window.onload = async () => {
     );
   }
 
-  // Fill first currency select
-  fillSelect(
-    currencies,
-    JSON.parse(localStorage.getItem("exchangeRates")),
-    currenciesSelect[0],
-    " - ",
-    true
-  );
-
-  // Refill first and second currency select
-  for (let i = 0; i < 2; i++) fillSecondSelect(i, true);
+  // Fill both selects when refresh or load page
+  for (let i = 0; i < 2; i++) {
+    fillSelect(
+      currencies,
+      JSON.parse(localStorage.getItem("exchangeRates")),
+      currenciesSelect[i],
+      " - "
+    );
+  }
 
   // Select previous currencies
-  currenciesSelect[0].value = localStorage.getItem("firstCurrency");
-  currenciesSelect[1].value = localStorage.getItem("secondCurrency");
+  if (localStorage.getItem("firstCurrency")) {
+    currenciesSelect[0].value = localStorage.getItem("firstCurrency");
+    currenciesSelect[1].value = localStorage.getItem("secondCurrency");
+  }
 
   // Set previous selected mode
   switchModes.checked = stringToBoolean(localStorage.getItem("currencyMode"));
-
-  // Refresh values according with data storage
-  if (powerOnOff()) {
-    topScreen.innerText = localStorage.getItem("topScreen");
-    result.innerText = localStorage.getItem("result");
-  }
 };
 
 buttons.forEach((e) => {
@@ -626,8 +612,15 @@ document.getElementById("ce").addEventListener("click", () => {
 // Fill second select when editing the options on the first
 currenciesSelect.forEach((e, i) => {
   e.addEventListener("change", () => {
-    fillSecondSelect(i, false);
-    // Save on local data selected currencies
+    if (i === 0) {
+      fillSelect(
+        currencies,
+        JSON.parse(localStorage.getItem("exchangeRates")),
+        currenciesSelect[1],
+        " - "
+      );
+    }
+    // Save on local data selected currencies on both selects
     localStorage.setItem(e.id, e.value);
   });
 });
