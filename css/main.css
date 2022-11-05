@@ -6,6 +6,11 @@
   display: none;
 }
 
+.palette,
+.font-families {
+  width: 1000vh;
+}
+
 .calculator,
 .line {
   width: 40vh;
@@ -25,6 +30,11 @@
 #square1,
 #square2 {
   height: 210vh;
+}
+
+.fonts-container,
+.colors-container {
+  padding: 0.4vh 0 0.4vh 0;
 }
 
 #circle1,
@@ -48,7 +58,8 @@
 }
 
 #topScreen,
-#result {
+#result,
+.font {
   font-size: 2.1vh;
 }
 
@@ -98,8 +109,8 @@
   overflow: hidden;
 }
 
-.black-background{
-  background-color: #18191a
+.black-background {
+  background-color: #18191a;
 }
 
 .darker-black-background {
@@ -973,17 +984,12 @@
   margin: 0 0 70vh 60vh;
 }
 
-.colors-container{
-  padding: .3vh 0 .3vh 0;
-  bottom: 0;
+.font {
+  margin: 0.5vh 2vh 0.5vh 2vh;
 }
 
-.palette{
-  width: 1000vh;
-}
-
-.color{
-  width: 3.7vh;
-  height: 3.7vh;
-  margin: .2vh
+.color {
+  width: 3.5vh;
+  height: 3.5vh;
+  margin: 0.2vh;
 }

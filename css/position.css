@@ -6,7 +6,7 @@
 
 .calculator,
 #reader,
-.colors-container {
+.customization {
   z-index: 3;
 }
 
@@ -94,6 +94,10 @@
   left: 0.6vh;
 }
 
-.colors-container{
+.fonts-container {
+  top: 0;
+}
+
+.colors-container {
   bottom: 0;
 }

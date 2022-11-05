@@ -634,3 +634,10 @@ switchModes.addEventListener("click", () => {
   writeAndSave(result.id, "0", result);
   writeAndSave(topScreen.id, "", topScreen);
 });
+
+// Open colors and
+/* document.getElementById("paint").addEventListener("click", () => {
+  Array.from(document.getElementsByClassName("customization")).forEach((e) => {
+    e.classList.remove("hidden");
+  });
+}); */
