@@ -6,7 +6,7 @@
 
 .calculator,
 #reader,
-.currency {
+.colors-container {
   z-index: 3;
 }
 
@@ -92,4 +92,8 @@
 
 .switch-circle {
   left: 0.6vh;
+}
+
+.colors-container{
+  bottom: 0;
 }

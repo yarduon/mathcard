@@ -71,7 +71,7 @@
 }
 
 .small-icon {
-  width: 2.4vh;
+  width: 2.2vh;
 }
 
 .large-icon {
@@ -96,6 +96,10 @@
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.black-background{
+  background-color: #18191a
 }
 
 .darker-black-background {
@@ -839,7 +843,7 @@
   height: 14vh;
 }
 
-.container-operations {
+.operations-container {
   width: 92.5%;
   height: 3vh;
   margin: 0.6vh 0 0 0;
@@ -896,7 +900,7 @@
   margin: 0 0 41vh 32.2vh;
 }
 
-.container-currencies {
+.currencies.container {
   height: 9vh;
 }
 
@@ -947,7 +951,7 @@
   margin-bottom: 0.3vh;
 }
 
-#switch-mode:checked ~ .buttons-container .container-currencies {
+#switch-mode:checked ~ .buttons-container .currencies-container {
   display: flex;
 }
 
@@ -967,4 +971,19 @@
   width: 230vh;
   height: 100vh;
   margin: 0 0 70vh 60vh;
+}
+
+.colors-container{
+  padding: .3vh 0 .3vh 0;
+  bottom: 0;
+}
+
+.palette{
+  width: 1000vh;
+}
+
+.color{
+  width: 3.7vh;
+  height: 3.7vh;
+  margin: .2vh
 }
