@@ -198,9 +198,10 @@ function deleteNumber(lastDeleted) {
       writeAndSave(
         result.id,
         calculateExchange(
-          ...currenciesSelect,
+          currenciesSelect[0].selectedOptions[0].getAttribute("currency"),
+          currenciesSelect[1].selectedOptions[0].getAttribute("currency"),
           topScreen.innerText,
-          getCurrentSelectValue(currenciesSelect[1], "currency")
+          getCurrentSelectValue(currenciesSelect[1]).value
         ),
         result
       )
@@ -290,9 +291,10 @@ function selectButton(name) {
           ? writeAndSave(
               result.id,
               calculateExchange(
-                ...currenciesSelect,
+                currenciesSelect[0].selectedOptions[0].getAttribute("currency"),
+                currenciesSelect[1].selectedOptions[0].getAttribute("currency"),
                 topScreen.innerText,
-                getCurrentSelectValue(currenciesSelect[1], "currency")
+                getCurrentSelectValue(currenciesSelect[1]).value
               ),
               result
             )
@@ -414,9 +416,13 @@ async function updateRates(json, currentDate) {
 
 // Fill select input by using JSON and external API
 function fillSelect(json, values, select, symbol, firstTime) {
-  let currentSelected;
+  // Current selected element on first select
+  let currentSelected,
+    previousSelected = getCurrentSelectValue(currenciesSelect[1]);
+
   // Reset previously saved values
   select.innerText = "";
+
   // Avoid null values when fill first select the first time
   if (!firstTime) {
     currentSelected = getCurrentSelectValue(currenciesSelect[0], "currency");
@@ -428,15 +434,19 @@ function fillSelect(json, values, select, symbol, firstTime) {
       // Create option
       let option = document.createElement("option");
       option.innerText = e + symbol + json[e];
-      option.value = values.rates[e];
-      option.setAttribute("currency", e);
+      option.value = e;
+      option.setAttribute("currency", values.rates[e]);
       select.append(option);
     }
   });
+  
+  if (previousSelected) {
+    currenciesSelect[1].value = previousSelected.value;
+  }
 }
 
 // Fill second select when first one is manipulated and calculate results in both
-function fillSecondSelect(i) {
+function fillSecondSelect(i, firstTime) {
   // Only when first select change status
   if (i === 0) {
     fillSelect(
@@ -444,7 +454,7 @@ function fillSecondSelect(i) {
       JSON.parse(localStorage.getItem("exchangeRates")),
       currenciesSelect[1],
       " - ",
-      false
+      firstTime
     );
   }
 }
@@ -452,8 +462,7 @@ function fillSecondSelect(i) {
 // Convert one currency into another rounded two decimals
 function calculateExchange(n1, n2, quantity, currencyName) {
   return (
-    Math.round(((quantity / n1.value) * n2.value + Number.EPSILON) * 100) /
-      100 +
+    Math.round(((quantity / n1) * n2 + Number.EPSILON) * 100) / 100 +
     " " +
     currencyName
   );
@@ -537,7 +546,11 @@ window.onload = async () => {
   );
 
   // Refill first and second currency select
-  for (let i = 0; i < 2; i++) fillSecondSelect(i);
+  for (let i = 0; i < 2; i++) fillSecondSelect(i, true);
+
+  // Select previous currencies
+  currenciesSelect[0].value = localStorage.getItem("firstCurrency");
+  currenciesSelect[1].value = localStorage.getItem("secondCurrency");
 
   // Set previous selected mode
   switchModes.checked = stringToBoolean(localStorage.getItem("currencyMode"));
@@ -613,7 +626,9 @@ document.getElementById("ce").addEventListener("click", () => {
 // Fill second select when editing the options on the first
 currenciesSelect.forEach((e, i) => {
   e.addEventListener("change", () => {
-    fillSecondSelect(i);
+    fillSecondSelect(i, false);
+    // Save on local data selected currencies
+    localStorage.setItem(e.id, e.value);
   });
 });
 

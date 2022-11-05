@@ -100,7 +100,9 @@ export function countElements(element, array) {
   return total;
 }
 
-// Return any property value according by his name and specified select
+// Return any property value or the option according by his name and specified select
 export function getCurrentSelectValue(select, attribute) {
-  return select.options[select.selectedIndex].getAttribute(attribute);
+  return !attribute
+    ? select.options[select.selectedIndex]
+    : select.options[select.selectedIndex].getAttribute(attribute);
 }
