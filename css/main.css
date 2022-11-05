@@ -113,28 +113,123 @@
   background-color: #18191a;
 }
 
+.green-background{
+  background-color: #3bd31d;
+}
+
+.red-background{
+  background-color: #d41424;
+}
+
+/**/
+.full-black-background {
+  background-color: #080808;
+}
+
+.light-black-background {
+  background-color: #292929;
+}
+
+.full-grey-background {
+  background-color: rgb(95, 94, 93);
+}
+
+.light-grey-background {
+  background-color: #afaaaa;
+}
+
+.full-white-background {
+  background-color: rgb(233, 222, 222);
+}
+
+.full-orange-background {
+  background-color: #f34e0c;
+}
+
+.light-orange-background {
+  background-color: #f0a85d;
+}
+
+.full-red-background {
+  background-color: #f71909;
+}
+
+.light-red-background {
+  background-color: #b93b41;
+}
+
+.full-blue-background {
+  background-color: #1a0bf1;
+}
+
+.light-blue-background {
+  background-color: #3090b6;
+}
+
+.full-brown-background {
+  background-color: #532b0a;
+}
+
+.light-brown-background {
+  background-color: #e28343;
+}
+
+.full-purple-background {
+  background-color: #40124e;
+}
+
+.light-purple-background {
+  background-color: #b26fda;
+}
+
+.full-pink-background {
+  background-color: #f110b9;
+}
+
+.light-pink-background {
+  background-color: #ec8de0;
+}
+
+.full-yellow-background {
+  background-color: #f7cb07;
+}
+
+.light-yellow-background {
+  background-color: #f8df6e;
+}
+
+.full-green-background {
+  background-color: #0b570e;
+}
+
+.light-green-background {
+  background-color: #35c03c;
+}
+
+/**/
+
 .darker-black-background {
-  background-color: #0e0d0c;
+  background-color: #131110;
 }
 
 .darker-black-text {
-  color: #0e0d0c;
+  color: #131110;
 }
 
 .darker-black-border-full {
-  border: 0.8vh solid #0e0d0c;
+  border: 0.8vh solid #131110;
 }
 
 .darker-black-border-bottom {
-  border-bottom: 0.5vh solid #0e0d0c;
+  border-bottom: 0.5vh solid #131110;
 }
 
 .darker-black-border-right {
-  border-right: 0.4vh solid #0e0d0c;
+  border-right: 0.4vh solid #131110;
 }
 
 .darker-grey-background {
-  background-color: rgb(61, 56, 51);
+  background-color: rgb(121, 118, 116);
 }
 
 .darker-grey-text {
@@ -151,26 +246,6 @@
 
 .darker-grey-border-right {
   border-right: 0.4vh solid rgb(61, 56, 51);
-}
-
-.darker-white-background {
-  background-color: rgb(231, 227, 222);
-}
-
-.darker-white-text {
-  color: rgb(231, 227, 222);
-}
-
-.darker-white-border-full {
-  border: 0.8vh solid rgb(231, 227, 222);
-}
-
-.darker-white-border-bottom {
-  border-bottom: 0.5vh solid rgb(231, 227, 222);
-}
-
-.darker-white-border-right {
-  border-right: 0.4vh solid rgb(231, 227, 222);
 }
 
 .darker-orange-background {
@@ -294,7 +369,7 @@
 }
 
 .darker-yellow-background {
-  background-color: #f7cb07;
+  background-color: #f2e41d;
 }
 
 .darker-yellow-text {
@@ -354,7 +429,7 @@
 }
 
 .normal-grey-background {
-  background-color: #444242;
+  background-color: #978c8c;
 }
 
 .normal-grey-text {
@@ -514,7 +589,7 @@
 }
 
 .normal-yellow-background {
-  background-color: #f2e41d;
+  background-color: #ffdc40;
 }
 
 .normal-yellow-text {
@@ -534,7 +609,7 @@
 }
 
 .normal-green-background {
-  background-color: #1df228;
+  background-color: #338637;
 }
 
 .normal-green-text {
@@ -553,223 +628,223 @@
   border-right: 0.4vh solid #1df228;
 }
 
-.light-black-background {
-  background-color: #292929;
+.pastel-black-background {
+  background-color: #413f3f;
 }
 
-.light-black-text {
+.pastel-black-text {
   color: #292929;
 }
 
-.light-black-border-full {
+.pastel-black-border-full {
   border: 0.8vh solid #292929;
 }
 
-.light-black-border-bottom {
+.pastel-black-border-bottom {
   border-bottom: 0.5vh solid #292929;
 }
 
-.light-black-border-right {
+.pastel-black-border-right {
   border-right: 0.4vh solid #292929;
 }
 
-.light-grey-background {
+.pastel-grey-background {
   background-color: #cfcfc4;
 }
 
-.light-grey-text {
+.pastel-grey-text {
   color: #cfcfc4;
 }
 
-.light-grey-border-full {
+.pastel-grey-border-full {
   border: 0.8vh solid #cfcfc4;
 }
 
-.light-grey-border-bottom {
+.pastel-grey-border-bottom {
   border-bottom: 0.5vh solid #cfcfc4;
 }
 
-.light-grey-border-right {
+.pastel-grey-border-right {
   border-right: 0.4vh solid #cfcfc4;
 }
 
-.light-white-background {
+.pastel-white-background {
   background-color: rgb(255, 255, 255);
 }
 
-.light-white-text {
+.pastel-white-text {
   color: rgb(255, 255, 255);
 }
 
-.light-white-border-full {
+.pastel-white-border-full {
   border: 0.8vh solid rgb(255, 255, 255);
 }
 
-.light-white-border-bottom {
+.pastel-white-border-bottom {
   border-bottom: 0.5vh solid rgb(255, 255, 255);
 }
 
-.light-white-border-right {
+.pastel-white-border-right {
   border-right: 0.4vh solid rgb(255, 255, 255);
 }
 
-.light-orange-background {
+.pastel-orange-background {
   background-color: #ffb347;
 }
 
-.light-orange-text {
+.pastel-orange-text {
   color: #ffb347;
 }
 
-.light-orange-border-full {
+.pastel-orange-border-full {
   border: 0.8vh solid #ffb347;
 }
 
-.light-orange-border-bottom {
+.pastel-orange-border-bottom {
   border-bottom: 0.5vh solid #ffb347;
 }
 
-.light-orange-border-right {
+.pastel-orange-border-right {
   border-right: 0.4vh solid #ffb347;
 }
 
-.light-red-background {
+.pastel-red-background {
   background-color: #ff6961;
 }
 
-.light-red-text {
+.pastel-red-text {
   color: #ff6961;
 }
 
-.light-red-border-full {
+.pastel-red-border-full {
   border: 0.8vh solid #ff6961;
 }
 
-.light-red-border-bottom {
+.pastel-red-border-bottom {
   border-bottom: 0.5vh solid #ff6961;
 }
 
-.light-red-border-right {
+.pastel-red-border-right {
   border-right: 0.4vh solid #ff6961;
 }
 
-.light-blue-background {
+.pastel-blue-background {
   background-color: #aec6cf;
 }
 
-.light-blue-text {
+.pastel-blue-text {
   color: #aec6cf;
 }
 
-.light-blue-border-full {
+.pastel-blue-border-full {
   border: 0.8vh solid #aec6cf;
 }
 
-.light-blue-border-bottom {
+.pastel-blue-border-bottom {
   border-bottom: 0.5vh solid #aec6cf;
 }
 
-.light-blue-border-right {
+.pastel-blue-border-right {
   border-right: 0.4vh solid #aec6cf;
 }
 
-.light-brown-background {
+.pastel-brown-background {
   background-color: #b1907f;
 }
 
-.light-brown-text {
+.pastel-brown-text {
   color: #b1907f;
 }
 
-.light-brown-border-full {
+.pastel-brown-border-full {
   border: 0.8vh solid #b1907f;
 }
 
-.light-brown-border-bottom {
+.pastel-brown-border-bottom {
   border-bottom: 0.5vh solid #b1907f;
 }
 
-.light-brown-border-right {
+.pastel-brown-border-right {
   border-right: 0.4vh solid #b1907f;
 }
 
-.light-purple-background {
+.pastel-purple-background {
   background-color: #b19cd9;
 }
 
-.light-purple-text {
+.pastel-purple-text {
   color: #b19cd9;
 }
 
-.light-purple-border-full {
+.pastel-purple-border-full {
   border: 0.8vh solid #b19cd9;
 }
 
-.light-purple-border-bottom {
+.pastel-purple-border-bottom {
   border-bottom: 0.5vh solid #b19cd9;
 }
 
-.light-purple-border-right {
+.pastel-purple-border-right {
   border-right: 0.4vh solid #b19cd9;
 }
 
-.light-pink-background {
+.pastel-pink-background {
   background-color: #ffd1dc;
 }
 
-.light-pink-text {
+.pastel-pink-text {
   color: #ffd1dc;
 }
 
-.light-pink-border-full {
+.pastel-pink-border-full {
   border: 0.8vh solid #ffd1dc;
 }
 
-.light-pink-border-bottom {
+.pastel-pink-border-bottom {
   border-bottom: 0.5vh solid #ffd1dc;
 }
 
-.light-pink-border-right {
+.pastel-pink-border-right {
   border-right: 0.4vh solid #ffd1dc;
 }
 
-.light-yellow-background {
+.pastel-yellow-background {
   background-color: #fdfd96;
 }
 
-.light-yellow-text {
+.pastel-yellow-text {
   color: #fdfd96;
 }
 
-.light-yellow-border-full {
+.pastel-yellow-border-full {
   border: 0.8vh solid #fdfd96;
 }
 
-.light-yellow-border-bottom {
+.pastel-yellow-border-bottom {
   border-bottom: 0.5vh solid #fdfd96;
 }
 
-.light-yellow-border-right {
+.pastel-yellow-border-right {
   border-right: 0.4vh solid #fdfd96;
 }
 
-.light-green-background {
+.pastel-green-background {
   background-color: #77dd77;
 }
 
-.light-yellow-text {
+.pastel-yellow-text {
   color: #77dd77;
 }
 
-.light-yellow-border-full {
+.pastel-yellow-border-full {
   border: 0.8vh solid #77dd77;
 }
 
-.light-yellow-border-bottom {
+.pastel-yellow-border-bottom {
   border-bottom: 0.5vh solid #77dd77;
 }
 
-.light-yellow-border-right {
+.pastel-yellow-border-right {
   border-right: 0.4vh solid #77dd77;
 }
 
@@ -993,3 +1068,24 @@
   height: 3.5vh;
   margin: 0.2vh;
 }
+
+/* .palette{
+  padding-left: .5vh;
+  transition: .4s;
+} */
+
+/* .test{
+  background-color: white;
+  top: 0;
+  height: 100%;
+}
+
+#forward{
+  right: 0;
+  z-index: 4;
+}
+
+#back{
+  left: 0;
+  z-index: 4;
+} */

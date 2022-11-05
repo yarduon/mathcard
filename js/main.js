@@ -370,13 +370,13 @@ function powerOnOff(event) {
     // Change power status buttons colors
     swapClasses(
       document.getElementById("on"),
-      "normal-green-background",
+      "green-background",
       "normal-black-background"
     );
     swapClasses(
       document.getElementById("off"),
       "normal-black-background",
-      "normal-red-background"
+      "red-background"
     );
   } else {
     // Empty and hide data values
@@ -393,11 +393,11 @@ function powerOnOff(event) {
     swapClasses(
       document.getElementById("on"),
       "normal-black-background",
-      "normal-green-background"
+      "green-background"
     );
     swapClasses(
       document.getElementById("off"),
-      "normal-red-background",
+      "red-background",
       "normal-black-background"
     );
   }
@@ -635,9 +635,21 @@ switchModes.addEventListener("click", () => {
   writeAndSave(topScreen.id, "", topScreen);
 });
 
-// Open colors and
-/* document.getElementById("paint").addEventListener("click", () => {
-  Array.from(document.getElementsByClassName("customization")).forEach((e) => {
-    e.classList.remove("hidden");
-  });
-}); */
+/* document.getElementById("forward").addEventListener("click", () => {
+  if(document.getElementById("palette").style.right === "") {
+    document.getElementById("palette").style.right = "10vh";
+  }
+  document.getElementById("palette").style.right =
+    parseInt(cleanText(document.getElementById("palette").style.right)) + 10 + "vh";
+    console.log(cleanText(document.getElementById("palette").style.right));
+});
+
+document.getElementById("back").addEventListener("click", () => {
+  if(document.getElementById("palette").style.right === "") {
+    document.getElementById("palette").style.right = "0vh";
+  }
+  document.getElementById("palette").style.right =
+    parseInt(cleanText(document.getElementById("palette").style.right)) - 10 + "vh";
+    console.log(cleanText(document.getElementById("palette").style.right));
+});
+ */
