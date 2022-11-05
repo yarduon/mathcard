@@ -6,6 +6,12 @@
 }
 
 @font-face {
+  font-family: "Chewi";
+  src: url("./../fonts/chewy.ttf");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Anton";
   src: url("./../fonts/anton.ttf");
   font-display: swap;
@@ -14,6 +20,42 @@
 @font-face {
   font-family: "Chivo";
   src: url("./../fonts/chivo.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("./../fonts/comfortaa.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Edu QLD";
+  src: url("./../fonts/edu_qld.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fredoka One";
+  src: url("./../fonts/fredoka_one.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gugi";
+  src: url("./../fonts/gugi.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Indie Flower";
+  src: url("./../fonts/indie_flower.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Julee";
+  src: url("./../fonts/julee.ttf");
   font-display: swap;
 }
 
@@ -30,8 +72,32 @@
 }
 
 @font-face {
+  font-family: "Lobster";
+  src: url("./../fonts/libre_franklin.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Londrina Solid";
+  src: url("./../fonts/londrina_solid.ttf");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Merriweather";
   src: url("./../fonts/merriweather.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nerko One";
+  src: url("./../fonts/nerko_one.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oleo Script";
+  src: url("./../fonts/oleo_script.ttf");
   font-display: swap;
 }
 
@@ -44,6 +110,36 @@
 @font-face {
   font-family: "Outfit";
   src: url("./../fonts/outfit.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Patrick Hand";
+  src: url("./../fonts/patrick_hand.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Permanent Marker";
+  src: url("./../fonts/permanent_marker.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poor Story";
+  src: url("./../fonts/poor_story.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("./../fonts/press_start_2p.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Mono";
+  src: url("./../fonts/pt_mono.ttf");
   font-display: swap;
 }
 
@@ -66,13 +162,37 @@
 }
 
 @font-face {
+  font-family: "Satisfy";
+  src: url("./../fonts/rubik.ttf");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Signika";
   src: url("./../fonts/signika.ttf");
   font-display: swap;
 }
 
 @font-face {
+  font-family: "Source Code Pro";
+  src: url("./../fonts/source_code_pro.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Twinkle Star";
+  src: url("./../fonts/twinkle_star.ttf");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Ubuntu";
   src: url("./../fonts/ubuntu.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "VT323";
+  src: url("./../fonts/vt323.ttf");
   font-display: swap;
 }
