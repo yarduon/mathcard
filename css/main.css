@@ -82,7 +82,7 @@
 }
 
 .small-icon {
-  width: 2.2vh;
+  width: 2.1vh;
 }
 
 .large-icon {
@@ -1363,6 +1363,7 @@
 }
 
 .lights-container {
+  height: 5vh;
   margin-bottom: 1vh;
 }
 
@@ -1382,13 +1383,26 @@
 }
 
 .special-buttons-container {
-  margin-top: .7vh;
+  margin-top: 0.7vh;
   width: 99.5%;
   height: 8.5vh;
 }
 
+#switch-mode:checked ~ .buttons-container .special-buttons-container {
+  margin: 1.4vh 0 0 0;
+  height: 3vh;
+}
+
+#switch-mode:checked ~ .buttons-container .symbols .button {
+  margin-bottom: 0.65vh;
+}
+
+#switch-mode:checked ~ .buttons-container .extra-symbols {
+  margin-top: 0.4vh;
+}
+
 .currencies-container {
-  height: 10vh;
+  margin: 0.5vh 0 0vh 0;
 }
 
 .select {
@@ -1406,8 +1420,7 @@
 }
 
 .extra-symbols {
-  margin-top: .5vh;
-  margin-left: 25vh;
+  margin: 0.5vh 0 0 24.8vh;
 }
 
 .qr {

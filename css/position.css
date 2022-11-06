@@ -91,7 +91,7 @@
 }
 
 #switch-mode:checked ~ .buttons-container .dot {
-  left: 23.1vh;
+  left: 23vh;
 }
 
 #switch-mode:checked ~ .line .switch-circle {
