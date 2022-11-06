@@ -42,6 +42,10 @@
   align-items: center;
 }
 
+.align-around {
+  align-content: space-around;
+}
+
 .self-flex-start {
   align-self: flex-start;
 }
@@ -83,7 +87,11 @@
 
 .qr {
   left: 1.5vh;
-  bottom: 2vh;
+  bottom: 1.6vh;
+}
+
+#switch-mode:checked ~ .buttons-container .dot {
+  left: 23.1vh;
 }
 
 #switch-mode:checked ~ .line .switch-circle {

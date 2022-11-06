@@ -1381,28 +1381,33 @@
   padding-left: 0.2vh;
 }
 
-.currencies.container {
-  height: 9vh;
+.special-buttons-container {
+  margin-top: .7vh;
+  width: 99.5%;
+  height: 8.5vh;
+}
+
+.currencies-container {
+  height: 10vh;
 }
 
 .select {
-  height: 3.7vh;
+  width: 98%;
+  height: 4vh;
+  margin: 0.8vh 0 0.7vh 0;
 }
 
 .symbols .button {
-  margin: 0.2vh 0.4vh 0.5vh 0.4vh;
+  margin: 0.5vh;
+}
+
+.secondary {
+  height: 3.5vh;
 }
 
 .extra-symbols {
-  margin-right: 0.4vh;
-}
-
-.extra-symbols .additional {
-  margin: -0.3vh 0 0 0;
-}
-
-#Backspace {
-  margin-right: 1vh;
+  margin-top: .5vh;
+  margin-left: 25vh;
 }
 
 .qr {
