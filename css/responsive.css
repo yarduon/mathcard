@@ -1,7 +1,66 @@
 /* https://yarduon.com */
 @media screen and (max-width: 550px) {
+  #topScreen,
+  #result,
+  .font {
+    font-size: 2.7vh;
+  }
+
   .calculator {
     width: 100%;
     height: 100%;
+  }
+
+  .top-calculator {
+    height: 25%;
+    border-radius: 0;
+  }
+
+  .screen,
+  .logo-container {
+    width: 34vh;
+  }
+
+  .logo {
+    font-size: 2.7vh;
+  }
+
+  .screw {
+    width: 3.3vh;
+    height: 3.3vh;
+  }
+
+  #circle1,
+  #circle2 {
+    margin-bottom: 19vh;
+  }
+
+  #circle2,
+  #circle3 {
+    margin-left: 42vh;
+  }
+
+  #circle3,
+  #circle4 {
+    margin-top: 19vh;
+  }
+
+  #circle1,
+  #circle4 {
+    margin-right: 42vh;
+  }
+
+  .middle-base {
+    height: 8%;
+  }
+
+  .buttons-container {
+    height: 60%;
+  }
+
+  .line {
+    width: 100%;
+    height: 10%;
+    border-radius: 0;
   }
 }
