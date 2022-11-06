@@ -635,21 +635,9 @@ switchModes.addEventListener("click", () => {
   writeAndSave(topScreen.id, "", topScreen);
 });
 
-/* document.getElementById("forward").addEventListener("click", () => {
-  if(document.getElementById("palette").style.right === "") {
-    document.getElementById("palette").style.right = "10vh";
-  }
-  document.getElementById("palette").style.right =
-    parseInt(cleanText(document.getElementById("palette").style.right)) + 10 + "vh";
-    console.log(cleanText(document.getElementById("palette").style.right));
+// Show customization panels on top and bottom
+document.getElementById("paint").addEventListener("click", () => {
+  Array.from(document.getElementsByClassName("customization")).forEach((e) => {
+    e.classList.remove("hidden");
+  });
 });
-
-document.getElementById("back").addEventListener("click", () => {
-  if(document.getElementById("palette").style.right === "") {
-    document.getElementById("palette").style.right = "0vh";
-  }
-  document.getElementById("palette").style.right =
-    parseInt(cleanText(document.getElementById("palette").style.right)) - 10 + "vh";
-    console.log(cleanText(document.getElementById("palette").style.right));
-});
- */
