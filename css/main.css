@@ -66,7 +66,7 @@
 .touch:hover,
 .touch:focus {
   cursor: pointer;
-  outline: 0.3vh solid white;
+  box-shadow: 0 0 0 0.25vh white;
 }
 
 .max-width {
@@ -132,7 +132,6 @@
 .full-black-border-full {
   border: 0.8vh solid #000000;
 }
-
 
 .full-grey-background {
   background-color: rgb(95, 94, 93);
@@ -1338,11 +1337,11 @@
   border-bottom-right-radius: 1vh;
 }
 
-.round-border{
-  border-radius: .2vh;
+.round-border {
+  border-radius: 0.2vh;
 }
 
-.round-border-full{
+.round-border-full {
   border-radius: 1vh;
 }
 
