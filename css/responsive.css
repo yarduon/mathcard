@@ -11,7 +11,7 @@
   }
 
   .round-border {
-    border-radius: 1.3vh;
+    border-radius: .2vh
   }
 
   .calculator {
@@ -64,36 +64,18 @@
 
   .buttons-container {
     height: 64%;
-    font-size: 2.7vh;
+    font-size: 2.8vh;
   }
 
   .additional {
     width: 6.4vh;
-    height: 4.3vh;
+    height: 4.5vh;
   }
 
   .main-button {
-    width: 7.5vh;
-    height: 7.5vh;
+    width: 18%;
+    height: 17vw;
   }
-/* 
-  .full-black-border-full {
-    border: 0.8vh solid #000000;
-  }
-
-  .full-black-border-bottom {
-    border-bottom: 0.6vh solid #000000;
-  }
-
-  .full-black-border-right {
-    border-right: 0.5vh solid #000000;
-  }
- */
-
- .rectangle-bottom-border{
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
 
   .line {
     width: 100%;

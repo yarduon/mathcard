@@ -134,23 +134,23 @@
 }
 
 .full-grey-background {
-  background-color: rgb(95, 94, 93);
+  background-color: rgb(61, 59, 57);
 }
 
 .full-grey-text {
-  color: rgb(95, 94, 93);
+  background-color: rgb(61, 59, 57);
 }
 
 .full-grey-border-full {
-  border: 0.8vh solid rgb(95, 94, 93);
+  background-color: rgb(61, 59, 57);
 }
 
 .full-grey-border-bottom {
-  border-bottom: 0.5vh solid rgb(95, 94, 93);
+  background-color: rgb(61, 59, 57);
 }
 
 .full-grey-border-right {
-  border-right: 0.4vh solid rgb(95, 94, 93);
+  background-color: rgb(61, 59, 57);
 }
 
 .full-white-background {
@@ -914,23 +914,23 @@
 }
 
 .pastel-black-background {
-  background-color: #413f3f;
+  background-color: #494747;
 }
 
 .pastel-black-text {
-  color: #413f3f;
+  color: #494747;
 }
 
 .pastel-black-border-full {
-  border: 0.8vh solid #413f3f;
+  border: 0.8vh solid #494747;
 }
 
 .pastel-black-border-bottom {
-  border-bottom: 0.5vh solid #413f3f;
+  border-bottom: 0.5vh solid #494747;
 }
 
 .pastel-black-border-right {
-  border-right: 0.4vh solid #413f3f;
+  border-right: 0.4vh solid #494747;
 }
 
 .pastel-grey-background {
