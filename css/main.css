@@ -133,13 +133,6 @@
   border: 0.8vh solid #000000;
 }
 
-.full-black-border-bottom {
-  border-bottom: 0.5vh solid #000000;
-}
-
-.full-black-border-right {
-  border-right: 0.4vh solid #000000;
-}
 
 .full-grey-background {
   background-color: rgb(95, 94, 93);
@@ -162,7 +155,7 @@
 }
 
 .full-white-background {
-  background-color: rgb(233, 222, 222);
+  background-color: rgb(231, 229, 229);
 }
 
 .full-white-text {
@@ -561,26 +554,6 @@
   border-right: 0.4vh solid #978c8c;
 }
 
-.normal-white-background {
-  background-color: rgb(245, 238, 238);
-}
-
-.normal-white-text {
-  color: rgb(245, 238, 238);
-}
-
-.normal-white-border-full {
-  border: 0.8vh solid rgb(245, 238, 238);
-}
-
-.normal-white-border-bottom {
-  border-bottom: 0.5vh solid rgb(245, 238, 238);
-}
-
-.normal-white-border-right {
-  border-right: 0.4vh solid rgb(245, 238, 238);
-}
-
 .normal-orange-background {
   background-color: #e2612d;
 }
@@ -741,7 +714,6 @@
   border-right: 0.4vh solid #238828;
 }
 
-/**/
 .light-black-background {
   background-color: #292929;
 }
@@ -1174,10 +1146,6 @@
   font-size: 1.8vh;
 }
 
-.round-border {
-  border-radius: 1vh;
-}
-
 .alatsi {
   font-family: Alatsi;
 }
@@ -1344,18 +1312,17 @@
   height: 54vh;
   margin-top: -0.8vh;
   padding: 1.2vh 1.2vh 6vh 1.2vh;
-  font-size: 2.3vh;
+  font-size: 2.4vh;
 }
 
 .additional {
-  width: 5.4vh;
-  height: 3.3vh;
-  margin: 0vh 0.4vh 0vh 0.4vh;
+  width: 5.6vh;
+  height: 3.6vh;
 }
 
 .main-button {
-  width: 6vh;
-  height: 6vh;
+  width: 6.8vh;
+  height: 6.8vh;
 }
 
 .lights-container {
@@ -1371,16 +1338,24 @@
   border-bottom-right-radius: 1vh;
 }
 
+.round-border{
+  border-radius: .2vh;
+}
+
+.round-border-full{
+  border-radius: 1vh;
+}
+
 .power {
   width: 4.6vh;
   height: 4.6vh;
   margin: 0 0 41vh 32.2vh;
-  padding-left: 0.2vh;
+  padding: 0 0.1vh 0.2vh 0;
 }
 
 .special-buttons-container {
-  margin-top: 0.7vh;
-  width: 99.5%;
+  width: 98.8%;
+  margin-top: 0.6vh;
   height: 8.5vh;
 }
 
@@ -1408,14 +1383,11 @@
 }
 
 .symbols .button {
-  margin: 0.5vh;
-}
-
-.secondary {
-  height: 3.5vh;
+  margin: 0.3vh;
 }
 
 .extra-symbols {
+  width: 12.5vh;
   margin: 0.5vh 0 0 24.8vh;
 }
 
