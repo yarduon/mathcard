@@ -370,13 +370,13 @@ function powerOnOff(event) {
     // Change power status buttons colors
     swapClasses(
       document.getElementById("on"),
-      "green-background",
+      "light-green-background",
       "normal-black-background"
     );
     swapClasses(
       document.getElementById("off"),
       "normal-black-background",
-      "red-background"
+      "full-red-background"
     );
   } else {
     // Empty and hide data values
@@ -393,11 +393,11 @@ function powerOnOff(event) {
     swapClasses(
       document.getElementById("on"),
       "normal-black-background",
-      "green-background"
+      "light-green-background"
     );
     swapClasses(
       document.getElementById("off"),
-      "red-background",
+      "full-red-background",
       "normal-black-background"
     );
   }

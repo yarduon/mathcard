@@ -1,7 +1,7 @@
 /* https://yarduon.com */
 @keyframes typing {
   0% {
-    border-right-color: black;
+    border-right-color: #000000;
   }
 
   50% {
@@ -9,6 +9,6 @@
   }
 
   100% {
-    border-right-color: black;
+    border-right-color: #000000;
   }
 }
