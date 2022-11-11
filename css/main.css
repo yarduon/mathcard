@@ -71,9 +71,11 @@
 
 .touch:hover,
 .touch:focus {
+  /* Fix bug pseudo-transition on Chrome*/
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: none;
+  transform: none;
   cursor: pointer;
-  /* Fix bug pseudo-transition */
-  transform: translate3d(0,0,0);
   box-shadow: 0 0 0 0.25vh white;
 }
 
