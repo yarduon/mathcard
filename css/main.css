@@ -1,7 +1,9 @@
 /* https://yarduon.com */
 .hidden,
 #switch-mode:checked ~ .buttons-container .function,
-#switch-mode:checked ~ .buttons-container .operator,
+#switch-mode:checked
+  ~ .buttons-container
+  .operator:not(.operator:nth-child(20)),
 #switch-mode:checked ~ .buttons-container .parenthesis {
   display: none;
 }
@@ -63,6 +65,10 @@
   font-size: 2.1vh;
 }
 
+.selection:hover {
+  cursor: pointer;
+}
+
 .touch:hover,
 .touch:focus {
   cursor: pointer;
@@ -86,7 +92,7 @@
 }
 
 .large-icon {
-  width: 5.5vh;
+  width: 4.5vh;
 }
 
 .circle-shape {
@@ -1303,15 +1309,14 @@
 }
 
 .middle-base {
-  height: 5vh;
-  margin-top: -1.6vh;
+  height: 4vh;
+  margin-top: -2vh;
 }
 
 .buttons-container {
-  height: 54vh;
-  margin-top: -0.8vh;
-  padding: 1.2vh 1.2vh 6vh 1.2vh;
-  font-size: 2.4vh;
+  height: 55vh;
+  padding: 0 1.2vh 1.6vh 1.2vh;
+  font-size: 2.3vh;
 }
 
 .additional {
@@ -1320,19 +1325,17 @@
 }
 
 .main-button {
-  width: 6.8vh;
-  height: 6.8vh;
+  width: 6.7vh;
+  height: 6.7vh;
 }
 
 .lights-container {
   height: 5vh;
-  margin-bottom: 1vh;
 }
 
 .off-on-light {
   width: 2vh;
   height: 1.5vh;
-  margin-top: 1vh;
   border-top-right-radius: 1vh;
   border-bottom-right-radius: 1vh;
 }
@@ -1348,51 +1351,41 @@
 .power {
   width: 4.6vh;
   height: 4.6vh;
-  margin: 0 0 41vh 32.2vh;
-  padding: 0 0.1vh 0.2vh 0;
+  padding: 0.2vh 0.1vh 0 0;
 }
 
 .special-buttons-container {
-  width: 98.8%;
-  margin-top: 0.6vh;
+  width: 98%;
   height: 8.5vh;
+  margin-top: 0.6vh;
 }
 
 #switch-mode:checked ~ .buttons-container .special-buttons-container {
-  margin: 1.4vh 0 0 0;
-  height: 3vh;
+  height: 4.4vh;
 }
 
-#switch-mode:checked ~ .buttons-container .symbols .button {
-  margin-bottom: 0.65vh;
-}
-
-#switch-mode:checked ~ .buttons-container .extra-symbols {
-  margin-top: 0.4vh;
-}
-
-.currencies-container {
-  margin: 0.5vh 0 0vh 0;
+#switch-mode:checked ~ .buttons-container {
+  padding-bottom: 3.7vh;
 }
 
 .select {
   width: 98%;
   height: 4vh;
-  margin: 0.8vh 0 0.7vh 0;
+  margin: 0.4vh 0 0.4vh 0;
 }
 
 .symbols .button {
-  margin: 0.3vh;
+  margin: 0.41vh;
 }
 
 .extra-symbols {
-  width: 12.5vh;
-  margin: 0.5vh 0 0 24.8vh;
+  width: 11.9vh;
+  margin: 0 0 0 24.8vh;
 }
 
 .qr {
-  width: 7vh;
-  height: 7vh;
+  width: 6vh;
+  height: 6vh;
 }
 
 .line {
@@ -1448,24 +1441,3 @@
   height: 3.5vh;
   margin: 0.2vh;
 }
-
-/* .palette{
-  padding-left: .5vh;
-  transition: .4s;
-} */
-
-/* .test{
-  background-color: white;
-  top: 0;
-  height: 100%;
-}
-
-#forward{
-  right: 0;
-  z-index: 4;
-}
-
-#back{
-  left: 0;
-  z-index: 4;
-} */

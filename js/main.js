@@ -371,11 +371,11 @@ function powerOnOff(event) {
     swapClasses(
       document.getElementById("on"),
       "green-background",
-      "light-black-background"
+      "normal-black-background"
     );
     swapClasses(
       document.getElementById("off"),
-      "light-black-background",
+      "normal-black-background",
       "red-background"
     );
   } else {
@@ -392,13 +392,13 @@ function powerOnOff(event) {
     // Change power status buttons colors
     swapClasses(
       document.getElementById("on"),
-      "light-black-background",
+      "normal-black-background",
       "green-background"
     );
     swapClasses(
       document.getElementById("off"),
       "red-background",
-      "light-black-background"
+      "normal-black-background"
     );
   }
   return stringToBoolean(localStorage.getItem("power"));

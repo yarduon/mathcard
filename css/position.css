@@ -81,8 +81,17 @@
   bottom: 4vh;
 }
 
-.off-on-light {
-  right: 1.2vh;
+.lights-container {
+  bottom: 48.3vh;
+}
+
+.power {
+  top: 1.7vh;
+  right: 1.5vh;
+}
+
+.extra-symbols {
+  top: 46.65vh;
 }
 
 .qr {
@@ -90,8 +99,12 @@
   bottom: 1.6vh;
 }
 
+#switch-mode:checked ~ .buttons-container .extra-symbols {
+  top: 44.5vh;
+}
+
 #switch-mode:checked ~ .buttons-container .dot {
-  left: 22.7vh;
+  left: 22.5vh;
 }
 
 #switch-mode:checked ~ .line .switch-circle {
