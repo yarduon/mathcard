@@ -53,7 +53,7 @@
   }
 
   #result {
-    margin-top: 2vh;
+    margin-top: 6%;
   }
 
   .logo-container {
@@ -81,7 +81,7 @@
 
   .lights-container {
     height: 6vh;
-    bottom: 54.5vh;
+    bottom: 86.7%;
   }
 
   .off-on-light {
@@ -94,7 +94,7 @@
   .power {
     width: 6vh;
     height: 6vh;
-    top: 2.2vh;
+    top: 3.6%;
   }
 
   .special-buttons-container {
@@ -140,8 +140,8 @@
   .extra-symbols {
     width: 37%;
     height: 7.5%;
-    top: 57vh;
     right: 1.6vh;
+    bottom: 1.7%;
   }
 
   .extra-symbols .additional {
@@ -152,7 +152,7 @@
   .qr {
     width: 7vh;
     height: 7vh;
-    bottom: 1vh;
+    bottom: 1.7%;
   }
 
   .line {
