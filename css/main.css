@@ -1371,12 +1371,9 @@
   margin: 0 0 0 22.5vh;
 }
 
-#switch-mode:checked ~ .buttons-container .extra-symbols {
-  top: 44vh;
-}
-
 .extra-symbols .button {
   width: 6.7vh;
+  height: 4.3vh;
 }
 
 .qr {

@@ -115,11 +115,7 @@
 }
 
 .extra-symbols {
-  top: 46.2vh;
-}
-
-#switch-mode:checked ~ .buttons-container .extra-symbols {
-  top: 44.5vh;
+  top: 49vh;
 }
 
 .qr {

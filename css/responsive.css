@@ -23,7 +23,7 @@
   }
 
   .small-icon {
-    width: 2.6vh;
+    width: 2.5vh;
   }
 
   .large-icon {
@@ -53,11 +53,11 @@
   }
 
   #result {
-    top: 29%;
+    margin-top: 7%;
   }
 
   .logo-container {
-    bottom: 4.3vh;
+    bottom: 17%;
   }
 
   .logo {
@@ -66,6 +66,7 @@
 
   .middle-base {
     height: 5.5%;
+    margin-top: -5%;
   }
 
   .buttons-container {
@@ -75,7 +76,7 @@
   }
 
   #switch-mode:checked ~ .buttons-container {
-    padding-bottom: 25%;
+    padding-bottom: 25.7%;
   }
 
   .lights-container {
@@ -102,7 +103,8 @@
   }
 
   #switch-mode:checked ~ .buttons-container .special-buttons-container {
-    height: 7.8%;
+    margin: 1% 0 1% 0;
+    height: 8%;
   }
 
   .additional {
@@ -129,7 +131,7 @@
   }
 
   #switch-mode:checked ~ .buttons-container .main-button {
-    height: 60%;
+    height: 59%;
   }
 
   #switch-mode:checked ~ .buttons-container .dot {
@@ -137,19 +139,14 @@
   }
 
   .extra-symbols {
-    width: 30.2%;
-    height: 7%;
-    top: 84.5%;
-    margin-top: 2%;
+    width: 37%;
+    height: 7.5%;
+    top: 56.8vh;
     right: 1.6vh;
   }
 
-  #switch-mode:checked ~ .buttons-container .extra-symbols {
-    top: 84.3%;
-  }
-
   .extra-symbols .additional {
-    width: 48%;
+    width: 47%;
     height: 100%;
   }
 
