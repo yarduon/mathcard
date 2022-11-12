@@ -15,6 +15,26 @@
   top: 0;
 }
 
+#circle3,
+#circle4 {
+  top: 5%;
+}
+
+#circle1,
+#circle2 {
+  bottom: 5%;
+}
+
+#circle2,
+#circle3 {
+  left: 2%;
+}
+
+#circle1,
+#circle4 {
+  right: 2%;
+}
+
 .flex {
   display: flex;
 }

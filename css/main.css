@@ -42,26 +42,6 @@
   padding: 0.4vh 0 0.4vh 0;
 }
 
-#circle1,
-#circle2 {
-  margin-bottom: 17vh;
-}
-
-#circle2,
-#circle3 {
-  margin-left: 35vh;
-}
-
-#circle1,
-#circle4 {
-  margin-right: 35vh;
-}
-
-#circle3,
-#circle4 {
-  margin-top: 17vh;
-}
-
 #topScreen,
 #result,
 .font {

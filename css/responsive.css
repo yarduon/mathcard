@@ -22,26 +22,6 @@
     height: 5.5vh;
   }
 
-  #circle1,
-  #circle2 {
-    margin-bottom: 21vh;
-  }
-
-  #circle2,
-  #circle3 {
-    margin-left: 87%;
-  }
-
-  #circle1,
-  #circle4 {
-    margin-right: 87%;
-  }
-
-  #circle3,
-  #circle4 {
-    margin-top: 21vh;
-  }
-
   .small-icon {
     width: 2.6vh;
   }
@@ -52,10 +32,6 @@
 
   .medium-text {
     font-size: 2vh;
-  }
-
-  .full-black-border-right {
-    border-right: 0.5vh solid #000000;
   }
 
   .calculator {
@@ -98,9 +74,13 @@
     font-size: 2.7vh;
   }
 
+  #switch-mode:checked ~ .buttons-container {
+    padding-bottom: 12.8vh;
+  }
+
   .lights-container {
     height: 6.5vh;
-    bottom: 54vh;
+    bottom: 86.5%;
   }
 
   .off-on-light {
@@ -113,7 +93,7 @@
   .power {
     width: 6vh;
     height: 6vh;
-    top: 2.2vh;
+    top: 3.3%;
   }
 
   .special-buttons-container {
@@ -121,9 +101,26 @@
     margin-top: 0;
   }
 
+  #switch-mode:checked ~ .buttons-container .special-buttons-container {
+    height: 4.3vh;
+  }
+
   .additional {
     width: 15.5%;
     height: 42%;
+  }
+
+  #switch-mode:checked ~ .buttons-container .additional {
+    height: 100%;
+  }
+
+  .currencies-container {
+    margin-top: 0.4vh;
+  }
+
+  .select {
+    height: 5vh;
+    margin: 0.6vh 0 0.5vh 0;
   }
 
   .main-button {
@@ -131,26 +128,39 @@
     height: 43%;
   }
 
+  #switch-mode:checked ~ .buttons-container .main-button {
+    height: 60%;
+  }
+
+  #switch-mode:checked ~ .buttons-container .dot {
+    left: 60%;
+  }
+
   .extra-symbols {
-    width: 15vh;
-    height: 12vh;
-    top: 53.8vh;
+    width: 30.2%;
+    height: 7%;
+    top: 84.5%;
+    margin-top: 2%;
     right: 1.6vh;
   }
 
+  #switch-mode:checked ~ .buttons-container .extra-symbols {
+    top: 84.3%;
+  }
+
   .extra-symbols .additional {
-    width: 46%;
-    height: 35%;
+    width: 48%;
+    height: 100%;
   }
 
   .qr {
     width: 7vh;
     height: 7vh;
-    bottom: 1.2vh;
+    bottom: 2%;
   }
 
   .line {
-    height: 7%;
+    height: 7.5%;
   }
 
   .footer-buttons {
@@ -172,7 +182,6 @@
     left: 5.8vh;
   }
 }
-
 
 @media screen and (max-width: 320px) {
   .main-button {
