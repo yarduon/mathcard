@@ -111,11 +111,11 @@
 }
 
 #switch-mode:checked ~ .buttons-container .dot {
-  left: 22.5vh;
+  left: 22.6vh;
 }
 
 .extra-symbols {
-  top: 46.65vh;
+  top: 46.2vh;
 }
 
 #switch-mode:checked ~ .buttons-container .extra-symbols {

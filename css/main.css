@@ -1315,7 +1315,7 @@
 }
 
 #switch-mode:checked ~ .buttons-container {
-  padding-bottom: 3.8vh;
+  padding-bottom: 3.9vh;
 }
 
 .lights-container {
@@ -1337,11 +1337,10 @@
 
 .special-buttons-container {
   height: 8.5vh;
-  margin-top: 0.6vh;
 }
 
 #switch-mode:checked ~ .buttons-container .special-buttons-container {
-  height: 4.4vh;
+  height: 4.2vh;
 }
 
 .additional {
@@ -1368,8 +1367,16 @@
 }
 
 .extra-symbols {
-  width: 11.9vh;
-  margin: 0 0 0 24.8vh;
+  width: 14.2vh;
+  margin: 0 0 0 22.5vh;
+}
+
+#switch-mode:checked ~ .buttons-container .extra-symbols {
+  top: 44vh;
+}
+
+.extra-symbols .button {
+  width: 6.7vh;
 }
 
 .qr {
