@@ -36,11 +36,11 @@
 
   .calculator {
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
 
   .top-calculator {
-    height: 27%;
+    height: 27vh;
   }
 
   .screw {
@@ -53,11 +53,11 @@
   }
 
   #result {
-    margin-top: 7%;
+    margin-top: 2vh;
   }
 
   .logo-container {
-    bottom: 17%;
+    bottom: 4.8vh;
   }
 
   .logo {
@@ -65,28 +65,28 @@
   }
 
   .middle-base {
-    height: 5.5%;
-    margin-top: -5%;
+    height: 5vh;
+    margin-top: -2.5vh;
   }
 
   .buttons-container {
-    height: 63%;
-    padding: 0 1.2vh 31% 1.2vh;
+    height: 63vh;
+    padding: 0 1.2vh 15vh 1.2vh;
     font-size: 2.7vh;
   }
 
   #switch-mode:checked ~ .buttons-container {
-    padding-bottom: 25.7%;
+    padding-bottom: 13vh;
   }
 
   .lights-container {
-    height: 10%;
-    bottom: 86.5%;
+    height: 6vh;
+    bottom: 54.5vh;
   }
 
   .off-on-light {
-    width: 5%;
-    height: 30%;
+    width: 2.5vh;
+    height: 1.8vh;
     border-top-right-radius: 0.2vh;
     border-bottom-right-radius: 0.2vh;
   }
@@ -94,17 +94,16 @@
   .power {
     width: 6vh;
     height: 6vh;
-    top: 3.3%;
+    top: 2.2vh;
   }
 
   .special-buttons-container {
-    height: 20%;
+    height: 10vh;
     margin-top: 0;
   }
 
   #switch-mode:checked ~ .buttons-container .special-buttons-container {
-    margin: 1% 0 1% 0;
-    height: 8%;
+    margin: .5vh 0 .5vh 0;
   }
 
   .additional {
@@ -141,7 +140,7 @@
   .extra-symbols {
     width: 37%;
     height: 7.5%;
-    top: 56.8vh;
+    top: 57vh;
     right: 1.6vh;
   }
 
@@ -153,11 +152,11 @@
   .qr {
     width: 7vh;
     height: 7vh;
-    bottom: 2%;
+    bottom: 1vh;
   }
 
   .line {
-    height: 7.5%;
+    height: 8vh;
   }
 
   .footer-buttons {
