@@ -641,3 +641,13 @@ document.getElementById("paint").addEventListener("click", () => {
     e.classList.remove("hidden");
   });
 });
+
+// Show QR panel
+document.getElementById("qr").addEventListener("click", () => {
+  document.getElementById("qr-menu").classList.remove("hidden");
+});
+
+// Hide QR panel
+document.getElementById("cross").addEventListener("click", () => {
+  document.getElementById("qr-menu").classList.add("hidden");
+});

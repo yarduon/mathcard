@@ -153,23 +153,23 @@
             </svg>
           </button>
           <div
-          class="max-width hidden currencies-container flex column justify-around"
-        >
-          <label class="max-width flex justify-center" for="firstCurrency">
-            <select
-              class="select hidden-webstyles medium-text round-border touch pastel-white-shadow light-black-background pastel-white-text center"
-              name="firstCurrency"
-              id="firstCurrency"
-            ></select>
-          </label>
-          <label class="max-width flex justify-center" for="secondCurrency">
-            <select
-              class="select hidden-webstyles medium-text round-border touch pastel-white-shadow light-black-background pastel-white-text center"
-              name="secondCurrency"
-              id="secondCurrency"
-            ></select>
-          </label>
-        </div>
+            class="max-width hidden currencies-container flex column justify-around"
+          >
+            <label class="max-width flex justify-center" for="firstCurrency">
+              <select
+                class="select hidden-webstyles medium-text round-border touch pastel-white-shadow light-black-background pastel-white-text center"
+                name="firstCurrency"
+                id="firstCurrency"
+              ></select>
+            </label>
+            <label class="max-width flex justify-center" for="secondCurrency">
+              <select
+                class="select hidden-webstyles medium-text round-border touch pastel-white-shadow light-black-background pastel-white-text center"
+                name="secondCurrency"
+                id="secondCurrency"
+              ></select>
+            </label>
+          </div>
           <div
             class="special-buttons-container flex wrap justify-between align-around"
           >
@@ -514,6 +514,60 @@
           <div class="color pastel-green-background"></div>
         </div>
       </aside>
+      <section
+        class="qr-container max-width max-height flex justify-center align-center black-background absolute hidden"
+        id="qr-menu"
+      >
+        <div class="qr-options max-width flex justify-around align-center">
+          <div class="large-icon pastel-white-text selection" id="camera">
+            <svg
+              class="huge-icon"
+              viewBox="0 0 91.281 71.438"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m34.033 0.61185c-1.568 6.07e-6 -2.2985 1.3552-2.8303 2.8303l-1.6288 4.5181h-8.0321c0.0042-0.036434 0.0062-0.073515 0.0062-0.1111v-2.1539c0-0.52957-0.42644-0.95601-0.95601-0.95601h-7.6114c-0.52957 0-0.95601 0.42644-0.95601 0.95601v2.1539c0 0.03759 0.0025 0.074671 0.0067 0.1111h-7.4734c-0.025491 0-0.049957-6.373e-4 -0.075448 0-1.5976 0.040057-2.8727 1.3405-2.8727 2.9481v4.6793h88.063v-4.6793c0-1.6332-1.315-2.9481-2.9481-2.9481h-24.92l-1.7244-4.5181c-0.55907-1.465-1.2623-2.8303-2.8303-2.8303h-11.347zm-32.423 19.953v47.312c0 1.6332 1.315 2.9481 2.9481 2.9481h82.167c1.6332 0 2.9481-1.315 2.9481-2.9481v-47.312zm80.423 3.6287a3.4306 3.4306 0 0 1 3.4277 3.4313 3.4306 3.4306 0 0 1-3.4277 3.4313 3.4306 3.4306 0 0 1-3.4313-3.4313 3.4306 3.4306 0 0 1 3.4313-3.4313zm-36.392 2.914a18.585 18.585 0 0 1 18.583 18.586 18.585 18.585 0 0 1-18.583 18.586 18.585 18.585 0 0 1-18.586-18.586 18.585 18.585 0 0 1 18.586-18.586zm0 4.5067a14.08 14.08 0 0 0-14.079 14.079 14.08 14.08 0 0 0 14.079 14.079 14.08 14.08 0 0 0 14.079-14.079 14.08 14.08 0 0 0-14.079-14.079zm0 6.5459a7.5352 7.5352 0 0 1 7.5334 7.5334 7.5352 7.5352 0 0 1-7.5334 7.537 7.5352 7.5352 0 0 1-7.5365-7.537 7.5352 7.5352 0 0 1 7.5365-7.5334z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div class="huge-icon pastel-white-text selection" id="folder">
+            <svg
+              class="huge-icon"
+              viewBox="0 0 84.667 66.146"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="matrix(1.0657 0 0 1.0657 -4.895 -8.4499)">
+                <path
+                  d="m10.802 8.253c-3.1334 0-5.6561 2.5222-5.6561 5.6556v15.816h77.783c0.19296 0 0.38016 0.0219 0.56105 0.0611v-7.7393c0-3.1013-2.4966-5.5979-5.5979-5.5979h-44.102l-8.3871-8.1951zm72.688 26.654c-0.18088 0.03919-0.36809 0.0611-0.56105 0.0611h-77.783v29.109c0 3.1013 2.4966 5.5979 5.5979 5.5979h67.148c3.1013 0 5.5979-2.4966 5.5979-5.5979z"
+                  fill="currentColor"
+                  stroke-width="23.576"
+                />
+              </g>
+            </svg>
+          </div>
+          <div class="pastel-white-text absolute selection" id="cross">
+            <svg
+              class="large-icon"
+              viewBox="0 0 24.606 24.606"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)"
+              >
+                <g transform="translate(-1.0131 .0047441)">
+                  <path
+                    transform="matrix(.99999 .0038313 .0038316 .99999 0 0)"
+                    d="m-7.5248 63.595-0.016842 2.1356 10.828-0.08483-1.366e-4 10.811 2.1355-8.8e-5 1.227e-4 -10.827 10.811-0.08468 0.01684-2.1356-10.828 0.08483 1.367e-4 -10.811-2.1355 8.7e-5 -1.227e-4 10.827z"
+                    fill="currentColor"
+                    stroke-width="2.008"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

@@ -65,12 +65,12 @@
   }
 
   .middle-base {
-    height: 5vh;
+    height: 5%;
     margin-top: -2.5vh;
   }
 
   .buttons-container {
-    height: 63vh;
+    height: 63%;
     padding: 0 1.2vh 15vh 1.2vh;
     font-size: 2.7vh;
   }

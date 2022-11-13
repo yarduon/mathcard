@@ -6,7 +6,8 @@
 
 .calculator,
 #reader,
-.customization {
+.customization,
+.qr-container {
   z-index: 3;
 }
 
@@ -137,4 +138,9 @@
 
 .colors-container {
   bottom: 0;
+}
+
+#cross {
+  top: 1.5vh;
+  right: 1.5vh;
 }
