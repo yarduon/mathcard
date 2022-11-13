@@ -1150,6 +1150,10 @@
   font-size: 1.7vh;
 }
 
+.large-text{
+  font-size: 2.2vh;
+}
+
 .alatsi {
   font-family: Alatsi;
 }
@@ -1434,6 +1438,10 @@
   margin: 0.2vh;
 }
 
+.qr-options{
+  width: 87%;
+}
+
 .qr-icon {
   width: 50vh;
   height: 40vh;
@@ -1467,4 +1475,23 @@
 
 .disabled {
   background-color: #a7170d;
+}
+
+.qr-result-container{
+  width: 90%;
+  height: 30vh;
+}
+
+.qr-result-container a{
+  color: white;
+}
+
+#error{
+  top: 0;
+  left: 0;
+  padding: 1.5vh;
+}
+
+#reader{
+  width: 700px;
 }

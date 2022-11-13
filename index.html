@@ -569,16 +569,25 @@
                 />
               </g>
             </svg>
+            <input
+              class="absolute hidden"
+              type="file"
+              id="qr-input-file"
+              accept="image/*"
+            />
           </div>
-          <div style="z-index: 3" class="absolute">
-            <div id="reader"></div>
+          <div class="hidden" id="reader"></div>
+          <div
+            class="qr-result-container large-text selection light-black-background hidden"
+            id="qr-result-container"
+          >
+            <a id="qr-result" href="#">HHHH</a>
           </div>
-          <input
-            class="absolute hidden"
-            type="file"
-            id="qr-input-file"
-            accept="image/*"
-          />
+          <div
+            class="absolute container-error full-red-background pastel-white-text hidden"
+            id="error"
+          >
+          </div>
         </div>
       </section>
     </main>

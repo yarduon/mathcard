@@ -453,72 +453,83 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
-function readFile() {
+function readFileQR() {
   // Start scanning
   const html5QrCode = new Html5Qrcode("reader");
-
-  const fileinput = document.getElementById("qr-input-file");
-  fileinput.addEventListener("change", (e) => {
+  const fileInput = document.getElementById("qr-input-file");
+  fileInput.addEventListener("change", (e) => {
     const imageFile = e.target.files[0];
     // Scan QR Code with file
     html5QrCode
       .scanFile(imageFile, true)
       .then((decodedText) => {
-        // success, use decodedText
-        console.log(decodedText);
+        document.getElementById("qr-result").innerHTML = decodedText;
+        document.getElementById("qr-result").href = decodedText;
+        document.getElementById("camera").classList.add("hidden");
+        document.getElementById("folder").classList.add("hidden");
+        document
+          .getElementById("qr-result-container")
+          .classList.remove("hidden");
+        navigator.clipboard.writeText(decodedText);
+        document.getElementById("qr-input-file").value = "";
       })
-      .catch((err) => {
-        // failure, handle it.
-        console.log(`Error scanning file. Reason: ${err}`);
+      .catch(async (err) => {
+        document.getElementById("error").innerText = err;
+        document.getElementById("error").classList.remove("hidden");
+        // Wait two seconds before disappearing alert
+        await new Promise((res) => setTimeout(res, 2000));
+        // Delete elements from the queue that are done
+        document.getElementById("error").classList.add("hidden");
       });
   });
 }
 
-// Scan QR codes by camera or images provided
-function readQR() {
+function useCameraQR() {
   // This method will trigger user permissions
   Html5Qrcode.getCameras()
     .then((devices) => {
       if (devices && devices.length) {
         // Start scanning
         const html5QrCode = new Html5Qrcode("reader");
-        // Files
-        const fileinput = document.getElementById("qr-input-file");
-        fileinput.addEventListener("change", (e) => {
-          if (e.target.files.length == 0) {
-            // No file selected, ignore
-            return;
-          }
-          const imageFile = e.target.files[0];
 
-          // Scan QR Code with file
-          html5QrCode
-            .scanFile(imageFile, true)
-            .then((decodedText) => {
-              // success, use decodedText
-              console.log(decodedText);
-            })
-            .catch((err) => {
-              // failure, handle it.
-              console.log(`Error scanning file. Reason: ${err}`);
-            });
-        });
         // QR is detected
-        const qrCodeSuccessCallback = (decodedText, decodedResult) => {};
         const config = { fps: 20, qrbox: { width: 150, height: 150 } };
-
-        document.getElementById("camera").addEventListener("click", () => {
-          // Scan QR code with camra
-          html5QrCode.start(
-            { facingMode: "environment" },
-            config,
-            qrCodeSuccessCallback
-          );
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+          document.getElementById("qr-result").innerHTML = decodedText;
+          document.getElementById("qr-result").href = decodedText;
+          document.getElementById("reader").classList.add("hidden");
+          document.getElementById("camera").classList.add("hidden");
+          document.getElementById("folder").classList.add("hidden");
+          document
+            .getElementById("qr-result-container")
+            .classList.remove("hidden");
+          navigator.clipboard.writeText(decodedText);
+          html5QrCode.stop();
+        };
+        // Scan QR code with camera
+        document.getElementById("reader").classList.remove("hidden");
+        document.getElementById("camera").classList.add("hidden");
+        document.getElementById("folder").classList.add("hidden");
+        html5QrCode.start(
+          { facingMode: "environment" },
+          config,
+          qrCodeSuccessCallback
+        );
+        document.getElementById("cross").addEventListener("click", () => {
+          html5QrCode.stop();
+          document.getElementById("reader").classList.add("hidden");
+          document.getElementById("camera").classList.remove("hidden");
+          document.getElementById("folder").classList.remove("hidden");
         });
       }
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(async (err) => {
+      document.getElementById("error").innerText = err;
+      document.getElementById("error").classList.remove("hidden");
+      // Wait two seconds before disappearing alert
+      await new Promise((res) => setTimeout(res, 2000));
+      // Delete elements from the queue that are done
+      document.getElementById("error").classList.add("hidden");
     });
 }
 
@@ -536,6 +547,13 @@ window.onload = async () => {
     topScreen.innerText = localStorage.getItem("topScreen");
     result.innerText = localStorage.getItem("result");
   }
+
+  // Check if there are cameras available
+  document.getElementById("camera").classList.remove("disabled");
+  Html5Qrcode.getCameras().catch(() => {
+    // Deactivate camera icon
+    document.getElementById("camera").classList.add("disabled");
+  });
 
   // Update rates each 24h or when it's the first time
   if (
@@ -667,6 +685,7 @@ document.getElementById("paint").addEventListener("click", () => {
 document.getElementById("qr").addEventListener("click", () => {
   document.getElementById("qr-menu").classList.remove("hidden");
   // Check if there are cameras available
+  document.getElementById("camera").classList.remove("disabled");
   Html5Qrcode.getCameras().catch(() => {
     // Deactivate camera icon
     document.getElementById("camera").classList.add("disabled");
@@ -676,10 +695,17 @@ document.getElementById("qr").addEventListener("click", () => {
 // Hide QR panel
 document.getElementById("cross").addEventListener("click", () => {
   document.getElementById("qr-menu").classList.add("hidden");
+  document.getElementById("camera").classList.remove("hidden");
+  document.getElementById("folder").classList.remove("hidden");
+  document.getElementById("qr-result-container").classList.add("hidden");
+});
+
+document.getElementById("camera").addEventListener("click", () => {
+  useCameraQR();
 });
 
 // Swap original input reader to personalized icon
 document.getElementById("folder").addEventListener("click", () => {
   document.getElementById("qr-input-file").click();
-  readFile();
+  readFileQR();
 });
