@@ -1444,7 +1444,7 @@
 }
 
 .qr-icon {
-  transition: 0.5s;
+  transition: background-color 0.5s;
 }
 
 .qr-icon:hover {
@@ -1454,4 +1454,17 @@
 
 .qr-icon:hover .huge-icon {
   color: rgb(29, 28, 28);
+}
+
+.disabled:hover {
+  cursor: initial;
+  background-color: #a7170d;
+}
+
+.disabled:hover .huge-icon {
+  color: rgba(255, 255, 255);
+}
+
+.disabled {
+  background-color: #a7170d;
 }

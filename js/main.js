@@ -453,6 +453,27 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
+function readFile() {
+  // Start scanning
+  const html5QrCode = new Html5Qrcode("reader");
+
+  const fileinput = document.getElementById("qr-input-file");
+  fileinput.addEventListener("change", (e) => {
+    const imageFile = e.target.files[0];
+    // Scan QR Code with file
+    html5QrCode
+      .scanFile(imageFile, true)
+      .then((decodedText) => {
+        // success, use decodedText
+        console.log(decodedText);
+      })
+      .catch((err) => {
+        // failure, handle it.
+        console.log(`Error scanning file. Reason: ${err}`);
+      });
+  });
+}
+
 // Scan QR codes by camera or images provided
 function readQR() {
   // This method will trigger user permissions
@@ -497,7 +518,7 @@ function readQR() {
       }
     })
     .catch((err) => {
-      // handle err
+      console.log(err);
     });
 }
 
@@ -645,9 +666,20 @@ document.getElementById("paint").addEventListener("click", () => {
 // Show QR panel
 document.getElementById("qr").addEventListener("click", () => {
   document.getElementById("qr-menu").classList.remove("hidden");
+  // Check if there are cameras available
+  Html5Qrcode.getCameras().catch(() => {
+    // Deactivate camera icon
+    document.getElementById("camera").classList.add("disabled");
+  });
 });
 
 // Hide QR panel
 document.getElementById("cross").addEventListener("click", () => {
   document.getElementById("qr-menu").classList.add("hidden");
+});
+
+// Swap original input reader to personalized icon
+document.getElementById("folder").addEventListener("click", () => {
+  document.getElementById("qr-input-file").click();
+  readFile();
 });

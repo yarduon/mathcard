@@ -515,11 +515,32 @@
         </div>
       </aside>
       <section
-        class="qr-container max-width max-height flex justify-center align-center black-background absolute hidden"
+        class="qr-container max-width max-height flex justify-center align-center black-background absolute"
         id="qr-menu"
       >
+        <div class="pastel-white-text absolute selection" id="cross">
+          <svg
+            class="large-icon"
+            viewBox="0 0 24.606 24.606"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)">
+              <g transform="translate(-1.0131 .0047441)">
+                <path
+                  transform="matrix(.99999 .0038313 .0038316 .99999 0 0)"
+                  d="m-7.5248 63.595-0.016842 2.1356 10.828-0.08483-1.366e-4 10.811 2.1355-8.8e-5 1.227e-4 -10.827 10.811-0.08468 0.01684-2.1356-10.828 0.08483 1.367e-4 -10.811-2.1355 8.7e-5 -1.227e-4 10.827z"
+                  fill="currentColor"
+                  stroke-width="2.008"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
         <div class="qr-options max-width flex justify-around align-center">
-          <div class="qr-icon round-border-full selection pastel-white-text light-black-background flex justify-center align-center" id="camera">
+          <div
+            class="qr-icon flex justify-center align-center round-border-full selection pastel-white-text light-black-background"
+            id="camera"
+          >
             <svg
               class="huge-icon"
               viewBox="0 0 91.281 71.438"
@@ -531,7 +552,10 @@
               />
             </svg>
           </div>
-          <div class="qr-icon round-border-full selection pastel-white-text light-black-background flex justify-center align-center" id="folder">
+          <div
+            class="qr-icon round-border-full selection pastel-white-text light-black-background flex justify-center align-center"
+            id="folder"
+          >
             <svg
               class="huge-icon"
               viewBox="0 0 84.667 66.146"
@@ -546,26 +570,15 @@
               </g>
             </svg>
           </div>
-          <div class="pastel-white-text absolute selection" id="cross">
-            <svg
-              class="large-icon"
-              viewBox="0 0 24.606 24.606"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)"
-              >
-                <g transform="translate(-1.0131 .0047441)">
-                  <path
-                    transform="matrix(.99999 .0038313 .0038316 .99999 0 0)"
-                    d="m-7.5248 63.595-0.016842 2.1356 10.828-0.08483-1.366e-4 10.811 2.1355-8.8e-5 1.227e-4 -10.827 10.811-0.08468 0.01684-2.1356-10.828 0.08483 1.367e-4 -10.811-2.1355 8.7e-5 -1.227e-4 10.827z"
-                    fill="currentColor"
-                    stroke-width="2.008"
-                  />
-                </g>
-              </g>
-            </svg>
+          <div style="z-index: 3" class="absolute">
+            <div id="reader"></div>
           </div>
+          <input
+            class="absolute hidden"
+            type="file"
+            id="qr-input-file"
+            accept="image/*"
+          />
         </div>
       </section>
     </main>
