@@ -1434,5 +1434,24 @@
   margin: 0.2vh;
 }
 
-.qr-options {
+.qr-icon {
+  width: 50vh;
+  height: 40vh;
+}
+
+#cross:hover {
+  opacity: 0.7;
+}
+
+.qr-icon {
+  transition: 0.5s;
+}
+
+.qr-icon:hover {
+  background-color: rgba(255, 255, 255, 0.884);
+  transition: 0.5s;
+}
+
+.qr-icon:hover .huge-icon {
+  color: rgb(29, 28, 28);
 }
