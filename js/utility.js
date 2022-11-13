@@ -38,6 +38,16 @@ export function swapClasses(e, cAdd, cDelete) {
   e.classList.remove(cDelete);
 }
 
+export function removeClasses(element, ...classes) {
+  classes.forEach((c) => {
+    element.classList.forEach((e, i) => {
+      if (element.classList[i].includes(c)) {
+        element.classList.remove(element.classList[i]);
+      }
+    });
+  });
+}
+
 export function stringToBoolean(s) {
   return Boolean(s === "true");
 }

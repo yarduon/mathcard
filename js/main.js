@@ -9,9 +9,11 @@ import {
   isEqual,
   getCurrentSelectValue,
   cleanText,
+  removeClasses,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
+import customization from "../json/customization.js";
 import currencies from "../json/currencies.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
@@ -41,7 +43,10 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
 
 let usingFloat = false,
   usingCircumflex = false,
-  totalOpenParenthesis = 0;
+  totalOpenParenthesis = 0,
+  fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
+  currentColor = "full-black",
+  currentElement = "background";
 
 function operate(operator, num1, num2) {
   let total = 0;
@@ -541,6 +546,13 @@ window.onload = async () => {
   if (!localStorage.getItem("currencyMode")) {
     localStorage.setItem("currencyMode", false);
   }
+  if (!localStorage.getItem("editMode")) {
+    localStorage.setItem("editMode", false);
+  }
+
+  Array.from(document.getElementsByClassName("customization")).forEach((e) => {
+    e.classList.remove("hidden");
+  });
 
   // Power on or off light of calculator according to previous actions
   if (powerOnOff()) {
@@ -675,9 +687,22 @@ switchModes.addEventListener("click", () => {
 });
 
 // Show customization panels on top and bottom
-document.getElementById("paint").addEventListener("click", () => {
+document.getElementById("edit").addEventListener("click", () => {
   Array.from(document.getElementsByClassName("customization")).forEach((e) => {
     e.classList.remove("hidden");
+  });
+
+  Object.keys(customization).forEach((e) => {
+    document.getElementById(e).addEventListener("click", (i) => {
+      i.stopPropagation();
+      if (currentElement === "background") {
+        removeClasses(document.getElementById(e), "background");
+        document.getElementById(e).classList.add(currentColor + "-background");
+      } else {
+        removeClasses(document.getElementById(e), "text");
+        document.getElementById(e).classList.add(currentColor + "-text");
+      }
+    });
   });
 });
 
@@ -708,4 +733,25 @@ document.getElementById("camera").addEventListener("click", () => {
 document.getElementById("folder").addEventListener("click", () => {
   document.getElementById("qr-input-file").click();
   readFileQR();
+});
+
+Array.from(document.getElementsByClassName("color")).forEach((e) => {
+  e.addEventListener("click", () => {
+    currentColor = e.id;
+  });
+});
+
+Array.from(document.getElementsByClassName("font")).forEach((e) => {
+  e.addEventListener("click", () => {
+    removeClasses(document.getElementById("body"), ...fonts);
+    document.getElementById("body").classList.add(e.id);
+  });
+});
+
+document.getElementById("text").addEventListener("click", () => {
+  currentElement = "text";
+});
+
+document.getElementById("background").addEventListener("click", () => {
+  currentElement = "background";
 });

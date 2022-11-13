@@ -20,7 +20,10 @@
     <script defer src="./js/html5_qrcode.js"></script>
     <script type="module" defer src="./js/main.js"></script>
   </head>
-  <body class="flex justify-center align-center max-width max-height ptSans">
+  <body
+    class="flex justify-center align-center max-width max-height satisfy"
+    id="body"
+  >
     <div
       class="max-width max-height flex justify-center align-center absolute overflow-hidden"
     >
@@ -39,38 +42,38 @@
         class="fonts-container max-width absolute black-background overflow-hidden hidden customization"
       >
         <div class="font-families pastel-white-text flex align-center">
-          <div class="font">Alatsi</div>
-          <div class="font">Chewy</div>
-          <div class="font">Chivo</div>
-          <div class="font">Comfortaa</div>
-          <div class="font">Edu QLD</div>
-          <div class="font">Fredoka One</div>
-          <div class="font">Gugi</div>
-          <div class="font">Indie Flower</div>
-          <div class="font">Julee</div>
-          <div class="font">Lato</div>
-          <div class="font">Libre Franklin</div>
-          <div class="font">Lobster</div>
-          <div class="font">Londrina Solid</div>
-          <div class="font">Merriweather</div>
-          <div class="font">Nerko One</div>
-          <div class="font">Oleo Script</div>
-          <div class="font">Open Sans</div>
-          <div class="font">Outfit</div>
-          <div class="font">Patrick Hand</div>
-          <div class="font">Permanent Marker</div>
-          <div class="font">Poor Story</div>
-          <div class="font">Press Start 2P</div>
-          <div class="font">PT Mono</div>
-          <div class="font">PT Sans</div>
-          <div class="font">Roboto</div>
-          <div class="font">Rubik</div>
-          <div class="font">Satisfy</div>
-          <div class="font">Signika</div>
-          <div class="font">Source Code Pro</div>
-          <div class="font">Twinkle Star</div>
-          <div class="font">Ubuntu</div>
-          <div class="font">VT323</div>
+          <div class="font" id="alatsi">Alatsi</div>
+          <div class="font" id="chewy">Chewy</div>
+          <div class="font" id="chivo">Chivo</div>
+          <div class="font" id="comfortaa">Comfortaa</div>
+          <div class="font" id="edu-qld">Edu QLD</div>
+          <div class="font" id="fredoka-one">Fredoka One</div>
+          <div class="font" id="gugi">Gugi</div>
+          <div class="font" id="indie-flower">Indie Flower</div>
+          <div class="font" id="julee">Julee</div>
+          <div class="font" id="lato">Lato</div>
+          <div class="font" id="libre-franklin">Libre Franklin</div>
+          <div class="font" id="lobster">Lobster</div>
+          <div class="font" id="londrina-solid">Londrina Solid</div>
+          <div class="font" id="merriweather">Merriweather</div>
+          <div class="font" id="nerko-one">Nerko One</div>
+          <div class="font" id="oleo-script">Oleo Script</div>
+          <div class="font" id="open-sans">Open Sans</div>
+          <div class="font" id="outfit">Outfit</div>
+          <div class="font" id="patrick-hand">Patrick Hand</div>
+          <div class="font" id="permanent-marker">Permanent Marker</div>
+          <div class="font" id="poor-story">Poor Story</div>
+          <div class="font" id="press-start-2p">Press Start 2P</div>
+          <div class="font" id="pt-mono">PT Mono</div>
+          <div class="font" id="pt-sans">PT Sans</div>
+          <div class="font" id="roboto">Roboto</div>
+          <div class="font" id="rubik">Rubik</div>
+          <div class="font" id="satisfy">Satisfy</div>
+          <div class="font" id="signika">Signika</div>
+          <div class="font" id="source-code-pro">Source Code Pro</div>
+          <div class="font" id="twinkle-star">Twinkle Star</div>
+          <div class="font" id="ubuntu">Ubuntu</div>
+          <div class="font" id="vt323">VT323</div>
         </div>
       </aside>
       <div class="calculator round-border flex column">
@@ -82,9 +85,11 @@
         />
         <div
           class="top-calculator round-border-full max-width flex justify-center align-center normal-purple-background relative"
+          id="top"
         >
           <div
-            class="screen overflow-hidden flex column align-center full-black-border-full pastel-white-background"
+            class="screen overflow-hidden flex column align-center full-black-border-full full-black-text pastel-white-background"
+            id="screen"
           >
             <div class="operations-container flex justify-start align-center">
               <p
@@ -96,6 +101,7 @@
           </div>
           <div
             class="logo-container flex justify-center align-center absolute full-black-border-full full-black-background"
+            id="logo"
           >
             <p class="logo pastel-white-text">Mathcard</p>
           </div>
@@ -120,9 +126,11 @@
         </div>
         <div
           class="middle-base relative max-width pastel-black-background"
+          id="middle"
         ></div>
         <div
           class="buttons-container max-width relative flex column justify-center align-center normal-orange-background"
+          id="buttons"
         >
           <div
             class="flex column justify-around absolute lights-container max-width"
@@ -402,6 +410,7 @@
         </div>
         <div
           class="line max-width relative flex justify-between align-center pastel-black-background"
+          id="bottom"
         >
           <div class="footer-buttons flex justify-between">
             <button
@@ -424,8 +433,8 @@
               </svg>
             </button>
             <button
-              class="paint flex justify-center align-center round-border touch pastel-white-shadow pastel-white-text normal-black-background"
-              id="paint"
+              class="edit flex justify-center align-center round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              id="edit"
             >
               <svg
                 class="small-icon"
@@ -449,9 +458,11 @@
             >
               <div
                 class="absolute switch-circle circle-shape pastel-white-background"
+                id="switch-circle"
               ></div>
               <div
                 class="switch-line max-width round-border-full normal-black-background"
+                id="switch-line"
               ></div>
             </div>
           </label>
@@ -460,62 +471,66 @@
       <aside
         class="colors-container max-width absolute black-background overflow-hidden hidden customization"
       >
+        <button class="medium-text selection" id="text">Text</button>
+        <button class="medium-text selection" id="background">
+          Background
+        </button>
         <div class="palette relative flex align-center" id="palette">
-          <div class="color full-black-background"></div>
-          <div class="color normal-black-background"></div>
-          <div class="color light-black-background"></div>
-          <div class="color pastel-black-background"></div>
-          <div class="color full-grey-background"></div>
-          <div class="color darker-grey-background"></div>
-          <div class="color normal-grey-background"></div>
-          <div class="color light-grey-background"></div>
-          <div class="color pastel-grey-background"></div>
-          <div class="color full-white-background"></div>
-          <div class="color pastel-white-background"></div>
-          <div class="color full-orange-background"></div>
-          <div class="color darker-orange-background"></div>
-          <div class="color normal-orange-background"></div>
-          <div class="color light-orange-background"></div>
-          <div class="color pastel-orange-background"></div>
-          <div class="color full-red-background"></div>
-          <div class="color darker-red-background"></div>
-          <div class="color normal-red-background"></div>
-          <div class="color light-red-background"></div>
-          <div class="color pastel-red-background"></div>
-          <div class="color full-blue-background"></div>
-          <div class="color darker-blue-background"></div>
-          <div class="color normal-blue-background"></div>
-          <div class="color light-blue-background"></div>
-          <div class="color pastel-blue-background"></div>
-          <div class="color full-brown-background"></div>
-          <div class="color darker-brown-background"></div>
-          <div class="color normal-brown-background"></div>
-          <div class="color light-brown-background"></div>
-          <div class="color pastel-brown-background"></div>
-          <div class="color full-purple-background"></div>
-          <div class="color darker-purple-background"></div>
-          <div class="color normal-purple-background"></div>
-          <div class="color light-purple-background"></div>
-          <div class="color pastel-purple-background"></div>
-          <div class="color full-pink-background"></div>
-          <div class="color darker-pink-background"></div>
-          <div class="color normal-pink-background"></div>
-          <div class="color light-pink-background"></div>
-          <div class="color pastel-pink-background"></div>
-          <div class="color full-yellow-background"></div>
-          <div class="color darker-yellow-background"></div>
-          <div class="color normal-yellow-background"></div>
-          <div class="color light-yellow-background"></div>
-          <div class="color pastel-yellow-background"></div>
-          <div class="color full-green-background"></div>
-          <div class="color darker-green-background"></div>
-          <div class="color normal-green-background"></div>
-          <div class="color light-green-background"></div>
-          <div class="color pastel-green-background"></div>
+          <div class="color full-black-background" id="full-black"></div>
+          <div class="color normal-black-background" id="normal-black"></div>
+          <div class="color light-black-background" id="light-black"></div>
+          <div class="color pastel-black-background" id="pastel-black"></div>
+          <div class="color full-grey-background" id="full-grey"></div>
+          <div class="color darker-grey-background" id="darker-grey"></div>
+          <div class="color normal-grey-background" id="normal-grey"></div>
+          <div class="color light-grey-background" id="light-grey"></div>
+          <div class="color pastel-grey-background" id="pastel-grey"></div>
+          <div class="color full-white-background" id="full-white"></div>
+          <div class="color pastel-white-background" id="pastel-white"></div>
+          <div class="color full-orange-background" id="full-orange"></div>
+          <div class="color darker-orange-background" id="darker-orange"></div>
+          <div class="color normal-orange-background" id="normal-orange"></div>
+          <div class="color light-orange-background" id="light-orange"></div>
+          <div class="color pastel-orange-background" id="pastel-orange"></div>
+          <div class="color full-red-background" id="full-red"></div>
+          <div class="color darker-red-background" id="darker-red"></div>
+          <div class="color normal-red-background" id="normal-red"></div>
+          <div class="color light-red-background" id="light-red"></div>
+          <div class="color pastel-red-background" id="pastel-red"></div>
+          <div class="color full-blue-background" id="full-blue"></div>
+          <div class="color darker-blue-background" id="darker-blue"></div>
+          <div class="color normal-blue-background" id="normal-blue"></div>
+          <div class="color light-blue-background" id="light-blue"></div>
+          <div class="color pastel-blue-background" id="pastel-blue"></div>
+          <div class="color full-brown-background" id="full-brown"></div>
+          <div class="color darker-brown-background" id="darker-brown"></div>
+          <div class="color normal-brown-background" id="normal-brown"></div>
+          <div class="color light-brown-background" id="light-brown"></div>
+          <div class="color pastel-brown-background" id="pastel-brown"></div>
+          <div class="color full-purple-background" id="full-purple"></div>
+          <div class="color darker-purple-background" id="darker-purple"></div>
+          <div class="color normal-purple-background" id="normal-purple"></div>
+          <div class="color light-purple-background" id="light-purple"></div>
+          <div class="color pastel-purple-background" id="pastel-purple"></div>
+          <div class="color full-pink-background" id="full-pink"></div>
+          <div class="color darker-pink-background" id="darker-pink"></div>
+          <div class="color normal-pink-background" id="normal-pink"></div>
+          <div class="color light-pink-background" id="light-pink"></div>
+          <div class="color pastel-pink-background" id="pastel-pink"></div>
+          <div class="color full-yellow-background" id="full-yellow"></div>
+          <div class="color darker-yellow-background" id="darker-yellow"></div>
+          <div class="color normal-yellow-background" id="normal-yellow"></div>
+          <div class="color light-yellow-background" id="light-yellow"></div>
+          <div class="color pastel-yellow-background" id="pastel-yellow"></div>
+          <div class="color full-green-background" id="full-green"></div>
+          <div class="color darker-green-background" id="darker-green"></div>
+          <div class="color normal-green-background" id="normal-green"></div>
+          <div class="color light-green-background" id="light-green"></div>
+          <div class="color pastel-green-background" id="pastel-green"></div>
         </div>
       </aside>
       <section
-        class="qr-container max-width max-height flex justify-center align-center black-background absolute"
+        class="qr-container max-width max-height flex justify-center align-center black-background absolute hidden"
         id="qr-menu"
       >
         <div class="pastel-white-text absolute selection" id="cross">
@@ -586,8 +601,7 @@
           <div
             class="absolute container-error full-red-background pastel-white-text hidden"
             id="error"
-          >
-          </div>
+          ></div>
         </div>
       </section>
     </main>

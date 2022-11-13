@@ -7,7 +7,9 @@
 .calculator,
 #reader,
 .customization,
-.qr-container {
+.qr-container,
+.screen,
+.logo-container {
   z-index: 3;
 }
 

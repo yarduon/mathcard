@@ -7,7 +7,7 @@
 }
 
 .settings,
-.paint {
+.edit {
   width: 3.8vh;
   height: 3.8vh;
 }
@@ -1150,7 +1150,7 @@
   font-size: 1.7vh;
 }
 
-.large-text{
+.large-text {
   font-size: 2.2vh;
 }
 
@@ -1170,11 +1170,11 @@
   font-family: Comfortaa;
 }
 
-.equQld {
+.equ-qld {
   font-family: "Edu QLD";
 }
 
-.fredokaOne {
+.fredoka-one {
   font-family: "Fredoka One";
 }
 
@@ -1182,7 +1182,7 @@
   font-family: Gugi;
 }
 
-.indieFlower {
+.indie-flower {
   font-family: "Indie Flower";
 }
 
@@ -1194,7 +1194,7 @@
   font-family: Lato;
 }
 
-.libreFranklin {
+.libre-franklin {
   font-family: "Libre Franklin";
 }
 
@@ -1202,7 +1202,7 @@
   font-family: Lobster;
 }
 
-.londrinaSolid {
+.londrina-solid {
   font-family: "Londrina Solid";
 }
 
@@ -1210,15 +1210,15 @@
   font-family: Merriweather;
 }
 
-.nerkoOne {
+.nerko-one {
   font-family: "Nerko One";
 }
 
-.oleoScript {
+.oleo-script {
   font-family: "Oleo Script";
 }
 
-.openSans {
+.open-sans {
   font-family: "Open Sans";
 }
 
@@ -1226,27 +1226,27 @@
   font-family: Opensans;
 }
 
-.patrickHand {
+.patrick-hand {
   font-family: "Patrick Hand";
 }
 
-.permanentMarker {
+.permanent-marker {
   font-family: "Permanent Marker";
 }
 
-.poorStory {
+.poor-story {
   font-family: "Poor Story";
 }
 
-.pressStart2P {
+.press-start-2p {
   font-family: "Press Start 2P";
 }
 
-.ptMono {
+.pt-mono {
   font-family: PT Mono;
 }
 
-.ptSans {
+.pt-sans {
   font-family: PT Sans;
 }
 
@@ -1266,11 +1266,11 @@
   font-family: Signika;
 }
 
-.sourceCodePro {
+.source-code-pro {
   font-family: "Source Code Pro";
 }
 
-.twinkleStar {
+.twinkle-star {
   font-family: "Twinkle Star";
 }
 
@@ -1438,7 +1438,7 @@
   margin: 0.2vh;
 }
 
-.qr-options{
+.qr-options {
   width: 87%;
 }
 
@@ -1477,21 +1477,21 @@
   background-color: #a7170d;
 }
 
-.qr-result-container{
+.qr-result-container {
   width: 90%;
   height: 30vh;
 }
 
-.qr-result-container a{
+.qr-result-container a {
   color: white;
 }
 
-#error{
+#error {
   top: 0;
   left: 0;
   padding: 1.5vh;
 }
 
-#reader{
+#reader {
   width: 700px;
 }
