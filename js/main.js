@@ -559,7 +559,7 @@ function editMode(event) {
     });
 
     // Deactive switch mode
-    document.getElementById("switch-mode").disabled = true;
+    /* document.getElementById("switch-mode").disabled = true; */
 
     Array.from(document.getElementsByClassName("color")).forEach((e) => {
       e.addEventListener("click", () => {
@@ -568,9 +568,9 @@ function editMode(event) {
     });
 
     Object.keys(customization).forEach((e) => {
-      document.getElementById(e).addEventListener("click", (o) => {
+      document.getElementById(e).addEventListener("click", (event) => {
         // Prevent parent elements to trigger
-        o.stopPropagation();
+        event.stopPropagation();
         // Remove previous classes according to currently selected element
         if (currentColor != "") {
           removeClasses(document.getElementById(e), currentElement);
@@ -664,7 +664,15 @@ buttons.forEach((e) => {
 
 // Detect typed buttons
 window.addEventListener("keydown", (e) => {
-  selectButton(e.key);
+  // Prevent functions, operators, and parenthesis behaviour when currency mode is active
+  if (
+    !String(document.getElementById(e.key).classList).includes(
+      "hidden-currency"
+    ) ||
+    localStorage.getItem("currencyMode") === "false"
+  ) {
+    selectButton(e.key);
+  }
 });
 
 document.getElementById("power").addEventListener("click", (e) => {
