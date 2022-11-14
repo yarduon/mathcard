@@ -9,6 +9,9 @@ import {
   isEqual,
   getCurrentSelectValue,
   cleanText,
+  addClass,
+  addClasses,
+  removeClass,
   removeClasses,
 } from "./utility.js";
 
@@ -39,12 +42,12 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   currenciesSelect = [
     document.getElementById("firstCurrency"),
     document.getElementById("secondCurrency"),
-  ];
+  ],
+  fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id);
 
 let usingFloat = false,
   usingCircumflex = false,
   totalOpenParenthesis = 0,
-  fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
   currentColor = "",
   currentElement = "background";
 
@@ -458,20 +461,35 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
+function checkCameras() {
+  // Check if there are cameras available but before activate icon
+  removeClasses(document.getElementById("camera"), "disabled");
+  Html5Qrcode.getCameras().catch(() => {
+    // Deactivate camera icon
+    addClasses(document.getElementById("camera"), "disabled");
+  });
+}
+
 function readFileQR() {
-  // Start scanning
   const html5QrCode = new Html5Qrcode("reader");
-  const fileInput = document.getElementById("qr-input-file");
-  fileInput.addEventListener("change", (e) => {
-    const imageFile = e.target.files[0];
-    // Scan QR Code with file
+  // The scan will start when the file in the input changes
+  document.getElementById("qr-input-file").addEventListener("change", (e) => {
+    // Find a QR in the selected file
     html5QrCode
-      .scanFile(imageFile, true)
+      .scanFile(e.target.files[0], true)
+      // If a QR code is found
       .then((decodedText) => {
+        // Fill result with generated link
         document.getElementById("qr-result").innerHTML = decodedText;
         document.getElementById("qr-result").href = decodedText;
-        document.getElementById("camera").classList.add("hidden");
-        document.getElementById("folder").classList.add("hidden");
+
+        // Hide options of QR reader
+        addClass(
+          document.getElementById("camera"),
+          document.getElementById("folder"),
+          "hidden"
+        );
+
         document
           .getElementById("qr-result-container")
           .classList.remove("hidden");
@@ -499,7 +517,7 @@ function useCameraQR() {
 
         // QR is detected
         const config = { fps: 20, qrbox: { width: 150, height: 150 } };
-        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+        const qrCodeSuccessCallback = (decodedText) => {
           document.getElementById("qr-result").innerHTML = decodedText;
           document.getElementById("qr-result").href = decodedText;
           document.getElementById("reader").classList.add("hidden");
@@ -559,14 +577,16 @@ function editMode(event) {
     });
 
     // Deactive switch mode
-    /* document.getElementById("switch-mode").disabled = true; */
+    document.getElementById("switch-mode").disabled = true;
 
+    // Change the selected current color
     Array.from(document.getElementsByClassName("color")).forEach((e) => {
       e.addEventListener("click", () => {
         currentColor = e.id;
       });
     });
 
+    // Modify button background and text color
     Object.keys(customization).forEach((e) => {
       document.getElementById(e).addEventListener("click", (event) => {
         // Prevent parent elements to trigger
@@ -612,11 +632,7 @@ window.onload = async () => {
   }
 
   // Check if there are cameras available
-  document.getElementById("camera").classList.remove("disabled");
-  Html5Qrcode.getCameras().catch(() => {
-    // Deactivate camera icon
-    document.getElementById("camera").classList.add("disabled");
-  });
+  checkCameras();
 
   // Update rates each 24h or when it's the first time
   if (
@@ -773,16 +789,11 @@ switchModes.addEventListener("click", () => {
   writeAndSave(topScreen.id, "", topScreen);
 });
 
-// Show QR panel
+// Show QR panel and check if there are cameras available
 document.getElementById("qr").addEventListener("click", () => {
   if (localStorage.getItem("editMode") === "false") {
-    document.getElementById("qr-menu").classList.remove("hidden");
-    // Check if there are cameras available
-    document.getElementById("camera").classList.remove("disabled");
-    Html5Qrcode.getCameras().catch(() => {
-      // Deactivate camera icon
-      document.getElementById("camera").classList.add("disabled");
-    });
+    removeClasses(document.getElementById("qr-menu"), "hidden");
+    checkCameras();
   }
 });
 
@@ -800,6 +811,7 @@ document.getElementById("camera").addEventListener("click", () => {
 
 // Swap original input reader to personalized icon
 document.getElementById("folder").addEventListener("click", () => {
+  // Use input
   document.getElementById("qr-input-file").click();
   readFileQR();
 });

@@ -38,6 +38,32 @@ export function swapClasses(e, cAdd, cDelete) {
   e.classList.remove(cDelete);
 }
 
+// Add one class to multiple elements
+export function addClass(selectedClass, ...elements) {
+  elements.forEach((e) => {
+    e.classList.add(selectedClass);
+  });
+}
+
+// Add multiple classes to an element
+export function addClasses(element, ...classes) {
+  classes.forEach((c) => {
+    element.classList.add(c);
+  });
+}
+
+// Remove one class from multiple elements
+export function removeClass(selectedClass, ...elements) {
+  elements.forEach((e) => {
+    e.classList.forEach((o, i) => {
+      if (e.classList[i].includes(selectedClass)) {
+        e.classList.remove(e.classList[i]);
+      }
+    });
+  });
+}
+
+// Remove multiple classes from an element
 export function removeClasses(element, ...classes) {
   classes.forEach((c) => {
     element.classList.forEach((e, i) => {
