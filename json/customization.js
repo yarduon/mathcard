@@ -1,5 +1,8 @@
 // https://yarduon.com
 export default {
+  font: {
+    family: "satisfy",
+  },
   top: {
     background: "normal-purple-background",
   },

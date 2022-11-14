@@ -1374,6 +1374,10 @@
   margin: 0.4vh 0 0.4vh 0;
 }
 
+.select:disabled {
+  opacity: 1;
+}
+
 .extra-symbols {
   width: 14.2vh;
   margin: 0 0 0 22.5vh;

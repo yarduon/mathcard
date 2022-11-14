@@ -45,7 +45,7 @@ let usingFloat = false,
   usingCircumflex = false,
   totalOpenParenthesis = 0,
   fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
-  currentColor = "full-black",
+  currentColor = "",
   currentElement = "background";
 
 function operate(operator, num1, num2) {
@@ -353,8 +353,8 @@ function selectButton(name) {
 
 // Turn on and turn off
 function powerOnOff(event) {
-  // Change status when button is pressed or clicked
-  if (event) {
+  // Change status when button is pressed or clicked and edit mode is deactivated
+  if (event && localStorage.getItem("editMode") === "false") {
     let status = stringToBoolean(localStorage.getItem("power"));
     localStorage.setItem("power", !status);
   }
@@ -553,15 +553,31 @@ function editMode(event) {
       }
     );
 
+    // Deactivate currencies selectors
+    currenciesSelect.forEach((e) => {
+      e.disabled = true;
+    });
+
+    // Deactive switch mode
+    document.getElementById("switch-mode").disabled = true;
+
+    Array.from(document.getElementsByClassName("color")).forEach((e) => {
+      e.addEventListener("click", () => {
+        currentColor = e.id;
+      });
+    });
+
     Object.keys(customization).forEach((e) => {
       document.getElementById(e).addEventListener("click", (o) => {
         // Prevent parent elements to trigger
         o.stopPropagation();
         // Remove previous classes according to currently selected element
-        removeClasses(document.getElementById(e), currentElement);
-        document
-          .getElementById(e)
-          .classList.add(currentColor + "-" + currentElement);
+        if (currentColor != "") {
+          removeClasses(document.getElementById(e), currentElement);
+          document
+            .getElementById(e)
+            .classList.add(currentColor + "-" + currentElement);
+        }
       });
     });
   } else {
@@ -571,6 +587,9 @@ function editMode(event) {
         e.classList.add("hidden");
       }
     );
+
+    // Activate switch mode
+    document.getElementById("switch-mode").disabled = true;
   }
 }
 
@@ -633,12 +652,17 @@ window.onload = async () => {
   if (stringToBoolean(localStorage.getItem("editMode"))) editMode();
 };
 
+// Detect pressed buttons
 buttons.forEach((e) => {
   e.addEventListener("click", () => {
-    selectButton(e.id);
+    // Prevent normal button behaviour when edit mode is active
+    if (localStorage.getItem("editMode") === "false") {
+      selectButton(e.id);
+    }
   });
 });
 
+// Detect typed buttons
 window.addEventListener("keydown", (e) => {
   selectButton(e.key);
 });
@@ -650,48 +674,69 @@ document.getElementById("power").addEventListener("click", (e) => {
 
 // Delete all operations
 document.getElementById("ac").addEventListener("click", () => {
-  writeAndSave(topScreen.id, "", topScreen);
-  writeAndSave(result.id, 0, result);
+  // Prevent default button behaviour when edit mode is activated
+  if (localStorage.getItem("editMode") === "false") {
+    writeAndSave(topScreen.id, "", topScreen);
+    writeAndSave(result.id, 0, result);
+  }
 });
 
 // Add current result with stored result
 document.getElementById("m+").addEventListener("click", () => {
-  localStorage.setItem(
-    "memory",
-    +localStorage.getItem("memory") + +result.innerText
-  );
+  // Prevent default button behaviour when edit mode is activated
+  if (localStorage.getItem("editMode") === "false") {
+    localStorage.setItem(
+      "memory",
+      +localStorage.getItem("memory") + +result.innerText
+    );
+  }
 });
 
 // Subtract current result with stored result
 document.getElementById("m-").addEventListener("click", () => {
-  localStorage.setItem(
-    "memory",
-    +localStorage.getItem("memory") - +result.innerText
-  );
+  // Prevent default button behaviour when edit mode is activated
+  if (localStorage.getItem("editMode") === "false") {
+    localStorage.setItem(
+      "memory",
+      +localStorage.getItem("memory") - +result.innerText
+    );
+  }
 });
 
 // Use stored result as an operation value
 document.getElementById("mr").addEventListener("click", () => {
-  topScreen.innerText += localStorage.getItem("memory");
-  localStorage.setItem("topScreen", topScreen.innerText);
+  // Prevent default button behaviour when edit mode is activated
+  if (localStorage.getItem("editMode") === "false") {
+    topScreen.innerText += localStorage.getItem("memory");
+    localStorage.setItem("topScreen", topScreen.innerText);
+  }
 });
 
 // Save current result
 document.getElementById("ms").addEventListener("click", () => {
-  // Prevent currency names to be stored
-  isNaN(localStorage.getItem("memory"))
-    ? localStorage.setItem("memory", cleanText(result.innerText))
-    : localStorage.setItem("memory", result.innerText);
+  // Prevent default button behaviour when edit mode is activated
+  if (localStorage.getItem("editMode") === "false") {
+    // Prevent currency names to be stored
+    isNaN(localStorage.getItem("memory"))
+      ? localStorage.setItem("memory", cleanText(result.innerText))
+      : localStorage.setItem("memory", result.innerText);
+  }
 });
 
 // Delete stored result
 document.getElementById("mc").addEventListener("click", () => {
-  localStorage.removeItem("memory");
+  // Prevent default button behaviour when edit mode is activated
+  if (localStorage.getItem("editMode") === "false") {
+    localStorage.removeItem("memory");
+  }
 });
 
 // Delete current result
 document.getElementById("ce").addEventListener("click", () => {
-  writeAndSave(result.id, 0, result);
+  // Prevent default button behaviour when edit mode is activated
+  if (localStorage.getItem("editMode") === "false") {
+    writeAndSave(result.id, 0, result);
+  }
 });
 
 // Fill second select when editing the options on the first
@@ -722,13 +767,15 @@ switchModes.addEventListener("click", () => {
 
 // Show QR panel
 document.getElementById("qr").addEventListener("click", () => {
-  document.getElementById("qr-menu").classList.remove("hidden");
-  // Check if there are cameras available
-  document.getElementById("camera").classList.remove("disabled");
-  Html5Qrcode.getCameras().catch(() => {
-    // Deactivate camera icon
-    document.getElementById("camera").classList.add("disabled");
-  });
+  if (localStorage.getItem("editMode") === "false") {
+    document.getElementById("qr-menu").classList.remove("hidden");
+    // Check if there are cameras available
+    document.getElementById("camera").classList.remove("disabled");
+    Html5Qrcode.getCameras().catch(() => {
+      // Deactivate camera icon
+      document.getElementById("camera").classList.add("disabled");
+    });
+  }
 });
 
 // Hide QR panel
@@ -749,20 +796,18 @@ document.getElementById("folder").addEventListener("click", () => {
   readFileQR();
 });
 
+// Open edit mode
 document.getElementById("edit").addEventListener("click", (e) => {
-  editMode(e);
-});
-
-Array.from(document.getElementsByClassName("color")).forEach((e) => {
-  e.addEventListener("click", () => {
-    currentColor = e.id;
-  });
+  // Prevent to close edit mode when changing edit button
+  if (localStorage.getItem("editMode") === "false") {
+    editMode(e);
+  }
 });
 
 Array.from(document.getElementsByClassName("font")).forEach((e) => {
   e.addEventListener("click", () => {
-    removeClasses(document.getElementById("body"), ...fonts);
-    document.getElementById("body").classList.add(e.id);
+    removeClasses(document.getElementById("font"), ...fonts);
+    document.getElementById("font").classList.add(e.id);
   });
 });
 
