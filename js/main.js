@@ -538,6 +538,42 @@ function useCameraQR() {
     });
 }
 
+function editMode(event) {
+  // Change status when button is pressed or clicked
+  if (event) {
+    let status = stringToBoolean(localStorage.getItem("editMode"));
+    localStorage.setItem("editMode", !status);
+  }
+
+  if (localStorage.getItem("editMode") === "true") {
+    // Show customizations panels on top and bottom
+    Array.from(document.getElementsByClassName("customization")).forEach(
+      (e) => {
+        e.classList.remove("hidden");
+      }
+    );
+
+    Object.keys(customization).forEach((e) => {
+      document.getElementById(e).addEventListener("click", (o) => {
+        // Prevent parent elements to trigger
+        o.stopPropagation();
+        // Remove previous classes according to currently selected element
+        removeClasses(document.getElementById(e), currentElement);
+        document
+          .getElementById(e)
+          .classList.add(currentColor + "-" + currentElement);
+      });
+    });
+  } else {
+    // Hide customizations panels on top and bottom
+    Array.from(document.getElementsByClassName("customization")).forEach(
+      (e) => {
+        e.classList.add("hidden");
+      }
+    );
+  }
+}
+
 // When the page is refreshed or loaded for the first time
 window.onload = async () => {
   // Load default values when the cache is deleted or first time
@@ -549,10 +585,6 @@ window.onload = async () => {
   if (!localStorage.getItem("editMode")) {
     localStorage.setItem("editMode", false);
   }
-
-  Array.from(document.getElementsByClassName("customization")).forEach((e) => {
-    e.classList.remove("hidden");
-  });
 
   // Power on or off light of calculator according to previous actions
   if (powerOnOff()) {
@@ -595,8 +627,10 @@ window.onload = async () => {
     currenciesSelect[1].value = localStorage.getItem("secondCurrency");
   }
 
-  // Set previous selected mode
+  // Show currencies panel if was previously selected
   switchModes.checked = stringToBoolean(localStorage.getItem("currencyMode"));
+  // Activate edit mode if was previously used
+  if (stringToBoolean(localStorage.getItem("editMode"))) editMode();
 };
 
 buttons.forEach((e) => {
@@ -686,26 +720,6 @@ switchModes.addEventListener("click", () => {
   writeAndSave(topScreen.id, "", topScreen);
 });
 
-// Show customization panels on top and bottom
-document.getElementById("edit").addEventListener("click", () => {
-  Array.from(document.getElementsByClassName("customization")).forEach((e) => {
-    e.classList.remove("hidden");
-  });
-
-  Object.keys(customization).forEach((e) => {
-    document.getElementById(e).addEventListener("click", (i) => {
-      i.stopPropagation();
-      if (currentElement === "background") {
-        removeClasses(document.getElementById(e), "background");
-        document.getElementById(e).classList.add(currentColor + "-background");
-      } else {
-        removeClasses(document.getElementById(e), "text");
-        document.getElementById(e).classList.add(currentColor + "-text");
-      }
-    });
-  });
-});
-
 // Show QR panel
 document.getElementById("qr").addEventListener("click", () => {
   document.getElementById("qr-menu").classList.remove("hidden");
@@ -733,6 +747,10 @@ document.getElementById("camera").addEventListener("click", () => {
 document.getElementById("folder").addEventListener("click", () => {
   document.getElementById("qr-input-file").click();
   readFileQR();
+});
+
+document.getElementById("edit").addEventListener("click", (e) => {
+  editMode(e);
 });
 
 Array.from(document.getElementsByClassName("color")).forEach((e) => {
