@@ -43,7 +43,11 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("firstCurrency"),
     document.getElementById("secondCurrency"),
   ],
-  fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id);
+  fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
+  customizationButtons = [
+    document.getElementById("text"),
+    document.getElementById("background"),
+  ];
 
 let usingFloat = false,
   usingCircumflex = false,
@@ -188,14 +192,24 @@ function findAndReplaceCalc(operator, array) {
 }
 
 function deleteNumber(lastDeleted) {
-  // Reset use of dots when deleting these
-  if (lastDeleted === ".") usingFloat = false;
-  // Reset use of circumflex when deleting these
-  if (lastDeleted === "^") usingCircumflex = false;
-  // Increments use of closed parenthesis when deleting these
-  if (lastDeleted === ")") totalOpenParenthesis++;
-  // Decrement use of closed parenthesis when deleting opened ones
-  if (lastDeleted === "(" && totalOpenParenthesis >= 0) totalOpenParenthesis--;
+  switch (lastDeleted) {
+    case ".":
+      // Reset use of dots when deleting these
+      usingFloat = false;
+      break;
+    case "^":
+      // Reset use of circumflex when deleting these
+      usingCircumflex = false;
+      break;
+    case ")":
+      // Increments use of closed parenthesis when deleting these
+      totalOpenParenthesis++;
+      break;
+    default:
+      // Decrement use of closed parenthesis when deleting opened ones
+      if (lastDeleted === "(" && totalOpenParenthesis >= 0)
+        totalOpenParenthesis--;
+  }
 
   // Create a copy of screen without last element
   writeAndSave(topScreen.id, topScreen.innerText.slice(0, -1), topScreen);
@@ -414,8 +428,8 @@ function powerOnOff(event) {
 
 async function updateRates(json, currentDate) {
   // Obtain current conversion rates
-  const response = await fetch(json);
-  const data = await response.json();
+  const response = await fetch(json),
+    data = await response.json();
   // Convert rates to local data
   localStorage.setItem("exchangeRates", JSON.stringify(data));
   // Rates won't be updated until next 24 hours
@@ -470,6 +484,58 @@ function checkCameras() {
   });
 }
 
+function closeWindowQR(parentWindow) {
+  // Identify which window closes
+  parentWindow.classList.add("hidden");
+  //
+  hideShowOptionsQR(false, false);
+  document.getElementById("qr-result-container").classList.add("hidden");
+}
+
+function hideShowOptionsQR(isCamera, hidden) {
+  // Show camera
+  if (isCamera) removeClass("hidden", document.getElementById("reader"));
+
+  // Hide or show options of QR reader
+  hidden
+    ? addClass(
+        "hidden",
+        document.getElementById("camera"),
+        document.getElementById("folder")
+      )
+    : removeClass(
+        "hidden",
+        document.getElementById("camera"),
+        document.getElementById("folder")
+      );
+}
+
+async function showError(error) {
+  // Fill and show error message
+  document.getElementById("error").innerText = error;
+  removeClass("hidden", document.getElementById("error"));
+  // Wait two seconds before disappearing error
+  await new Promise((res) => setTimeout(res, 2000));
+  // Hide error
+  addClass("hidden", document.getElementById("error"));
+}
+
+function stateResultQR(result, scanner, isCamera) {
+  // Hide QR reader options
+  hideShowOptionsQR(isCamera, true);
+
+  // Fill  and show result with generated link
+  document.getElementById("qr-result").innerHTML = result;
+  document.getElementById("qr-result").href = result;
+  removeClass("hidden", document.getElementById("qr-result-container"));
+
+  // Hide camera
+  if (isCamera) {
+    addClass("hidden", document.getElementById("reader"));
+    scanner.stop();
+  }
+}
+
 function readFileQR() {
   const html5QrCode = new Html5Qrcode("reader");
   // The scan will start when the file in the input changes
@@ -479,80 +545,48 @@ function readFileQR() {
       .scanFile(e.target.files[0], true)
       // If a QR code is found
       .then((decodedText) => {
-        // Fill result with generated link
-        document.getElementById("qr-result").innerHTML = decodedText;
-        document.getElementById("qr-result").href = decodedText;
-
-        // Hide options of QR reader
-        addClass(
-          document.getElementById("camera"),
-          document.getElementById("folder"),
-          "hidden"
-        );
-
-        document
-          .getElementById("qr-result-container")
-          .classList.remove("hidden");
-        navigator.clipboard.writeText(decodedText);
+        stateResultQR(decodedText, html5QrCode, false);
+        // Allow to re-scan even if the input is the same
         document.getElementById("qr-input-file").value = "";
       })
-      .catch(async (err) => {
-        document.getElementById("error").innerText = err;
-        document.getElementById("error").classList.remove("hidden");
-        // Wait two seconds before disappearing alert
-        await new Promise((res) => setTimeout(res, 2000));
-        // Delete elements from the queue that are done
-        document.getElementById("error").classList.add("hidden");
+      .catch((err) => {
+        showError(err);
       });
   });
 }
 
 function useCameraQR() {
-  // This method will trigger user permissions
+  // Request camera permissions from users
   Html5Qrcode.getCameras()
     .then((devices) => {
       if (devices && devices.length) {
-        // Start scanning
-        const html5QrCode = new Html5Qrcode("reader");
+        const html5QrCode = new Html5Qrcode("reader"),
+          config = { fps: 20, qrbox: { width: 150, height: 150 } },
+          // Callback if QR is detected
+          qrCodeSuccessCallback = (decodedText) => {
+            stateResultQR(decodedText, html5QrCode, true);
+          };
 
-        // QR is detected
-        const config = { fps: 20, qrbox: { width: 150, height: 150 } };
-        const qrCodeSuccessCallback = (decodedText) => {
-          document.getElementById("qr-result").innerHTML = decodedText;
-          document.getElementById("qr-result").href = decodedText;
-          document.getElementById("reader").classList.add("hidden");
-          document.getElementById("camera").classList.add("hidden");
-          document.getElementById("folder").classList.add("hidden");
-          document
-            .getElementById("qr-result-container")
-            .classList.remove("hidden");
-          navigator.clipboard.writeText(decodedText);
-          html5QrCode.stop();
-        };
-        // Scan QR code with camera
-        document.getElementById("reader").classList.remove("hidden");
-        document.getElementById("camera").classList.add("hidden");
-        document.getElementById("folder").classList.add("hidden");
+        // Hide options of QR reader
+        hideShowOptionsQR(true, true);
+
+        // Start scanning
         html5QrCode.start(
           { facingMode: "environment" },
           config,
           qrCodeSuccessCallback
         );
+
+        // Allow user to stop scanning and exit QR menu
         document.getElementById("cross").addEventListener("click", () => {
+          // Go back to the options menu
+          closeWindowQR(document.getElementById("qr-menu-result"));
           html5QrCode.stop();
-          document.getElementById("reader").classList.add("hidden");
-          document.getElementById("camera").classList.remove("hidden");
-          document.getElementById("folder").classList.remove("hidden");
         });
       }
     })
     .catch(async (err) => {
-      document.getElementById("error").innerText = err;
-      document.getElementById("error").classList.remove("hidden");
-      // Wait two seconds before disappearing alert
-      await new Promise((res) => setTimeout(res, 2000));
-      // Delete elements from the queue that are done
-      document.getElementById("error").classList.add("hidden");
+      showError(err);
     });
 }
 
@@ -594,10 +628,19 @@ function editMode(event) {
         // Remove previous classes according to currently selected element
         if (currentColor != "") {
           removeClasses(document.getElementById(e), currentElement);
-          document
-            .getElementById(e)
-            .classList.add(currentColor + "-" + currentElement);
+          addClass(
+            currentColor + "-" + currentElement,
+            document.getElementById(e)
+          );
         }
+      });
+    });
+
+    // Modify current font
+    Array.from(document.getElementsByClassName("font")).forEach((e) => {
+      e.addEventListener("click", () => {
+        removeClasses(document.getElementById("font"), ...fonts);
+        addClass(e.id, document.getElementById("font"));
       });
     });
   } else {
@@ -609,7 +652,7 @@ function editMode(event) {
     );
 
     // Activate switch mode
-    document.getElementById("switch-mode").disabled = true;
+    document.getElementById("switch-mode").disabled = false;
   }
 }
 
@@ -680,14 +723,18 @@ buttons.forEach((e) => {
 
 // Detect typed buttons
 window.addEventListener("keydown", (e) => {
-  // Prevent functions, operators, and parenthesis behaviour when currency mode is active
-  if (
-    !String(document.getElementById(e.key).classList).includes(
-      "hidden-currency"
-    ) ||
-    localStorage.getItem("currencyMode") === "false"
-  ) {
-    selectButton(e.key);
+  // Prevent unassigned keys
+  if (document.getElementById(e.key)) {
+    // Prevent functions, operators, and parenthesis behaviour when currency mode is active
+    if (
+      (!String(document.getElementById(e.key).classList).includes(
+        "hidden-currency"
+      ) ||
+        localStorage.getItem("currencyMode") === "false") &&
+      document.getElementById(e.key)
+    ) {
+      selectButton(e.key);
+    }
   }
 });
 
@@ -799,10 +846,7 @@ document.getElementById("qr").addEventListener("click", () => {
 
 // Hide QR panel
 document.getElementById("cross").addEventListener("click", () => {
-  document.getElementById("qr-menu").classList.add("hidden");
-  document.getElementById("camera").classList.remove("hidden");
-  document.getElementById("folder").classList.remove("hidden");
-  document.getElementById("qr-result-container").classList.add("hidden");
+  closeWindowQR(document.getElementById("qr-menu"));
 });
 
 document.getElementById("camera").addEventListener("click", () => {
@@ -811,7 +855,7 @@ document.getElementById("camera").addEventListener("click", () => {
 
 // Swap original input reader to personalized icon
 document.getElementById("folder").addEventListener("click", () => {
-  // Use input
+  // Use input with personalized button
   document.getElementById("qr-input-file").click();
   readFileQR();
 });
@@ -824,17 +868,9 @@ document.getElementById("edit").addEventListener("click", (e) => {
   }
 });
 
-Array.from(document.getElementsByClassName("font")).forEach((e) => {
+// Change the selected item type into edit mode
+Array.from(customizationButtons).forEach((e) => {
   e.addEventListener("click", () => {
-    removeClasses(document.getElementById("font"), ...fonts);
-    document.getElementById("font").classList.add(e.id);
+    currentElement = e.id;
   });
-});
-
-document.getElementById("text").addEventListener("click", () => {
-  currentElement = "text";
-});
-
-document.getElementById("background").addEventListener("click", () => {
-  currentElement = "background";
 });

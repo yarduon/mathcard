@@ -7,6 +7,7 @@
 
   #topScreen,
   #result,
+  .logo,
   .font {
     font-size: 2.6vh;
   }
@@ -17,17 +18,41 @@
   }
 
   .settings,
-  .edit {
+  .edit,
+  .large-icon {
     width: 5vh;
+  }
+
+  .calculator,
+  #switch-mode:checked ~ .buttons-container .additional,
+  .extra-symbols .additional {
+    height: 100%;
+  }
+
+  .lights-container,
+  .power {
+    height: 6vh;
+  }
+
+  .settings,
+  .edit,
+  .select {
     height: 5vh;
   }
 
+  .off-on-light,
   .small-icon {
     width: 2.5vh;
   }
 
-  .large-icon {
-    width: 5vh;
+  #switch-mode:checked ~ .buttons-container .special-buttons-container,
+  .select {
+    margin: 0.5vh 0 0.5vh 0;
+  }
+
+  .extra-symbols,
+  .qr {
+    bottom: 1.7%;
   }
 
   .medium-text {
@@ -36,7 +61,6 @@
 
   .calculator {
     width: 100%;
-    height: 100%;
   }
 
   .top-calculator {
@@ -60,10 +84,6 @@
     bottom: 17%;
   }
 
-  .logo {
-    font-size: 2.6vh;
-  }
-
   .middle-base {
     height: 5%;
     margin-top: -2.5vh;
@@ -80,12 +100,10 @@
   }
 
   .lights-container {
-    height: 6vh;
     bottom: 86.7%;
   }
 
   .off-on-light {
-    width: 2.5vh;
     height: 1.8vh;
     border-top-right-radius: 0.2vh;
     border-bottom-right-radius: 0.2vh;
@@ -93,7 +111,6 @@
 
   .power {
     width: 6vh;
-    height: 6vh;
     top: 3.6%;
   }
 
@@ -102,26 +119,13 @@
     margin-top: 0;
   }
 
-  #switch-mode:checked ~ .buttons-container .special-buttons-container {
-    margin: 0.5vh 0 0.5vh 0;
-  }
-
   .additional {
     width: 15.5%;
     height: 42%;
   }
 
-  #switch-mode:checked ~ .buttons-container .additional {
-    height: 100%;
-  }
-
   .currencies-container {
     margin-top: 0.4vh;
-  }
-
-  .select {
-    height: 5vh;
-    margin: 0.5vh 0 0.5vh 0;
   }
 
   .main-button {
@@ -141,18 +145,15 @@
     width: 37%;
     height: 7.5%;
     right: 1.6vh;
-    bottom: 1.7%;
   }
 
   .extra-symbols .additional {
     width: 47%;
-    height: 100%;
   }
 
   .qr {
     width: 7vh;
     height: 7vh;
-    bottom: 1.7%;
   }
 
   .line {
