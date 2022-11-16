@@ -569,6 +569,8 @@ function readFileQR() {
 function useCameraQR() {
   // Set the current camera to avoid multiple cameras at once
   addClass("activated", document.getElementById("camera"));
+  // Reset reader
+  document.getElementById("reader").innerHTML = "";
   // Hide options of QR reader
   hideShowOptionsQR(true, true);
   // Show loading icon
@@ -872,6 +874,16 @@ document.getElementById("camera").addEventListener("click", () => {
   ) {
     useCameraQR();
   }
+});
+
+// Copy the generated link to clipboard
+document.getElementById("clipboard").addEventListener("click", () => {
+  navigator.clipboard.writeText(document.getElementById("qr-result").href);
+});
+
+// Go the generated link
+document.getElementById("link").addEventListener("click", () => {
+  document.getElementById("qr-result").click();
 });
 
 // Swap original input reader to personalized icon
