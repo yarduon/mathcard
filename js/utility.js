@@ -74,6 +74,18 @@ export function removeClasses(element, ...classes) {
   });
 }
 
+// Check if one element has any class specified
+export function checkClasses(element, ...classes) {
+  let classFound = false;
+  classes.forEach((c, i) => {
+    // Detect if a class is inside of the element or not
+    if (String(element.classList).includes(c)) {
+      classFound = true;
+    }
+  });
+  return classFound;
+}
+
 export function stringToBoolean(s) {
   return Boolean(s === "true");
 }

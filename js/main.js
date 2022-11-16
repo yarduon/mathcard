@@ -13,6 +13,7 @@ import {
   addClasses,
   removeClass,
   removeClasses,
+  checkClasses,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
@@ -480,6 +481,7 @@ function calculateExchange(n1, n2, quantity, currencyName) {
 function checkCameras() {
   // Check if there are cameras available but before activate icon
   removeClasses(document.getElementById("camera"), "disabled");
+  // Request camera permissions from users
   Html5Qrcode.getCameras().catch(() => {
     // Deactivate camera icon
     addClasses(document.getElementById("camera"), "disabled");
@@ -523,7 +525,7 @@ async function showError(error) {
   }
   // Show error message
   document.getElementById("error").style.left = 0;
-  // Wait four seconds before disappearing error
+  // Wait four and a half seconds before disappearing error
   await new Promise((res) => setTimeout(res, 4500));
   // Hide error
   document.getElementById("error").style.left = "-100%";
@@ -533,7 +535,7 @@ function stateResultQR(result, scanner, isCamera) {
   // Hide QR reader options
   hideShowOptionsQR(isCamera, true);
 
-  // Fill  and show result with generated link
+  // Fill and show result with generated link
   document.getElementById("qr-result").innerHTML = result;
   document.getElementById("qr-result").href = result;
   removeClass("hidden", document.getElementById("qr-result-container"));
@@ -565,7 +567,9 @@ function readFileQR() {
 }
 
 function useCameraQR() {
-  // Request camera permissions from users
+  // Set the current camera to avoid multiple cameras at once
+  addClass("activated", document.getElementById("camera"));
+
   Html5Qrcode.getCameras()
     .then((devices) => {
       if (devices && devices.length) {
@@ -590,8 +594,9 @@ function useCameraQR() {
         document.getElementById("cross").addEventListener("click", () => {
           // Go back to the options menu
           closeWindowQR(document.getElementById("reader"));
-          // Stop and hide camera
+          // Stop and reset camera
           html5QrCode.stop();
+          removeClass("activated", document.getElementById("camera"));
         });
       }
     })
@@ -860,9 +865,9 @@ document.getElementById("cross").addEventListener("click", () => {
 });
 
 document.getElementById("camera").addEventListener("click", () => {
-  // Only when a camera is available
+  // Only when a camera is available and there is only one activated
   if (
-    !String(document.getElementById("camera").classList).includes("disabled")
+    !checkClasses(document.getElementById("camera"), "disabled", "activated")
   ) {
     useCameraQR();
   }
