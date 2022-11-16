@@ -132,7 +132,7 @@
 }
 
 .switch-circle {
-  left: 0.6vh;
+  left: 0.7vh;
 }
 
 #switch-mode:checked ~ .line .switch-circle {

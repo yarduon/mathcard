@@ -525,8 +525,8 @@ async function showError(error) {
   }
   // Show error message
   document.getElementById("error").style.left = 0;
-  // Wait four and a half seconds before disappearing error
-  await new Promise((res) => setTimeout(res, 4500));
+  // Wait four seconds before disappearing error
+  await new Promise((res) => setTimeout(res, 4000));
   // Hide error
   document.getElementById("error").style.left = "-100%";
 }
@@ -569,7 +569,10 @@ function readFileQR() {
 function useCameraQR() {
   // Set the current camera to avoid multiple cameras at once
   addClass("activated", document.getElementById("camera"));
-
+  // Hide options of QR reader
+  hideShowOptionsQR(true, true);
+  // Show loading icon
+  removeClass("hidden", document.getElementById("loading"));
   Html5Qrcode.getCameras()
     .then((devices) => {
       if (devices && devices.length) {
@@ -579,10 +582,6 @@ function useCameraQR() {
           qrCodeSuccessCallback = (decodedText) => {
             stateResultQR(decodedText, html5QrCode, true);
           };
-
-        // Hide options of QR reader
-        hideShowOptionsQR(true, true);
-
         // Start scanning
         html5QrCode.start(
           { facingMode: "environment" },
@@ -594,9 +593,11 @@ function useCameraQR() {
         document.getElementById("cross").addEventListener("click", () => {
           // Go back to the options menu
           closeWindowQR(document.getElementById("reader"));
+          // Hide loading icon
+          addClass("hidden", document.getElementById("loading"));
           // Stop and reset camera
-          html5QrCode.stop();
           removeClass("activated", document.getElementById("camera"));
+          html5QrCode.stop();
         });
       }
     })

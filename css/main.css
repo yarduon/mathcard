@@ -86,6 +86,10 @@
   width: 11vh;
 }
 
+.max-icon {
+  width: 20vh;
+}
+
 .circle-shape {
   border-radius: 100%;
 }
@@ -1434,7 +1438,7 @@
 }
 
 #error {
-  transition: left 2s;
+  transition: left 1s;
   padding: 1.5vh;
 }
 
