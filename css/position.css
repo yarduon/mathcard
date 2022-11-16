@@ -6,11 +6,14 @@
 
 .calculator,
 #reader,
-.customization,
 .qr-container,
 .screen,
 .logo-container {
   z-index: 3;
+}
+
+.customization, .arrow {
+  z-index: 4;
 }
 
 .invisible,

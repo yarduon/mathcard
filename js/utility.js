@@ -118,6 +118,7 @@ export function cleanText(n) {
     "u",
     "v",
     "w",
+    "x",
     "y",
     "z",
     "",

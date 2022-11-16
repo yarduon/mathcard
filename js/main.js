@@ -907,3 +907,57 @@ Array.from(customizationButtons).forEach((e) => {
     currentElement = e.id;
   });
 });
+
+let timer = 0;
+
+document.getElementById("left-arrow").addEventListener("mousedown", () => {
+  timer = setInterval(() => {
+    let currentPosition = cleanText(
+      document.getElementById("font-families").style.right
+    );
+
+    if (currentPosition == "") {
+      currentPosition = 0;
+    }
+
+    console.log(currentPosition);
+    if (currentPosition > 0) {
+      document.getElementById("font-families").style.right =
+        parseInt(currentPosition) - 1 + "vh";
+      currentPosition = parseInt(currentPosition) - 1;
+    }
+  }, 45);
+});
+
+document.getElementById("right-arrow").addEventListener("mousedown", () => {
+  timer = setInterval(() => {
+    let currentPosition = cleanText(
+      document.getElementById("font-families").style.right
+    );
+
+    if (currentPosition == "") {
+      currentPosition = 0;
+    }
+
+    console.log(currentPosition);
+    if (currentPosition < 283) {
+      document.getElementById("font-families").style.right =
+        parseInt(currentPosition) + 1 + "vh";
+      currentPosition = parseInt(currentPosition) + 1;
+    }
+  }, 45);
+});
+
+document.getElementById("left-arrow").addEventListener("mouseup", () => {
+  clearInterval(timer);
+});
+
+document.getElementById("right-arrow").addEventListener("mouseup", () => {
+  clearInterval(timer);
+});
+
+
+
+
+
+

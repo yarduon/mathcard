@@ -1490,6 +1490,11 @@
   transform: rotate(180deg);
 }
 
+.font-families {
+  padding-left: 3.5vh;
+  transition: 0.2s;
+}
+
 .font {
   margin: 0.5vh 2vh 0.5vh 2vh;
 }
