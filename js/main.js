@@ -850,7 +850,12 @@ document.getElementById("cross").addEventListener("click", () => {
 });
 
 document.getElementById("camera").addEventListener("click", () => {
-  useCameraQR();
+  // Only when a camera is available
+  if (
+    !String(document.getElementById("camera").classList).includes("disabled")
+  ) {
+    useCameraQR();
+  }
 });
 
 // Swap original input reader to personalized icon
