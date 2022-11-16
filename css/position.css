@@ -29,11 +29,6 @@
   bottom: 5%;
 }
 
-.invisible,
-#error {
-  left: 0;
-}
-
 #circle2,
 #circle3 {
   left: 2%;
@@ -98,6 +93,7 @@
 
 .invisible {
   z-index: -1;
+  left: 0;
 }
 
 #result {
@@ -129,6 +125,10 @@
 .qr {
   left: 1.5vh;
   bottom: 1.6vh;
+}
+
+#error {
+  left: -100%;
 }
 
 .switch-circle {

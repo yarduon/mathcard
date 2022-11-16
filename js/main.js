@@ -43,6 +43,8 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("firstCurrency"),
     document.getElementById("secondCurrency"),
   ],
+  errorContainer = document.getElementById("error"),
+  errorMessages = [document.getElementById("qr-not-found")],
   fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
   customizationButtons = [
     document.getElementById("text"),
@@ -487,7 +489,7 @@ function checkCameras() {
 function closeWindowQR(parentWindow) {
   // Identify which window closes
   parentWindow.classList.add("hidden");
-  //
+  // Reset options view
   hideShowOptionsQR(false, false);
   document.getElementById("qr-result-container").classList.add("hidden");
 }
@@ -511,13 +513,20 @@ function hideShowOptionsQR(isCamera, hidden) {
 }
 
 async function showError(error) {
-  // Fill and show error message
-  document.getElementById("error").innerText = error;
-  removeClass("hidden", document.getElementById("error"));
-  // Wait two seconds before disappearing error
-  await new Promise((res) => setTimeout(res, 2000));
+  // Get name of error
+  let errorName = String(error).substring(0, String(error).indexOf(":"));
+  // Fill error message
+  switch (errorName) {
+    case "N":
+      errorContainer.innerText = errorMessages[0].innerText.trim();
+      break;
+  }
+  // Show error message
+  document.getElementById("error").style.left = 0;
+  // Wait four seconds before disappearing error
+  await new Promise((res) => setTimeout(res, 4500));
   // Hide error
-  addClass("hidden", document.getElementById("error"));
+  document.getElementById("error").style.left = "-100%";
 }
 
 function stateResultQR(result, scanner, isCamera) {
@@ -538,6 +547,8 @@ function stateResultQR(result, scanner, isCamera) {
 
 function readFileQR() {
   const html5QrCode = new Html5Qrcode("reader");
+  // Allow to re-scan even if the input is the same
+  document.getElementById("qr-input-file").value = "";
   // The scan will start when the file in the input changes
   document.getElementById("qr-input-file").addEventListener("change", (e) => {
     // Find a QR in the selected file
@@ -546,8 +557,6 @@ function readFileQR() {
       // If a QR code is found
       .then((decodedText) => {
         stateResultQR(decodedText, html5QrCode, false);
-        // Allow to re-scan even if the input is the same
-        document.getElementById("qr-input-file").value = "";
       })
       .catch((err) => {
         showError(err);
@@ -580,7 +589,8 @@ function useCameraQR() {
         // Allow user to stop scanning and exit QR menu
         document.getElementById("cross").addEventListener("click", () => {
           // Go back to the options menu
-          closeWindowQR(document.getElementById("qr-menu-result"));
+          closeWindowQR(document.getElementById("reader"));
+          // Stop and hide camera
           html5QrCode.stop();
         });
       }

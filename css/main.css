@@ -1434,6 +1434,7 @@
 }
 
 #error {
+  transition: left 2s;
   padding: 1.5vh;
 }
 
