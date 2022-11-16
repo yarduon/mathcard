@@ -7,7 +7,8 @@
 }
 
 .settings,
-.edit {
+.edit,
+.arrow {
   width: 3.8vh;
   height: 3.8vh;
 }
@@ -1483,6 +1484,10 @@
   width: 230vh;
   height: 100vh;
   margin: 0 0 70vh 60vh;
+}
+
+.right-arrow {
+  transform: rotate(180deg);
 }
 
 .font {

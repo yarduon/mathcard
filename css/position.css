@@ -15,7 +15,8 @@
 
 .invisible,
 #error,
-.fonts-container {
+.fonts-container,
+.arrow {
   top: 0;
 }
 
@@ -145,6 +146,10 @@
 
 .colors-container {
   bottom: 0;
+}
+
+.right-arrow {
+  right: 0;
 }
 
 #cross {
