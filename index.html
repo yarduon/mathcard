@@ -39,9 +39,12 @@
     </div>
     <main class="flex column justify-center align-center max-width max-height">
       <aside
-        class="fonts-container max-width absolute black-background overflow-hidden hidden customization"
+        class="fonts-container max-width overflow-hidden absolute black-background hidden customization"
       >
-        <div class="arrow left-arrow selection max-height flex justify-center align-center pastel-white-background absolute" id="left-arrow">
+        <div
+          class="arrow left-arrow-fonts selection max-height flex justify-center align-center pastel-white-background absolute"
+          id="left-arrow-fonts"
+        >
           <svg
             class="small-icon"
             viewBox="0 0 58 99"
@@ -54,7 +57,10 @@
             </g>
           </svg>
         </div>
-        <div class="font-families flex align-center pastel-white-text relative" id="font-families">
+        <div
+          class="font-families flex align-center pastel-white-text relative"
+          id="font-families"
+        >
           <div class="font selection" id="alatsi">Alatsi</div>
           <div class="font selection" id="chewy">Chewy</div>
           <div class="font selection" id="chivo">Chivo</div>
@@ -74,7 +80,9 @@
           <div class="font selection" id="open-sans">Open Sans</div>
           <div class="font selection" id="outfit">Outfit</div>
           <div class="font selection" id="patrick-hand">Patrick Hand</div>
-          <div class="font selection" id="permanent-marker">Permanent Marker</div>
+          <div class="font selection" id="permanent-marker">
+            Permanent Marker
+          </div>
           <div class="font selection" id="poor-story">Poor Story</div>
           <div class="font selection" id="press-start-2p">Press Start 2P</div>
           <div class="font selection" id="pt-mono">PT Mono</div>
@@ -88,7 +96,10 @@
           <div class="font selection" id="ubuntu">Ubuntu</div>
           <div class="font selection" id="vt323">VT323</div>
         </div>
-        <div class="arrow right-arrow selection max-height flex justify-center align-center pastel-white-background absolute" id="right-arrow">
+        <div
+          class="arrow right-arrow selection max-height flex justify-center align-center pastel-white-background absolute"
+          id="right-arrow-fonts"
+        >
           <svg
             class="small-icon"
             viewBox="0 0 58 99"
@@ -495,13 +506,31 @@
         </div>
       </div>
       <aside
-        class="colors-container max-width absolute black-background overflow-hidden hidden customization"
+        class="colors-container max-width relative absolute black-background overflow-hidden hidden customization"
       >
-        <button class="medium-text selection" id="text">Text</button>
-        <button class="medium-text selection" id="background">
-          Background
-        </button>
-        <div class="palette relative flex align-center" id="palette">
+        <div class="tab absolute">
+          <button class="medium-text selection" id="text">Text</button>
+          <button class="medium-text selection" id="background">
+            Background
+          </button>
+        </div>
+        <div
+          class="arrow left-arrow-fonts selection max-height flex justify-center align-center pastel-white-background absolute"
+          id="left-arrow-colors"
+        >
+          <svg
+            class="small-icon"
+            viewBox="0 0 58 99"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g transform="matrix(2.372 0 0 2.372 -6.5797 -3.8696)">
+              <path
+                d="m23.625 43.2-20.7-20.7 20.7-20.7 3.45 3.55-17.15 17.15 17.15 17.15z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div class="palette max-width relative flex align-center" id="palette">
           <div class="color full-black-background" id="full-black"></div>
           <div class="color normal-black-background" id="normal-black"></div>
           <div class="color light-black-background" id="light-black"></div>
@@ -553,6 +582,22 @@
           <div class="color normal-green-background" id="normal-green"></div>
           <div class="color light-green-background" id="light-green"></div>
           <div class="color pastel-green-background" id="pastel-green"></div>
+        </div>
+        <div
+          class="arrow right-arrow selection max-height flex justify-center align-center pastel-white-background absolute"
+          id="right-arrow-colors"
+        >
+          <svg
+            class="small-icon"
+            viewBox="0 0 58 99"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g transform="matrix(2.372 0 0 2.372 -6.5797 -3.8696)">
+              <path
+                d="m23.625 43.2-20.7-20.7 20.7-20.7 3.45 3.55-17.15 17.15 17.15 17.15z"
+              />
+            </g>
+          </svg>
         </div>
       </aside>
       <section

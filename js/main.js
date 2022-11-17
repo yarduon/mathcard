@@ -46,6 +46,12 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   ],
   errorContainer = document.getElementById("error"),
   errorMessages = [document.getElementById("qr-not-found")],
+  arrows = [
+    document.getElementById("left-arrow-fonts"),
+    document.getElementById("right-arrow-fonts"),
+    document.getElementById("left-arrow-colors"),
+    document.getElementById("right-arrow-colors"),
+  ],
   fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
   customizationButtons = [
     document.getElementById("text"),
@@ -55,6 +61,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
 let usingFloat = false,
   usingCircumflex = false,
   totalOpenParenthesis = 0,
+  slide = 0,
   currentColor = "",
   currentElement = "background";
 
@@ -674,6 +681,28 @@ function editMode(event) {
   }
 }
 
+function useSlider(currentPosition, isRight) {
+  // Convert received value to a number
+  currentPosition = parseInt(currentPosition);
+
+  // Set current position to zero
+  if (isNaN(currentPosition)) currentPosition = 0;
+
+  if (isRight) {
+    // Move to the right until value is of upper max value
+    if (currentPosition < 380) {
+      document.getElementById("font-families").style.right =
+        ++currentPosition + "vh";
+    }
+  } else {
+    // Move to the left until value is of below zero
+    if (currentPosition > 0) {
+      document.getElementById("font-families").style.right =
+        --currentPosition + "vh";
+    }
+  }
+}
+
 // When the page is refreshed or loaded for the first time
 window.onload = async () => {
   // Load default values when the cache is deleted or first time
@@ -908,56 +937,21 @@ Array.from(customizationButtons).forEach((e) => {
   });
 });
 
-let timer = 0;
-
-document.getElementById("left-arrow").addEventListener("mousedown", () => {
-  timer = setInterval(() => {
-    let currentPosition = cleanText(
-      document.getElementById("font-families").style.right
-    );
-
-    if (currentPosition == "") {
-      currentPosition = 0;
-    }
-
-    console.log(currentPosition);
-    if (currentPosition > 0) {
-      document.getElementById("font-families").style.right =
-        parseInt(currentPosition) - 1 + "vh";
-      currentPosition = parseInt(currentPosition) - 1;
-    }
-  }, 45);
+// Start slider when mouse is pressed
+arrows.forEach((e, i) => {
+  e.addEventListener("mousedown", () => {
+    slide = setInterval(() => {
+      useSlider(
+        cleanText(document.getElementById("font-families").style.right),
+        e.id.includes("right")
+      );
+    }, 100);
+  });
 });
 
-document.getElementById("right-arrow").addEventListener("mousedown", () => {
-  timer = setInterval(() => {
-    let currentPosition = cleanText(
-      document.getElementById("font-families").style.right
-    );
-
-    if (currentPosition == "") {
-      currentPosition = 0;
-    }
-
-    console.log(currentPosition);
-    if (currentPosition < 283) {
-      document.getElementById("font-families").style.right =
-        parseInt(currentPosition) + 1 + "vh";
-      currentPosition = parseInt(currentPosition) + 1;
-    }
-  }, 45);
+// Stop slider when mouse is not pressed
+arrows.forEach((e) => {
+  e.addEventListener("mouseup", () => {
+    clearInterval(slide);
+  });
 });
-
-document.getElementById("left-arrow").addEventListener("mouseup", () => {
-  clearInterval(timer);
-});
-
-document.getElementById("right-arrow").addEventListener("mouseup", () => {
-  clearInterval(timer);
-});
-
-
-
-
-
-

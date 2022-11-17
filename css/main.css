@@ -18,9 +18,9 @@
   width: 98%;
 }
 
-.palette,
-.font-families {
-  width: 1000vh;
+.font-families,
+.palette {
+  height: 4vh;
 }
 
 .calculator,
@@ -1322,7 +1322,7 @@
 }
 
 .screen {
-  height: 14vh;
+  height: 15vh;
 }
 
 .operations-container {
@@ -1335,6 +1335,10 @@
   height: 2.6vh;
   padding: 0 0.2vh 0 0;
   animation: typing 1.5s steps(1) infinite;
+}
+
+.logo-container {
+  height: 4vh;
 }
 
 .logo {
@@ -1491,16 +1495,22 @@
 }
 
 .font-families {
+  width: 450vh;
   padding-left: 3.5vh;
-  transition: 0.2s;
+  transition: right 0.2s;
 }
 
 .font {
-  margin: 0.5vh 2vh 0.5vh 2vh;
+  margin: 0vh 2vh 0vh 2vh;
+}
+
+.palette {
+  width: 450vh;
+  padding-left: 4.5vh;
 }
 
 .color {
-  width: 3.5vh;
-  height: 3.5vh;
-  margin: 0.2vh;
+  width: 3.9vh;
+  height: 3.7vh;
+  margin: 0.3vh;
 }
