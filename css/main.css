@@ -111,6 +111,11 @@
   cursor: pointer;
 }
 
+.font:hover .bar {
+  width: 100%;
+  transition: width 0.7s;
+}
+
 .light-opacity:hover {
   opacity: 0.7;
 }
@@ -1550,6 +1555,17 @@
 
 .font {
   margin: 0vh 2vh 0vh 2vh;
+}
+
+.bar {
+  width: 0;
+  margin-top: 0.3vh;
+  height: 0.3vh;
+  transition: width 1s;
+}
+
+.tab {
+  margin-bottom: 5.8vh;
 }
 
 .palette {

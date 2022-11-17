@@ -13,6 +13,7 @@
 }
 
 .customization,
+.tab,
 .arrow {
   z-index: 4;
 }
@@ -29,9 +30,19 @@
   top: 5%;
 }
 
+.colors-container,
+.tab {
+  bottom: 0;
+}
+
 #circle1,
 #circle2 {
   bottom: 5%;
+}
+
+.invisible,
+.tab {
+  left: 0;
 }
 
 #circle2,
@@ -98,7 +109,6 @@
 
 .invisible {
   z-index: -1;
-  left: 0;
 }
 
 #result {
@@ -146,10 +156,6 @@
 
 #square1 {
   z-index: 2;
-}
-
-.colors-container {
-  bottom: 0;
 }
 
 .right-arrow {
