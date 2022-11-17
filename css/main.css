@@ -1507,6 +1507,7 @@
 .palette {
   width: 450vh;
   padding-left: 4.5vh;
+  transition: right 0.2s;
 }
 
 .color {

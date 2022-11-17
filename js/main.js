@@ -681,7 +681,7 @@ function editMode(event) {
   }
 }
 
-function useSlider(currentPosition, isRight) {
+function useSlider(currentPosition, isRight, parentContainer) {
   // Convert received value to a number
   currentPosition = parseInt(currentPosition);
 
@@ -691,13 +691,13 @@ function useSlider(currentPosition, isRight) {
   if (isRight) {
     // Move to the right until value is of upper max value
     if (currentPosition < 380) {
-      document.getElementById("font-families").style.right =
+      parentContainer.style.right =
         ++currentPosition + "vh";
     }
   } else {
     // Move to the left until value is of below zero
     if (currentPosition > 0) {
-      document.getElementById("font-families").style.right =
+      parentContainer.style.right =
         --currentPosition + "vh";
     }
   }
@@ -938,12 +938,14 @@ Array.from(customizationButtons).forEach((e) => {
 });
 
 // Start slider when mouse is pressed
-arrows.forEach((e, i) => {
+arrows.forEach((e) => {
+  console.log(e.parentNode.children[1].style.right);
   e.addEventListener("mousedown", () => {
     slide = setInterval(() => {
       useSlider(
-        cleanText(document.getElementById("font-families").style.right),
-        e.id.includes("right")
+        cleanText(e.parentNode.children[1].style.right),
+        e.id.includes("right"),
+        e.parentNode.children[1]
       );
     }, 100);
   });
