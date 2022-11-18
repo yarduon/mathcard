@@ -176,6 +176,10 @@
   --icon-color: #000000;
 }
 
+.full-black-background + .full-border {
+  --border-color: #000000;
+}
+
 .full-grey-background {
   background-color: rgb(61, 59, 57);
 }
@@ -190,6 +194,10 @@
 
 .full-grey-icon .border-right {
   --icon-color: rgb(61, 59, 57);
+}
+
+.full-grey-background + .full-border {
+  --border-color: rgb(61, 59, 57);
 }
 
 .full-grey-shadow:hover,
@@ -211,6 +219,10 @@
 
 .full-white-icon .border-right {
   --icon-color: rgb(231, 229, 229);
+}
+
+.full-white-background + .full-border {
+  --border-color: rgb(231, 229, 229);
 }
 
 .full-white-shadow:hover,
@@ -238,6 +250,10 @@
   --icon-color: #ff4800;
 }
 
+.full-orange-background + .full-border {
+  --border-color: #ff4800;
+}
+
 .full-orange-shadow:hover,
 .full-orange-shadow:focus {
   box-shadow: 0 0 0 0.25vh #ff4800;
@@ -257,6 +273,10 @@
 
 .full-red-icon .border-right {
   --icon-color: #c71827;
+}
+
+.full-red-background + .full-border {
+  --border-color: #c71827;
 }
 
 .full-red-shadow:hover,
@@ -280,6 +300,10 @@
   --icon-color: #1c11b8;
 }
 
+.full-blue-background + .full-border {
+  --border-color: #1c11b8;
+}
+
 .full-blue-shadow:hover,
 .full-blue-shadow:focus {
   box-shadow: 0 0 0 0.25vh #1c11b8;
@@ -299,6 +323,10 @@
 
 .full-brown-icon .border-right {
   --icon-color: #532b0a;
+}
+
+.full-brown-background + .full-border {
+  --border-color: #532b0a;
 }
 
 .full-brown-shadow:hover,
@@ -322,6 +350,10 @@
   --icon-color: #40124e;
 }
 
+.full-purple-background + .full-border {
+  --border-color: #40124e;
+}
+
 .full-purple-shadow:hover,
 .full-purple-shadow:focus {
   box-shadow: 0 0 0 0.25vh #40124e;
@@ -341,6 +373,10 @@
 
 .full-pink-icon .border-right {
   --icon-color: #f110b9;
+}
+
+.full-pink-background + .full-border {
+  --border-color: #f110b9;
 }
 
 .full-pink-shadow:hover,
@@ -364,6 +400,10 @@
   --icon-color: #f7cb07;
 }
 
+.full-yellow-background + .full-border {
+  --border-color: #f7cb07;
+}
+
 .full-yellow-shadow:hover,
 .full-yellow-shadow:focus {
   box-shadow: 0 0 0 0.25vh #f7cb07;
@@ -383,6 +423,10 @@
 
 .full-green-icon .border-right {
   --icon-color: #0c530e;
+}
+
+.full-green-background + .full-border {
+  --border-color: #0c530e;
 }
 
 .full-green-shadow:hover,
@@ -406,6 +450,10 @@
   --icon-color: rgb(121, 118, 116);
 }
 
+.darker-grey-background + .full-border {
+  --border-color: rgb(121, 118, 116);
+}
+
 .darker-grey-shadow:hover,
 .darker-grey-shadow:focus {
   box-shadow: 0 0 0 0.25vh rgb(121, 118, 116);
@@ -425,6 +473,10 @@
 
 .darker-orange-icon .border-right {
   --icon-color: #d14d19;
+}
+
+.darker-orange-background + .full-border {
+  --border-color: #d14d19;
 }
 
 .darker-orange-shadow:hover,
@@ -448,6 +500,10 @@
   --icon-color: #db271a;
 }
 
+.darker-red-background + .full-border {
+  --border-color: #db271a;
+}
+
 .darker-red-shadow:hover,
 .darker-red-shadow:focus {
   box-shadow: 0 0 0 0.25vh #db271a;
@@ -467,6 +523,10 @@
 
 .darker-blue-icon .border-right {
   --icon-color: #2516ff;
+}
+
+.darker-blue-background + .full-border {
+  --border-color: #2516ff;
 }
 
 .darker-blue-shadow:hover,
@@ -490,6 +550,10 @@
   --icon-color: #8a440b;
 }
 
+.darker-brown-background + .full-border {
+  --border-color: #8a440b;
+}
+
 .darker-brown-shadow:hover,
 .darker-brown-shadow:focus {
   box-shadow: 0 0 0 0.25vh #8a440b;
@@ -509,6 +573,10 @@
 
 .darker-purple-icon .border-right {
   --icon-color: #6c0b8a;
+}
+
+.darker-purple-background + .full-border {
+  --border-color: #6c0b8a;
 }
 
 .darker-purple-shadow:hover,
@@ -532,6 +600,10 @@
   --icon-color: #e42fb6;
 }
 
+.darker-pink-background + .full-border {
+  --border-color: #e42fb6;
+}
+
 .darker-pink-shadow:hover,
 .darker-pink-shadow:focus {
   box-shadow: 0 0 0 0.25vh #e42fb6;
@@ -551,6 +623,10 @@
 
 .darker-yellow-icon .border-right {
   --icon-color: #f5cd1d;
+}
+
+.darker-yellow-background + .full-border {
+  --border-color: #f5cd1d;
 }
 
 .darker-yellow-shadow:hover,
@@ -574,6 +650,10 @@
   --icon-color: #07750b;
 }
 
+.darker-green-background + .full-border {
+  --border-color: #07750b;
+}
+
 .darker-green-shadow:hover,
 .darker-green-shadow:focus {
   box-shadow: 0 0 0 0.25vh #07750b;
@@ -593,6 +673,10 @@
 
 .normal-black-icon .border-right {
   --icon-color: rgb(29, 28, 28);
+}
+
+.normal-black-background + .full-border {
+  --border-color: rgb(29, 28, 28);
 }
 
 .normal-black-shadow:hover,
@@ -616,6 +700,10 @@
   --icon-color: #978c8c;
 }
 
+.normal-grey-background + .full-border {
+  --border-color: #978c8c;
+}
+
 .normal-grey-shadow:hover,
 .normal-grey-shadow:focus {
   box-shadow: 0 0 0 0.25vh #978c8c;
@@ -635,6 +723,10 @@
 
 .normal-orange-icon .border-right {
   --icon-color: #e2612d;
+}
+
+.normal-orange-background + .full-border {
+  --border-color: #e2612d;
 }
 
 .normal-orange-shadow:hover,
@@ -658,6 +750,10 @@
   --icon-color: #df493f;
 }
 
+.normal-red-background + .full-border {
+  --border-color: #df493f;
+}
+
 .normal-red-shadow:hover,
 .normal-red-shadow:focus {
   box-shadow: 0 0 0 0.25vh #df493f;
@@ -677,6 +773,10 @@
 
 .normal-blue-icon .border-right {
   --icon-color: #284ce9;
+}
+
+.normal-blue-background + .full-border {
+  --border-color: #284ce9;
 }
 
 .normal-blue-shadow:hover,
@@ -700,6 +800,10 @@
   --icon-color: #a85f2f;
 }
 
+.normal-brown-background + .full-border {
+  --border-color: #a85f2f;
+}
+
 .normal-brown-shadow:hover,
 .normal-brown-shadow:focus {
   box-shadow: 0 0 0 0.25vh #a85f2f;
@@ -719,6 +823,10 @@
 
 .normal-purple-icon .border-right {
   --icon-color: #a026e7;
+}
+
+.normal-purple-background + .full-border {
+  --border-color: #a026e7;
 }
 
 .normal-purple-shadow:hover,
@@ -742,6 +850,10 @@
   --icon-color: #e959d6;
 }
 
+.normal-pink-background + .full-border {
+  --border-color: #e959d6;
+}
+
 .normal-pink-shadow:hover,
 .normal-pink-shadow:focus {
   box-shadow: 0 0 0 0.25vh #e959d6;
@@ -761,6 +873,10 @@
 
 .normal-yellow-icon .border-right {
   --icon-color: #ffdc40;
+}
+
+.normal-yellow-background + .full-border {
+  --border-color: #ffdc40;
 }
 
 .normal-yellow-shadow:hover,
@@ -784,6 +900,10 @@
   --icon-color: #238828;
 }
 
+.normal-green-background + .full-border {
+  --border-color: #238828;
+}
+
 .normal-green-shadow:hover,
 .normal-green-shadow:focus {
   box-shadow: 0 0 0 0.25vh #238828;
@@ -803,6 +923,10 @@
 
 .light-black-icon .border-right {
   --icon-color: #292929;
+}
+
+.light-black-background + .full-border {
+  --border-color: #292929;
 }
 
 .light-black-shadow:hover,
@@ -826,6 +950,10 @@
   --icon-color: #afaaaa;
 }
 
+.light-grey-background + .full-border {
+  --border-color: #afaaaa;
+}
+
 .light-grey-shadow:hover,
 .light-grey-shadow:focus {
   box-shadow: 0 0 0 0.25vh #afaaaa;
@@ -845,6 +973,10 @@
 
 .light-orange-icon .border-right {
   --icon-color: #f0a85d;
+}
+
+.light-orange-background + .full-border {
+  --border-color: #f0a85d;
 }
 
 .light-orange-shadow:hover,
@@ -868,6 +1000,10 @@
   --icon-color: #f56067;
 }
 
+.light-red-background + .full-border {
+  --border-color: #f56067;
+}
+
 .light-red-shadow:hover,
 .light-red-shadow:focus {
   box-shadow: 0 0 0 0.25vh #f56067;
@@ -887,6 +1023,10 @@
 
 .light-blue-icon .border-right {
   --icon-color: #3090b6;
+}
+
+.light-blue-background + .full-border {
+  --border-color: #3090b6;
 }
 
 .light-blue-shadow:hover,
@@ -910,6 +1050,10 @@
   --icon-color: #e28343;
 }
 
+.light-brown-background + .full-border {
+  --border-color: #e28343;
+}
+
 .light-brown-shadow:hover,
 .light-brown-shadow:focus {
   box-shadow: 0 0 0 0.25vh #e28343;
@@ -929,6 +1073,10 @@
 
 .light-purple-icon .border-right {
   --icon-color: #b26fda;
+}
+
+.light-purple-background + .full-border {
+  --border-color: #b26fda;
 }
 
 .light-purple-shadow:hover,
@@ -952,6 +1100,10 @@
   --icon-color: #ec8de0;
 }
 
+.light-pink-background + .full-border {
+  --border-color: #ec8de0;
+}
+
 .light-pink-shadow:hover,
 .light-pink-shadow:focus {
   box-shadow: 0 0 0 0.25vh #ec8de0;
@@ -971,6 +1123,10 @@
 
 .light-yellow-icon .border-right {
   --icon-color: #f8df6e;
+}
+
+.light-yellow-background + .full-border {
+  --border-color: #f8df6e;
 }
 
 .light-yellow-shadow:hover,
@@ -994,6 +1150,10 @@
   --icon-color: #3bd31d;
 }
 
+.light-green-background + .full-border {
+  --border-color: #3bd31d;
+}
+
 .light-green-shadow:hover,
 .light-green-shadow:focus {
   box-shadow: 0 0 0 0.25vh #3bd31d;
@@ -1013,6 +1173,10 @@
 
 .pastel-black-icon .border-right {
   --icon-color: #494747;
+}
+
+.pastel-black-background + .full-border {
+  --border-color: #494747;
 }
 
 .pastel-black-shadow:hover,
@@ -1036,6 +1200,10 @@
   --icon-color: #cfcfc4;
 }
 
+.pastel-grey-background + .full-border {
+  --border-color: #cfcfc4;
+}
+
 .pastel-grey-shadow:hover,
 .pastel-grey-shadow:focus {
   box-shadow: 0 0 0 0.25vh #cfcfc4;
@@ -1055,6 +1223,10 @@
 
 .pastel-white-icon .border-right {
   --icon-color: rgb(255, 255, 255);
+}
+
+.pastel-white-background + .full-border {
+  --border-color: rgb(255, 255, 255);
 }
 
 .pastel-white-shadow:hover,
@@ -1078,6 +1250,10 @@
   --icon-color: #ffb347;
 }
 
+.pastel-orange-background + .full-border {
+  --border-color: #ffb347;
+}
+
 .pastel-orange-shadow:hover,
 .pastel-orange-shadow:focus {
   box-shadow: 0 0 0 0.25vh #ffb347;
@@ -1097,6 +1273,10 @@
 
 .pastel-red-icon .border-right {
   --icon-color: #f8847e;
+}
+
+.pastel-red-background + .full-border {
+  --border-color: #f8847e;
 }
 
 .pastel-red-shadow:hover,
@@ -1120,6 +1300,10 @@
   --icon-color: #87b3c4;
 }
 
+.pastel-blue-background + .full-border {
+  --border-color: #87b3c4;
+}
+
 .pastel-blue-shadow:hover,
 .pastel-blue-shadow:focus {
   box-shadow: 0 0 0 0.25vh #87b3c4;
@@ -1139,6 +1323,10 @@
 
 .pastel-brown-icon .border-right {
   --icon-color: #b88f7b;
+}
+
+.pastel-brown-background + .full-border {
+  --border-color: #b88f7b;
 }
 
 .pastel-brown-shadow:hover,
@@ -1162,6 +1350,10 @@
   --icon-color: #b19cd9;
 }
 
+.pastel-purple-background + .full-border {
+  --border-color: #b19cd9;
+}
+
 .pastel-purple-shadow:hover,
 .pastel-purple-shadow:focus {
   box-shadow: 0 0 0 0.25vh #b19cd9;
@@ -1180,7 +1372,11 @@
 }
 
 .pastel-pink-icon .border-right {
-  --icon-color: #b19cd9;
+  --icon-color: #ffd1dc;
+}
+
+.pastel-pink-background + .full-border {
+  --border-color: #ffd1dc;
 }
 
 .pastel-pink-shadow:hover,
@@ -1204,6 +1400,10 @@
   --icon-color: #fdfd96;
 }
 
+.pastel-yellow-background + .full-border {
+  --border-color: #fdfd96;
+}
+
 .pastel-yellow-shadow:hover,
 .pastel-yellow-shadow:focus {
   box-shadow: 0 0 0 0.25vh #fdfd96;
@@ -1223,6 +1423,10 @@
 
 .pastel-green-icon .border-right {
   --icon-color: #77dd77;
+}
+
+.pastel-green-background + .full-border {
+  --border-color: #77dd77;
 }
 
 .pastel-green-shadow:hover,
