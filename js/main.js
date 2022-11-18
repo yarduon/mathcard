@@ -66,6 +66,18 @@ let usingFloat = false,
   currentColor = "",
   currentElement = "background";
 
+function loadSettings(customizationFile) {
+  Object.keys(customizationFile).forEach((e) => {
+    customizationButtons.forEach((b) => {
+      // Avoid null values
+      if (customizationFile[e][b.id]) {
+        // Refresh saved color button
+        addClass(customizationFile[e][b.id], document.getElementById(e));
+      }
+    });
+  });
+}
+
 function operate(operator, num1, num2) {
   let total = 0;
   switch (operator) {
@@ -703,18 +715,6 @@ function useSlider(currentPosition, isRight, parentContainer) {
       parentContainer.style.right = --currentPosition + "vh";
     }
   }
-}
-
-function loadSettings(customizationFile) {
-  Object.keys(customizationFile).forEach((e) => {
-    customizationButtons.forEach((b) => {
-      // Avoid null values
-      if (customizationFile[e][b.id]) {
-        // Refresh saved color button
-        addClass(customizationFile[e][b.id], document.getElementById(e));
-      }
-    });
-  });
 }
 
 // When the page is refreshed or loaded for the first time
