@@ -7,12 +7,11 @@
 .calculator,
 #reader,
 .qr-container,
-.screen,
-.logo-container {
+.screen {
   z-index: 3;
 }
 
-.logo-containe,
+.logo-container,
 .customization,
 .tab,
 .arrow {
