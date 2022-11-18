@@ -54,7 +54,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   ],
   fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
   customizationButtons = [
-    document.getElementById("text"),
+    document.getElementById("icon"),
     document.getElementById("background"),
     document.getElementById("shadow"),
   ];
@@ -658,6 +658,9 @@ function editMode(event) {
             currentColor + "-" + currentElement,
             document.getElementById(e)
           );
+          customization[e][currentElement] =
+            currentColor + "-" + currentElement;
+          /*    console.log(customization[e][currentElement]); */
         }
       });
     });
@@ -702,6 +705,18 @@ function useSlider(currentPosition, isRight, parentContainer) {
   }
 }
 
+function loadSettings(customizationFile) {
+  Object.keys(customizationFile).forEach((e) => {
+    customizationButtons.forEach((b) => {
+      // Avoid null values
+      if (customizationFile[e][b.id]) {
+        // Refresh saved color button
+        addClass(customizationFile[e][b.id], document.getElementById(e));
+      }
+    });
+  });
+}
+
 // When the page is refreshed or loaded for the first time
 window.onload = async () => {
   // Load default values when the cache is deleted or first time
@@ -713,6 +728,11 @@ window.onload = async () => {
   if (!localStorage.getItem("editMode")) {
     localStorage.setItem("editMode", false);
   }
+  if (!localStorage.getItem("customization")) {
+    localStorage.setItem("customization", JSON.stringify(customization));
+  }
+
+  loadSettings(JSON.parse(localStorage.getItem("customization")));
 
   // Power on or off light of calculator according to previous actions
   if (powerOnOff()) {
@@ -938,7 +958,6 @@ Array.from(customizationButtons).forEach((e) => {
 
 // Start slider when mouse is pressed
 arrows.forEach((e) => {
-  console.log(e.parentNode.children[1].style.right);
   e.addEventListener("mousedown", () => {
     slide = setInterval(() => {
       useSlider(

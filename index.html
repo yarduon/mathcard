@@ -27,15 +27,11 @@
     <div
       class="max-width max-height flex justify-center align-center absolute overflow-hidden"
     >
-      <div
-        class="max-height half-width side-background normal-black-background"
-      ></div>
-      <div
-        class="max-height half-width side-background pastel-white-background"
-      ></div>
-      <div class="absolute normal-black-background" id="square1"></div>
-      <div class="absolute pastel-white-background" id="square2"></div>
-      <div class="absolute full-black-background" id="square3"></div>
+      <div class="absolute" id="square1"></div>
+      <div class="absolute" id="square2"></div>
+      <div class="absolute" id="square3"></div>
+      <div class="max-height half-width side-background"></div>
+      <div class="max-height half-width side-background"></div>
     </div>
     <main class="flex column justify-center align-center max-width max-height">
       <aside
@@ -58,7 +54,7 @@
           </svg>
         </div>
         <div
-          class="font-families flex align-center pastel-white-text relative"
+          class="font-families flex align-center pastel-white-icon relative"
           id="font-families"
         >
           <div class="font touch underline" id="alatsi">
@@ -215,70 +211,58 @@
           type="checkbox"
         />
         <div
-          class="top-calculator round-border-full max-width flex justify-center align-center normal-purple-background relative"
+          class="top-calculator round-border-full max-width flex justify-center align-center relative"
           id="top"
         >
           <div
-            class="screen overflow-hidden flex column align-center full-black-border-full full-black-text pastel-white-background"
+            class="logo-container flex justify-center align-center absolute"
+            id="logo"
+          >
+            <p class="logo">Mathcard</p>
+          </div>
+          <div
+            class="screen overflow-hidden flex column align-center full-border"
             id="screen"
           >
             <div class="operations-container flex justify-start align-center">
               <p
                 id="topScreen"
-                class="flex justify-end align-center full-black-border-right overflow-hidden"
+                class="flex justify-end align-center overflow-hidden border-right"
               ></p>
             </div>
             <p id="result" class="relative self-flex-end">0</p>
           </div>
-          <div
-            class="logo-container flex justify-center align-center absolute full-black-border-full full-black-background"
-            id="logo"
-          >
-            <p class="logo pastel-white-text">Mathcard</p>
-          </div>
           <div class="container-screw max-width max-height absolute">
             <div
-              class="circle-shape screw flex justify-center align-center absolute pastel-white-background"
+              class="circle-shape screw flex justify-center align-center absolute"
               id="circle1"
             ></div>
             <div
-              class="circle-shape screw flex justify-center align-center absolute pastel-white-background"
+              class="circle-shape screw flex justify-center align-center absolute"
               id="circle2"
             ></div>
             <div
-              class="circle-shape screw flex justify-center align-center absolute pastel-white-background"
+              class="circle-shape screw flex justify-center align-center absolute"
               id="circle3"
             ></div>
             <div
-              class="circle-shape screw flex justify-center align-center absolute pastel-white-background"
+              class="circle-shape screw flex justify-center align-center absolute"
               id="circle4"
             ></div>
           </div>
         </div>
+        <div class="middle-base relative max-width" id="middle"></div>
         <div
-          class="middle-base relative max-width pastel-black-background"
-          id="middle"
-        ></div>
-        <div
-          class="buttons-container max-width relative flex column justify-center align-center normal-orange-background"
+          class="buttons-container max-width relative flex column justify-center align-center"
           id="buttons"
         >
           <div
             class="flex column justify-around absolute lights-container max-width"
           >
-            <div
-              class="off-on-light relative normal-black-background"
-              id="on"
-            ></div>
-            <div
-              class="off-on-light relative normal-black-background"
-              id="off"
-            ></div>
+            <div class="off-on-light relative" id="on"></div>
+            <div class="off-on-light relative" id="off"></div>
           </div>
-          <button
-            class="absolute power circle-shape touch pastel-white-shadow pastel-white-text normal-black-background"
-            id="power"
-          >
+          <button class="absolute power circle-shape touch" id="power">
             <svg
               class="small-icon"
               viewBox="0 0 93.927 104.25"
@@ -296,14 +280,14 @@
           >
             <label class="max-width flex justify-center" for="firstCurrency">
               <select
-                class="select hidden-webstyles medium-text round-border touch pastel-white-shadow light-black-background pastel-white-text center"
+                class="select hidden-webstyles medium-text round-border touch center"
                 name="firstCurrency"
                 id="firstCurrency"
               ></select>
             </label>
             <label class="max-width flex justify-center" for="secondCurrency">
               <select
-                class="select hidden-webstyles medium-text round-border touch pastel-white-shadow light-black-background pastel-white-text center"
+                class="select hidden-webstyles medium-text round-border touch center"
                 name="secondCurrency"
                 id="secondCurrency"
               ></select>
@@ -313,73 +297,73 @@
             class="special-buttons-container flex wrap justify-between align-around"
           >
             <button
-              class="button additional medium-text round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button additional medium-text round-border touch"
               id="m+"
             >
               M+
             </button>
             <button
-              class="button additional medium-text round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button additional medium-text round-border touch"
               id="m-"
             >
               M-
             </button>
             <button
-              class="button additional medium-text round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button additional medium-text round-border touch"
               id="mr"
             >
               MR
             </button>
             <button
-              class="button additional medium-text round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button additional medium-text round-border touch"
               id="ms"
             >
               MS
             </button>
             <button
-              class="button additional medium-text round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button additional medium-text round-border touch"
               id="mc"
             >
               MC
             </button>
             <button
-              class="button additional medium-text round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button additional medium-text round-border touch"
               id="ce"
             >
               CE
             </button>
             <button
-              class="button calc-button function additional hidden-currency medium-text round-border touch pastel-white-shadow pastel-white-text light-black-background"
+              class="button calc-button function additional hidden-currency medium-text round-border touch"
               id="LOG("
             >
               LOG
             </button>
             <button
-              class="button calc-button function additional hidden-currency medium-text round-border touch pastel-white-shadow pastel-white-text light-black-background"
+              class="button calc-button function additional hidden-currency medium-text round-border touch"
               id="SIN("
             >
               SIN
             </button>
             <button
-              class="button calc-button function additional hidden-currency medium-text round-border touch pastel-white-shadow pastel-white-text light-black-background"
+              class="button calc-button function additional hidden-currency medium-text round-border touch"
               id="COS("
             >
               COS
             </button>
             <button
-              class="button calc-button function additional hidden-currency medium-text round-border touch pastel-white-shadow pastel-white-text light-black-background"
+              class="button calc-button function additional hidden-currency medium-text round-border touch"
               id="TAN("
             >
               TAN
             </button>
             <button
-              class="button calc-button function additional hidden-currency medium-text round-border touch pastel-white-shadow pastel-white-text light-black-background"
+              class="button calc-button function additional hidden-currency medium-text round-border touch"
               id="PI"
             >
               PI
             </button>
             <button
-              class="button calc-button function additional hidden-currency medium-text round-border touch pastel-white-shadow pastel-white-text light-black-background"
+              class="button calc-button function additional hidden-currency medium-text round-border touch"
               id="SQR("
             >
               SQR
@@ -387,121 +371,121 @@
           </div>
           <div class="symbols max-width flex wrap justify-between align-center">
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="7"
             >
               7
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="8"
             >
               8
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="9"
             >
               9
             </button>
             <button
-              class="button calc-button operator main-button hidden-currency round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button calc-button operator main-button hidden-currency round-border touch"
               id="%"
             >
               %
             </button>
             <button
-              class="button calc-button operator main-button hidden-currency round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button calc-button operator main-button hidden-currency round-border touch"
               id="Dead"
             >
               ^
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="4"
             >
               4
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="5"
             >
               5
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="6"
             >
               6
             </button>
             <button
-              class="button calc-button operator main-button hidden-currency round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button calc-button operator main-button hidden-currency round-border touch"
               id="*"
             >
               *
             </button>
             <button
-              class="button calc-button operator main-button hidden-currency round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button calc-button operator main-button hidden-currency round-border touch"
               id="/"
             >
               /
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="1"
             >
               1
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="2"
             >
               2
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="3"
             >
               3
             </button>
             <button
-              class="button calc-button operator main-button hidden-currency round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button calc-button operator main-button hidden-currency round-border touch"
               id="+"
             >
               +
             </button>
             <button
-              class="button calc-button operator main-button hidden-currency round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button calc-button operator main-button hidden-currency round-border touch"
               id="-"
             >
               -
             </button>
             <button
-              class="button calc-button main-button round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button main-button round-border touch"
               id="0"
             >
               0
             </button>
             <button
-              class="button dot calc-button main-button relative round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button dot calc-button main-button relative round-border touch"
               id="."
             >
               .
             </button>
             <button
-              class="button calc-button parenthesis main-button hidden-currency round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button calc-button parenthesis main-button hidden-currency round-border touch"
               id="("
             >
               (
             </button>
             <button
-              class="button calc-button parenthesis main-button hidden-currency round-border touch pastel-white-shadow pastel-white-text full-grey-background"
+              class="button calc-button parenthesis main-button hidden-currency round-border touch"
               id=")"
             >
               )
             </button>
             <button
-              class="button equal calc-button operator main-button round-border touch pastel-white-shadow pastel-white-text light-black-background"
+              class="button equal calc-button operator main-button round-border touch"
               id="="
             >
               =
@@ -509,20 +493,20 @@
           </div>
           <div class="extra-symbols absolute flex justify-between">
             <button
-              class="button calc-button additional secondary relative medium-text round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button additional secondary relative medium-text round-border touch"
               id="Backspace"
             >
               DEL
             </button>
             <button
-              class="button calc-button additional secondary relative medium-text round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="button calc-button additional secondary relative medium-text round-border touch"
               id="ac"
             >
               AC
             </button>
           </div>
           <button
-            class="qr flex justify-center align-center round-border touch pastel-white-shadow absolute pastel-white-text full-grey-background"
+            class="qr flex justify-center align-center round-border touch absolute"
             id="qr"
           >
             <svg
@@ -540,12 +524,12 @@
           </button>
         </div>
         <div
-          class="line max-width relative flex justify-between align-center pastel-black-background"
+          class="line max-width relative flex justify-between align-center"
           id="bottom"
         >
           <div class="footer-buttons flex justify-between">
             <button
-              class="settings flex justify-center align-center round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="settings flex justify-center align-center round-border touch"
               id="settings"
             >
               <svg
@@ -564,7 +548,7 @@
               </svg>
             </button>
             <button
-              class="edit flex justify-center align-center round-border touch pastel-white-shadow pastel-white-text normal-black-background"
+              class="edit flex justify-center align-center round-border touch"
               id="edit"
             >
               <svg
@@ -588,11 +572,11 @@
               class="switch-icon touch round-border flex justify-center align-center"
             >
               <div
-                class="absolute switch-circle circle-shape pastel-white-background"
+                class="absolute switch-circle circle-shape"
                 id="switch-circle"
               ></div>
               <div
-                class="switch-line max-width round-border-full pastel-white-shadow normal-black-background"
+                class="switch-line max-width round-border-full"
                 id="switch-line"
               ></div>
             </div>
@@ -600,13 +584,13 @@
         </div>
       </div>
       <div class="tab absolute full-black-background">
-        <button class="medium-text touch pastel-white-text" id="text">
-          Text
+        <button class="medium-text touch pastel-white-icon" id="icon">
+          Icon
         </button>
-        <button class="medium-text touch pastel-white-text" id="background">
+        <button class="medium-text touch pastel-white-icon" id="background">
           Background
         </button>
-        <button class="medium-text touch pastel-white-text" id="shadow">
+        <button class="medium-text touch pastel-white-icon" id="shadow">
           Shadow
         </button>
       </div>
@@ -856,7 +840,7 @@
         class="qr-container max-width max-height flex justify-center align-center black-background absolute hidden"
         id="qr-menu"
       >
-        <div class="pastel-white-text absolute touch light-opacity" id="cross">
+        <div class="pastel-white-icon absolute touch light-opacity" id="cross">
           <svg
             class="large-icon"
             viewBox="0 0 24.606 24.606"
@@ -876,7 +860,7 @@
         </div>
         <div class="qr-options max-width flex justify-around align-center">
           <div
-            class="qr-icon flex justify-center align-center round-border-full touch light-touch pastel-white-text light-black-background"
+            class="qr-icon flex justify-center align-center round-border-full touch light-touch pastel-white-icon light-black-background"
             id="camera"
           >
             <svg
@@ -891,7 +875,7 @@
             </svg>
           </div>
           <div
-            class="qr-icon round-border-full touch light-touch pastel-white-text light-black-background flex justify-center align-center"
+            class="qr-icon round-border-full touch light-touch pastel-white-icon light-black-background flex justify-center align-center"
             id="folder"
           >
             <svg
@@ -926,7 +910,7 @@
             class="qr-result-container large-text touch light-black-background hidden"
             id="qr-result-container"
           >
-            <a id="qr-result" class="pastel-white-text" href="#"></a>
+            <a id="qr-result" class="pastel-white-icon" href="#"></a>
             <div class="large-icon" id="clipboard">
               <svg
                 viewBox="0 0 88.635 83.344"
@@ -959,7 +943,7 @@
             </div>
           </div>
           <p
-            class="container-error medium-text absolute full-red-background pastel-white-text"
+            class="container-error medium-text absolute full-red-background pastel-white-icon"
             id="error"
           ></p>
           <p class="hidden translate" id="qr-not-found">
