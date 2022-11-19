@@ -413,16 +413,8 @@ function powerOnOff(event) {
     });
 
     // Change power status buttons colors
-    swapClasses(
-      document.getElementById("on"),
-      "light-green-background",
-      "normal-black-background"
-    );
-    swapClasses(
-      document.getElementById("off"),
-      "normal-black-background",
-      "full-red-background"
-    );
+    removeClass(document.getElementById("on"), "hidden");
+    addClass(document.getElementById("off"), "hidden");
   } else {
     // Empty and hide data values
     writeAndSave(topScreen.id, "", topScreen);
@@ -435,16 +427,8 @@ function powerOnOff(event) {
     });
 
     // Change power status buttons colors
-    swapClasses(
-      document.getElementById("on"),
-      "normal-black-background",
-      "light-green-background"
-    );
-    swapClasses(
-      document.getElementById("off"),
-      "full-red-background",
-      "normal-black-background"
-    );
+    removeClass(document.getElementById("off"), "hidden");
+    addClass(document.getElementById("on"), "hidden");
   }
   return stringToBoolean(localStorage.getItem("power"));
 }

@@ -29,10 +29,16 @@ export default {
   buttons: {
     background: "normal-orange-background",
   },
-  on: {
+  "on-default": {
+    background: "normal-black-background",
+  },
+  "off-default": {
+    background: "normal-black-background",
+  },
+  "on-light": {
     background: "light-green-background",
   },
-  off: {
+  "off-light": {
     background: "full-red-background",
   },
   power: {
