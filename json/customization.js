@@ -30,14 +30,10 @@ export default {
     background: "normal-orange-background",
   },
   on: {
-    icon: "light-green-background",
-    background: "normal-black-background",
-    shadow: "pastel-white-shadow",
+    background: "light-green-background",
   },
   off: {
-    icon: "full-red-background",
-    background: "normal-black-background",
-    shadow: "pastel-white-shadow",
+    background: "full-red-background",
   },
   power: {
     icon: "pastel-white-icon",

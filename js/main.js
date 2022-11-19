@@ -659,24 +659,27 @@ function editMode(event) {
     });
 
     // Modify button background and text color
-    Object.keys(customization).forEach((e) => {
-      document.getElementById(e).addEventListener("click", (event) => {
-        // Prevent parent elements to trigger
-        event.stopPropagation();
-        // Remove previous classes according to currently selected element
-        if (currentColor != "") {
-          removeClasses(document.getElementById(e), currentElement);
-          addClass(
-            currentColor + "-" + currentElement,
-            document.getElementById(e)
-          );
-          customization[e][currentElement] =
-            currentColor + "-" + currentElement;
-          /*    console.log(customization[e][currentElement]); */
-        }
-      });
-    });
+    Object.keys(JSON.parse(localStorage.getItem("customization"))).forEach(
+      (e) => {
+        document.getElementById(e).addEventListener("click", (event) => {
+          // Prevent parent elements to trigger
+          event.stopPropagation();
+          // Avoid empty color
+          if (currentColor != "") {
+            // Change specified appearance
+            removeClasses(document.getElementById(e), currentElement);
+            addClass(
+              currentColor + "-" + currentElement,
+              document.getElementById(e)
+            );
 
+            let newJSON = JSON.parse(localStorage.getItem("customization"));
+            newJSON[e][currentElement] = currentColor + "-" + currentElement;
+            localStorage.setItem("customization", JSON.stringify(newJSON));
+          }
+        });
+      }
+    );
     // Modify current font
     Array.from(document.getElementsByClassName("font")).forEach((e) => {
       e.addEventListener("click", () => {
