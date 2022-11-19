@@ -62,6 +62,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("background"),
     document.getElementById("shadow"),
   ],
+  customizationOptions = ["font", "color", "element"],
   confirmButtons = [
     document.getElementById("confirm"),
     document.getElementById("reject"),
@@ -70,9 +71,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
 let usingFloat = false,
   usingCircumflex = false,
   totalOpenParenthesis = 0,
-  slide = 0,
-  currentColor = "",
-  currentElement = "background";
+  slide = 0;
 
 function loadSettings(customizationFile) {
   // Set all buttons
@@ -90,6 +89,14 @@ function loadSettings(customizationFile) {
       localStorage.getItem("font"),
       fonts
     );
+
+    // Highlight text and color
+    customizationOptions.forEach((e) => {
+      addClass(
+        "selected-" + e,
+        document.getElementById(localStorage.getItem(e))
+      );
+    });
   });
 }
 
@@ -681,6 +688,7 @@ function editMode(event) {
     // Activate switch mode
     document.getElementById("switch-mode").disabled = false;
   }
+  return stringToBoolean(localStorage.getItem("editMode"));
 }
 
 function useSlider(currentPosition, isRight, parentContainer) {
@@ -717,6 +725,8 @@ window.onload = async () => {
     localStorage.setItem("editMode", false);
   }
   if (!localStorage.getItem("font")) localStorage.setItem("font", "satisfy");
+  if (!localStorage.getItem("color")) localStorage.setItem("color", "full-red");
+  if (!localStorage.getItem("element")) localStorage.setItem("element", "icon");
   if (!localStorage.getItem("position-font-families")) {
     localStorage.setItem("position-font-families", 0);
   }
@@ -955,7 +965,7 @@ document.getElementById("edit").addEventListener("click", (e) => {
 // Change the selected item type into edit mode
 Array.from(customizationButtons).forEach((e) => {
   e.addEventListener("click", () => {
-    currentElement = e.id;
+    localStorage.setItem("element", e.id);
   });
 });
 
@@ -966,20 +976,21 @@ Object.keys(JSON.parse(localStorage.getItem("templateLayout"))).forEach((e) => {
       // Prevent parent elements to trigger
       event.stopPropagation();
       // Avoid empty color and painting edit icon after closing
-      if (
-        currentColor != "" &&
-        localStorage.getItem("closeEditMode") === "false"
-      ) {
+      if (localStorage.getItem("closeEditMode") === "false") {
         // Change specified appearance
-        removeClasses(document.getElementById(e), currentElement);
+        removeClasses(
+          document.getElementById(e),
+          localStorage.getItem("element")
+        );
         addClass(
-          currentColor + "-" + currentElement,
+          localStorage.getItem("color") + "-" + localStorage.getItem("element"),
           document.getElementById(e)
         );
 
         // Save applied appearance
         let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
-        newJSON[e][currentElement] = currentColor + "-" + currentElement;
+        newJSON[e][localStorage.getItem("element")] =
+          localStorage.getItem("color") + "-" + localStorage.getItem("element");
         localStorage.setItem("templateLayout", JSON.stringify(newJSON));
       }
       // Start edit mode
@@ -991,15 +1002,26 @@ Object.keys(JSON.parse(localStorage.getItem("templateLayout"))).forEach((e) => {
 // Change the selected current color
 Array.from(document.getElementsByClassName("color")).forEach((e) => {
   e.addEventListener("click", () => {
-    currentColor = e.id;
+    // Delete highlight from all colors
+    removeClass("selected-color", ...document.getElementsByClassName("color"));
+
+    // Change and highlight selected color
+    addClass("selected-color", e);
+    localStorage.setItem("color", e.id);
   });
 });
 
 // Modify current font
 Array.from(document.getElementsByClassName("font")).forEach((e) => {
   e.addEventListener("click", () => {
+    // Delete highlight from all fonts
+    removeClass("selected-font", ...document.getElementsByClassName("font"));
+
+    // Change and highlight selected font
     changeFont(document.getElementById("font"), e.id, fonts);
-    // Save font
+    addClass("selected-font", e);
+
+    // Save selected font
     localStorage.setItem("font", e.id);
   });
 });
