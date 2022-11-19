@@ -47,11 +47,15 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   errorMessages = [document.getElementById("qr-not-found")],
   arrows = [
     document.getElementById("left-arrow-fonts"),
-    document.getElementById("right-arrow-fonts"),
     document.getElementById("left-arrow-colors"),
+    document.getElementById("right-arrow-fonts"),
     document.getElementById("right-arrow-colors"),
   ],
   fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
+  customizationContainers = [
+    document.getElementById("font-families"),
+    document.getElementById("palette"),
+  ],
   customizationButtons = [
     document.getElementById("icon"),
     document.getElementById("background"),
@@ -673,10 +677,7 @@ function editMode(event) {
 
 function useSlider(currentPosition, isRight, parentContainer) {
   // Convert received value to a number
-  currentPosition = parseInt(currentPosition);
-
-  // Set current position to zero
-  if (isNaN(currentPosition)) currentPosition = 0;
+  currentPosition = +currentPosition;
 
   if (isRight) {
     // Move to the right until value is of upper max value
@@ -689,6 +690,11 @@ function useSlider(currentPosition, isRight, parentContainer) {
       parentContainer.style.right = --currentPosition + "vh";
     }
   }
+  // Save current position
+  localStorage.setItem(
+    "position-" + parentContainer.id,
+    cleanText(parentContainer.style.right)
+  );
 }
 
 // When the page is refreshed or loaded for the first time
@@ -702,6 +708,12 @@ window.onload = async () => {
   if (!localStorage.getItem("editMode")) {
     localStorage.setItem("editMode", false);
   }
+  if (!localStorage.getItem("position-font-families")) {
+    localStorage.setItem("position-font-families", 0);
+  }
+  if (!localStorage.getItem("position-palette")) {
+    localStorage.setItem("position-palette", 0);
+  }
   // Set default appearances to calculator
   if (!localStorage.getItem("customization")) {
     localStorage.setItem("customization", JSON.stringify(customization));
@@ -712,6 +724,11 @@ window.onload = async () => {
   editMode()
     ? loadSettings(JSON.parse(localStorage.getItem("templateLayout")))
     : loadSettings(JSON.parse(localStorage.getItem("customization")));
+
+  // Set previous position in panels of edit mode
+  customizationContainers.forEach((e) => {
+    e.style.right = localStorage.getItem("position-" + e.id) + "vh";
+  });
 
   // Power on or off light of calculator according to previous actions
   if (powerOnOff()) {
@@ -1003,11 +1020,11 @@ confirmButtons.forEach((e) => {
 });
 
 // Start slider when mouse is pressed
-arrows.forEach((e) => {
+arrows.forEach((e, i) => {
   e.addEventListener("mousedown", () => {
     slide = setInterval(() => {
       useSlider(
-        cleanText(e.parentNode.children[1].style.right),
+        localStorage.getItem("position-" + e.parentNode.children[1].id),
         e.id.includes("right"),
         e.parentNode.children[1]
       );
@@ -1018,6 +1035,10 @@ arrows.forEach((e) => {
 // Stop slider when mouse is not pressed
 arrows.forEach((e) => {
   e.addEventListener("mouseup", () => {
+    clearInterval(slide);
+  });
+  // Avoid infinite scroll when dragging mouse out of arrows area
+  e.addEventListener("mouseleave", () => {
     clearInterval(slide);
   });
 });
