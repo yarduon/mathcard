@@ -2,7 +2,6 @@
 import {
   addHours,
   isOperator,
-  swapClasses,
   stringToBoolean,
   writeAndSave,
   countElements,
@@ -57,6 +56,10 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("icon"),
     document.getElementById("background"),
     document.getElementById("shadow"),
+  ],
+  confirmButtons = [
+    document.getElementById("confirm"),
+    document.getElementById("reject"),
   ];
 
 let usingFloat = false,
@@ -413,8 +416,16 @@ function powerOnOff(event) {
     });
 
     // Change power status buttons colors
-    removeClass(document.getElementById("on"), "hidden");
-    addClass(document.getElementById("off"), "hidden");
+    removeClass(
+      "hidden",
+      document.getElementById("on-light"),
+      document.getElementById("off-default")
+    );
+    addClass(
+      "hidden",
+      document.getElementById("off-light"),
+      document.getElementById("on-default")
+    );
   } else {
     // Empty and hide data values
     writeAndSave(topScreen.id, "", topScreen);
@@ -427,8 +438,16 @@ function powerOnOff(event) {
     });
 
     // Change power status buttons colors
-    removeClass(document.getElementById("off"), "hidden");
-    addClass(document.getElementById("on"), "hidden");
+    removeClass(
+      "hidden",
+      document.getElementById("off-light"),
+      document.getElementById("on-default")
+    );
+    addClass(
+      "hidden",
+      document.getElementById("on-light"),
+      document.getElementById("off-default")
+    );
   }
   return stringToBoolean(localStorage.getItem("power"));
 }
@@ -635,42 +654,9 @@ function editMode(event) {
     // Deactive switch mode
     document.getElementById("switch-mode").disabled = true;
 
-    // Change the selected current color
-    Array.from(document.getElementsByClassName("color")).forEach((e) => {
-      e.addEventListener("click", () => {
-        currentColor = e.id;
-      });
-    });
-
-    // Modify button background and text color
-    Object.keys(JSON.parse(localStorage.getItem("templateLayout"))).forEach(
-      (e) => {
-        document.getElementById(e).addEventListener("click", (event) => {
-          // Prevent parent elements to trigger
-          event.stopPropagation();
-          // Avoid empty color
-          if (currentColor != "") {
-            // Change specified appearance
-            removeClasses(document.getElementById(e), currentElement);
-            addClass(
-              currentColor + "-" + currentElement,
-              document.getElementById(e)
-            );
-
-            // Save applied color
-            let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
-            newJSON[e][currentElement] = currentColor + "-" + currentElement;
-            localStorage.setItem("templateLayout", JSON.stringify(newJSON));
-          }
-        });
-      }
-    );
-    // Modify current font
-    Array.from(document.getElementsByClassName("font")).forEach((e) => {
-      e.addEventListener("click", () => {
-        removeClasses(document.getElementById("font"), ...fonts);
-        addClass(e.id, document.getElementById("font"));
-      });
+    // Allow change buttons when the calculator is off
+    Array.from(document.getElementsByClassName("button")).forEach((e) => {
+      e.disabled = false;
     });
   } else {
     // Hide customizations panels on top and bottom
@@ -716,20 +702,16 @@ window.onload = async () => {
   if (!localStorage.getItem("editMode")) {
     localStorage.setItem("editMode", false);
   }
-  // Set default appareances to calculator
+  // Set default appearances to calculator
   if (!localStorage.getItem("customization")) {
     localStorage.setItem("customization", JSON.stringify(customization));
     localStorage.setItem("templateLayout", JSON.stringify(customization));
   }
 
-  // Activate edit mode if was previously used and load template layout
-  if (stringToBoolean(localStorage.getItem("editMode"))) {
-    editMode();
-    loadSettings(JSON.parse(localStorage.getItem("templateLayout")));
-  } else {
-    // Load normal layout
-    loadSettings(JSON.parse(localStorage.getItem("customization")));
-  }
+  // Activate or deactivate edit mode and change customization layout
+  editMode()
+    ? loadSettings(JSON.parse(localStorage.getItem("templateLayout")))
+    : loadSettings(JSON.parse(localStorage.getItem("customization")));
 
   // Power on or off light of calculator according to previous actions
   if (powerOnOff()) {
@@ -951,18 +933,73 @@ Array.from(customizationButtons).forEach((e) => {
   });
 });
 
-// Close edit mode and save styles applied
-document.getElementById("confirm").addEventListener("click", (e) => {
-  // Replace original settings with new ones
-  localStorage.setItem("customization", localStorage.getItem("templateLayout"));
-  editMode(e);
+// Modify button background text or shadow color
+Object.keys(JSON.parse(localStorage.getItem("templateLayout"))).forEach((e) => {
+  document.getElementById(e).addEventListener("click", (event) => {
+    if (localStorage.getItem("editMode") === "true") {
+      // Prevent parent elements to trigger
+      event.stopPropagation();
+      // Avoid empty color and painting edit icon after closing
+      if (
+        currentColor != "" &&
+        localStorage.getItem("closeEditMode") === "false"
+      ) {
+        // Change specified appearance
+        removeClasses(document.getElementById(e), currentElement);
+        addClass(
+          currentColor + "-" + currentElement,
+          document.getElementById(e)
+        );
+
+        // Save applied appearance
+        let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
+        newJSON[e][currentElement] = currentColor + "-" + currentElement;
+        localStorage.setItem("templateLayout", JSON.stringify(newJSON));
+      }
+      // Start edit mode
+      localStorage.setItem("closeEditMode", false);
+    }
+  });
 });
 
-// Close edit mode and delete styles applied
-document.getElementById("reject").addEventListener("click", (e) => {
-  localStorage.setItem("templateLayout", localStorage.getItem("customization"));
-  editMode(e);
-  window.location.reload();
+// Change the selected current color
+Array.from(document.getElementsByClassName("color")).forEach((e) => {
+  e.addEventListener("click", () => {
+    currentColor = e.id;
+  });
+});
+
+// Modify current font
+Array.from(document.getElementsByClassName("font")).forEach((e) => {
+  e.addEventListener("click", () => {
+    removeClasses(document.getElementById("font"), ...fonts);
+    addClass(e.id, document.getElementById("font"));
+  });
+});
+
+// Close edit mode and save or reset styles applied
+confirmButtons.forEach((e) => {
+  e.addEventListener("click", () => {
+    // Reset and close edit mode
+    localStorage.setItem("closeEditMode", true);
+    editMode(e);
+
+    // Replace or reset customization settings
+    e.id === "confirm"
+      ? writeAndSave(
+          "customization",
+          localStorage.getItem("templateLayout"),
+          null,
+          null
+        )
+      : writeAndSave(
+          "templateLayout",
+          localStorage.getItem("customization"),
+          null,
+          null
+        );
+    window.location.reload();
+  });
 });
 
 // Start slider when mouse is pressed

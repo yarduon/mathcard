@@ -35,6 +35,11 @@
   bottom: 0;
 }
 
+.extra-symbols,
+.qr {
+  bottom: 1.6vh;
+}
+
 #circle1,
 #circle2 {
   bottom: 5%;
@@ -53,6 +58,11 @@
 .right-arrow,
 .tab-confirm {
   right: 0;
+}
+
+.power,
+#cross {
+  right: 1.5vh;
 }
 
 #circle1,
@@ -131,24 +141,14 @@
 
 .power {
   top: 1.7vh;
-  right: 1.5vh;
-}
-
-#switch-mode:checked ~ .buttons-container .dot {
-  left: 22.6vh;
-}
-
-.extra-symbols {
-  bottom: 1.6vh;
 }
 
 .qr {
   left: 1.5vh;
-  bottom: 1.6vh;
 }
 
-#error {
-  left: -100%;
+#switch-mode:checked ~ .buttons-container .dot {
+  left: 22.6vh;
 }
 
 .switch-circle {
@@ -165,5 +165,8 @@
 
 #cross {
   top: 1.5vh;
-  right: 1.5vh;
+}
+
+#error {
+  left: -100%;
 }

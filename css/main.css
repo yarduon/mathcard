@@ -6,23 +6,32 @@
   display: none;
 }
 
+.color,
+.settings,
+.edit,
+.arrow {
+  height: 3.8vh;
+}
+
+.main-button,
+.extra-symbols .button {
+  width: 6.7vh;
+}
+
 .settings,
 .edit,
 .arrow {
   width: 3.8vh;
-  height: 3.8vh;
+}
+
+.max-width,
+.font:hover .bar {
+  width: 100%;
 }
 
 .special-buttons-container,
 .select {
   width: 98%;
-}
-
-.font-families,
-.palette {
-  width: 450vh;
-  transition: right 0.2s;
-  height: 5vh;
 }
 
 .calculator,
@@ -40,19 +49,21 @@
   height: 210vh;
 }
 
+.logo-container,
+.select {
+  height: 4vh;
+}
+
 .fonts-container,
 .colors-container {
   padding: 0.4vh 0 0.4vh 0;
 }
 
-#topScreen,
-#result,
-.font {
-  font-size: 2.1vh;
-}
-
-.max-width {
-  width: 100%;
+.font-families,
+.palette {
+  width: 450vh;
+  transition: right 0.2s;
+  height: 5vh;
 }
 
 .half-width {
@@ -124,7 +135,6 @@
 }
 
 .font:hover .bar {
-  width: 100%;
   transition: width 0.7s;
 }
 
@@ -145,10 +155,6 @@
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: none;
   transform: none;
-}
-
-.qr-icon:hover .huge-icon {
-  color: rgb(29, 28, 28);
 }
 
 .disabled:hover .huge-icon {
@@ -743,7 +749,8 @@
   background-color: rgb(29, 28, 28);
 }
 
-.normal-black-icon {
+.normal-black-icon,
+.qr-icon:hover .huge-icon {
   color: rgb(29, 28, 28);
 }
 
@@ -1655,6 +1662,10 @@
   font-size: 1.7vh;
 }
 
+.semi-large-text{
+  font-size: 2.1vh;
+}
+
 .large-text {
   font-size: 2.2vh;
 }
@@ -1813,14 +1824,6 @@
   animation: typing 1.5s steps(1) infinite;
 }
 
-.logo-container {
-  height: 4vh;
-}
-
-.logo {
-  font-size: 2.2vh;
-}
-
 .middle-base {
   height: 4.5vh;
   margin-top: -2vh;
@@ -1867,7 +1870,6 @@
 }
 
 .main-button {
-  width: 6.7vh;
   height: 6.7vh;
 }
 
@@ -1880,7 +1882,6 @@
 }
 
 .select {
-  height: 4vh;
   margin: 0.4vh 0 0.4vh 0;
 }
 
@@ -1894,7 +1895,6 @@
 }
 
 .extra-symbols .button {
-  width: 6.7vh;
   height: 4.3vh;
 }
 
@@ -1994,6 +1994,5 @@
 
 .color {
   width: 4vh;
-  height: 3.8vh;
   margin: 0.4vh;
 }

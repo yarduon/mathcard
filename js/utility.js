@@ -131,10 +131,10 @@ export function cleanText(n) {
 
 export function writeAndSave(name, save, place, accumulate) {
   if (accumulate) {
-    place.innerText += save;
+    if (place) place.innerText += save;
     localStorage.setItem(name, localStorage.getItem(name) + save);
   } else {
-    place.innerText = save;
+    if (place) place.innerText = save;
     localStorage.setItem(name, save);
   }
 }
