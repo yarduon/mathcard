@@ -8,6 +8,7 @@ import {
   isEqual,
   getCurrentSelectValue,
   cleanText,
+  changeFont,
   addClass,
   addClasses,
   removeClass,
@@ -74,6 +75,7 @@ let usingFloat = false,
   currentElement = "background";
 
 function loadSettings(customizationFile) {
+  // Set all buttons
   Object.keys(customizationFile).forEach((e) => {
     customizationButtons.forEach((b) => {
       // Avoid null values
@@ -82,6 +84,12 @@ function loadSettings(customizationFile) {
         addClass(customizationFile[e][b.id], document.getElementById(e));
       }
     });
+    // Set font
+    changeFont(
+      document.getElementById("font"),
+      localStorage.getItem("font"),
+      fonts
+    );
   });
 }
 
@@ -708,6 +716,7 @@ window.onload = async () => {
   if (!localStorage.getItem("editMode")) {
     localStorage.setItem("editMode", false);
   }
+  if (!localStorage.getItem("font")) localStorage.setItem("font", "satisfy");
   if (!localStorage.getItem("position-font-families")) {
     localStorage.setItem("position-font-families", 0);
   }
@@ -989,8 +998,9 @@ Array.from(document.getElementsByClassName("color")).forEach((e) => {
 // Modify current font
 Array.from(document.getElementsByClassName("font")).forEach((e) => {
   e.addEventListener("click", () => {
-    removeClasses(document.getElementById("font"), ...fonts);
-    addClass(e.id, document.getElementById("font"));
+    changeFont(document.getElementById("font"), e.id, fonts);
+    // Save font
+    localStorage.setItem("font", e.id);
   });
 });
 

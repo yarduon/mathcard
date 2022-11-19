@@ -86,6 +86,11 @@ export function checkClasses(element, ...classes) {
   return classFound;
 }
 
+export function changeFont(container, newFont, fonts) {
+  removeClasses(container, ...fonts);
+  addClass(newFont, container);
+}
+
 export function stringToBoolean(s) {
   return Boolean(s === "true");
 }
