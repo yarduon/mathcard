@@ -41,13 +41,18 @@
 }
 
 .invisible,
-.tab {
+.tab-modify {
   left: 0;
 }
 
 #circle2,
 #circle3 {
   left: 2%;
+}
+
+.right-arrow,
+.tab-confirm {
+  right: 0;
 }
 
 #circle1,
@@ -156,10 +161,6 @@
 
 #square1 {
   z-index: 2;
-}
-
-.right-arrow {
-  right: 0;
 }
 
 #cross {

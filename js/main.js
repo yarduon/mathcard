@@ -659,7 +659,7 @@ function editMode(event) {
     });
 
     // Modify button background and text color
-    Object.keys(JSON.parse(localStorage.getItem("customization"))).forEach(
+    Object.keys(JSON.parse(localStorage.getItem("templateLayout"))).forEach(
       (e) => {
         document.getElementById(e).addEventListener("click", (event) => {
           // Prevent parent elements to trigger
@@ -673,9 +673,10 @@ function editMode(event) {
               document.getElementById(e)
             );
 
-            let newJSON = JSON.parse(localStorage.getItem("customization"));
+            // Save applied color
+            let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
             newJSON[e][currentElement] = currentColor + "-" + currentElement;
-            localStorage.setItem("customization", JSON.stringify(newJSON));
+            localStorage.setItem("templateLayout", JSON.stringify(newJSON));
           }
         });
       }
@@ -731,11 +732,20 @@ window.onload = async () => {
   if (!localStorage.getItem("editMode")) {
     localStorage.setItem("editMode", false);
   }
+  // Set default appareances to calculator
   if (!localStorage.getItem("customization")) {
     localStorage.setItem("customization", JSON.stringify(customization));
+    localStorage.setItem("templateLayout", JSON.stringify(customization));
   }
 
-  loadSettings(JSON.parse(localStorage.getItem("customization")));
+  // Activate edit mode if was previously used and load template layout
+  if (stringToBoolean(localStorage.getItem("editMode"))) {
+    editMode();
+    loadSettings(JSON.parse(localStorage.getItem("templateLayout")));
+  } else {
+    // Load normal layout
+    loadSettings(JSON.parse(localStorage.getItem("customization")));
+  }
 
   // Power on or off light of calculator according to previous actions
   if (powerOnOff()) {
@@ -776,8 +786,6 @@ window.onload = async () => {
 
   // Show currencies panel if was previously selected
   switchModes.checked = stringToBoolean(localStorage.getItem("currencyMode"));
-  // Activate edit mode if was previously used
-  if (stringToBoolean(localStorage.getItem("editMode"))) editMode();
 };
 
 // Detect pressed buttons
@@ -957,6 +965,20 @@ Array.from(customizationButtons).forEach((e) => {
   e.addEventListener("click", () => {
     currentElement = e.id;
   });
+});
+
+// Close edit mode and save styles applied
+document.getElementById("confirm").addEventListener("click", (e) => {
+  // Replace original settings with new ones
+  localStorage.setItem("customization", localStorage.getItem("templateLayout"));
+  editMode(e);
+});
+
+// Close edit mode and delete styles applied
+document.getElementById("reject").addEventListener("click", (e) => {
+  localStorage.setItem("templateLayout", localStorage.getItem("customization"));
+  editMode(e);
+  window.location.reload();
 });
 
 // Start slider when mouse is pressed
