@@ -70,6 +70,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
 
 let usingFloat = false,
   usingCircumflex = false,
+  totalResult = 0,
   totalOpenParenthesis = 0,
   slide = 0;
 
@@ -171,7 +172,7 @@ function mathToArray(string) {
 }
 
 function mathToOperations(array) {
-  let firstPos = 0;
+  let firstPos;
   // If there are parentheses in the operations
   if (countElements("(", array) === countElements(")", array)) {
     while (array.includes("(") && array.includes(")")) {
@@ -185,6 +186,7 @@ function mathToOperations(array) {
       }
       // Resolve operations inside that pair of parentheses
       symbols.forEach((e) => {
+        // Receives a copy of vector
         findAndReplaceCalc(
           e,
           array.slice(firstPos + 1, array.indexOf(")", firstPos))
@@ -194,16 +196,16 @@ function mathToOperations(array) {
       array.splice(
         firstPos,
         (firstPos - array.indexOf(")", firstPos)) * -1 + 1,
-        ...array.slice(firstPos + 1, array.indexOf(")", firstPos))
+        totalResult
       );
     }
   }
 
   // After cleaning parentheses calculate final operations
   symbols.forEach((e) => {
+    // Receives original vector
     findAndReplaceCalc(e, array);
   });
-
   return isFinite(array[0])
     ? Number.isInteger(array[0])
       ? array[0]
@@ -212,28 +214,22 @@ function mathToOperations(array) {
 }
 
 function findAndReplaceCalc(operator, array) {
-  let pos = 0;
+  let pos = array.indexOf(operator, 0),
+    isOperator = false;
   // Find the specified operator until there are none left
   while (array.indexOf(operator, pos) != -1) {
+    isOperator = true;
     // Current location of operator
     pos = array.indexOf(operator, pos);
     // Replace operations by the result
-    if (isOperator(operator)) {
-      array.splice(
-        pos - 1,
-        (pos - 1 - (pos + 1)) * -1 + 1,
-        operate(array[pos], array[pos - 1], array[pos + 1])
-      );
-    } else {
-      array.splice(
-        pos,
-        (pos - 1 - (pos + 1)) * -1,
-        operate(array[pos], array[pos - 1], array[pos + 1])
-      );
-    }
+    array.splice(
+      pos - 1,
+      (pos - 1 - (pos + 1)) * -1 + 1,
+      operate(array[pos], array[pos - 1], array[pos + 1])
+    );
   }
-  // Search for next same operator
-  pos++;
+  // Provide total result inside parenthesis if
+  if (isOperator) totalResult = array;
 }
 
 function deleteNumber(lastDeleted) {
