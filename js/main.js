@@ -192,14 +192,14 @@ function mathToOperations(array) {
         firstPos = i;
         i++;
       }
+      // Select current parenthesis
+      totalResult = array.slice(firstPos + 1, array.indexOf(")", firstPos));
       // Resolve operations inside that pair of parentheses
-      symbols.forEach((e, i) => {
+      symbols.forEach((e) => {
         // Receives a copy of vector
-        findAndReplaceCalc(
-          e,
-          array.slice(firstPos + 1, array.indexOf(")", firstPos))
-        );
+        findAndReplaceCalc(e, totalResult);
       });
+
       // Replace the parentheses with the final result
       array.splice(
         firstPos,
@@ -210,7 +210,7 @@ function mathToOperations(array) {
   }
 
   // After cleaning parentheses calculate final operations
-  symbols.forEach((e, i) => {
+  symbols.forEach((e) => {
     // Receives original vector
     findAndReplaceCalc(e, array);
   });
@@ -226,17 +226,17 @@ function findAndReplaceCalc(operator, array) {
   let pos = array.indexOf(operator, 0),
     hasOperator = false,
     initialValue = 0,
-    finalValue = 0,
-    i = 0;
+    finalValue = 0;
+
   // Find the specified operator until there are none left
-  while (array.indexOf(operator, pos) !== -1 && i <= 200) {
+  while (array.indexOf(operator, pos) !== -1) {
     // Tag the operator as found
     hasOperator = true;
     // Current location of operator
     pos = array.indexOf(operator, pos);
     // Define split values
     if (!isOperator(operator)) {
-      // Negative numbers, PI and functions
+      // PI and functions
       initialValue = pos;
       finalValue = pos + 2;
     } else {
