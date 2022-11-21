@@ -102,7 +102,6 @@ function loadSettings(customizationFile) {
 }
 
 function operate(operator, num1, num2) {
-  console.log("operator: " + operator + ", num1: " + num1 + ", num2: " + num2);
   let total = 0;
   switch (operator) {
     case "+":
@@ -216,32 +215,22 @@ function mathToOperations(array) {
 
 function findAndReplaceCalc(operator, array) {
   let pos = array.indexOf(operator, 0),
-    isOperator = false,
+    hasOperator = false,
     initialValue = 0,
     finalValue = 0;
   // Find the specified operator until there are none left
   while (array.indexOf(operator, pos) != -1) {
     // Tag the operator as found
-    isOperator = true;
+    hasOperator = true;
     // Current location of operator
     pos = array.indexOf(operator, pos);
 
     // Define split values
-    if ((operator === "-" && isNaN(array[pos - 1])) || operator === "LOG") {
-      console.log(
-        "Entré en negativos... \n" +
-          "Operador: " +
-          operator +
-          ", posPrevia: " +
-          array[pos - 1] +
-          ", posSiguiente: " +
-          array[pos + 1]
-      );
-      // Negative numbers and PI
+    if ((operator === "-" && isNaN(array[pos - 1])) || !isOperator(operator)) {
+      // Negative numbers, PI and functions
       initialValue = pos;
       finalValue = (pos - (pos + 1)) * -1 + 1;
     } else {
-      console.log("Entré en el resto...");
       // The operator has numbers between the two sides
       initialValue = pos - 1;
       finalValue = (pos - 1 - (pos + 1)) * -1 + 1;
@@ -254,7 +243,7 @@ function findAndReplaceCalc(operator, array) {
       operate(array[pos], array[pos - 1], array[pos + 1])
     );
   }
-  // Provide total result inside parenthesis if DQWDWQIDJQWODWJWQDJ
+  // Provide the result if a single value remains or if an specified operator exists
   if (isOperator || !isNaN(+array[0])) totalResult = array;
 }
 
