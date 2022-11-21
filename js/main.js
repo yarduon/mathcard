@@ -215,20 +215,36 @@ function mathToOperations(array) {
 
 function findAndReplaceCalc(operator, array) {
   let pos = array.indexOf(operator, 0),
-    isOperator = false;
+    isOperator = false,
+    initialValue = 0,
+    finalValue = 0;
   // Find the specified operator until there are none left
-  while (array.indexOf(operator, pos) != -1) {
+  if (array.indexOf(operator, pos) != -1) {
+    // Tag the operator as found
     isOperator = true;
     // Current location of operator
     pos = array.indexOf(operator, pos);
+
+    // Define split values
+    if (operator === "-" && isNaN(array[pos - 1])) {
+      // Negative numbers
+      initialValue = pos;
+      finalValue = (pos - (pos + 1)) * -1 + 1;
+    } else {
+      // The operator has numbers between the two sides
+      initialValue = pos - 1;
+      finalValue = (pos - 1 - (pos + 1)) * -1 + 1;
+    }
+
     // Replace operations by the result
     array.splice(
-      pos - 1,
-      (pos - 1 - (pos + 1)) * -1 + 1,
+      initialValue,
+      finalValue,
       operate(array[pos], array[pos - 1], array[pos + 1])
     );
   }
   // Provide total result inside parenthesis if
+  console.log(array);
   if (isOperator) totalResult = array;
 }
 
@@ -302,14 +318,19 @@ function selectButton(name) {
     // Buttons behaviour
     switch (name) {
       case "-":
-        // Avoid three minus signs consecutively
+        // Avoid three minus signs consecutively and two in some cases
         if (
           (nextToLastSelected === "" && lastSelected === "") ||
-          (nextToLastSelected !== "-" && nextToLastSelected !== "") ||
+          (nextToLastSelected !== "-" &&
+            nextToLastSelected !== "" &&
+            nextToLastSelected !== "(") ||
+          lastSelected === "(" ||
           !isNaN(lastSelected)
         ) {
           writeAndSave(topScreen.id, name, topScreen, true);
         }
+        console.log("Last selected: " + lastSelected);
+        console.log("Next to last selected: " + nextToLastSelected);
         break;
       // Character value and key are different
       case "Dead":
