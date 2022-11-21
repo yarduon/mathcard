@@ -102,6 +102,7 @@ function loadSettings(customizationFile) {
 }
 
 function operate(operator, num1, num2) {
+  console.log("operator: " + operator + ", num1: " + num1 + ", num2: " + num2);
   let total = 0;
   switch (operator) {
     case "+":
@@ -219,18 +220,28 @@ function findAndReplaceCalc(operator, array) {
     initialValue = 0,
     finalValue = 0;
   // Find the specified operator until there are none left
-  if (array.indexOf(operator, pos) != -1) {
+  while (array.indexOf(operator, pos) != -1) {
     // Tag the operator as found
     isOperator = true;
     // Current location of operator
     pos = array.indexOf(operator, pos);
 
     // Define split values
-    if (operator === "-" && isNaN(array[pos - 1])) {
-      // Negative numbers
+    if ((operator === "-" && isNaN(array[pos - 1])) || operator === "LOG") {
+      console.log(
+        "Entré en negativos... \n" +
+          "Operador: " +
+          operator +
+          ", posPrevia: " +
+          array[pos - 1] +
+          ", posSiguiente: " +
+          array[pos + 1]
+      );
+      // Negative numbers and PI
       initialValue = pos;
       finalValue = (pos - (pos + 1)) * -1 + 1;
     } else {
+      console.log("Entré en el resto...");
       // The operator has numbers between the two sides
       initialValue = pos - 1;
       finalValue = (pos - 1 - (pos + 1)) * -1 + 1;
@@ -243,9 +254,8 @@ function findAndReplaceCalc(operator, array) {
       operate(array[pos], array[pos - 1], array[pos + 1])
     );
   }
-  // Provide total result inside parenthesis if
-  console.log(array);
-  if (isOperator) totalResult = array;
+  // Provide total result inside parenthesis if DQWDWQIDJQWODWJWQDJ
+  if (isOperator || !isNaN(+array[0])) totalResult = array;
 }
 
 function deleteNumber(lastDeleted) {
@@ -323,14 +333,13 @@ function selectButton(name) {
           (nextToLastSelected === "" && lastSelected === "") ||
           (nextToLastSelected !== "-" &&
             nextToLastSelected !== "" &&
-            nextToLastSelected !== "(") ||
+            nextToLastSelected !== "(" &&
+            !isNaN(nextToLastSelected)) ||
           lastSelected === "(" ||
           !isNaN(lastSelected)
         ) {
           writeAndSave(topScreen.id, name, topScreen, true);
         }
-        console.log("Last selected: " + lastSelected);
-        console.log("Next to last selected: " + nextToLastSelected);
         break;
       // Character value and key are different
       case "Dead":
