@@ -17,7 +17,7 @@ import {
   removeClasses,
   checkClasses,
 } from "./utility.js";
-console.log(localStorage.getItem("totalOpenParenthesis"));
+
 // Need to import JSON as JS without backend
 import customization from "../json/customization.js";
 import currencies from "../json/currencies.js";
@@ -153,13 +153,10 @@ function mathToArray(string) {
     operations = [];
 
   Array.from(string).forEach((e, i) => {
-    // Calculate positions between current value
-    nextElement = string[i + 1];
-    lastElement = string[i - 1];
     // Accumulate characters when there aren't operators and detect negative numbers
     if (
       !isOperator(e) ||
-      (e === "-" && !isNaN(nextElement) && isNaN(lastElement))
+      (e === "-" && !isNaN(string[i + 1]) && isNaN(string[i - 1]))
     ) {
       group += e;
     } else {
@@ -352,6 +349,7 @@ function selectButton(name) {
       // Character value and key are different
       case "Dead":
         if (
+          // Avoid multiple circumflexes and next to other operators except closed parentheses
           (localStorage.getItem("usingCircumflex") === "false" &&
             !isNaN(lastSelected)) ||
           lastSelected === ")" ||
