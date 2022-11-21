@@ -353,7 +353,7 @@ function selectButton(name) {
       case "Dead":
         if (
           (localStorage.getItem("usingCircumflex") === "false" &&
-            isNaN(nextToLastSelected)) ||
+            !isNaN(lastSelected)) ||
           lastSelected === ")" ||
           lastSelected === ""
         ) {
