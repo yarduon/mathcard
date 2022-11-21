@@ -1,5 +1,7 @@
 // https://yarduon.com
 import {
+  increment,
+  decrement,
   addHours,
   isOperator,
   stringToBoolean,
@@ -15,7 +17,7 @@ import {
   removeClasses,
   checkClasses,
 } from "./utility.js";
-
+console.log(localStorage.getItem("totalOpenParenthesis"));
 // Need to import JSON as JS without backend
 import customization from "../json/customization.js";
 import currencies from "../json/currencies.js";
@@ -68,10 +70,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("reject"),
   ];
 
-let usingFloat = false,
-  usingCircumflex = false,
-  totalResult = 0,
-  totalOpenParenthesis = 0,
+let totalResult = 0,
   slide = 0;
 
 function loadSettings(customizationFile) {
@@ -262,20 +261,29 @@ function deleteNumber(lastDeleted) {
   switch (lastDeleted) {
     case ".":
       // Reset use of dots when deleting these
-      usingFloat = false;
+      localStorage.setItem("usingFloat", false);
       break;
     case "^":
       // Reset use of circumflex when deleting these
-      usingCircumflex = false;
+      localStorage.setItem("usingCircumflex", false);
       break;
     case ")":
       // Increments use of closed parenthesis when deleting these
-      totalOpenParenthesis++;
+      localStorage.setItem(
+        "totalOpenParenthesis",
+        increment(localStorage.getItem("totalOpenParenthesis"))
+      );
       break;
     default:
       // Decrement use of closed parenthesis when deleting opened ones
-      if (lastDeleted === "(" && totalOpenParenthesis >= 0)
-        totalOpenParenthesis--;
+      if (
+        lastDeleted === "(" &&
+        Number(localStorage.getItem("totalOpenParenthesis")) >= 0
+      )
+        localStorage.setItem(
+          "totalOpenParenthesis",
+          decrement(localStorage.getItem("totalOpenParenthesis"))
+        );
   }
 
   // Create a copy of screen without last element
@@ -343,11 +351,11 @@ function selectButton(name) {
         break;
       // Character value and key are different
       case "Dead":
-        if (!usingCircumflex) {
+        if (localStorage.getItem("usingCircumflex") === "false") {
           writeAndSave(topScreen.id, "^", topScreen, true);
           // Avoid single operators without a number on the left
           fillEmptyOperation(name, lastSelected);
-          usingCircumflex = true;
+          localStorage.setItem("usingCircumflex", true);
         }
         break;
       case "(":
@@ -357,22 +365,28 @@ function selectButton(name) {
           isEqual(lastSelected, "", "^", "(")
         ) {
           writeAndSave(topScreen.id, name, topScreen, true);
-          totalOpenParenthesis++;
+          localStorage.setItem(
+            "totalOpenParenthesis",
+            increment(localStorage.getItem("totalOpenParenthesis"))
+          );
         }
         break;
       case ")":
         // Avoid writing closed parenthesis without opening previously opening ones
-        if (totalOpenParenthesis >= 1) {
+        if (Number(localStorage.getItem("totalOpenParenthesis")) >= 1) {
           writeAndSave(topScreen.id, name, topScreen, true);
-          totalOpenParenthesis--;
+          localStorage.setItem(
+            "totalOpenParenthesis",
+            decrement(localStorage.getItem("totalOpenParenthesis"))
+          );
           // Avoid single operators without a number on the left
           fillEmptyOperation(name, lastSelected);
         }
         break;
       case ".":
-        if (!usingFloat) {
+        if (localStorage.getItem("usingFloat") === "false") {
           writeAndSave(topScreen.id, name, topScreen, true);
-          usingFloat = true;
+          localStorage.setItem("usingFloat", true);
         }
         break;
       case "Backspace":
@@ -404,13 +418,13 @@ function selectButton(name) {
           // When the last value is not an operator or circumflex
           if (!operators.includes(document.getElementById(lastSelected))) {
             writeAndSave(topScreen.id, name, topScreen, true);
-            usingCircumflex = false;
+            localStorage.setItem("usingCircumflex", false);
 
             // Avoid single operators without a number on the left
             fillEmptyOperation(name, lastSelected);
 
             // Reset uses of dots
-            usingFloat = false;
+            localStorage.setItem("usingFloat", false);
           }
           // When the value is a number
         } else if (!isNaN(name)) {
@@ -428,7 +442,10 @@ function selectButton(name) {
             lastSelected === ""
           ) {
             writeAndSave(topScreen.id, name, topScreen, true);
-            totalOpenParenthesis++;
+            localStorage.setItem(
+              "totalOpenParenthesis",
+              increment(localStorage.getItem("totalOpenParenthesis"))
+            );
           }
         } else {
           writeAndSave(topScreen.id, name, topScreen, true);
@@ -742,6 +759,15 @@ function useSlider(currentPosition, isRight, parentContainer) {
 // When the page is refreshed or loaded for the first time
 window.onload = async () => {
   // Load default values when the cache is deleted or first time
+  if (!localStorage.getItem("usingFloat")) {
+    localStorage.setItem("usingFloat", false);
+  }
+  if (!localStorage.getItem("usingCircumflex")) {
+    localStorage.setItem("usingCircumflex", false);
+  }
+  if (!localStorage.getItem("totalOpenParenthesis")) {
+    localStorage.setItem("totalOpenParenthesis", 0);
+  }
   if (!localStorage.getItem("power")) localStorage.setItem("power", true);
   if (!localStorage.getItem("memory")) localStorage.setItem("memory", 0);
   if (!localStorage.getItem("currencyMode")) {
@@ -853,9 +879,9 @@ document.getElementById("ac").addEventListener("click", () => {
   // Prevent default button behaviour when edit mode is activated
   if (localStorage.getItem("editMode") === "false") {
     // Reset control values
-    usingFloat = false;
-    usingCircumflex = false;
-    totalOpenParenthesis = 0;
+    localStorage.setItem("usingFloat", false);
+    localStorage.setItem("usingCircumflex", false);
+    localStorage.setItem("totalOpenParenthesis", 0);
     // Reset screen
     writeAndSave(topScreen.id, "", topScreen);
     writeAndSave(result.id, 0, result);
