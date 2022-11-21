@@ -351,7 +351,12 @@ function selectButton(name) {
         break;
       // Character value and key are different
       case "Dead":
-        if (localStorage.getItem("usingCircumflex") === "false") {
+        if (
+          (localStorage.getItem("usingCircumflex") === "false" &&
+            isNaN(nextToLastSelected)) ||
+          lastSelected === ")" ||
+          lastSelected === ""
+        ) {
           writeAndSave(topScreen.id, "^", topScreen, true);
           // Avoid single operators without a number on the left
           fillEmptyOperation(name, lastSelected);
