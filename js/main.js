@@ -108,8 +108,7 @@ function operate(operator, num1, num2) {
       total = +num1 + +num2;
       break;
     case "-":
-      // Calculate subtract or transform into negative
-      !isNaN(num1) ? (total = +num1 - +num2) : (total = +num2 - +num2 * 2);
+      total = +num1 - +num2;
       break;
     case "*":
       total = +num1 * +num2;
@@ -150,10 +149,19 @@ function operate(operator, num1, num2) {
 
 function mathToArray(string) {
   let group = "",
+    nextElement = "",
+    lastElement = "",
     operations = [];
+
   Array.from(string).forEach((e, i) => {
-    // Accumulate characters only when there aren't operators
-    if (!isOperator(e)) {
+    // Calculate positions between current value
+    nextElement = string[i + 1];
+    lastElement = string[i - 1];
+    // Accumulate characters when there aren't operators and detect negative numbers
+    if (
+      !isOperator(e) ||
+      (e === "-" && !isNaN(nextElement) && isNaN(lastElement))
+    ) {
       group += e;
     } else {
       // Avoid empty spaces when there are two operators consecutively
@@ -185,7 +193,7 @@ function mathToOperations(array) {
         i++;
       }
       // Resolve operations inside that pair of parentheses
-      symbols.forEach((e) => {
+      symbols.forEach((e, i) => {
         // Receives a copy of vector
         findAndReplaceCalc(
           e,
@@ -202,10 +210,11 @@ function mathToOperations(array) {
   }
 
   // After cleaning parentheses calculate final operations
-  symbols.forEach((e) => {
+  symbols.forEach((e, i) => {
     // Receives original vector
     findAndReplaceCalc(e, array);
   });
+
   return isFinite(array[0])
     ? Number.isInteger(array[0])
       ? array[0]
@@ -217,25 +226,24 @@ function findAndReplaceCalc(operator, array) {
   let pos = array.indexOf(operator, 0),
     hasOperator = false,
     initialValue = 0,
-    finalValue = 0;
+    finalValue = 0,
+    i = 0;
   // Find the specified operator until there are none left
-  while (array.indexOf(operator, pos) != -1) {
+  while (array.indexOf(operator, pos) !== -1 && i <= 200) {
     // Tag the operator as found
     hasOperator = true;
     // Current location of operator
     pos = array.indexOf(operator, pos);
-
     // Define split values
-    if ((operator === "-" && isNaN(array[pos - 1])) || !isOperator(operator)) {
+    if (!isOperator(operator)) {
       // Negative numbers, PI and functions
       initialValue = pos;
-      finalValue = (pos - (pos + 1)) * -1 + 1;
+      finalValue = pos + 2;
     } else {
       // The operator has numbers between the two sides
       initialValue = pos - 1;
       finalValue = (pos - 1 - (pos + 1)) * -1 + 1;
     }
-
     // Replace operations by the result
     array.splice(
       initialValue,
@@ -243,8 +251,11 @@ function findAndReplaceCalc(operator, array) {
       operate(array[pos], array[pos - 1], array[pos + 1])
     );
   }
+
   // Provide the result if a single value remains or if an specified operator exists
-  if (isOperator || !isNaN(+array[0])) totalResult = array;
+  if (hasOperator || (!isNaN(+array[0]) && array.length === 1)) {
+    totalResult = array;
+  }
 }
 
 function deleteNumber(lastDeleted) {
@@ -841,6 +852,11 @@ document.getElementById("power").addEventListener("click", (e) => {
 document.getElementById("ac").addEventListener("click", () => {
   // Prevent default button behaviour when edit mode is activated
   if (localStorage.getItem("editMode") === "false") {
+    // Reset control values
+    usingFloat = false;
+    usingCircumflex = false;
+    totalOpenParenthesis = 0;
+    // Reset screen
     writeAndSave(topScreen.id, "", topScreen);
     writeAndSave(result.id, 0, result);
   }
