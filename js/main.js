@@ -50,7 +50,10 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("secondCurrency"),
   ],
   errorContainer = document.getElementById("error"),
-  errorMessages = [document.getElementById("qr-not-found")],
+  errorMessages = [
+    document.getElementById("qr-not-found"),
+    document.getElementById("invalid-file"),
+  ],
   arrows = [
     document.getElementById("left-arrow-fonts"),
     document.getElementById("left-arrow-colors"),
@@ -610,6 +613,8 @@ async function showError(error) {
   // Fill error message
   if (errorName === "N") {
     errorContainer.innerText = errorMessages[0].innerText.trim();
+  } else {
+    errorContainer.innerText = errorMessages[1].innerText.trim();
   }
 
   // Show error message
@@ -640,7 +645,7 @@ function readFileQR() {
   const html5QrCode = new Html5Qrcode("reader");
   // Allow to re-scan even if the input is the same
   document.getElementById("qr-input-file").value = "";
-  // The scan will start when the file in the input changes
+  // The scan will start when the input value changes
   document.getElementById("qr-input-file").addEventListener("change", (e) => {
     // Find a QR in the selected file
     html5QrCode
@@ -1151,6 +1156,33 @@ document.getElementById("settings").addEventListener("click", () => {
 // Close settings menu
 document.getElementById("close-settings").addEventListener("click", () => {
   addClass("hidden", document.getElementById("settings-menu"));
+});
+
+// Upload settings file
+document.getElementById("upload-settings").addEventListener("click", () => {
+  // Reset previous value
+  document.getElementById("settings-input").value = "";
+  // Use input with personalized button
+  document.getElementById("settings-input").click();
+  // The scan will start when the input value changes
+  document.getElementById("settings-input").addEventListener("change", (e) => {
+    // Create scanner and read file
+    let scanner = new FileReader();
+    scanner.readAsText(e.target.files[0]);
+    // Display result or error when the scanner has finished
+    scanner.addEventListener("load", () => {
+      try {
+        localStorage.setItem(
+          "settings",
+          JSON.stringify(JSON.parse(scanner.result))
+        );
+        // Refresh only if the file is valid
+        window.location.reload();
+      } catch (e) {
+        showError();
+      }
+    });
+  });
 });
 
 // Download settings file

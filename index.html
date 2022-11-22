@@ -957,13 +957,6 @@
               </svg>
             </div>
           </div>
-          <p
-            class="container-error medium-text absolute full-red-background pastel-white-icon"
-            id="error"
-          ></p>
-          <p class="hidden translate" id="qr-not-found">
-            QR code not found in the supplied file
-          </p>
         </div>
       </section>
       <section
@@ -992,6 +985,7 @@
           </svg>
         </div>
         <div id="upload-settings">Upload customization file</div>
+        <input id="settings-input" class="hidden" type="file" />
         <div id="download-settings">Download customization file</div>
         <div id="change-background">
           <div>Background 1</div>
@@ -1001,6 +995,16 @@
         </div>
         <div id="reset-settings">Wipe all data</div>
       </section>
+      <p
+        class="container-error medium-text absolute full-red-background pastel-white-icon"
+        id="error"
+      ></p>
+      <p class="hidden translate" id="qr-not-found">
+        QR code not found in the supplied file
+      </p>
+      <p class="hidden translate" id="invalid-file">
+        File provided is not valid or is corrupted
+      </p>
     </main>
   </body>
 </html>
