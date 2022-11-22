@@ -64,7 +64,6 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("background"),
     document.getElementById("shadow"),
   ],
-  customizationOptions = ["font", "color", "element"],
   confirmButtons = [
     document.getElementById("confirm"),
     document.getElementById("reject"),
@@ -74,29 +73,31 @@ let totalResult = 0,
   slide = 0;
 
 function loadSettings(customizationFile) {
+  // Get all buttons
+  let buttons = customizationFile["buttons"];
+  // Get all elements
+  let elements = customizationFile["general"];
   // Set all buttons
-  Object.keys(customizationFile).forEach((e) => {
+  Object.keys(buttons).forEach((e) => {
     customizationButtons.forEach((b) => {
       // Avoid null values
-      if (customizationFile[e][b.id]) {
+      if (buttons[e][b.id]) {
         // Refresh saved color button
-        addClass(customizationFile[e][b.id], document.getElementById(e));
+        addClass(buttons[e][b.id], document.getElementById(e));
       }
     });
-    // Set font
-    changeFont(
-      document.getElementById("font"),
-      localStorage.getItem("font"),
-      fonts
-    );
+  });
 
-    // Highlight text and color
-    customizationOptions.forEach((e) => {
-      addClass(
-        "selected-" + e,
-        document.getElementById(localStorage.getItem(e))
-      );
-    });
+  // Set font
+  changeFont(
+    document.getElementById("font"),
+    customizationFile["general"].font,
+    fonts
+  );
+
+  // Highlight text and color
+  Object.keys(elements).forEach((e) => {
+    addClass("selected-" + e, document.getElementById(elements[e]));
   });
 }
 
@@ -148,8 +149,6 @@ function operate(operator, num1, num2) {
 
 function mathToArray(string) {
   let group = "",
-    nextElement = "",
-    lastElement = "",
     operations = [];
 
   Array.from(string).forEach((e, i) => {
@@ -779,7 +778,6 @@ window.onload = async () => {
   if (!localStorage.getItem("editMode")) {
     localStorage.setItem("editMode", false);
   }
-  if (!localStorage.getItem("font")) localStorage.setItem("font", "satisfy");
   if (!localStorage.getItem("color")) localStorage.setItem("color", "full-red");
   if (!localStorage.getItem("element")) localStorage.setItem("element", "icon");
   if (!localStorage.getItem("position-font-families")) {
@@ -1030,7 +1028,9 @@ Array.from(customizationButtons).forEach((e) => {
 });
 
 // Modify button background text or shadow color
-Object.keys(JSON.parse(localStorage.getItem("templateLayout"))).forEach((e) => {
+Object.keys(
+  JSON.parse(localStorage.getItem("templateLayout"))["buttons"]
+).forEach((e) => {
   document.getElementById(e).addEventListener("click", (event) => {
     if (localStorage.getItem("editMode") === "true") {
       // Prevent parent elements to trigger
@@ -1049,7 +1049,8 @@ Object.keys(JSON.parse(localStorage.getItem("templateLayout"))).forEach((e) => {
 
         // Save applied appearance
         let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
-        newJSON[e][localStorage.getItem("element")] =
+
+        newJSON["buttons"][e][localStorage.getItem("element")] =
           localStorage.getItem("color") + "-" + localStorage.getItem("element");
         localStorage.setItem("templateLayout", JSON.stringify(newJSON));
       }
@@ -1066,8 +1067,14 @@ Array.from(document.getElementsByClassName("color")).forEach((e) => {
     removeClass("selected-color", ...document.getElementsByClassName("color"));
 
     // Change and highlight selected color
+    console.log(e);
     addClass("selected-color", e);
-    localStorage.setItem("color", e.id);
+
+    // Save selected font
+    let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
+    newJSON["general"].color = e.id;
+    localStorage.setItem("templateLayout", JSON.stringify(newJSON));
+    console.log(localStorage.getItem("templateLayout"));
   });
 });
 
@@ -1082,7 +1089,10 @@ Array.from(document.getElementsByClassName("font")).forEach((e) => {
     addClass("selected-font", e);
 
     // Save selected font
-    localStorage.setItem("font", e.id);
+    let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
+    newJSON["general"].font = e.id;
+    localStorage.setItem("templateLayout", JSON.stringify(newJSON));
+    console.log(localStorage.getItem("templateLayout"));
   });
 });
 
