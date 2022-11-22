@@ -22,7 +22,7 @@ import {
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
-import customization from "../json/customization.js";
+import settings from "../json/settings.js";
 import currencies from "../json/currencies.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
@@ -75,10 +75,10 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
 let totalResult = 0,
   slide = 0;
 
-function loadSettings(customizationFile) {
+function loadSettings(settingsFile) {
   // Get all buttons and elements
-  let buttons = customizationFile["buttons"],
-    elements = customizationFile["general"];
+  let buttons = settingsFile["buttons"],
+    elements = settingsFile["general"];
   // Set all buttons
   Object.keys(buttons).forEach((e) => {
     customizationButtons.forEach((b) => {
@@ -93,7 +93,7 @@ function loadSettings(customizationFile) {
   // Set font
   changeFont(
     document.getElementById("font"),
-    customizationFile["general"].font,
+    settingsFile["general"].font,
     fonts
   );
 
@@ -787,15 +787,15 @@ window.onload = async () => {
     localStorage.setItem("position-palette", 0);
   }
   // Set default appearances to calculator
-  if (!localStorage.getItem("customization")) {
-    localStorage.setItem("customization", JSON.stringify(customization));
-    localStorage.setItem("templateLayout", JSON.stringify(customization));
+  if (!localStorage.getItem("settings")) {
+    localStorage.setItem("settings", JSON.stringify(settings));
+    localStorage.setItem("templateLayout", JSON.stringify(settings));
   }
 
-  // Activate or deactivate edit mode and change customization layout
+  // Activate or deactivate edit mode and change settings layout
   editMode()
     ? loadSettings(JSON.parse(localStorage.getItem("templateLayout")))
-    : loadSettings(JSON.parse(localStorage.getItem("customization")));
+    : loadSettings(JSON.parse(localStorage.getItem("settings")));
 
   // Set previous position in panels of edit mode
   customizationContainers.forEach((e) => {
@@ -1099,17 +1099,17 @@ confirmButtons.forEach((e) => {
     localStorage.setItem("closeEditMode", true);
     editMode(e);
 
-    // Replace or reset customization settings
+    // Replace or reset settings
     e.id === "confirm"
       ? writeAndSave(
-          "customization",
+          "settings",
           localStorage.getItem("templateLayout"),
           null,
           null
         )
       : writeAndSave(
           "templateLayout",
-          localStorage.getItem("customization"),
+          localStorage.getItem("settings"),
           null,
           null
         );
@@ -1153,17 +1153,16 @@ document.getElementById("close-settings").addEventListener("click", () => {
   addClass("hidden", document.getElementById("settings-menu"));
 });
 
-// Download customization file
-document
-  .getElementById("download-customization")
-  .addEventListener("click", () => {
-    console.log("hola");
-    downloadFile(
-      JSON.stringify(
-        JSON.parse(localStorage.getItem("customization")),
-        null,
-        2
-      ),
-      "mathcard.json"
-    );
-  });
+// Download settings file
+document.getElementById("download-settings").addEventListener("click", () => {
+  downloadFile(
+    JSON.stringify(JSON.parse(localStorage.getItem("settings")), null, 2),
+    "mathcard.json"
+  );
+});
+
+// Reset all settings and refresh
+document.getElementById("reset-settings").addEventListener("click", () => {
+  localStorage.removeItem("settings");
+  window.location.reload();
+});
