@@ -19,6 +19,7 @@ import {
   getJSON,
   updateJSON,
   downloadFile,
+  swapClasses,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
@@ -1160,10 +1161,10 @@ document.getElementById("close-settings").addEventListener("click", () => {
 
 // Upload settings file
 document.getElementById("upload-settings").addEventListener("click", () => {
-  // Reset previous value
+  // Reset previous value and use personalized button
   document.getElementById("settings-input").value = "";
-  // Use input with personalized button
   document.getElementById("settings-input").click();
+
   // The scan will start when the input value changes
   document.getElementById("settings-input").addEventListener("change", (e) => {
     // Create scanner and read file
@@ -1172,6 +1173,7 @@ document.getElementById("upload-settings").addEventListener("click", () => {
     // Display result or error when the scanner has finished
     scanner.addEventListener("load", () => {
       try {
+        // Replace old settings with new ones
         localStorage.setItem(
           "settings",
           JSON.stringify(JSON.parse(scanner.result))
@@ -1191,6 +1193,36 @@ document.getElementById("download-settings").addEventListener("click", () => {
     JSON.stringify(JSON.parse(localStorage.getItem("settings")), null, 2),
     "mathcard.json"
   );
+});
+
+// Change background layout
+document.getElementById("original").addEventListener("click", () => {
+  removeClass("hidden", document.getElementById("square1"));
+  removeClass("hidden", document.getElementById("square2"));
+  removeClass("hidden", document.getElementById("square3"));
+});
+
+// Change background layout
+document.getElementById("original-reverse").addEventListener("click", () => {
+  removeClass("hidden", document.getElementById("square1"));
+  removeClass("hidden", document.getElementById("square2"));
+  removeClass("hidden", document.getElementById("square3"));
+
+});
+
+document.getElementById("split").addEventListener("click", () => {
+  addClass("hidden", document.getElementById("square1"));
+  addClass("hidden", document.getElementById("square2"));
+  addClass("hidden", document.getElementById("square3"));
+});
+
+document.getElementById("split-reverse").addEventListener("click", () => {
+  addClass("hidden", document.getElementById("square1"));
+  addClass("hidden", document.getElementById("square2"));
+  addClass("hidden", document.getElementById("square3"));
+  swapClasses(document.getElementById("square4"), "max-width", "half-width");
+  swapClasses(document.getElementById("square5"), "max-width", "half-width");
+  addClass("column", document.getElementById("background-calc"))
 });
 
 // Reset all settings and refresh

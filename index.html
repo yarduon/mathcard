@@ -22,13 +22,20 @@
   </head>
   <body class="flex justify-center align-center max-width max-height" id="font">
     <div
-      class="max-width max-height flex justify-center align-center absolute overflow-hidden"
+      class="rotate max-width max-height flex justify-center align-center absolute overflow-hidden"
+      id="background-calc"
     >
-      <div class="absolute" id="square1"></div>
-      <div class="max-height half-width side-background background-color"></div>
-      <div class="absolute" id="square2"></div>
-      <div class="max-height half-width side-background background-color"></div>
-      <div class="absolute" id="square3"></div>
+      <div class="square1 absolute" id="square1"></div>
+      <div
+        class="max-height half-width side-background background-color"
+        id="square4"
+      ></div>
+      <div class="square2 absolute" id="square2"></div>
+      <div
+        class="max-height half-width side-background background-color"
+        id="square5"
+      ></div>
+      <div class="square3 absolute" id="square3"></div>
     </div>
     <main class="flex column justify-center align-center max-width max-height">
       <aside
@@ -988,10 +995,12 @@
         <input id="settings-input" class="hidden" type="file" />
         <div id="download-settings">Download customization file</div>
         <div id="change-background">
-          <div>Background 1</div>
-          <div>Background 2</div>
-          <div>Background 3</div>
-          <div>Background 4</div>
+          <div id="original">Original</div>
+          <div id="original-reverse">Original-reverse</div>
+          <div id="split">Split</div>
+          <div id="split-reverse">Split-reverse</div>
+          <div id="diagonal">Diagonal</div>
+          <div id="diagonal-reverse">Diagonal-reverse</div>
         </div>
         <div id="reset-settings">Wipe all data</div>
       </section>

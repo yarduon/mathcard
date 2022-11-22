@@ -2000,22 +2000,26 @@
   height: 1.8vh;
 }
 
-#square1 {
+.square1 {
   width: 150vh;
   margin-right: 200vh;
   transform: rotate(150deg);
 }
 
-#square2 {
+.square2 {
   width: 100vh;
   margin: 50vh 0 0 200vh;
   transform: rotate(65deg);
 }
 
-#square3 {
+.square3 {
   width: 230vh;
   height: 100vh;
   margin: 0 0 70vh 60vh;
+}
+
+.rotate{
+  transform: rotate(1)
 }
 
 .right-arrow {

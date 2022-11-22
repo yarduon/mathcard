@@ -4,6 +4,7 @@ export default {
     font: "satisfy",
     color: "light-orange",
     element: "background",
+    display: "original"
   },
   buttons: {
     top: {
@@ -265,6 +266,12 @@ export default {
     },
     square3: {
       background: "full-black-background",
+    },
+    square4: {
+      background: "normal-black-background",
+    },
+    square5: {
+      background: "pastel-white-background",
     },
   },
 };
