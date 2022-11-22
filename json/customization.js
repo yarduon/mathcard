@@ -2,7 +2,8 @@
 export default {
   general: {
     font: "alatsi",
-    color: "normal-purple",
+    color: "full-red",
+    element: "background",
   },
   buttons: {
     top: {

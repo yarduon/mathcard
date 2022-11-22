@@ -99,6 +99,30 @@ export function changeFont(container, newFont, fonts) {
   addClass(newFont, container);
 }
 
+export function updateJSON(
+  jsonName,
+  mainField,
+  secondaryField,
+  tertiaryField,
+  property
+) {
+  let copyJSON = JSON.parse(localStorage.getItem(jsonName));
+
+  switch (true) {
+    case tertiaryField !== null:
+      copyJSON[mainField][secondaryField][tertiaryField] = property;
+      break;
+    case secondaryField !== null:
+      copyJSON[mainField][secondaryField] = property;
+      break;
+    case mainField !== null:
+      copyJSON[mainField] = property;
+      break;
+  }
+
+  localStorage.setItem(jsonName, JSON.stringify(copyJSON));
+}
+
 export function stringToBoolean(s) {
   return Boolean(s === "true");
 }

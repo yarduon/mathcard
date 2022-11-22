@@ -16,6 +16,7 @@ import {
   removeClass,
   removeClasses,
   checkClasses,
+  updateJSON,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
@@ -778,8 +779,6 @@ window.onload = async () => {
   if (!localStorage.getItem("editMode")) {
     localStorage.setItem("editMode", false);
   }
-  if (!localStorage.getItem("color")) localStorage.setItem("color", "full-red");
-  if (!localStorage.getItem("element")) localStorage.setItem("element", "icon");
   if (!localStorage.getItem("position-font-families")) {
     localStorage.setItem("position-font-families", 0);
   }
@@ -1037,22 +1036,24 @@ Object.keys(
       event.stopPropagation();
       // Avoid empty color and painting edit icon after closing
       if (localStorage.getItem("closeEditMode") === "false") {
+        let buttons = localStorage.getItem("templateLayout")["buttons"];
+        let general = localStorage.getItem("templateLayout")["general"];
         // Change specified appearance
         removeClasses(
           document.getElementById(e),
           localStorage.getItem("element")
         );
         addClass(
-          localStorage.getItem("color") + "-" + localStorage.getItem("element"),
+          buttons + "-" + localStorage.getItem("element"),
           document.getElementById(e)
         );
 
-        // Save applied appearance
-        let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
-
-        newJSON["buttons"][e][localStorage.getItem("element")] =
-          localStorage.getItem("color") + "-" + localStorage.getItem("element");
-        localStorage.setItem("templateLayout", JSON.stringify(newJSON));
+        updateJSON(
+          "templateLayout",
+          "buttons",
+          e,
+          JSON.parse(localStorage.getItem("templateLayout"))["general"]["color"]
+        );
       }
       // Start edit mode
       localStorage.setItem("closeEditMode", false);
@@ -1067,14 +1068,10 @@ Array.from(document.getElementsByClassName("color")).forEach((e) => {
     removeClass("selected-color", ...document.getElementsByClassName("color"));
 
     // Change and highlight selected color
-    console.log(e);
     addClass("selected-color", e);
 
     // Save selected font
-    let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
-    newJSON["general"].color = e.id;
-    localStorage.setItem("templateLayout", JSON.stringify(newJSON));
-    console.log(localStorage.getItem("templateLayout"));
+    updateJSON("templateLayout", "general", "color", null, e.id);
   });
 });
 
@@ -1089,10 +1086,7 @@ Array.from(document.getElementsByClassName("font")).forEach((e) => {
     addClass("selected-font", e);
 
     // Save selected font
-    let newJSON = JSON.parse(localStorage.getItem("templateLayout"));
-    newJSON["general"].font = e.id;
-    localStorage.setItem("templateLayout", JSON.stringify(newJSON));
-    console.log(localStorage.getItem("templateLayout"));
+    updateJSON("templateLayout", "general", "font", null, e.id);
   });
 });
 
