@@ -680,7 +680,7 @@ function useCameraQR() {
         );
 
         // Allow user to stop scanning and exit QR menu
-        document.getElementById("cross").addEventListener("click", () => {
+        document.getElementById("close-qr").addEventListener("click", () => {
           // Go back to the options menu
           closeWindowQR(document.getElementById("reader"));
           // Hide loading icon
@@ -981,7 +981,7 @@ document.getElementById("qr").addEventListener("click", () => {
 });
 
 // Hide QR panel
-document.getElementById("cross").addEventListener("click", () => {
+document.getElementById("close-qr").addEventListener("click", () => {
   closeWindowQR(document.getElementById("qr-menu"));
 });
 
@@ -1138,4 +1138,14 @@ arrows.forEach((e) => {
   e.addEventListener("mouseleave", () => {
     clearInterval(slide);
   });
+});
+
+// Open settings menu
+document.getElementById("settings").addEventListener("click", () => {
+  removeClass("hidden", document.getElementById("settings-menu"));
+});
+
+// Close settings menu
+document.getElementById("close-settings").addEventListener("click", () => {
+  addClass("hidden", document.getElementById("settings-menu"));
 });

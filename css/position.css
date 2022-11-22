@@ -7,6 +7,7 @@
 .calculator,
 #reader,
 .qr-container,
+.options-container,
 .screen {
   z-index: 3;
 }
@@ -61,7 +62,7 @@
 }
 
 .power,
-#cross {
+.cross {
   right: 1.5vh;
 }
 
@@ -163,7 +164,7 @@
   z-index: 2;
 }
 
-#cross {
+.cross {
   top: 1.5vh;
 }
 
