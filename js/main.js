@@ -16,6 +16,7 @@ import {
   removeClass,
   removeClasses,
   checkClasses,
+  getJSON,
   updateJSON,
 } from "./utility.js";
 
@@ -74,10 +75,9 @@ let totalResult = 0,
   slide = 0;
 
 function loadSettings(customizationFile) {
-  // Get all buttons
-  let buttons = customizationFile["buttons"];
-  // Get all elements
-  let elements = customizationFile["general"];
+  // Get all buttons and elements
+  let buttons = customizationFile["buttons"],
+    elements = customizationFile["general"];
   // Set all buttons
   Object.keys(buttons).forEach((e) => {
     customizationButtons.forEach((b) => {
@@ -605,12 +605,12 @@ function hideShowOptionsQR(isCamera, hidden) {
 async function showError(error) {
   // Get name of error
   let errorName = String(error).substring(0, String(error).indexOf(":"));
+
   // Fill error message
-  switch (errorName) {
-    case "N":
-      errorContainer.innerText = errorMessages[0].innerText.trim();
-      break;
+  if (errorName === "N") {
+    errorContainer.innerText = errorMessages[0].innerText.trim();
   }
+
   // Show error message
   document.getElementById("error").style.left = 0;
   // Wait four seconds before disappearing error
@@ -1022,7 +1022,7 @@ document.getElementById("edit").addEventListener("click", (e) => {
 // Change the selected item type into edit mode
 Array.from(customizationButtons).forEach((e) => {
   e.addEventListener("click", () => {
-    localStorage.setItem("element", e.id);
+    updateJSON("templateLayout", "general", "element", null, e.id);
   });
 });
 
@@ -1032,27 +1032,28 @@ Object.keys(
 ).forEach((e) => {
   document.getElementById(e).addEventListener("click", (event) => {
     if (localStorage.getItem("editMode") === "true") {
+      // Get current element and color
+      let cElement = getJSON("templateLayout", "general", "element", null),
+        cColor = getJSON("templateLayout", "general", "color", null);
+
       // Prevent parent elements to trigger
       event.stopPropagation();
       // Avoid empty color and painting edit icon after closing
       if (localStorage.getItem("closeEditMode") === "false") {
-        let buttons = localStorage.getItem("templateLayout")["buttons"];
-        let general = localStorage.getItem("templateLayout")["general"];
         // Change specified appearance
         removeClasses(
           document.getElementById(e),
-          localStorage.getItem("element")
+          getJSON("templateLayout", "general", "element", null)
         );
-        addClass(
-          buttons + "-" + localStorage.getItem("element"),
-          document.getElementById(e)
-        );
+        addClass(cColor + "-" + cElement, document.getElementById(e));
 
+        // Save appearance temporary
         updateJSON(
           "templateLayout",
           "buttons",
           e,
-          JSON.parse(localStorage.getItem("templateLayout"))["general"]["color"]
+          cElement,
+          cColor + "-" + cElement
         );
       }
       // Start edit mode

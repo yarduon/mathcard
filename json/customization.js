@@ -1,8 +1,8 @@
 // https://yarduon.com
 export default {
   general: {
-    font: "alatsi",
-    color: "full-red",
+    font: "satisfy",
+    color: "light-orange",
     element: "background",
   },
   buttons: {
