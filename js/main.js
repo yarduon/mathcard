@@ -18,6 +18,7 @@ import {
   checkClasses,
   getJSON,
   updateJSON,
+  downloadFile,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
@@ -1142,10 +1143,27 @@ arrows.forEach((e) => {
 
 // Open settings menu
 document.getElementById("settings").addEventListener("click", () => {
-  removeClass("hidden", document.getElementById("settings-menu"));
+  if (localStorage.getItem("editMode") === "false") {
+    removeClass("hidden", document.getElementById("settings-menu"));
+  }
 });
 
 // Close settings menu
 document.getElementById("close-settings").addEventListener("click", () => {
   addClass("hidden", document.getElementById("settings-menu"));
 });
+
+// Download customization file
+document
+  .getElementById("download-customization")
+  .addEventListener("click", () => {
+    console.log("hola");
+    downloadFile(
+      JSON.stringify(
+        JSON.parse(localStorage.getItem("customization")),
+        null,
+        2
+      ),
+      "mathcard.json"
+    );
+  });

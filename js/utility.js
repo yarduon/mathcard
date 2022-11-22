@@ -11,6 +11,16 @@ export function decrement(number) {
   return +number - 1;
 }
 
+export function downloadFile(content, fileName) {
+  let anchor = document.createElement("a");
+  anchor.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(content)
+  );
+  anchor.setAttribute("download", fileName);
+  anchor.click();
+}
+
 export function addHours(date, h = 0) {
   return new Date(date.setTime(date.getTime() + h * 60 * 60 * 1000));
 }

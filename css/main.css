@@ -158,10 +158,6 @@
   transform: none;
 }
 
-.disabled:hover .huge-icon {
-  color: rgba(255, 255, 255);
-}
-
 .black-background {
   background-color: #18191a;
 }
@@ -1702,6 +1698,10 @@
   background-color: #a7170d;
 }
 
+.disabled:hover .huge-icon {
+  color: rgba(255, 255, 255);
+}
+
 .bold {
   font-weight: bold;
 }
@@ -1962,7 +1962,7 @@
 .qr-icon {
   width: 50vh;
   height: 40vh;
-  transition: 0.3s;
+  transition: background-color 0.3s;
 }
 
 .qr-result-container {
