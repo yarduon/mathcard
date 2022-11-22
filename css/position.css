@@ -15,7 +15,8 @@
 .logo-container,
 .customization,
 .tab,
-.arrow {
+.arrow,
+#error {
   z-index: 4;
 }
 
