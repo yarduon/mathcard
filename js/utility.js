@@ -150,6 +150,22 @@ export function updateJSON(
   localStorage.setItem(jsonName, JSON.stringify(copyJSON));
 }
 
+export function validateJSON(json, structure) {
+  // Throw an error if the supplied file does not have the desired structure
+ /*  Object.keys(structure).forEach((e) => {
+    Object.keys(structure[e]).forEach((p) => {
+      if (
+        String(Object.keys(structure)) !== String(Object.keys(json)) ||
+        String(Object.keys(structure[e][p])) !==
+          String(Object.keys(json[e][p])) ||
+        String(Object.keys(structure[e])) !== String(Object.keys(json[e]))
+      ) {
+      }
+    });
+  });
+  return json; */
+}
+ 
 export function stringToBoolean(s) {
   return Boolean(s === "true");
 }

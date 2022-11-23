@@ -18,8 +18,8 @@ import {
   checkClasses,
   getJSON,
   updateJSON,
+  validateJSON,
   downloadFile,
-  swapClasses,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
@@ -112,9 +112,9 @@ function loadSettings(settingsFile) {
   });
 }
 
-function operate(operator, num1, num2) {
+function operate(operator1, operator2, num0, num1, num2) {
   let total = 0;
-  switch (operator) {
+  switch (operator1) {
     case "+":
       total = +num1 + +num2;
       break;
@@ -131,10 +131,20 @@ function operate(operator, num1, num2) {
       total = num1 ** num2;
       break;
     case "%":
-      // Calculate percentage or remainder
-      !isOperator(num2) && String(num2) != "undefined"
-        ? (total = num1 % num2)
-        : (total = num1 / 100);
+      switch (operator2) {
+        // Calculate simplified percentage
+        case "+":
+          total = +num0 + +num0 * (+num1 / 100);
+          break;
+        case "-":
+          total = +num0 - +num0 * (+num1 / 100);
+          break;
+        default:
+          // Calculate percentage or remainder
+          !isOperator(num2) && String(num2) != "undefined"
+            ? (total = +num1 % +num2)
+            : (total = +num1 / 100);
+      }
       break;
     case "LOG":
       total = Math.log10(num2);
@@ -231,6 +241,7 @@ function mathToOperations(array) {
 function findAndReplaceCalc(operator, array) {
   let pos = array.indexOf(operator, 0),
     hasOperator = false,
+    lastOperator = "",
     initialValue = 0,
     finalValue = 0;
 
@@ -240,21 +251,33 @@ function findAndReplaceCalc(operator, array) {
     hasOperator = true;
     // Current location of operator
     pos = array.indexOf(operator, pos);
+    // Get previous operator
+    lastOperator = array[pos - 2];
     // Define split values
     if (!isOperator(operator)) {
       // PI and functions
       initialValue = pos;
       finalValue = pos + 2;
     } else {
-      // The operator has numbers between the two sides
-      initialValue = pos - 1;
+      // Allow simplified percentage operations
+      (operator === "%" && lastOperator === "+") || lastOperator === "-"
+        ? (initialValue = pos - 3)
+        : // The operator has numbers between the two sides
+          (initialValue = pos - 1);
+
       finalValue = (pos - 1 - (pos + 1)) * -1 + 1;
     }
     // Replace operations by the result
     array.splice(
       initialValue,
       finalValue,
-      operate(array[pos], array[pos - 1], array[pos + 1])
+      operate(
+        array[pos],
+        lastOperator,
+        array[pos - 3],
+        array[pos - 1],
+        array[pos + 1]
+      )
     );
   }
 
@@ -1225,7 +1248,11 @@ document.getElementById("upload-settings").addEventListener("click", () => {
 // Download settings file
 document.getElementById("download-settings").addEventListener("click", () => {
   downloadFile(
-    JSON.stringify(JSON.parse(localStorage.getItem("settings")), null, 2),
+    JSON.stringify(
+      validateJSON(JSON.parse(localStorage.getItem("settings")), settings),
+      null,
+      2
+    ),
     "mathcard.json"
   );
 });
