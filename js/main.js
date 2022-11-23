@@ -1157,6 +1157,7 @@ document.getElementById("settings").addEventListener("click", () => {
 // Close settings menu
 document.getElementById("close-settings").addEventListener("click", () => {
   addClass("hidden", document.getElementById("settings-menu"));
+  addClass("hidden", document.getElementById("background-menu"));
 });
 
 // Upload settings file
@@ -1195,6 +1196,11 @@ document.getElementById("download-settings").addEventListener("click", () => {
   );
 });
 
+// Open settings menu
+document.getElementById("change-background").addEventListener("click", () => {
+  removeClass("hidden", document.getElementById("background-menu"));
+});
+
 // Change background layout
 document.getElementById("original").addEventListener("click", () => {
   removeClass("hidden", document.getElementById("square1"));
@@ -1207,7 +1213,6 @@ document.getElementById("original-reverse").addEventListener("click", () => {
   removeClass("hidden", document.getElementById("square1"));
   removeClass("hidden", document.getElementById("square2"));
   removeClass("hidden", document.getElementById("square3"));
-
 });
 
 document.getElementById("split").addEventListener("click", () => {
@@ -1222,7 +1227,7 @@ document.getElementById("split-reverse").addEventListener("click", () => {
   addClass("hidden", document.getElementById("square3"));
   swapClasses(document.getElementById("square4"), "max-width", "half-width");
   swapClasses(document.getElementById("square5"), "max-width", "half-width");
-  addClass("column", document.getElementById("background-calc"))
+  addClass("column", document.getElementById("background-calc"));
 });
 
 // Reset all settings and refresh

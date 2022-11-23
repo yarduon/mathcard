@@ -991,18 +991,27 @@
             </g>
           </svg>
         </div>
-        <div id="upload-settings">Upload customization file</div>
-        <input id="settings-input" class="hidden" type="file" />
-        <div id="download-settings">Download customization file</div>
-        <div id="change-background">
+        <article
+          class="max-width max-height absolute black-background"
+          id="settings-options"
+        >
+          <div id="upload-settings">Upload customization file</div>
+          <input id="settings-input" class="hidden" type="file" />
+          <div id="download-settings">Download customization file</div>
+          <div id="change-background">Change background</div>
+          <div id="reset-settings">Wipe all data</div>
+        </article>
+        <article
+          class="hidden max-width max-height absolute black-background"
+          id="background-menu"
+        >
           <div id="original">Original</div>
           <div id="original-reverse">Original-reverse</div>
           <div id="split">Split</div>
           <div id="split-reverse">Split-reverse</div>
           <div id="diagonal">Diagonal</div>
           <div id="diagonal-reverse">Diagonal-reverse</div>
-        </div>
-        <div id="reset-settings">Wipe all data</div>
+        </article>
       </section>
       <p
         class="container-error medium-text absolute full-red-background pastel-white-icon"

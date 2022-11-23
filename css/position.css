@@ -16,7 +16,8 @@
 .customization,
 .tab,
 .arrow,
-#error {
+#error,
+#close-settings {
   z-index: 4;
 }
 
