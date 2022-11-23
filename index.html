@@ -22,19 +22,13 @@
   </head>
   <body class="flex justify-center align-center max-width max-height" id="font">
     <div
-      class="rotate max-width max-height flex justify-center align-center absolute overflow-hidden"
+      class="max-width max-height flex justify-center align-center absolute overflow-hidden"
       id="background-calc"
     >
       <div class="square1 absolute" id="square1"></div>
-      <div
-        class="max-height half-width side-background background-color"
-        id="square4"
-      ></div>
+      <div class="max-height half-width background-color" id="extra-bg1"></div>
       <div class="square2 absolute" id="square2"></div>
-      <div
-        class="max-height half-width side-background background-color"
-        id="square5"
-      ></div>
+      <div class="max-height half-width background-color" id="extra-bg2"></div>
       <div class="square3 absolute" id="square3"></div>
     </div>
     <main class="flex column justify-center align-center max-width max-height">
@@ -575,16 +569,14 @@
             for="switch-mode"
           >
             <div
-              class="switch-icon touch round-border flex justify-center align-center"
+              class="switch-icon touch round-border-full flex justify-center align-center"
+              id="switch-line"
             >
               <div
                 class="absolute switch-circle circle-shape"
                 id="switch-circle"
               ></div>
-              <div
-                class="switch-line max-width round-border-full"
-                id="switch-line"
-              ></div>
+              <div class="switch-line max-width"></div>
             </div>
           </label>
         </div>
@@ -1009,8 +1001,6 @@
           <div id="original-reverse">Original-reverse</div>
           <div id="split">Split</div>
           <div id="split-reverse">Split-reverse</div>
-          <div id="diagonal">Diagonal</div>
-          <div id="diagonal-reverse">Diagonal-reverse</div>
         </article>
       </section>
       <p

@@ -74,6 +74,12 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   confirmButtons = [
     document.getElementById("confirm"),
     document.getElementById("reject"),
+  ],
+  backgroundOptions = [
+    document.getElementById("original"),
+    document.getElementById("original-reverse"),
+    document.getElementById("split"),
+    document.getElementById("split-reverse"),
   ];
 
 let totalResult = 0,
@@ -94,12 +100,11 @@ function loadSettings(settingsFile) {
     });
   });
 
+  // Set background
+  changeBackground(elements.background);
+
   // Set font
-  changeFont(
-    document.getElementById("font"),
-    settingsFile["general"].font,
-    fonts
-  );
+  changeFont(document.getElementById("font"), elements.font, fonts);
 
   // Highlight text and color
   Object.keys(elements).forEach((e) => {
@@ -476,7 +481,7 @@ function powerOnOff(event) {
     // Only when button is pressed or clicked
     if (event) {
       // Fill and show data values
-      writeAndSave(result.id, 0, result);
+      writeAndSave(result.id, "", result);
       document.getElementById("topScreen").classList.remove("invisible");
     }
 
@@ -766,6 +771,37 @@ function useSlider(currentPosition, isRight, parentContainer) {
   );
 }
 
+function changeBackground(backgroundName) {
+  switch (backgroundName) {
+    case "original-reverse":
+      addClass("rotate", document.getElementById("background-calc"));
+      break;
+    case "split":
+      for (let i = 1; i <= 2; i++) {
+        removeClasses(
+          document.getElementById("square" + i),
+          "absolute",
+          "square" + i
+        );
+        addClass("half-width", document.getElementById("square" + i));
+        addClass("hidden", document.getElementById("extra-bg" + i));
+      }
+      break;
+    case "split-reverse":
+      for (let i = 1; i <= 2; i++) {
+        removeClasses(
+          document.getElementById("square" + i),
+          "absolute",
+          "square" + i
+        );
+        addClass("max-width", document.getElementById("square" + i));
+        addClass("hidden", document.getElementById("extra-bg" + i));
+      }
+      addClass("column", document.getElementById("background-calc"));
+      break;
+  }
+}
+
 // When the page is refreshed or loaded for the first time
 window.onload = async () => {
   // Load default values when the cache is deleted or first time
@@ -891,7 +927,7 @@ document.getElementById("ac").addEventListener("click", () => {
     localStorage.setItem("totalOpenParenthesis", 0);
     // Reset screen
     writeAndSave(topScreen.id, "", topScreen);
-    writeAndSave(result.id, 0, result);
+    writeAndSave(result.id, "", result);
   }
 });
 
@@ -949,7 +985,7 @@ document.getElementById("mc").addEventListener("click", () => {
 document.getElementById("ce").addEventListener("click", () => {
   // Prevent default button behaviour when edit mode is activated
   if (localStorage.getItem("editMode") === "false") {
-    writeAndSave(result.id, 0, result);
+    writeAndSave(result.id, "", result);
   }
 });
 
@@ -975,7 +1011,7 @@ switchModes.addEventListener("click", () => {
     ? localStorage.setItem("currencyMode", true)
     : localStorage.setItem("currencyMode", false);
   // Reset values
-  writeAndSave(result.id, "0", result);
+  writeAndSave(result.id, "", result);
   writeAndSave(topScreen.id, "", topScreen);
 });
 
@@ -1034,9 +1070,7 @@ Array.from(customizationButtons).forEach((e) => {
 });
 
 // Modify button background text or shadow color
-Object.keys(
-  JSON.parse(localStorage.getItem("templateLayout"))["buttons"]
-).forEach((e) => {
+Object.keys(settings["buttons"]).forEach((e) => {
   document.getElementById(e).addEventListener("click", (event) => {
     if (localStorage.getItem("editMode") === "true") {
       // Get current element and color
@@ -1196,38 +1230,19 @@ document.getElementById("download-settings").addEventListener("click", () => {
   );
 });
 
-// Open settings menu
+// Open background menu
 document.getElementById("change-background").addEventListener("click", () => {
   removeClass("hidden", document.getElementById("background-menu"));
 });
 
-// Change background layout
-document.getElementById("original").addEventListener("click", () => {
-  removeClass("hidden", document.getElementById("square1"));
-  removeClass("hidden", document.getElementById("square2"));
-  removeClass("hidden", document.getElementById("square3"));
-});
-
-// Change background layout
-document.getElementById("original-reverse").addEventListener("click", () => {
-  removeClass("hidden", document.getElementById("square1"));
-  removeClass("hidden", document.getElementById("square2"));
-  removeClass("hidden", document.getElementById("square3"));
-});
-
-document.getElementById("split").addEventListener("click", () => {
-  addClass("hidden", document.getElementById("square1"));
-  addClass("hidden", document.getElementById("square2"));
-  addClass("hidden", document.getElementById("square3"));
-});
-
-document.getElementById("split-reverse").addEventListener("click", () => {
-  addClass("hidden", document.getElementById("square1"));
-  addClass("hidden", document.getElementById("square2"));
-  addClass("hidden", document.getElementById("square3"));
-  swapClasses(document.getElementById("square4"), "max-width", "half-width");
-  swapClasses(document.getElementById("square5"), "max-width", "half-width");
-  addClass("column", document.getElementById("background-calc"));
+// Change background layout and refresh
+Array.from(backgroundOptions).forEach((e) => {
+  e.addEventListener("click", () => {
+    // Save background in both storages
+    updateJSON("settings", "general", "background", null, e.id);
+    updateJSON("templateLayout", "general", "background", null, e.id);
+    window.location.reload();
+  });
 });
 
 // Reset all settings and refresh

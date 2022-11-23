@@ -151,13 +151,6 @@
   cursor: initial;
 }
 
-.outline {
-  /* Fix bug pseudo-transition on Chrome */
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: none;
-  transform: none;
-}
-
 .black-background {
   background-color: #18191a;
 }
@@ -2019,7 +2012,7 @@
 }
 
 .rotate{
-  transform: rotate(1)
+  transform: rotate(180deg)
 }
 
 .right-arrow {
