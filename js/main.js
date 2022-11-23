@@ -1234,7 +1234,7 @@ document.getElementById("upload-settings").addEventListener("click", () => {
         // Replace old settings with new ones
         localStorage.setItem(
           "settings",
-          JSON.stringify(JSON.parse(scanner.result))
+          JSON.stringify(validateJSON(JSON.parse(scanner.result), settings))
         );
         // Refresh only if the file is valid
         window.location.reload();
@@ -1248,11 +1248,7 @@ document.getElementById("upload-settings").addEventListener("click", () => {
 // Download settings file
 document.getElementById("download-settings").addEventListener("click", () => {
   downloadFile(
-    JSON.stringify(
-      validateJSON(JSON.parse(localStorage.getItem("settings")), settings),
-      null,
-      2
-    ),
+    JSON.stringify(JSON.parse(localStorage.getItem("settings")), null, 2),
     "mathcard.json"
   );
 });
