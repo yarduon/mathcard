@@ -334,7 +334,7 @@ function deleteNumber(lastDeleted) {
       )
     : // Prevent NaN and calculate math operations
     isNaN(mathToOperations(mathToArray(topScreen.innerText)))
-    ? writeAndSave(result.id, "", result)
+    ? writeAndSave(result.id, "0", result)
     : writeAndSave(
         result.id,
         mathToOperations(mathToArray(topScreen.innerText)),
@@ -504,7 +504,7 @@ function powerOnOff(event) {
     // Only when button is pressed or clicked
     if (event) {
       // Fill and show data values
-      writeAndSave(result.id, "", result);
+      writeAndSave(result.id, "0", result);
       document.getElementById("topScreen").classList.remove("invisible");
     }
 
@@ -828,6 +828,7 @@ function changeBackground(backgroundName) {
 // When the page is refreshed or loaded for the first time
 window.onload = async () => {
   // Load default values when the cache is deleted or first time
+  if (!localStorage.getItem("result")) localStorage.setItem("result", 0);
   if (!localStorage.getItem("usingFloat")) {
     localStorage.setItem("usingFloat", false);
   }
@@ -950,7 +951,7 @@ document.getElementById("ac").addEventListener("click", () => {
     localStorage.setItem("totalOpenParenthesis", 0);
     // Reset screen
     writeAndSave(topScreen.id, "", topScreen);
-    writeAndSave(result.id, "", result);
+    writeAndSave(result.id, "0", result);
   }
 });
 
@@ -1008,7 +1009,7 @@ document.getElementById("mc").addEventListener("click", () => {
 document.getElementById("ce").addEventListener("click", () => {
   // Prevent default button behaviour when edit mode is activated
   if (localStorage.getItem("editMode") === "false") {
-    writeAndSave(result.id, "", result);
+    writeAndSave(result.id, "0", result);
   }
 });
 
@@ -1034,8 +1035,8 @@ switchModes.addEventListener("click", () => {
     ? localStorage.setItem("currencyMode", true)
     : localStorage.setItem("currencyMode", false);
   // Reset values
-  writeAndSave(result.id, "", result);
-  writeAndSave(topScreen.id, "", topScreen);
+  writeAndSave(result.id, "0", result);
+  writeAndSave(topScreen.id, "0", topScreen);
 });
 
 // Show QR panel and check if there are cameras available
@@ -1273,3 +1274,5 @@ document.getElementById("reset-settings").addEventListener("click", () => {
   localStorage.removeItem("settings");
   window.location.reload();
 });
+
+console.log(localStorage.getItem("templateLayout"));
