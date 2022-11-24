@@ -1,11 +1,4 @@
 /* https://yarduon.com */
-:root {
-  --medium-text: 1.8vh;
-  --semi-large-text: 2.1vh;
-  --large-text: 2.2vh;
-  --huge-text: 2.3vh;
-}
-
 .hidden,
 #switch-mode:checked ~ .buttons-container .function,
 #switch-mode:checked ~ .buttons-container .operator:not(.equal),
@@ -42,14 +35,14 @@
   width: 98%;
 }
 
-.calculator,
+.calc,
 .line {
   width: 40vh;
 }
 
 .screen,
 .logo-container {
-  width: 29vh;
+  width: 30.5vh;
 }
 
 #square1,
@@ -64,7 +57,7 @@
 
 .fonts-container,
 .colors-container {
-  padding: 0.4vh 0 0.4vh 0;
+  padding: 0.2vh 0 0.2vh 0;
 }
 
 .font-families,
@@ -1714,8 +1707,12 @@
   font-size: var(--medium-text);
 }
 
-.semi-large-text {
-  font-size: var(--semi-large-text);
+.semi-normal-text {
+  font-size: 1.8vh;
+}
+
+.normal-text {
+  font-size: var(--normal-text);
 }
 
 .large-text {
@@ -1728,122 +1725,346 @@
 
 .alatsi {
   font-family: Alatsi;
+  --medium-text: 1.9vh;
+  --normal-text: 2vh;
+  --large-text: 2.2vh;
+  --huge-text: 2.5vh;
 }
 
 .chewy {
   font-family: Chewi;
+  --medium-text: 1.9vh;
+  --normal-text: 2.1vh;
+  --large-text: 2.2vh;
+  --huge-text: 2.5vh;
+}
+
+.chewy .logo {
+  margin-top: 0.3vh;
 }
 
 .chivo {
   font-family: Chivo;
+  --medium-text: 1.7vh;
+  --normal-text: 2vh;
+  --large-text: 2.2vh;
+  --huge-text: 2.6vh;
 }
 
 .comfortaa {
   font-family: Comfortaa;
+  /* M+. M-, MR... */
+  --medium-text: 1.6vh;
+  /* Screen text */
+  --normal-text: 2vh;
+  /* Logo */
+  --large-text: 2vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.5vh;
 }
 
-.equ-qld {
-  font-family: "Edu QLD";
+.comfortaa .logo {
+  margin-top: 0.4vh;
 }
 
 .fredoka-one {
   font-family: "Fredoka One";
+  /* M+. M-, MR... */
+  --medium-text: 1.6vh;
+  /* Screen text */
+  --normal-text: 2vh;
+  /* Logo */
+  --large-text: 2.1vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.5vh;
+}
+
+.fredoka-one .logo {
+  margin-top: 0.1vh;
 }
 
 .gugi {
   font-family: Gugi;
+  /* M+. M-, MR... */
+  --medium-text: 1.6vh;
+  /* Screen text */
+  --normal-text: 2vh;
+  /* Logo */
+  --large-text: 2.1vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.5vh;
+}
+
+.gugi .logo {
+  margin-top: 0.4vh;
 }
 
 .julee {
   font-family: Julee;
+  /* M+. M-, MR... */
+  --medium-text: 1.9vh;
+  /* Screen text */
+  --normal-text: 2.2vh;
+  /* Logo */
+  --large-text: 2.4vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.8vh;
+}
+
+.julee .logo {
+  margin-top: 0.1vh;
 }
 
 .lato {
   font-family: Lato;
+  /* M+. M-, MR... */
+  --medium-text: 1.7vh;
+  /* Screen text */
+  --normal-text: 2.2vh;
+  /* Logo */
+  --large-text: 2.4vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.7vh;
 }
 
 .libre-franklin {
   font-family: "Libre Franklin";
+  /* M+. M-, MR... */
+  --medium-text: 1.6vh;
+  /* Screen text */
+  --normal-text: 1.9vh;
+  /* Logo */
+  --large-text: 2.3vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.4vh;
 }
 
 .lobster {
   font-family: Lobster;
+  /* M+. M-, MR... */
+  --medium-text: 1.8vh;
+  /* Screen text */
+  --normal-text: 2.1vh;
+  /* Logo */
+  --large-text: 2.5vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.6vh;
 }
 
 .londrina-solid {
   font-family: "Londrina Solid";
+  /* M+. M-, MR... */
+  --medium-text: 2.1vh;
+  /* Screen text */
+  --normal-text: 2.3vh;
+  /* Logo */
+  --large-text: 2.5vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.8vh;
 }
 
 .merriweather {
   font-family: Merriweather;
+  /* M+. M-, MR... */
+  --medium-text: 1.7vh;
+  /* Screen text */
+  --normal-text: 1.8vh;
+  /* Logo */
+  --large-text: 2.2vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.5vh;
+}
+
+.merriweather .logo {
+  margin-top: 0.2vh;
 }
 
 .nerko-one {
   font-family: "Nerko One";
+  /* M+. M-, MR... */
+  --medium-text: 2.2vh;
+  /* Screen text */
+  --normal-text: 2.5vh;
+  /* Logo */
+  --large-text: 2.6vh;
+  /* 7, 8, 9... */
+  --huge-text: 3.3vh;
 }
 
 .oleo-script {
   font-family: "Oleo Script";
+  /* M+. M-, MR... */
+  --medium-text: 1.8vh;
+  /* Screen text */
+  --normal-text: 2.3vh;
+  /* Logo */
+  --large-text: 2.6vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.7vh;
+}
+
+.oleo-script .logo {
+  margin-top: 0.3vh;
 }
 
 .open-sans {
   font-family: "Open Sans";
+  /* M+. M-, MR... */
+  --medium-text: 1.7vh;
+  /* Screen text */
+  --normal-text: 2.1vh;
+  /* Logo */
+  --large-text: 2.3vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.5vh;
 }
 
 .outfit {
   font-family: Opensans;
-}
-
-.patrick-hand {
-  font-family: "Patrick Hand";
+  /* M+. M-, MR... */
+  --medium-text: 1.8vh;
+  /* Screen text */
+  --normal-text: 2.4vh;
+  /* Logo */
+  --large-text: 2.6vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.6vh;
 }
 
 .permanent-marker {
   font-family: "Permanent Marker";
+  /* M+. M-, MR... */
+  --medium-text: 1.6vh;
+  /* Screen text */
+  --normal-text: 2.3vh;
+  /* Logo */
+  --large-text: 2.2vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.8vh;
 }
 
 .poor-story {
   font-family: "Poor Story";
+  /* M+. M-, MR... */
+  --medium-text: 2vh;
+  /* Screen text */
+  --normal-text: 2.6vh;
+  /* Logo */
+  --large-text: 2.8vh;
+  /* 7, 8, 9... */
+  --huge-text: 3.1vh;
 }
 
-.press-start-2p {
-  font-family: "Press Start 2P";
+.poor-story .logo {
+  margin-top: 0.3vh;
 }
 
 .pt-mono {
   font-family: PT Mono;
+  /* M+. M-, MR... */
+  --medium-text: 1.8vh;
+  /* Screen text */
+  --normal-text: 2vh;
+  /* Logo */
+  --large-text: 2.2vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.5vh;
+}
+
+.pt-mono .logo {
+  margin-top: 0.2vh;
 }
 
 .pt-sans {
   font-family: PT Sans;
+  /* M+. M-, MR... */
+  --medium-text: 1.8vh;
+  /* Screen text */
+  --normal-text: 2.3vh;
+  /* Logo */
+  --large-text: 2.5vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.7vh;
+}
+
+.pt-sans .logo {
+  margin-bottom: 0.1vh;
 }
 
 .roboto {
   font-family: Roboto;
+  /* M+. M-, MR... */
+  --medium-text: 1.7vh;
+  /* Screen text */
+  --normal-text: 2.2vh;
+  /* Logo */
+  --large-text: 2.4vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.6vh;
+}
+
+.roboto .logo {
+  margin-top: 0.1vh;
 }
 
 .rubik {
   font-family: Rubik;
+  /* M+. M-, MR... */
+  --medium-text: 1.7vh;
+  /* Screen text */
+  --normal-text: 2.1vh;
+  /* Logo */
+  --large-text: 2.3vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.6vh;
 }
 
-.satisfy {
-  font-family: Satisfy;
+.rubik .logo {
+  margin-top: 0.1vh;
 }
 
 .signika {
   font-family: Signika;
+  /* M+. M-, MR... */
+  --medium-text: 1.8vh;
+  /* Screen text */
+  --normal-text: 2.3vh;
+  /* Logo */
+  --large-text: 2.5vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.7vh;
+}
+
+.signika .logo {
+  margin-top: 0.1vh;
 }
 
 .source-code-pro {
   font-family: "Source Code Pro";
+  /* M+. M-, MR... */
+  --medium-text: 1.8vh;
+  /* Screen text */
+  --normal-text: 2vh;
+  /* Logo */
+  --large-text: 2.1vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.6vh;
 }
 
 .ubuntu {
   font-family: Ubuntu;
+  /* M+. M-, MR... */
+  --medium-text: 1.7vh;
+  /* Screen text */
+  --normal-text: 2.2vh;
+  /* Logo */
+  --large-text: 2.3vh;
+  /* 7, 8, 9... */
+  --huge-text: 2.6vh;
 }
 
-.vt323 {
-  font-family: VT323;
+.ubuntu .logo{
+  margin-top: .1vh;
 }
 
 .top-calculator {
@@ -1856,7 +2077,7 @@
 }
 
 .screen {
-  height: 15vh;
+  height: 16vh;
 }
 
 .operations-container {
@@ -2051,4 +2272,9 @@
 .color {
   width: 4vh;
   margin: 0.4vh;
+}
+
+.square {
+  width: 10vh;
+  height: 2.3vh;
 }

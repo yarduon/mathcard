@@ -23,7 +23,7 @@
     width: 5vh;
   }
 
-  .calculator,
+  .calc,
   #switch-mode:checked ~ .buttons-container .additional,
   .extra-symbols .additional {
     height: 100%;
@@ -59,7 +59,7 @@
     font-size: 2vh;
   }
 
-  .calculator {
+  .calc {
     width: 100%;
   }
 

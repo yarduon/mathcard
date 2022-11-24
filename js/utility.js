@@ -86,6 +86,7 @@ export function removeClasses(element, ...classes) {
   classes.forEach((c) => {
     element.classList.forEach((e, i) => {
       if (element.classList[i].includes(c)) {
+        console.log(c);
         element.classList.remove(element.classList[i]);
       }
     });

@@ -505,7 +505,7 @@ function selectButton(name) {
         }
     }
 
-    // Avoid crop numbers on screen
+    // Avoid cut numbers on screen
     formatOperations(fakeTopScreen, topScreen);
 
     // Highlight button
@@ -896,7 +896,7 @@ window.onload = async () => {
     result.innerText = localStorage.getItem("result");
   }
 
-  // Avoid crop numbers on screen
+  // Avoid cut numbers on screen
   formatOperations(fakeTopScreen, topScreen);
 
   // Check if there are cameras available
@@ -1061,6 +1061,7 @@ switchModes.addEventListener("click", () => {
     ? localStorage.setItem("currencyMode", true)
     : localStorage.setItem("currencyMode", false);
   // Reset values
+  fakeTopScreen.innerText = "";
   writeAndSave(result.id, "0", result);
   writeAndSave(topScreen.id, "", topScreen);
 });

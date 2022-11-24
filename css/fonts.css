@@ -24,12 +24,6 @@
 }
 
 @font-face {
-  font-family: "Edu QLD";
-  src: url("./../fonts/edu_qld.ttf");
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Fredoka One";
   src: url("./../fonts/fredoka_one.ttf");
   font-display: swap;
@@ -102,12 +96,6 @@
 }
 
 @font-face {
-  font-family: "Patrick Hand";
-  src: url("./../fonts/patrick_hand.ttf");
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Permanent Marker";
   src: url("./../fonts/permanent_marker.ttf");
   font-display: swap;
@@ -116,12 +104,6 @@
 @font-face {
   font-family: "Poor Story";
   src: url("./../fonts/poor_story.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Press Start 2P";
-  src: url("./../fonts/press_start_2p.ttf");
   font-display: swap;
 }
 
@@ -150,12 +132,6 @@
 }
 
 @font-face {
-  font-family: "Satisfy";
-  src: url("./../fonts/satisfy.ttf");
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Signika";
   src: url("./../fonts/signika.ttf");
   font-display: swap;
@@ -170,11 +146,5 @@
 @font-face {
   font-family: "Ubuntu";
   src: url("./../fonts/ubuntu.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "VT323";
-  src: url("./../fonts/vt323.ttf");
   font-display: swap;
 }
