@@ -1274,5 +1274,3 @@ document.getElementById("reset-settings").addEventListener("click", () => {
   localStorage.removeItem("settings");
   window.location.reload();
 });
-
-console.log(localStorage.getItem("templateLayout"));
