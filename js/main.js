@@ -487,8 +487,22 @@ function selectButton(name) {
           writeAndSave(topScreen.id, name, topScreen, true);
         }
     }
+
+    // Avoid crop numbers on screen
+    formatOperations(topScreen);
+
     // Highlight button
     document.getElementById(name).focus();
+  }
+}
+
+function formatOperations(screen) {
+  let screenSize = screen.innerText.length,
+    maxSize = screen.innerText.length - 16;
+
+  // Display only the number of values specified on the display
+  if (screenSize >= 16) {
+    screen.innerText = screen.innerText.substring(maxSize, screenSize);
   }
 }
 
@@ -873,6 +887,9 @@ window.onload = async () => {
     topScreen.innerText = localStorage.getItem("topScreen");
     result.innerText = localStorage.getItem("result");
   }
+
+  // Avoid crop numbers on screen
+  formatOperations(topScreen);
 
   // Check if there are cameras available
   checkCameras();
