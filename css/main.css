@@ -1719,6 +1719,10 @@
   font-family: Alatsi;
 }
 
+.anton {
+  font-family: Anton;
+}
+
 .chewy {
   font-family: Chewi;
 }
@@ -1898,7 +1902,7 @@
 .power {
   width: 4.6vh;
   height: 4.6vh;
-  padding: 0.2vh 0.1vh 0 0;
+  padding: 0 0.1vh 0.2vh 0;
 }
 
 .special-buttons-container {

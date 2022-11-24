@@ -6,6 +6,12 @@
 }
 
 @font-face {
+  font-family: "Anton";
+  src: url("./../fonts/anton.ttf");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Chewi";
   src: url("./../fonts/chewy.ttf");
   font-display: swap;
@@ -163,7 +169,7 @@
 
 @font-face {
   font-family: "Satisfy";
-  src: url("./../fonts/rubik.ttf");
+  src: url("./../fonts/satisfy.ttf");
   font-display: swap;
 }
 

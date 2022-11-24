@@ -1,7 +1,7 @@
 // https://yarduon.com
 export default {
   general: {
-    font: "satisfy",
+    font: "rubik",
     color: "light-orange",
     element: "background",
     background: "original",
