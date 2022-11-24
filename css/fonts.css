@@ -6,20 +6,8 @@
 }
 
 @font-face {
-  font-family: "Anton";
-  src: url("./../fonts/anton.ttf");
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Chewi";
   src: url("./../fonts/chewy.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Anton";
-  src: url("./../fonts/anton.ttf");
   font-display: swap;
 }
 
@@ -50,12 +38,6 @@
 @font-face {
   font-family: "Gugi";
   src: url("./../fonts/gugi.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Indie Flower";
-  src: url("./../fonts/indie_flower.ttf");
   font-display: swap;
 }
 
@@ -182,12 +164,6 @@
 @font-face {
   font-family: "Source Code Pro";
   src: url("./../fonts/source_code_pro.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Twinkle Star";
-  src: url("./../fonts/twinkle_star.ttf");
   font-display: swap;
 }
 

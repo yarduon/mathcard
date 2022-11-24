@@ -1,4 +1,11 @@
 /* https://yarduon.com */
+:root {
+  --medium-text: 1.8vh;
+  --semi-large-text: 2.1vh;
+  --large-text: 2.2vh;
+  --huge-text: 2.3vh;
+}
+
 .hidden,
 #switch-mode:checked ~ .buttons-container .function,
 #switch-mode:checked ~ .buttons-container .operator:not(.equal),
@@ -1704,23 +1711,23 @@
 }
 
 .medium-text {
-  font-size: 1.7vh;
+  font-size: var(--medium-text);
 }
 
 .semi-large-text {
-  font-size: 2.1vh;
+  font-size: var(--semi-large-text);
 }
 
 .large-text {
-  font-size: 2.2vh;
+  font-size: var(--large-text);
+}
+
+.huge-text {
+  font-size: var(--huge-text);
 }
 
 .alatsi {
   font-family: Alatsi;
-}
-
-.anton {
-  font-family: Anton;
 }
 
 .chewy {
@@ -1745,10 +1752,6 @@
 
 .gugi {
   font-family: Gugi;
-}
-
-.indie-flower {
-  font-family: "Indie Flower";
 }
 
 .julee {
@@ -1835,10 +1838,6 @@
   font-family: "Source Code Pro";
 }
 
-.twinkle-star {
-  font-family: "Twinkle Star";
-}
-
 .ubuntu {
   font-family: Ubuntu;
 }
@@ -1866,7 +1865,7 @@
   margin: 0.6vh 0 0 0;
 }
 
-#topScreen {
+#fakeTopScreen {
   background-color: transparent;
   height: 2.6vh;
   padding: 0 0.2vh 0 0;
@@ -1881,7 +1880,6 @@
 .buttons-container {
   height: 55vh;
   padding: 0 1.2vh 1.3vh 1.2vh;
-  font-size: 2.3vh;
 }
 
 #switch-mode:checked ~ .buttons-container {
@@ -1977,7 +1975,7 @@
 }
 
 .line {
-  height: 5.3vh;
+  height: 5.8vh;
   padding: 0.7vh;
   border-bottom-left-radius: 1.3vh;
   border-bottom-right-radius: 1.3vh;

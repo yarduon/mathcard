@@ -28,6 +28,7 @@ import currencies from "../json/currencies.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("topScreen"),
+  fakeTopScreen = document.getElementById("fakeTopScreen"),
   result = document.getElementById("result"),
   operators = Array.from(document.getElementsByClassName("operator")),
   // The order of symbols determines preference when resolving operations
@@ -342,6 +343,22 @@ function deleteNumber(lastDeleted) {
       );
 }
 
+function formatOperations(fakeScreen, originalScreen) {
+  let screenSize = originalScreen.innerText.length,
+    maxSize = originalScreen.innerText.length - 16;
+
+  // Get content from main screen
+  fakeScreen.innerText = localStorage.getItem(originalScreen.id);
+
+  // Display only the number of values specified on the display
+  if (screenSize >= 16) {
+    fakeScreen.innerText = originalScreen.innerText.substring(
+      maxSize,
+      screenSize
+    );
+  }
+}
+
 function fillEmptyOperation(operator, lastSelected) {
   // Convert screen to an array
   let screen = Array.from(topScreen.innerText);
@@ -489,20 +506,10 @@ function selectButton(name) {
     }
 
     // Avoid crop numbers on screen
-    formatOperations(topScreen);
+    formatOperations(fakeTopScreen, topScreen);
 
     // Highlight button
     document.getElementById(name).focus();
-  }
-}
-
-function formatOperations(screen) {
-  let screenSize = screen.innerText.length,
-    maxSize = screen.innerText.length - 16;
-
-  // Display only the number of values specified on the display
-  if (screenSize >= 16) {
-    screen.innerText = screen.innerText.substring(maxSize, screenSize);
   }
 }
 
@@ -540,6 +547,7 @@ function powerOnOff(event) {
     );
   } else {
     // Empty and hide data values
+    fakeTopScreen.innerText = "";
     writeAndSave(topScreen.id, "", topScreen);
     writeAndSave(result.id, "", result);
     document.getElementById("topScreen").classList.add("invisible");
@@ -889,7 +897,7 @@ window.onload = async () => {
   }
 
   // Avoid crop numbers on screen
-  formatOperations(topScreen);
+  formatOperations(fakeTopScreen, topScreen);
 
   // Check if there are cameras available
   checkCameras();
@@ -967,6 +975,7 @@ document.getElementById("ac").addEventListener("click", () => {
     localStorage.setItem("usingCircumflex", false);
     localStorage.setItem("totalOpenParenthesis", 0);
     // Reset screen
+    fakeTopScreen.innerText = "";
     writeAndSave(topScreen.id, "", topScreen);
     writeAndSave(result.id, "0", result);
   }
@@ -1053,7 +1062,7 @@ switchModes.addEventListener("click", () => {
     : localStorage.setItem("currencyMode", false);
   // Reset values
   writeAndSave(result.id, "0", result);
-  writeAndSave(topScreen.id, "0", topScreen);
+  writeAndSave(topScreen.id, "", topScreen);
 });
 
 // Show QR panel and check if there are cameras available
