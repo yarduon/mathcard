@@ -19,8 +19,7 @@
 }
 
 .settings,
-.edit,
-.arrow {
+.edit {
   width: 3.8vh;
 }
 
@@ -279,6 +278,10 @@
   width: 2.1vh;
 }
 
+.medium-icon {
+  width: 3.5vh;
+}
+
 .large-icon {
   width: 4.5vh;
 }
@@ -313,6 +316,10 @@
 
 .background-color {
   background-color: var(--background-color);
+}
+
+.rotate {
+  transform: rotate(180deg);
 }
 
 .invisible {
@@ -353,6 +360,10 @@
 
 .black-background {
   background-color: #18191a;
+}
+
+.dark-black-background {
+  background-color: #121214;
 }
 
 .full-black-background {
@@ -1908,7 +1919,7 @@
 }
 
 .semi-normal-text {
-  font-size: 1.7vh;
+  font-size: 1.8vh;
 }
 
 .normal-text {
@@ -2233,12 +2244,8 @@
   margin: 0 0 70vh 60vh;
 }
 
-.rotate {
-  transform: rotate(180deg);
-}
-
-.right-arrow {
-  transform: rotate(180deg);
+.arrow {
+  width: 4.5vh;
 }
 
 .font-families {
@@ -2255,7 +2262,13 @@
 }
 
 .tab {
-  margin-bottom: 5.8vh;
+  margin-bottom: 5.4vh;
+}
+
+.tab-confirm {
+  padding: 1.5vh 0.5vh 1vh 0.5vh;
+  width: 13vh;
+  border-top-left-radius: 1.5vh;
 }
 
 .palette {
