@@ -236,7 +236,7 @@ function mathToOperations(array) {
     ? Number.isInteger(array[0])
       ? array[0]
       : Math.round(array[0] * 10000000000) / 10000000000
-    : "Syntax Error";
+    : "Math error";
 }
 
 function findAndReplaceCalc(operator, array) {

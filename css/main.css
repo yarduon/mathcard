@@ -1739,6 +1739,10 @@
   --huge-text: 2.5vh;
 }
 
+.chewy #result {
+  margin-top: 3.9vh;
+}
+
 .chewy .logo {
   margin-top: 0.3vh;
 }
@@ -1751,6 +1755,10 @@
   --huge-text: 2.6vh;
 }
 
+.chivo #result {
+  margin-top: 4.1vh;
+}
+
 .comfortaa {
   font-family: Comfortaa;
   /* M+. M-, MR... */
@@ -1761,6 +1769,10 @@
   --large-text: 2vh;
   /* 7, 8, 9... */
   --huge-text: 2.5vh;
+}
+
+.comfortaa #result {
+  margin-top: 4.3vh;
 }
 
 .comfortaa .logo {
@@ -1779,6 +1791,10 @@
   --huge-text: 2.5vh;
 }
 
+.fredoka-one #result {
+  margin-top: 4.2vh;
+}
+
 .fredoka-one .logo {
   margin-top: 0.1vh;
 }
@@ -1793,6 +1809,10 @@
   --large-text: 2.1vh;
   /* 7, 8, 9... */
   --huge-text: 2.5vh;
+}
+
+.gugi #result {
+  margin-top: 4vh;
 }
 
 .gugi .logo {
@@ -1811,6 +1831,10 @@
   --huge-text: 2.8vh;
 }
 
+.julee #result {
+  margin-top: 4vh;
+}
+
 .julee .logo {
   margin-top: 0.1vh;
 }
@@ -1827,6 +1851,10 @@
   --huge-text: 2.7vh;
 }
 
+.lato #result {
+  margin-top: 4vh;
+}
+
 .libre-franklin {
   font-family: "Libre Franklin";
   /* M+. M-, MR... */
@@ -1837,6 +1865,10 @@
   --large-text: 2.3vh;
   /* 7, 8, 9... */
   --huge-text: 2.4vh;
+}
+
+.libre-franklin #result {
+  margin-top: 4.3vh;
 }
 
 .lobster {
@@ -1851,6 +1883,10 @@
   --huge-text: 2.6vh;
 }
 
+.lobster #result {
+  margin-top: 3.9vh;
+}
+
 .londrina-solid {
   font-family: "Londrina Solid";
   /* M+. M-, MR... */
@@ -1863,6 +1899,10 @@
   --huge-text: 2.8vh;
 }
 
+.londrina-solid #result {
+  margin-top: 3.9vh;
+}
+
 .merriweather {
   font-family: Merriweather;
   /* M+. M-, MR... */
@@ -1873,6 +1913,10 @@
   --large-text: 2.2vh;
   /* 7, 8, 9... */
   --huge-text: 2.5vh;
+}
+
+.merriweather #result {
+  margin-top: 4.2vh;
 }
 
 .merriweather .logo {
@@ -1891,6 +1935,10 @@
   --huge-text: 3.3vh;
 }
 
+.nerko-one #result {
+  margin-top: 3.6vh;
+}
+
 .oleo-script {
   font-family: "Oleo Script";
   /* M+. M-, MR... */
@@ -1901,6 +1949,10 @@
   --large-text: 2.6vh;
   /* 7, 8, 9... */
   --huge-text: 2.7vh;
+}
+
+.oleo-script #result {
+  margin-top: 3.3vh;
 }
 
 .oleo-script .logo {
@@ -1919,6 +1971,10 @@
   --huge-text: 2.5vh;
 }
 
+.open-sans #result {
+  margin-top: 3.7vh;
+}
+
 .outfit {
   font-family: Opensans;
   /* M+. M-, MR... */
@@ -1929,6 +1985,10 @@
   --large-text: 2.6vh;
   /* 7, 8, 9... */
   --huge-text: 2.6vh;
+}
+
+.outfit #result {
+  margin-top: 3.8vh;
 }
 
 .permanent-marker {
@@ -1943,6 +2003,10 @@
   --huge-text: 2.8vh;
 }
 
+.permanent-marker #result {
+  margin-top: 3.1vh;
+}
+
 .poor-story {
   font-family: "Poor Story";
   /* M+. M-, MR... */
@@ -1953,6 +2017,10 @@
   --large-text: 2.8vh;
   /* 7, 8, 9... */
   --huge-text: 3.1vh;
+}
+
+.poor-story #result {
+  margin-top: 3.2vh;
 }
 
 .poor-story .logo {
@@ -1971,6 +2039,10 @@
   --huge-text: 2.5vh;
 }
 
+.pt-mono #result {
+  margin-top: 4.3vh;
+}
+
 .pt-mono .logo {
   margin-top: 0.2vh;
 }
@@ -1985,6 +2057,10 @@
   --large-text: 2.5vh;
   /* 7, 8, 9... */
   --huge-text: 2.7vh;
+}
+
+.pt-sans #result {
+  margin-top: 3.6vh;
 }
 
 .pt-sans .logo {
@@ -2003,6 +2079,10 @@
   --huge-text: 2.6vh;
 }
 
+.roboto #result {
+  margin-top: 4vh;
+}
+
 .roboto .logo {
   margin-top: 0.1vh;
 }
@@ -2017,6 +2097,10 @@
   --large-text: 2.3vh;
   /* 7, 8, 9... */
   --huge-text: 2.6vh;
+}
+
+.rubik #result {
+  margin-top: 4.1vh;
 }
 
 .rubik .logo {
@@ -2035,6 +2119,10 @@
   --huge-text: 2.7vh;
 }
 
+.signika #result {
+  margin-top: 3.8vh;
+}
+
 .signika .logo {
   margin-top: 0.1vh;
 }
@@ -2051,6 +2139,10 @@
   --huge-text: 2.6vh;
 }
 
+.source-code-pro #result {
+  margin-top: 4.1vh;
+}
+
 .ubuntu {
   font-family: Ubuntu;
   /* M+. M-, MR... */
@@ -2063,8 +2155,12 @@
   --huge-text: 2.6vh;
 }
 
-.ubuntu .logo{
-  margin-top: .1vh;
+.ubuntu #result {
+  margin-top: 4vh;
+}
+
+.ubuntu .logo {
+  margin-top: 0.1vh;
 }
 
 .top-calculator {
@@ -2081,9 +2177,9 @@
 }
 
 .operations-container {
-  width: 92.5%;
+  width: 94%;
   height: 3vh;
-  margin: 0.6vh 0 0 0;
+  margin: 0.8vh 0 0 0;
 }
 
 #fakeTopScreen {
@@ -2091,6 +2187,11 @@
   height: 2.6vh;
   padding: 0 0.2vh 0 0;
   animation: typing 1.5s steps(1) infinite;
+}
+
+#result {
+  width: 94%;
+  margin-top: 4vh;
 }
 
 .middle-base {
