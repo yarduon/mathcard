@@ -1116,6 +1116,12 @@ document.getElementById("edit").addEventListener("click", (e) => {
 // Change the selected item type into edit mode
 Array.from(customizationButtons).forEach((e) => {
   e.addEventListener("click", () => {
+    //
+    removeClass("selected-element", ...customizationButtons);
+    //
+   /*  addClass("pastel-white-icon", ...customizationButtons); */
+    addClass("selected-element", document.getElementById(e.id));
+    // Get current color
     updateJSON("templateLayout", "general", "element", null, e.id);
   });
 });
@@ -1159,6 +1165,12 @@ Array.from(document.getElementsByClassName("color")).forEach((e) => {
   e.addEventListener("click", () => {
     // Delete highlight from all colors
     removeClass("selected-color", ...document.getElementsByClassName("color"));
+    // 
+    let element = document.getElementsByClassName("selected-element")[0];
+    console.log(element);
+    //
+    removeClass("icon", element);
+    addClass(e.id + "-icon", element);
 
     // Change and highlight selected color
     addClass("selected-color", e);
