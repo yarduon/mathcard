@@ -60,6 +60,206 @@
   padding: 0.2vh 0 0.2vh 0;
 }
 
+.fredoka-one .logo,
+.julee .logo,
+.roboto .logo,
+.rubik .logo,
+.signika .logo,
+.ubuntu .logo {
+  margin-top: 0.1vh;
+}
+
+.merriweather .logo,
+.pt-mono .logo {
+  margin-top: 0.2vh;
+}
+
+.chewy .logo,
+.oleo-script .logo,
+.poor-story .logo,
+.bar {
+  margin-top: 0.3vh;
+}
+
+.comfortaa .logo,
+.gugi .logo {
+  margin-top: 0.4vh;
+}
+
+.nerko-one #result,
+.pt-sans #result {
+  margin-top: 3.6vh;
+}
+
+.outfit #result,
+.signika #result {
+  margin-top: 3.8vh;
+}
+
+.chewy #result,
+.lobster #result,
+.londrina-solid #result {
+  margin-top: 3.9vh;
+}
+
+.chivo #result,
+.rubik #result,
+.source-code-pro #result {
+  margin-top: 4.1vh;
+}
+
+.fredoka-one #result,
+.merriweather #result {
+  margin-top: 4.2vh;
+}
+
+.comfortaa #result,
+.libre-franklin #result,
+.pt-mono #result {
+  margin-top: 4.3vh;
+}
+
+.comfortaa,
+.fredoka-one,
+.gugi,
+.libre-franklin,
+.permanent-marker {
+  --medium-text: 1.6vh;
+}
+
+.chivo,
+.lato,
+.merriweather,
+.open-sans,
+.roboto,
+.rubik,
+.ubuntu {
+  --medium-text: 1.7vh;
+}
+
+.lobster,
+.oleo-script,
+.outfit,
+.pt-mono,
+.pt-sans,
+.signika,
+.source-code-pro {
+  --medium-text: 1.8vh;
+}
+
+.alatsi,
+.chewy,
+.julee {
+  --medium-text: 1.9vh;
+}
+
+.alatsi,
+.chivo,
+.comfortaa,
+.fredoka-one,
+.gugi,
+.pt-mono,
+.source-code-pro {
+  --normal-text: 2vh;
+}
+
+.chewy,
+.lobster,
+.open-sans,
+.rubik {
+  --normal-text: 2.1vh;
+}
+
+.fredoka-one,
+.gugi,
+.source-code-pro {
+  --large-text: 2.1vh;
+}
+
+.julee,
+.lato,
+.roboto,
+.ubuntu {
+  --normal-text: 2.2vh;
+}
+
+.alatsi,
+.chewy,
+.chivo,
+.merriweather,
+.permanent-marker,
+.pt-mono {
+  --large-text: 2.2vh;
+}
+
+.londrina-solid,
+.oleo-script,
+.permanent-marker,
+.pt-sans,
+.signika {
+  --normal-text: 2.3vh;
+}
+
+.libre-franklin,
+.open-sans,
+.rubik,
+.ubuntu {
+  --large-text: 2.3vh;
+}
+
+.julee,
+.lato,
+.roboto {
+  --large-text: 2.4vh;
+}
+
+.lobster,
+.londrina-solid,
+.pt-sans,
+.signika {
+  --large-text: 2.5vh;
+}
+
+.alatsi,
+.chewy,
+.comfortaa,
+.fredoka-one,
+.gugi,
+.merriweather,
+.open-sans,
+.pt-mono {
+  --huge-text: 2.5vh;
+}
+
+.nerko-one,
+.oleo-script,
+.outfit {
+  --large-text: 2.6vh;
+}
+
+.chivo,
+.lobster,
+.outfit,
+.roboto,
+.rubik,
+.source-code-pro,
+.ubuntu {
+  --huge-text: 2.6vh;
+}
+
+.lato,
+.oleo-script,
+.pt-sans,
+.signika {
+  --huge-text: 2.7vh;
+}
+
+.julee,
+.londrina-solid,
+.permanent-marker {
+  --huge-text: 2.8vh;
+}
+
 .font-families,
 .palette {
   width: 450vh;
@@ -1708,7 +1908,7 @@
 }
 
 .semi-normal-text {
-  font-size: 1.8vh;
+  font-size: 1.7vh;
 }
 
 .normal-text {
@@ -1725,250 +1925,74 @@
 
 .alatsi {
   font-family: Alatsi;
-  --medium-text: 1.9vh;
-  --normal-text: 2vh;
-  --large-text: 2.2vh;
-  --huge-text: 2.5vh;
 }
 
 .chewy {
   font-family: Chewi;
-  --medium-text: 1.9vh;
-  --normal-text: 2.1vh;
-  --large-text: 2.2vh;
-  --huge-text: 2.5vh;
-}
-
-.chewy #result {
-  margin-top: 3.9vh;
-}
-
-.chewy .logo {
-  margin-top: 0.3vh;
 }
 
 .chivo {
   font-family: Chivo;
-  --medium-text: 1.7vh;
-  --normal-text: 2vh;
-  --large-text: 2.2vh;
-  --huge-text: 2.6vh;
-}
-
-.chivo #result {
-  margin-top: 4.1vh;
 }
 
 .comfortaa {
   font-family: Comfortaa;
-  /* M+. M-, MR... */
-  --medium-text: 1.6vh;
-  /* Screen text */
-  --normal-text: 2vh;
-  /* Logo */
   --large-text: 2vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.5vh;
-}
-
-.comfortaa #result {
-  margin-top: 4.3vh;
-}
-
-.comfortaa .logo {
-  margin-top: 0.4vh;
 }
 
 .fredoka-one {
   font-family: "Fredoka One";
-  /* M+. M-, MR... */
-  --medium-text: 1.6vh;
-  /* Screen text */
-  --normal-text: 2vh;
-  /* Logo */
-  --large-text: 2.1vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.5vh;
-}
-
-.fredoka-one #result {
-  margin-top: 4.2vh;
-}
-
-.fredoka-one .logo {
-  margin-top: 0.1vh;
 }
 
 .gugi {
   font-family: Gugi;
-  /* M+. M-, MR... */
-  --medium-text: 1.6vh;
-  /* Screen text */
-  --normal-text: 2vh;
-  /* Logo */
-  --large-text: 2.1vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.5vh;
-}
-
-.gugi #result {
-  margin-top: 4vh;
-}
-
-.gugi .logo {
-  margin-top: 0.4vh;
 }
 
 .julee {
   font-family: Julee;
-  /* M+. M-, MR... */
-  --medium-text: 1.9vh;
-  /* Screen text */
-  --normal-text: 2.2vh;
-  /* Logo */
-  --large-text: 2.4vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.8vh;
-}
-
-.julee #result {
-  margin-top: 4vh;
-}
-
-.julee .logo {
-  margin-top: 0.1vh;
 }
 
 .lato {
   font-family: Lato;
-  /* M+. M-, MR... */
-  --medium-text: 1.7vh;
-  /* Screen text */
-  --normal-text: 2.2vh;
-  /* Logo */
-  --large-text: 2.4vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.7vh;
-}
-
-.lato #result {
-  margin-top: 4vh;
 }
 
 .libre-franklin {
   font-family: "Libre Franklin";
-  /* M+. M-, MR... */
-  --medium-text: 1.6vh;
-  /* Screen text */
   --normal-text: 1.9vh;
-  /* Logo */
-  --large-text: 2.3vh;
-  /* 7, 8, 9... */
   --huge-text: 2.4vh;
-}
-
-.libre-franklin #result {
-  margin-top: 4.3vh;
 }
 
 .lobster {
   font-family: Lobster;
-  /* M+. M-, MR... */
-  --medium-text: 1.8vh;
-  /* Screen text */
-  --normal-text: 2.1vh;
-  /* Logo */
-  --large-text: 2.5vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.6vh;
-}
-
-.lobster #result {
-  margin-top: 3.9vh;
 }
 
 .londrina-solid {
   font-family: "Londrina Solid";
-  /* M+. M-, MR... */
   --medium-text: 2.1vh;
-  /* Screen text */
-  --normal-text: 2.3vh;
-  /* Logo */
-  --large-text: 2.5vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.8vh;
-}
-
-.londrina-solid #result {
-  margin-top: 3.9vh;
 }
 
 .merriweather {
   font-family: Merriweather;
-  /* M+. M-, MR... */
-  --medium-text: 1.7vh;
-  /* Screen text */
   --normal-text: 1.8vh;
-  /* Logo */
-  --large-text: 2.2vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.5vh;
-}
-
-.merriweather #result {
-  margin-top: 4.2vh;
-}
-
-.merriweather .logo {
-  margin-top: 0.2vh;
 }
 
 .nerko-one {
   font-family: "Nerko One";
-  /* M+. M-, MR... */
   --medium-text: 2.2vh;
-  /* Screen text */
   --normal-text: 2.5vh;
-  /* Logo */
-  --large-text: 2.6vh;
-  /* 7, 8, 9... */
   --huge-text: 3.3vh;
-}
-
-.nerko-one #result {
-  margin-top: 3.6vh;
 }
 
 .oleo-script {
   font-family: "Oleo Script";
-  /* M+. M-, MR... */
-  --medium-text: 1.8vh;
-  /* Screen text */
-  --normal-text: 2.3vh;
-  /* Logo */
-  --large-text: 2.6vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.7vh;
 }
 
 .oleo-script #result {
   margin-top: 3.3vh;
 }
 
-.oleo-script .logo {
-  margin-top: 0.3vh;
-}
-
 .open-sans {
   font-family: "Open Sans";
-  /* M+. M-, MR... */
-  --medium-text: 1.7vh;
-  /* Screen text */
-  --normal-text: 2.1vh;
-  /* Logo */
-  --large-text: 2.3vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.5vh;
 }
 
 .open-sans #result {
@@ -1977,30 +2001,11 @@
 
 .outfit {
   font-family: Opensans;
-  /* M+. M-, MR... */
-  --medium-text: 1.8vh;
-  /* Screen text */
   --normal-text: 2.4vh;
-  /* Logo */
-  --large-text: 2.6vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.6vh;
-}
-
-.outfit #result {
-  margin-top: 3.8vh;
 }
 
 .permanent-marker {
   font-family: "Permanent Marker";
-  /* M+. M-, MR... */
-  --medium-text: 1.6vh;
-  /* Screen text */
-  --normal-text: 2.3vh;
-  /* Logo */
-  --large-text: 2.2vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.8vh;
 }
 
 .permanent-marker #result {
@@ -2009,13 +2014,9 @@
 
 .poor-story {
   font-family: "Poor Story";
-  /* M+. M-, MR... */
   --medium-text: 2vh;
-  /* Screen text */
   --normal-text: 2.6vh;
-  /* Logo */
   --large-text: 2.8vh;
-  /* 7, 8, 9... */
   --huge-text: 3.1vh;
 }
 
@@ -2023,44 +2024,12 @@
   margin-top: 3.2vh;
 }
 
-.poor-story .logo {
-  margin-top: 0.3vh;
-}
-
 .pt-mono {
   font-family: PT Mono;
-  /* M+. M-, MR... */
-  --medium-text: 1.8vh;
-  /* Screen text */
-  --normal-text: 2vh;
-  /* Logo */
-  --large-text: 2.2vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.5vh;
-}
-
-.pt-mono #result {
-  margin-top: 4.3vh;
-}
-
-.pt-mono .logo {
-  margin-top: 0.2vh;
 }
 
 .pt-sans {
   font-family: PT Sans;
-  /* M+. M-, MR... */
-  --medium-text: 1.8vh;
-  /* Screen text */
-  --normal-text: 2.3vh;
-  /* Logo */
-  --large-text: 2.5vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.7vh;
-}
-
-.pt-sans #result {
-  margin-top: 3.6vh;
 }
 
 .pt-sans .logo {
@@ -2069,98 +2038,22 @@
 
 .roboto {
   font-family: Roboto;
-  /* M+. M-, MR... */
-  --medium-text: 1.7vh;
-  /* Screen text */
-  --normal-text: 2.2vh;
-  /* Logo */
-  --large-text: 2.4vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.6vh;
-}
-
-.roboto #result {
-  margin-top: 4vh;
-}
-
-.roboto .logo {
-  margin-top: 0.1vh;
 }
 
 .rubik {
   font-family: Rubik;
-  /* M+. M-, MR... */
-  --medium-text: 1.7vh;
-  /* Screen text */
-  --normal-text: 2.1vh;
-  /* Logo */
-  --large-text: 2.3vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.6vh;
-}
-
-.rubik #result {
-  margin-top: 4.1vh;
-}
-
-.rubik .logo {
-  margin-top: 0.1vh;
 }
 
 .signika {
   font-family: Signika;
-  /* M+. M-, MR... */
-  --medium-text: 1.8vh;
-  /* Screen text */
-  --normal-text: 2.3vh;
-  /* Logo */
-  --large-text: 2.5vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.7vh;
-}
-
-.signika #result {
-  margin-top: 3.8vh;
-}
-
-.signika .logo {
-  margin-top: 0.1vh;
 }
 
 .source-code-pro {
   font-family: "Source Code Pro";
-  /* M+. M-, MR... */
-  --medium-text: 1.8vh;
-  /* Screen text */
-  --normal-text: 2vh;
-  /* Logo */
-  --large-text: 2.1vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.6vh;
-}
-
-.source-code-pro #result {
-  margin-top: 4.1vh;
 }
 
 .ubuntu {
   font-family: Ubuntu;
-  /* M+. M-, MR... */
-  --medium-text: 1.7vh;
-  /* Screen text */
-  --normal-text: 2.2vh;
-  /* Logo */
-  --large-text: 2.3vh;
-  /* 7, 8, 9... */
-  --huge-text: 2.6vh;
-}
-
-.ubuntu #result {
-  margin-top: 4vh;
-}
-
-.ubuntu .logo {
-  margin-top: 0.1vh;
 }
 
 .top-calculator {
@@ -2358,7 +2251,6 @@
 
 .bar {
   width: 0;
-  margin-top: 0.3vh;
   height: 0.3vh;
 }
 
@@ -2373,9 +2265,4 @@
 .color {
   width: 4vh;
   margin: 0.4vh;
-}
-
-.square {
-  width: 10vh;
-  height: 2.3vh;
 }
