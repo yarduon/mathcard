@@ -59,6 +59,11 @@
   padding: 0.2vh 0 0.2vh 0;
 }
 
+.tab-confirm,
+.tab-modify {
+  padding: 1.5vh 0.5vh 1vh 0.5vh;
+}
+
 .fredoka-one .logo,
 .julee .logo,
 .roboto .logo,
@@ -360,32 +365,6 @@
 
 .black-background {
   background-color: #0c0d0e;
-}
-
-.full-black-background {
-  background-color: #000000;
-}
-
-.full-black-icon {
-  color: #000000;
-}
-
-.full-black-shadow.selected-color,
-.full-black-shadow:hover,
-.full-black-shadow:focus {
-  box-shadow: 0 0 0.01vh 0.25vh #000000;
-}
-
-.full-black-icon .border-right {
-  --icon-color: #000000;
-}
-
-.full-black-background + .full-border {
-  --border-color: #000000;
-}
-
-.full-black-background + .background-color {
-  --background-color: #000000;
 }
 
 .full-grey-background {
@@ -2262,9 +2241,13 @@
 }
 
 .tab-confirm {
-  padding: 1.5vh 0.5vh 1vh 0.5vh;
   width: 13vh;
   border-top-left-radius: 1.5vh;
+}
+
+.tab-modify {
+  width: 20vh;
+  border-top-right-radius: 1.5vh;
 }
 
 .palette {

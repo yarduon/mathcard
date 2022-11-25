@@ -23,12 +23,12 @@ export default {
       background: "pastel-white-background",
     },
     screen: {
-      icon: "full-black-icon",
+      icon: "normal-black-icon",
       background: "pastel-white-background",
     },
     logo: {
       icon: "pastel-white-icon",
-      background: "full-black-background",
+      background: "normal-black-background",
     },
     middle: {
       background: "pastel-black-background",
@@ -259,13 +259,13 @@ export default {
       shadow: "pastel-white-shadow",
     },
     square1: {
-      background: "normal-black-background",
+      background: "light-black-background",
     },
     square2: {
       background: "pastel-grey-background",
     },
     square3: {
-      background: "full-black-background",
+      background: "normal-black-background",
     },
   },
 };
