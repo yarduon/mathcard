@@ -359,11 +359,7 @@
 }
 
 .black-background {
-  background-color: #18191a;
-}
-
-.dark-black-background {
-  background-color: #121214;
+  background-color: #0c0d0e;
 }
 
 .full-black-background {
@@ -2249,7 +2245,7 @@
 }
 
 .font-families {
-  padding-left: 5.4vh;
+  padding-left: 3.2vh;
 }
 
 .font {
@@ -2276,6 +2272,7 @@
 }
 
 .color {
+  border: 0.3vh solid black;
   width: 4vh;
   margin: 0.4vh;
 }
