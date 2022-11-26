@@ -858,6 +858,7 @@ function changeBackground(backgroundName) {
 // When the page is refreshed or loaded for the first time
 window.onload = async () => {
   // Load default values when the cache is deleted or first time
+  if (!localStorage.getItem("topScreen")) localStorage.setItem("topScreen", "");
   if (!localStorage.getItem("result")) localStorage.setItem("result", 0);
   if (!localStorage.getItem("usingFloat")) {
     localStorage.setItem("usingFloat", false);
