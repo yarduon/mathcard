@@ -79,8 +79,7 @@
 
 .chewy .logo,
 .oleo-script .logo,
-.poor-story .logo,
-.bar {
+.poor-story .logo {
   margin-top: 0.3vh;
 }
 
@@ -361,7 +360,7 @@
 }
 
 .grey-background {
-  background-color: #1d1e1f;
+  background-color: #1a1a1b;
 }
 
 .black-top-border {
@@ -2637,13 +2636,19 @@
   margin: 0vh 2vh 0vh 2vh;
 }
 
+.selected-font {
+  margin-bottom: 0.3vh;
+}
+
 .bar {
   width: 0;
-  height: 0.3vh;
+  height: 0;
 }
 
 .selected-font .bar {
-  transition: width 1s;
+  height: 0.3vh;
+  margin-top: 0.3vh;
+  transition: width 1s, height 0.1s;
 }
 
 .tab {
@@ -2671,6 +2676,6 @@
 }
 
 .selected-element {
-  filter: drop-shadow(0 0 0.2vh black) brightness(1.4);
+  filter: drop-shadow(0.3vh 0.3vh 0.2vh black) drop-shadow(0vh 0vh 0.2vh black)
+    brightness(1.4);
 }
-
