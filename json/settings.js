@@ -2,7 +2,7 @@
 export default {
   general: {
     font: "alatsi",
-    color: "light-orange",
+    color: "normal-orange",
     element: "background",
     background: "original",
   },

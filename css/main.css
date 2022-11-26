@@ -360,7 +360,7 @@
 }
 
 .black-background {
-  background-color: #0c0d0e;
+  background-color: #191a1b;
 }
 
 .full-grey-background {
@@ -2254,4 +2254,8 @@
   border: 0.3vh solid black;
   width: 4vh;
   margin: 0.4vh;
+}
+
+.selected-element {
+  filter: drop-shadow(0 0 0.2vh black);
 }
