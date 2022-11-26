@@ -1145,7 +1145,7 @@ Array.from(customizationButtons).forEach((e) => {
   });
 });
 
-// Modify button background text or shadow color
+// Modify button background, icon or shadow color
 Object.keys(settings["buttons"]).forEach((e) => {
   document.getElementById(e).addEventListener("click", (event) => {
     if (localStorage.getItem("editMode") === "true") {
@@ -1157,21 +1157,21 @@ Object.keys(settings["buttons"]).forEach((e) => {
       event.stopPropagation();
       // Avoid empty color and painting edit icon after closing
       if (localStorage.getItem("closeEditMode") === "false") {
-        // Change specified appearance
-        removeClasses(
-          document.getElementById(e),
-          getJSON("templateLayout", "general", "element", null)
-        );
-        addClass(cColor + "-" + cElement, document.getElementById(e));
+        // Only add classes when elements have a JSON field
+        if (String(document.getElementById(e).classList).includes(cElement)) {
+          // Change specified appearance
+          removeClasses(document.getElementById(e), cElement);
+          addClass(cColor + "-" + cElement, document.getElementById(e));
 
-        // Save appearance temporary
-        updateJSON(
-          "templateLayout",
-          "buttons",
-          e,
-          cElement,
-          cColor + "-" + cElement
-        );
+          // Save appearance temporary
+          updateJSON(
+            "templateLayout",
+            "buttons",
+            e,
+            cElement,
+            cColor + "-" + cElement
+          );
+        }
       }
       // Start edit mode
       localStorage.setItem("closeEditMode", false);
