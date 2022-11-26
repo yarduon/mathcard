@@ -11,6 +11,7 @@ import {
   getCurrentSelectValue,
   cleanText,
   changeFont,
+  changeElement,
   addClass,
   addClasses,
   removeClass,
@@ -20,6 +21,7 @@ import {
   updateJSON,
   validateJSON,
   downloadFile,
+  swapClasses,
 } from "./utility.js";
 
 // Need to import JSON as JS without backend
@@ -111,6 +113,12 @@ function loadSettings(settingsFile) {
   Object.keys(elements).forEach((e) => {
     addClass("selected-" + e, document.getElementById(elements[e]));
   });
+
+  // Refresh element
+  changeElement(
+    ...document.getElementsByClassName("selected-element"),
+    ...document.getElementsByClassName("selected-color")
+  );
 }
 
 function operate(operator1, operator2, num0, num1, num2) {
@@ -1116,12 +1124,17 @@ document.getElementById("edit").addEventListener("click", (e) => {
 // Change the selected item type into edit mode
 Array.from(customizationButtons).forEach((e) => {
   e.addEventListener("click", () => {
-    //
+    // Reset highlight from all elements
     removeClass("selected-element", ...customizationButtons);
-    //
-   /*  addClass("pastel-white-icon", ...customizationButtons); */
+    swapClasses("pastel-white-icon", "icon", ...customizationButtons);
+
+    // Change and highlight selected element according selected color
     addClass("selected-element", document.getElementById(e.id));
-    // Get current color
+    changeElement(
+      ...document.getElementsByClassName("selected-element"),
+      ...document.getElementsByClassName("selected-color")
+    );
+    // Save selected element
     updateJSON("templateLayout", "general", "element", null, e.id);
   });
 });
@@ -1165,17 +1178,18 @@ Array.from(document.getElementsByClassName("color")).forEach((e) => {
   e.addEventListener("click", () => {
     // Delete highlight from all colors
     removeClass("selected-color", ...document.getElementsByClassName("color"));
-    // 
-    let element = document.getElementsByClassName("selected-element")[0];
-    console.log(element);
-    //
-    removeClass("icon", element);
-    addClass(e.id + "-icon", element);
 
     // Change and highlight selected color
     addClass("selected-color", e);
 
-    // Save selected font
+    // Change and highlight selected element
+    swapClasses(
+      e.id + "-icon",
+      "icon",
+      ...document.getElementsByClassName("selected-element")
+    );
+
+    // Save selected color
     updateJSON("templateLayout", "general", "color", null, e.id);
   });
 });

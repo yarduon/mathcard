@@ -347,10 +347,6 @@
   cursor: pointer;
 }
 
-.font:hover .bar {
-  transition: width 0.7s;
-}
-
 .light-opacity:hover {
   opacity: 0.7;
 }

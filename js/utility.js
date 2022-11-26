@@ -51,9 +51,9 @@ export function isEqual(toCompare, ...elements) {
   return boolean;
 }
 
-export function swapClasses(e, cAdd, cDelete) {
-  e.classList.add(cAdd);
-  e.classList.remove(cDelete);
+export function swapClasses(cAdd, cDelete, ...e) {
+  removeClass(cDelete, ...e);
+  addClass(cAdd, ...e);
 }
 
 // Add one class to multiple elements
@@ -107,6 +107,10 @@ export function checkClasses(element, ...classes) {
 export function changeFont(container, newFont, fonts) {
   removeClasses(container, ...fonts);
   addClass(newFont, container);
+}
+
+export function changeElement(currentElement, currentColor) {
+  swapClasses(currentColor.id + "-icon", "icon", currentElement);
 }
 
 export function getJSON(jsonName, mainField, secondaryField, tertiaryField) {
