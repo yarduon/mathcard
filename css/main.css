@@ -357,7 +357,11 @@
 }
 
 .black-background {
-  background-color: #191a1b;
+  background-color: #0b0c0c;
+}
+
+.grey-background {
+  background-color: #1d1e1f;
 }
 
 .black-top-border {
@@ -2667,5 +2671,6 @@
 }
 
 .selected-element {
-  filter: drop-shadow(0 0 0.2vh black);
+  filter: drop-shadow(0 0 0.2vh black) brightness(1.4);
 }
+
