@@ -472,6 +472,9 @@ function selectButton(name) {
               result
             );
         break;
+      case "0":
+        writeAndSave(topScreen.id, name, topScreen, true);
+        break;
       // Remaining buttons
       default:
         // When the value is a operator
@@ -489,10 +492,11 @@ function selectButton(name) {
           }
           // When the value is a number
         } else if (!isNaN(name)) {
-          // When this number is different to zero or equal to dot
-          if (lastSelected !== "0" || nextToLastSelected === ".") {
+          // Prevent numbers next to PI without operators
+          if (lastSelected !== "I") {
             writeAndSave(topScreen.id, name, topScreen, true);
           }
+
           // When the value is a special function or value
         } else if (
           isEqual(name, "LOG(", "SIN(", "COS(", "TAN(", "PI", "SQR(")
@@ -982,6 +986,7 @@ document.getElementById("ac").addEventListener("click", () => {
     // Reset control values
     localStorage.setItem("usingFloat", false);
     localStorage.setItem("usingCircumflex", false);
+    localStorage.setItem("usingOperator", false);
     localStorage.setItem("totalOpenParenthesis", 0);
     // Reset screen
     fakeTopScreen.innerText = "";
