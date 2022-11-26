@@ -72,12 +72,6 @@
 }
 
 @font-face {
-  font-family: "Nerko One";
-  src: url("./../fonts/nerko_one.ttf");
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Oleo Script";
   src: url("./../fonts/oleo_script.ttf");
   font-display: swap;
