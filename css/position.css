@@ -8,13 +8,13 @@
 #reader,
 .qr-container,
 .options-container,
-.screen {
+.screen,
+.tab {
   z-index: 3;
 }
 
 .logo-container,
 .customization,
-.tab,
 .arrow,
 #error,
 #close-settings {

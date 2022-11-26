@@ -24,7 +24,6 @@
 }
 
 .max-width,
-.font:hover .bar,
 .selected-font .bar {
   width: 100%;
 }
@@ -361,6 +360,22 @@
 
 .black-background {
   background-color: #191a1b;
+}
+
+.black-top-border {
+  box-shadow: 0 -0.1vh 1vh 0 black;
+}
+
+.black-bottom-border {
+  box-shadow: 0 0.1vh 1vh 0 black;
+}
+
+.black-right-arc-border {
+  box-shadow: -0.1vh -0.1vh 1vh 0 black;
+}
+
+.black-left-arc-border {
+  box-shadow: -0.1vh -0.1vh 1vh 0 black;
 }
 
 .full-grey-background {
@@ -2232,8 +2247,12 @@
   height: 0.3vh;
 }
 
+.selected-font .bar {
+  transition: width 1s;
+}
+
 .tab {
-  margin-bottom: 5.4vh;
+  margin-bottom: 5.42vh;
 }
 
 .tab-confirm {
