@@ -34,6 +34,11 @@
   width: 98%;
 }
 
+.operations-container,
+#result {
+  width: 94%;
+}
+
 .calc,
 .line {
   width: 40vh;
@@ -44,9 +49,24 @@
   width: 30.5vh;
 }
 
+.max-icon,
+.tab-modify {
+  width: 20vh;
+}
+
+.large-icon,
+.arrow {
+  width: 4.5vh;
+}
+
 #square1,
 #square2 {
   height: 210vh;
+}
+
+.qr-result,
+.sub-qr-icon {
+  height: 24vh;
 }
 
 .logo-container,
@@ -80,7 +100,9 @@
 
 .chewy .logo,
 .oleo-script .logo,
-.poor-story .logo {
+.poor-story .logo,
+.selected-font .bar,
+.qr-result:hover .bar {
   margin-top: 0.3vh;
 }
 
@@ -273,6 +295,11 @@
   transition: width 1s, height 0.1s;
 }
 
+.light-touch:hover,
+.qr-result {
+  background-color: rgba(255, 255, 255, 0.884);
+}
+
 .half-width {
   width: 50%;
 }
@@ -289,20 +316,12 @@
   width: 3.5vh;
 }
 
-.large-icon {
-  width: 4.5vh;
-}
-
 .huge-icon {
   width: 11vh;
 }
 
 .semi-max-icon {
   width: 12vh;
-}
-
-.max-icon {
-  width: 20vh;
 }
 
 .circle-shape {
@@ -315,6 +334,11 @@
 
 .round-border {
   border-radius: 0.2vh;
+}
+
+.bar {
+  width: 0;
+  height: 0;
 }
 
 .full-border {
@@ -357,16 +381,16 @@
   opacity: 0.7;
 }
 
-.light-touch:hover {
-  background-color: rgba(255, 255, 255, 0.884);
-}
-
 .disabled:hover {
   cursor: initial;
 }
 
 .black-background {
   background-color: #1a1919;
+}
+
+.black-text {
+  color: #1a1919;
 }
 
 .grey-background {
@@ -2521,7 +2545,6 @@
 }
 
 .operations-container {
-  width: 94%;
   height: 3vh;
   margin: 0.8vh 0 0 0;
 }
@@ -2534,7 +2557,6 @@
 }
 
 #result {
-  width: 94%;
   margin-top: 4vh;
 }
 
@@ -2631,22 +2653,12 @@
   height: 30vh;
 }
 
-.qr-result {
-  background-color: rgba(255, 255, 255, 0.884);
-  color: black;
-  width: 50%;
-  height: 24vh;
-}
-
 .qr-result:hover .bar {
-  width: 100%;
-  height: 0.4vh;
-  margin-top: 0.3vh;
+  height: 0.45vh;
 }
 
 .sub-qr-icon {
   width: 24vh;
-  height: 24vh;
 }
 
 .sub-qr-icon:hover {
@@ -2706,10 +2718,6 @@
   margin: 0 0 70vh 60vh;
 }
 
-.arrow {
-  width: 4.5vh;
-}
-
 .right-arrow {
   /* Avoid blank space on full screen */
   margin-right: -0.1vh;
@@ -2727,14 +2735,8 @@
   margin-bottom: 0.3vh;
 }
 
-.bar {
-  width: 0;
-  height: 0;
-}
-
 .selected-font .bar {
   height: 0.3vh;
-  margin-top: 0.3vh;
 }
 
 .tab {
@@ -2755,7 +2757,6 @@
 }
 
 .tab-modify {
-  width: 20vh;
   border-top-right-radius: 1.5vh;
 }
 
