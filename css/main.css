@@ -2715,6 +2715,14 @@
   border-top-left-radius: 1.5vh;
 }
 
+#confirm:hover {
+  color: #3cf36c;
+}
+
+#reject:hover {
+  color: #f74d64;
+}
+
 .tab-modify {
   width: 20vh;
   border-top-right-radius: 1.5vh;
@@ -2727,7 +2735,7 @@
 .color {
   border: 0.3vh solid black;
   width: 4vh;
-  margin: 0.5vh;
+  margin: 0.6vh;
 }
 
 .selected-element {
