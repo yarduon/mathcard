@@ -356,27 +356,27 @@
 }
 
 .black-background {
-  background-color: #0b0c0c;
+  background-color: #1a1919;
 }
 
 .grey-background {
-  background-color: #1a1a1b;
+  background-color: #1d1d1f;
 }
 
 .black-top-border {
-  box-shadow: 0 -0.1vh 1vh 0 black;
+  box-shadow: 0 -0.05vh 1vh 0.1vh black;
 }
 
 .black-bottom-border {
-  box-shadow: 0 0.1vh 1vh 0 black;
+  box-shadow: 0 0.05vh 1vh 0.1vh black;
 }
 
 .black-right-arc-border {
-  box-shadow: -0.1vh -0.1vh 1vh 0 black;
+  box-shadow: -0.05vh -0.05vh 1vh 0.1vh black;
 }
 
 .black-left-arc-border {
-  box-shadow: -0.1vh -0.1vh 1vh 0 black;
+  box-shadow: -0.05vh -0.05vh 1vh 0.1vh black;
 }
 
 .full-grey-background {
@@ -407,6 +407,7 @@
 .full-grey-shadow:hover,
 .full-grey-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh rgb(61, 59, 57);
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -445,6 +446,7 @@
 .full-white-shadow:hover,
 .full-white-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh rgb(231, 229, 229);
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -487,6 +489,7 @@
 .full-orange-shadow:hover,
 .full-orange-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #ff4800;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -525,6 +528,7 @@
 .full-red-shadow:hover,
 .full-red-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #c71827;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -563,6 +567,7 @@
 .full-blue-shadow:hover,
 .full-blue-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #1c11b8;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -601,6 +606,7 @@
 .full-brown-shadow:hover,
 .full-brown-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #532b0a;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -639,6 +645,7 @@
 .full-purple-shadow:hover,
 .full-purple-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #40124e;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -677,6 +684,7 @@
 .full-pink-shadow:hover,
 .full-pink-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #f110b9;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -715,6 +723,7 @@
 .full-yellow-shadow:hover,
 .full-yellow-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #f7cb07;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -753,6 +762,7 @@
 .full-green-shadow:hover,
 .full-green-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #0c530e;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -791,6 +801,7 @@
 .darker-grey-shadow:hover,
 .darker-grey-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh rgb(121, 118, 116);
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -829,6 +840,7 @@
 .darker-orange-shadow:hover,
 .darker-orange-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #d14d19;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -867,6 +879,7 @@
 .darker-red-shadow:hover,
 .darker-red-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #db271a;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -905,6 +918,7 @@
 .darker-blue-shadow:hover,
 .darker-blue-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #2516ff;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -943,6 +957,7 @@
 .darker-brown-shadow:hover,
 .darker-brown-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #8a440b;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -981,6 +996,7 @@
 .darker-purple-shadow:hover,
 .darker-purple-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #6c0b8a;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1019,6 +1035,7 @@
 .darker-pink-shadow:hover,
 .darker-pink-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #e42fb6;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1057,6 +1074,7 @@
 .darker-yellow-shadow:hover,
 .darker-yellow-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #f5cd1d;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1095,6 +1113,7 @@
 .darker-green-shadow:hover,
 .darker-green-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #07750b;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1134,6 +1153,7 @@
 .normal-black-shadow:hover,
 .normal-black-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh rgb(29, 28, 28);
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1172,6 +1192,7 @@
 .normal-grey-shadow:hover,
 .normal-grey-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #978c8c;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1210,6 +1231,7 @@
 .normal-orange-shadow:hover,
 .normal-orange-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #e2612d;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1248,6 +1270,7 @@
 .normal-red-shadow:hover,
 .normal-red-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #df493f;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1286,6 +1309,7 @@
 .normal-blue-shadow:hover,
 .normal-blue-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #284ce9;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1324,6 +1348,7 @@
 .normal-brown-shadow:hover,
 .normal-brown-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #a85f2f;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1362,6 +1387,7 @@
 .normal-purple-shadow:hover,
 .normal-purple-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #a026e7;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1400,6 +1426,7 @@
 .normal-pink-shadow:hover,
 .normal-pink-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #e959d6;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1438,6 +1465,7 @@
 .normal-yellow-shadow:hover,
 .normal-yellow-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #ffdc40;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1476,6 +1504,7 @@
 .normal-green-shadow:hover,
 .normal-green-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #238828;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1514,6 +1543,7 @@
 .light-black-shadow:hover,
 .light-black-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #292929;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1552,6 +1582,7 @@
 .light-grey-shadow:hover,
 .light-grey-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #afaaaa;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1590,6 +1621,7 @@
 .light-orange-shadow:hover,
 .light-orange-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #f0a85d;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1628,6 +1660,7 @@
 .light-red-shadow:hover,
 .light-red-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #f56067;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1666,6 +1699,7 @@
 .light-blue-shadow:hover,
 .light-blue-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #3090b6;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1704,6 +1738,7 @@
 .light-brown-shadow:hover,
 .light-brown-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #e28343;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1742,6 +1777,7 @@
 .light-purple-shadow:hover,
 .light-purple-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #b26fda;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1780,6 +1816,7 @@
 .light-pink-shadow:hover,
 .light-pink-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #ec8de0;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1818,6 +1855,7 @@
 .light-yellow-shadow:hover,
 .light-yellow-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #f8df6e;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1856,6 +1894,7 @@
 .light-green-shadow:hover,
 .light-green-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #3bd31d;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1894,6 +1933,7 @@
 .pastel-black-shadow:hover,
 .pastel-black-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #494747;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1932,6 +1972,7 @@
 .pastel-grey-shadow:hover,
 .pastel-grey-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #cfcfc4;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -1970,6 +2011,7 @@
 .pastel-white-shadow:hover,
 .pastel-white-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh rgb(255, 255, 255);
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2008,6 +2050,7 @@
 .pastel-orange-shadow:hover,
 .pastel-orange-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #ffb347;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2046,6 +2089,7 @@
 .pastel-red-shadow:hover,
 .pastel-red-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #f8847e;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2084,6 +2128,7 @@
 .pastel-blue-shadow:hover,
 .pastel-blue-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #87b3c4;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2122,6 +2167,7 @@
 .pastel-brown-shadow:hover,
 .pastel-brown-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #b88f7b;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2160,6 +2206,7 @@
 .pastel-purple-shadow:hover,
 .pastel-purple-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #b19cd9;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2198,6 +2245,7 @@
 .pastel-pink-shadow:hover,
 .pastel-pink-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #ffd1dc;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2236,6 +2284,7 @@
 .pastel-yellow-shadow:hover,
 .pastel-yellow-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #fdfd96;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2274,6 +2323,7 @@
 .pastel-green-shadow:hover,
 .pastel-green-shadow:focus {
   box-shadow: 0 0 0.01vh 0.25vh #77dd77;
+  filter: drop-shadow(0vh 0vh 0.2vh black) drop-shadow(0vh 0vh 0.1vh black);
 }
 
 @-moz-document url-prefix() {
@@ -2628,6 +2678,11 @@
   width: 4.5vh;
 }
 
+.right-arrow {
+  /* Avoid blank space on full screen */
+  margin-right: -0.1vh;
+}
+
 .font-families {
   padding-left: 3.2vh;
 }
@@ -2652,7 +2707,7 @@
 }
 
 .tab {
-  margin-bottom: 5.42vh;
+  margin-bottom: 5.41vh;
 }
 
 .tab-confirm {
@@ -2672,7 +2727,7 @@
 .color {
   border: 0.3vh solid black;
   width: 4vh;
-  margin: 0.4vh;
+  margin: 0.5vh;
 }
 
 .selected-element {
