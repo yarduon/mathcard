@@ -22,7 +22,7 @@
   </head>
   <body class="flex justify-center align-center max-width max-height alatsi">
     <div
-      class="max-width max-height flex justify-center align-center absolute overflow-hidden"
+      class="max-width max-height flex justify-center align-center absolute overflow"
       id="background-calc"
     >
       <div class="square1 absolute" id="square1"></div>
@@ -33,7 +33,7 @@
     </div>
     <main class="flex column justify-center align-center max-width max-height">
       <aside
-        class="custom fonts-container max-width overflow-hidden absolute black-background black-bottom-border hidden customization"
+        class="custom fonts-container max-width overflow absolute black-background black-bottom-border hidden customization"
       >
         <div
           class="arrow left-arrow touch max-height flex justify-center align-center absolute pastel-white-icon black-background"
@@ -213,14 +213,14 @@
             <p class="logo absolute large-text">Mathcard</p>
           </div>
           <div
-            class="screen overflow-hidden flex column align-center full-border"
+            class="screen overflow flex column align-center full-border"
             id="screen"
           >
             <div class="operations-container flex justify-start align-center">
               <p id="topScreen" class="hidden"></p>
               <p
                 id="fakeTopScreen"
-                class="flex justify-end align-center overflow-hidden normal-text border-right"
+                class="flex justify-end align-center overflow normal-text border-right"
               ></p>
             </div>
             <p id="result" class="relative flex justify-end normal-text">0</p>
@@ -580,7 +580,7 @@
         </div>
       </div>
       <aside
-        class="custom colors-container max-width relative absolute black-background black-top-border overflow-hidden hidden customization"
+        class="custom colors-container max-width relative absolute black-background black-top-border overflow hidden customization"
       >
         <div
           class="arrow left-arrow touch max-height flex justify-center align-center absolute pastel-white-icon black-background"
@@ -924,11 +924,11 @@
         </button>
       </div>
       <section
-        class="qr-container max-width max-height flex justify-center align-center black-background absolute hidden"
+        class="qr-container max-width max-height flex justify-center align-center black-background absolute overflow hidden"
         id="qr-menu"
       >
         <div
-          class="cross pastel-white-icon absolute touch light-opacity"
+          class="cross flex justify-center align-center pastel-white-icon absolute touch light-opacity"
           id="close-qr"
         >
           <svg
@@ -997,55 +997,51 @@
           </div>
           <div class="hidden" id="reader"></div>
           <div
-            class="qr-result-container large-text touch hidden flex justify-around align-center"
+            class="qr-result-container large-text hidden flex justify-around align-center"
             id="qr-result-container"
           >
             <a
               id="qr-result"
-              class="flex justify-center align-center round-border-full pastel-white-background normal-black-icon"
+              class="flex justify-center align-center touch round-border-full normal-black-icon"
               href="#"
             ></a>
             <div
-              class="qr-result-subcontainer flex justify-around align-center"
+              class="sub-qr-icon flex justify-center align-center round-border-full touch light-touch pastel-white-icon light-black-background"
+              id="clipboard"
             >
-              <div
-                class="sub-qr-icon flex justify-center align-center round-border-full touch light-touch pastel-white-icon light-black-background"
-                id="clipboard"
+              <svg
+                class="huge-icon"
+                viewBox="0 0 88.635 83.344"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  class="semi-large-icon"
-                  viewBox="0 0 88.635 83.344"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g transform="translate(-1.9844 -4.6302)">
-                    <g transform="matrix(.70863 0 0 .70863 -54.999 -33)"></g>
-                    <g transform="matrix(.70863 0 0 .70863 -30.093 -52.6)">
-                      <path
-                        d="m90.951 83.105c-4.5444 0-8.2035 3.6591-8.2035 8.2035l0.11568 24.036 7.3708-9e-3v-17.982c0-3.7464 3.0161-6.7625 6.7625-6.7625h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625l-21.872-3.8e-4v7.4865l27.918 3.8e-4c4.5444 6e-5 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm-35.146 27.659c-4.5444 0-8.2035 3.6591-8.2035 8.2035v68.857c0 4.5444 3.6591 8.2035 8.2035 8.2035h68.857c4.5444 0 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm6.0455 7.4865h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625h-56.766c-3.7464 0-6.7625-3.0161-6.7625-6.7625v-56.766c0-3.7464 3.0161-6.7625 6.7625-6.7625z"
-                        fill="currentColor"
-                        stroke-width="49.63"
-                      />
-                    </g>
+                <g transform="translate(-1.9844 -4.6302)">
+                  <g transform="matrix(.70863 0 0 .70863 -54.999 -33)"></g>
+                  <g transform="matrix(.70863 0 0 .70863 -30.093 -52.6)">
+                    <path
+                      d="m90.951 83.105c-4.5444 0-8.2035 3.6591-8.2035 8.2035l0.11568 24.036 7.3708-9e-3v-17.982c0-3.7464 3.0161-6.7625 6.7625-6.7625h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625l-21.872-3.8e-4v7.4865l27.918 3.8e-4c4.5444 6e-5 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm-35.146 27.659c-4.5444 0-8.2035 3.6591-8.2035 8.2035v68.857c0 4.5444 3.6591 8.2035 8.2035 8.2035h68.857c4.5444 0 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm6.0455 7.4865h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625h-56.766c-3.7464 0-6.7625-3.0161-6.7625-6.7625v-56.766c0-3.7464 3.0161-6.7625 6.7625-6.7625z"
+                      fill="currentColor"
+                      stroke-width="49.63"
+                    />
                   </g>
-                </svg>
-              </div>
-              <div
-                class="sub-qr-icon flex justify-center align-center round-border-full touch light-touch pastel-white-icon light-black-background"
-                id="link"
+                </g>
+              </svg>
+            </div>
+            <div
+              class="sub-qr-icon flex justify-center align-center round-border-full touch light-touch pastel-white-icon light-black-background"
+              id="link"
+            >
+              <svg
+                class="huge-icon"
+                viewBox="0 0 83.344 82.55"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  class="semi-large-icon"
-                  viewBox="0 0 83.344 82.55"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="m62.575 41.193c0 21.116-9.3588 38.235-20.904 38.235s-20.904-17.118-20.904-38.235 9.3588-38.235 20.904-38.235 20.904 17.118 20.904 38.235zm-20.014 38.594-1.8913-0.01084 0.19013-76.145 1.8152 0.019199zm38.204-38.511c0 21.397-17.503 38.742-39.094 38.742-21.591 0-39.094-17.346-39.094-38.742-3e-7 -21.397 17.503-38.742 39.094-38.742 21.591 0 39.094 17.346 39.094 38.742zm-0.57009-0.67658 0.10327 1.44-77.268-0.05764 0.13196-1.4687zm-5.2919 18.259-0.12962 1.4346-65.977-0.015-0.5393-1.5057zm0.22864-35.981 0.08965 1.4346-67.078-0.05743 0.11456-1.4633z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="4.5695"
-                  />
-                </svg>
-              </div>
+                <path
+                  d="m62.575 41.193c0 21.116-9.3588 38.235-20.904 38.235s-20.904-17.118-20.904-38.235 9.3588-38.235 20.904-38.235 20.904 17.118 20.904 38.235zm-20.014 38.594-1.8913-0.01084 0.19013-76.145 1.8152 0.019199zm38.204-38.511c0 21.397-17.503 38.742-39.094 38.742-21.591 0-39.094-17.346-39.094-38.742-3e-7 -21.397 17.503-38.742 39.094-38.742 21.591 0 39.094 17.346 39.094 38.742zm-0.57009-0.67658 0.10327 1.44-77.268-0.05764 0.13196-1.4687zm-5.2919 18.259-0.12962 1.4346-65.977-0.015-0.5393-1.5057zm0.22864-35.981 0.08965 1.4346-67.078-0.05743 0.11456-1.4633z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="4.5695"
+                />
+              </svg>
             </div>
           </div>
         </div>

@@ -267,6 +267,12 @@
   height: 5vh;
 }
 
+.qr-icon,
+.sub-qr-icon,
+#qr-result {
+  transition: background-color 0.3s;
+}
+
 .half-width {
   width: 50%;
 }
@@ -285,10 +291,6 @@
 
 .large-icon {
   width: 4.5vh;
-}
-
-.semi-large-icon {
-  width: 9vh;
 }
 
 .huge-icon {
@@ -339,7 +341,7 @@
   appearance: none;
 }
 
-.overflow-hidden {
+.overflow {
   overflow: hidden;
 }
 
@@ -1134,13 +1136,8 @@
 
 .normal-black-icon,
 .qr-icon:hover .huge-icon,
-.sub-qr-icon:hover .semi-large-icon {
+.sub-qr-icon:hover .huge-icon {
   color: rgb(29, 28, 28);
-}
-
-.qr-icon,
-.sub-qr-icon {
-  transition: background-color 0.3s;
 }
 
 .normal-black-border-full {
@@ -2630,18 +2627,20 @@
   height: 30vh;
 }
 
-.qr-result-subcontainer {
-  width: 30%;
+#qr-result {
+  background-color: rgba(255, 255, 255, 0.884);
+  width: 50%;
+  height: 24vh;
 }
 
-#qr-result {
-  width: 60%;
-  height: 14.5vh;
+#qr-result:hover {
+  background-color: #292929;
+  color: rgba(255, 255, 255, 0.884);
 }
 
 .sub-qr-icon {
-  width: 15vh;
-  height: 15vh;
+  width: 24vh;
+  height: 24vh;
 }
 
 #error {
