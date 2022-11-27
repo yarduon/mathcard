@@ -71,7 +71,8 @@
 }
 
 .logo-container,
-.select {
+.select,
+.element {
   height: 4vh;
 }
 
@@ -95,7 +96,8 @@
 }
 
 .merriweather .logo,
-.pt-mono .logo {
+.pt-mono .logo,
+.selected-element + .bar {
   margin-top: 0.2vh;
 }
 
@@ -110,6 +112,11 @@
 .comfortaa .logo,
 .gugi .logo {
   margin-top: 0.4vh;
+}
+
+.selected-element#background + .bar,
+.selected-element#shadow + .bar {
+  margin-top: 0.6vh;
 }
 
 .pt-sans #result {
@@ -315,6 +322,10 @@
 
 .medium-icon {
   width: 3.5vh;
+}
+
+.semi-large-icon {
+  width: 4vh;
 }
 
 .huge-icon {
@@ -2743,8 +2754,8 @@
 }
 
 .selected-element + .bar {
-  margin-top: 0.3vh;
-  height: 0.5vh;
+  height: 0.4vh;
+  transition: width 1s, height 0.1s, background-color 0.5s;
 }
 
 .palette {
@@ -2753,6 +2764,5 @@
 
 .color {
   border: 0.3vh solid black;
-  width: 4vh;
   margin: 0.6vh;
 }
