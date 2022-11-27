@@ -24,7 +24,8 @@
 }
 
 .max-width,
-.selected-font .bar {
+.selected-font .bar,
+.qr-result:hover .bar {
   width: 100%;
 }
 
@@ -267,10 +268,9 @@
   height: 5vh;
 }
 
-.qr-icon,
-.sub-qr-icon,
-#qr-result {
-  transition: background-color 0.3s;
+.selected-font .bar,
+.qr-result:hover .bar {
+  transition: width 1s, height 0.1s;
 }
 
 .half-width {
@@ -295,6 +295,10 @@
 
 .huge-icon {
   width: 11vh;
+}
+
+.semi-max-icon {
+  width: 12vh;
 }
 
 .max-icon {
@@ -1135,8 +1139,7 @@
 }
 
 .normal-black-icon,
-.qr-icon:hover .huge-icon,
-.sub-qr-icon:hover .huge-icon {
+.qr-icon:hover .huge-icon {
   color: rgb(29, 28, 28);
 }
 
@@ -2620,6 +2623,7 @@
 .qr-icon {
   width: 50vh;
   height: 40vh;
+  transition: background-color 0.3s;
 }
 
 .qr-result-container {
@@ -2627,20 +2631,26 @@
   height: 30vh;
 }
 
-#qr-result {
+.qr-result {
   background-color: rgba(255, 255, 255, 0.884);
+  color: black;
   width: 50%;
   height: 24vh;
 }
 
-#qr-result:hover {
-  background-color: #292929;
-  color: rgba(255, 255, 255, 0.884);
+.qr-result:hover .bar {
+  width: 100%;
+  height: 0.4vh;
+  margin-top: 0.3vh;
 }
 
 .sub-qr-icon {
   width: 24vh;
   height: 24vh;
+}
+
+.sub-qr-icon:hover {
+  box-shadow: 0 0 0.01vh 0.6vh rgba(255, 255, 255, 0.884);
 }
 
 #error {
@@ -2725,7 +2735,6 @@
 .selected-font .bar {
   height: 0.3vh;
   margin-top: 0.3vh;
-  transition: width 1s, height 0.1s;
 }
 
 .tab {
