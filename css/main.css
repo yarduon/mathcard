@@ -287,6 +287,10 @@
   width: 4.5vh;
 }
 
+.semi-large-icon {
+  width: 9vh;
+}
+
 .huge-icon {
   width: 11vh;
 }
@@ -1129,8 +1133,14 @@
 }
 
 .normal-black-icon,
-.qr-icon:hover .huge-icon {
+.qr-icon:hover .huge-icon,
+.sub-qr-icon:hover .semi-large-icon {
   color: rgb(29, 28, 28);
+}
+
+.qr-icon,
+.sub-qr-icon {
+  transition: background-color 0.3s;
 }
 
 .normal-black-border-full {
@@ -2613,12 +2623,25 @@
 .qr-icon {
   width: 50vh;
   height: 40vh;
-  transition: background-color 0.3s;
 }
 
 .qr-result-container {
   width: 90%;
   height: 30vh;
+}
+
+.qr-result-subcontainer{
+  width: 30%;
+}
+
+#qr-result{
+  width: 60%;
+  height: 14.5vh;
+}
+
+.sub-qr-icon {
+  width: 15vh;
+  height: 15vh;
 }
 
 #error {
