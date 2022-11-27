@@ -2630,11 +2630,11 @@
   height: 30vh;
 }
 
-.qr-result-subcontainer{
+.qr-result-subcontainer {
   width: 30%;
 }
 
-#qr-result{
+#qr-result {
   width: 60%;
   height: 14.5vh;
 }
@@ -2650,7 +2650,7 @@
 }
 
 #reader {
-  width: 700px;
+  width: 500px;
 }
 
 .line {
