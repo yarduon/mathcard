@@ -110,7 +110,7 @@ export function changeFont(container, newFont, fonts) {
 }
 
 export function changeElement(currentElement, currentColor) {
-  swapClasses(currentColor.id + "-icon", "icon", currentElement);
+  swapClasses(currentColor.id + "-bar", "bar", currentElement);
 }
 
 export function getJSON(jsonName, mainField, secondaryField, tertiaryField) {

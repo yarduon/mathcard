@@ -1132,7 +1132,7 @@ Array.from(customizationButtons).forEach((e) => {
   e.addEventListener("click", () => {
     // Reset highlight from all elements
     removeClass("selected-element", ...customizationButtons);
-    swapClasses("pastel-white-icon", "icon", ...customizationButtons);
+    swapClasses("pastel-white-bar", "bar", ...customizationButtons);
 
     // Change and highlight selected element according selected color
     addClass("selected-element", document.getElementById(e.id));
@@ -1190,8 +1190,8 @@ Array.from(document.getElementsByClassName("color")).forEach((e) => {
 
     // Change and highlight selected element
     swapClasses(
-      e.id + "-icon",
-      "icon",
+      e.id + "-bar",
+      "bar",
       ...document.getElementsByClassName("selected-element")
     );
 
