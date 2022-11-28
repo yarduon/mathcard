@@ -2634,8 +2634,8 @@
 }
 
 .qr-icon {
-  width: 50vh;
-  height: 40vh;
+  width: 40vh;
+  height: 35vh;
   transition: background-color 0.3s;
 }
 
@@ -2754,7 +2754,7 @@
 
 .selected-element + .bar {
   height: 0.43vh;
-  margin-top: .2vh;
+  margin-top: 0.2vh;
   transition: width 1s, height 0.1s, background-color 0.5s;
 }
 
