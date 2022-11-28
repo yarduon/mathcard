@@ -38,7 +38,8 @@
 }
 
 .colors-container,
-.tab {
+.tab,
+.reset {
   bottom: 0;
 }
 
@@ -63,7 +64,8 @@
 }
 
 .right-arrow,
-.tab-confirm {
+.tab-confirm,
+.reset {
   right: 0;
 }
 

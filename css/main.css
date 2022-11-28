@@ -2376,6 +2376,10 @@
   text-align: center;
 }
 
+.small-size {
+  font-size: 1vh;
+}
+
 .medium-text {
   font-size: var(--medium-text);
 }
@@ -2765,4 +2769,9 @@
 .color {
   border: 0.3vh solid black;
   margin: 0.6vh;
+}
+
+.reset {
+  padding: 1.5vh;
+  margin: 0 2vh 2vh 0;
 }
