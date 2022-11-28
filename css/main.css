@@ -368,6 +368,10 @@
   transform: rotate(180deg);
 }
 
+.arise {
+  transform: rotate(90deg);
+}
+
 .invisible {
   opacity: 0;
 }
