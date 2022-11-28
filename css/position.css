@@ -39,6 +39,7 @@
 
 .colors-container,
 .tab,
+.extra-data-container,
 .reset {
   bottom: 0;
 }
@@ -54,7 +55,8 @@
 }
 
 .invisible,
-.tab-modify {
+.tab-modify,
+.extra-data-container {
   left: 0;
 }
 

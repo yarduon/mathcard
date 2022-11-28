@@ -2399,7 +2399,7 @@
   text-align: center;
 }
 
-.small-size {
+.small-text {
   font-size: 1vh;
 }
 
@@ -2778,6 +2778,21 @@
 .color {
   border: 0.3vh solid black;
   margin: 0.6vh;
+}
+
+.extra-data-container {
+  margin: 0 0 2vh 2vh;
+}
+
+.penguin-logo {
+  margin-top: 0.6vh;
+  width: 5.5vh;
+}
+
+.vertical-line {
+  margin: 0 1vh 0 1vh;
+  width: 0.3vh;
+  height: 5vh;
 }
 
 .reset {
