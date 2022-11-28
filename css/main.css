@@ -2795,6 +2795,10 @@
   height: 5vh;
 }
 
+.credits {
+  margin-bottom: 2vh;
+}
+
 .reset {
   padding: 1.5vh;
   margin: 0 2vh 2vh 0;
