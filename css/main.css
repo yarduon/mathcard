@@ -55,6 +55,11 @@
   width: 20vh;
 }
 
+.sub-qr-icon,
+.background-icon {
+  width: 24vh;
+}
+
 .large-icon,
 .arrow {
   width: 4.5vh;
@@ -66,7 +71,8 @@
 }
 
 .qr-result,
-.sub-qr-icon {
+.sub-qr-icon,
+.background-icon {
   height: 24vh;
 }
 
@@ -297,6 +303,13 @@
   height: 5vh;
 }
 
+.qr-icon,
+.settings-icon {
+  width: 40vh;
+  height: 35vh;
+  transition: background-color 0.3s;
+}
+
 .selected-font .bar,
 .qr-result:hover .bar {
   transition: width 1s, height 0.1s;
@@ -305,6 +318,11 @@
 .light-touch:hover,
 .qr-result {
   background-color: rgba(255, 255, 255, 0.884);
+}
+
+.sub-qr-icon:hover,
+.background-icon:hover {
+  box-shadow: 0 0 0.01vh 0.6vh rgba(255, 255, 255, 0.884);
 }
 
 .half-width {
@@ -1159,7 +1177,8 @@
 }
 
 .normal-black-icon,
-.qr-icon:hover .huge-icon {
+.qr-icon:hover .huge-icon,
+.settings-icon:hover .huge-icon {
   color: rgb(29, 28, 28);
 }
 
@@ -2641,12 +2660,6 @@
   width: 87%;
 }
 
-.qr-icon {
-  width: 40vh;
-  height: 35vh;
-  transition: background-color 0.3s;
-}
-
 .qr-result-container {
   width: 90%;
   height: 30vh;
@@ -2654,14 +2667,6 @@
 
 .qr-result:hover .bar {
   height: 0.45vh;
-}
-
-.sub-qr-icon {
-  width: 24vh;
-}
-
-.sub-qr-icon:hover {
-  box-shadow: 0 0 0.01vh 0.6vh rgba(255, 255, 255, 0.884);
 }
 
 #error {
