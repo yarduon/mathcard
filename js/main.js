@@ -812,13 +812,13 @@ function useSlider(currentPosition, isRight, parentContainer) {
 
   if (isRight) {
     // Move to the right until value is of upper max value
-    if (currentPosition < 380) {
-      parentContainer.style.right = ++currentPosition + "vh";
+    if (currentPosition < 230) {
+      parentContainer.style.right = (currentPosition += 0.5) + "vh";
     }
   } else {
     // Move to the left until value is of below zero
     if (currentPosition > 0) {
-      parentContainer.style.right = --currentPosition + "vh";
+      parentContainer.style.right = (currentPosition -= 0.5) + "vh";
     }
   }
   // Save current position
