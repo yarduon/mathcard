@@ -2651,6 +2651,10 @@
   height: 4.3vh;
 }
 
+.cross {
+  height: 5vh;
+}
+
 .qr {
   width: 6vh;
   height: 6vh;
@@ -2781,16 +2785,17 @@
 }
 
 .extra-data-container {
-  margin: 0 0 2vh 2vh;
+  height: 6vh;
+  margin: 0vh 0vh 2vh 2vh;
 }
 
 .penguin-logo {
-  margin-top: 0.6vh;
+  margin-top: 0.5vh;
   width: 5.5vh;
 }
 
 .vertical-line {
-  margin: 0 1vh 0 1vh;
+  margin: 0 1.2vh 0 1.2vh;
   width: 0.3vh;
   height: 5vh;
 }
