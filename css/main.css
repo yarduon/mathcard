@@ -315,7 +315,7 @@
 .font-families,
 .palette {
   width: 450vh;
-  transition: right 0.4s;
+  transition: right 0.2s linear;
 }
 
 .qr-icon,
@@ -2670,9 +2670,18 @@
   width: 87%;
 }
 
-.qr-result-container {
-  width: 90%;
-  height: 30vh;
+.qr-icon {
+  margin: 5vh 18vh 5vh 18vh;
+}
+
+.qr-result,
+.result-options-container {
+  width: 55vh;
+}
+
+.sub-qr-icon,
+.qr-result {
+  margin: 2vh 2vh 2vh 2vh;
 }
 
 .qr-result:hover .bar {
@@ -2786,8 +2795,16 @@
 }
 
 .color {
-  border: 0.3vh solid black;
   margin: 0.6vh;
+}
+
+.selected-color,
+.color:hover {
+  border: 0.3vh solid black;
+}
+
+.settings-icon {
+  margin: 3vh 8vh 3vh 8vh;
 }
 
 .extra-data-container {
@@ -2805,7 +2822,12 @@
 }
 
 .credits {
+  height: 2.5vh;
   margin-bottom: 2.3vh;
+}
+
+.background-icon{
+  margin: 4vh 6vh 4vh 6vh;
 }
 
 .reset {

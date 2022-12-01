@@ -1250,6 +1250,7 @@ arrows.forEach((e, i) => {
         e.parentNode.children[1]
       );
     }, 100);
+    u;
   });
 });
 

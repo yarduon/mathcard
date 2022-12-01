@@ -1,4 +1,80 @@
 /* https://yarduon.com */
+@media screen and (max-width: 1200px) {
+  .qr-options,
+  .settings-options,
+  .qr-result-container {
+    flex-direction: column;
+  }
+
+  .qr-result,
+  .result-options-container {
+    width: 37vh;
+  }
+
+  .hidden-t {
+    display: none;
+  }
+
+  .semi-normal-text {
+    font-size: 1.6vh;
+  }
+
+  .semi-max-icon {
+    width: 6vh;
+  }
+
+  .huge-icon {
+    width: 8vh;
+  }
+
+  .qr-icon {
+    margin: 6vh 0 6vh 0;
+    width: 30vh;
+    height: 28vh;
+  }
+
+  .result-options-container {
+    justify-content: flex-end;
+  }
+
+  .qr-result {
+    height: 18vh;
+  }
+
+  .sub-qr-icon {
+    width: 10vh;
+    height: 10vh;
+    margin: 0vh 1vh 0vh 1vh;
+  }
+
+  .sub-qr-icon:nth-child(2) {
+    margin-right: 0;
+  }
+
+  .settings-options {
+    margin-bottom: 4vh;
+  }
+
+  .settings-icon {
+    width: 20vh;
+    height: 20vh;
+    margin: 4vh 0 4vh 0;
+  }
+
+  .background-icon {
+    width: 15vh;
+    height: 15vh;
+    margin: 3vh 4vh 3vh 4vh;
+  }
+
+  .credits {
+    top: 0;
+    left: 0;
+    margin: 1.5vh 0 0 1.5vh;
+    text-transform: capitalize;
+  }
+}
+
 @media screen and (max-width: 390px) {
   .top-calculator,
   .line {
@@ -10,6 +86,11 @@
   .logo,
   .font {
     font-size: 2.6vh;
+  }
+
+  .calc,
+  .line {
+    width: 100%;
   }
 
   .screen,
@@ -55,12 +136,12 @@
     bottom: 1.7%;
   }
 
-  .medium-text {
-    font-size: 2vh;
+  .hidden-m {
+    display: none;
   }
 
-  .calc {
-    width: 100%;
+  .medium-text {
+    font-size: 2vh;
   }
 
   .top-calculator {

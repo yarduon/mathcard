@@ -1009,7 +1009,7 @@
             </g>
           </svg>
         </button>
-        <div class="qr-options max-width flex justify-around align-center wrap">
+        <div class="qr-options max-width flex justify-center align-center wrap">
           <button
             class="qr-icon flex justify-center align-center round-border-full touch light-touch pastel-white-icon light-black-background"
             id="camera"
@@ -1058,7 +1058,7 @@
           </div>
           <div class="hidden" id="reader"></div>
           <div
-            class="qr-result-container large-text hidden flex justify-around align-center wrap"
+            class="qr-result-container max-width max-height large-text hidden flex justify-center align-center"
             id="qr-result-container"
           >
             <div
@@ -1073,44 +1073,48 @@
                 <div class="bar normal-black-background"></div>
               </button>
             </div>
-            <button
-              class="sub-qr-icon flex justify-center align-center round-border-full touch pastel-white-icon light-black-background"
-              id="clipboard"
+            <div
+              class="result-options-container flex justify-center align-center"
             >
-              <svg
-                class="semi-max-icon"
-                viewBox="0 0 88.635 83.344"
-                xmlns="http://www.w3.org/2000/svg"
+              <button
+                class="sub-qr-icon flex justify-center align-center round-border-full touch pastel-white-icon light-black-background"
+                id="clipboard"
               >
-                <g transform="translate(-1.9844 -4.6302)">
-                  <g transform="matrix(.70863 0 0 .70863 -54.999 -33)"></g>
-                  <g transform="matrix(.70863 0 0 .70863 -30.093 -52.6)">
-                    <path
-                      d="m90.951 83.105c-4.5444 0-8.2035 3.6591-8.2035 8.2035l0.11568 24.036 7.3708-9e-3v-17.982c0-3.7464 3.0161-6.7625 6.7625-6.7625h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625l-21.872-3.8e-4v7.4865l27.918 3.8e-4c4.5444 6e-5 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm-35.146 27.659c-4.5444 0-8.2035 3.6591-8.2035 8.2035v68.857c0 4.5444 3.6591 8.2035 8.2035 8.2035h68.857c4.5444 0 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm6.0455 7.4865h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625h-56.766c-3.7464 0-6.7625-3.0161-6.7625-6.7625v-56.766c0-3.7464 3.0161-6.7625 6.7625-6.7625z"
-                      fill="currentColor"
-                      stroke-width="49.63"
-                    />
+                <svg
+                  class="semi-max-icon"
+                  viewBox="0 0 88.635 83.344"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g transform="translate(-1.9844 -4.6302)">
+                    <g transform="matrix(.70863 0 0 .70863 -54.999 -33)"></g>
+                    <g transform="matrix(.70863 0 0 .70863 -30.093 -52.6)">
+                      <path
+                        d="m90.951 83.105c-4.5444 0-8.2035 3.6591-8.2035 8.2035l0.11568 24.036 7.3708-9e-3v-17.982c0-3.7464 3.0161-6.7625 6.7625-6.7625h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625l-21.872-3.8e-4v7.4865l27.918 3.8e-4c4.5444 6e-5 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm-35.146 27.659c-4.5444 0-8.2035 3.6591-8.2035 8.2035v68.857c0 4.5444 3.6591 8.2035 8.2035 8.2035h68.857c4.5444 0 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm6.0455 7.4865h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625h-56.766c-3.7464 0-6.7625-3.0161-6.7625-6.7625v-56.766c0-3.7464 3.0161-6.7625 6.7625-6.7625z"
+                        fill="currentColor"
+                        stroke-width="49.63"
+                      />
+                    </g>
                   </g>
-                </g>
-              </svg>
-            </button>
-            <button
-              class="sub-qr-icon flex justify-center align-center round-border-full touch pastel-white-icon light-black-background"
-              id="link"
-            >
-              <svg
-                class="semi-max-icon"
-                viewBox="0 0 83.344 82.55"
-                xmlns="http://www.w3.org/2000/svg"
+                </svg>
+              </button>
+              <button
+                class="sub-qr-icon flex justify-center align-center round-border-full touch pastel-white-icon light-black-background"
+                id="link"
               >
-                <path
-                  d="m62.575 41.193c0 21.116-9.3588 38.235-20.904 38.235s-20.904-17.118-20.904-38.235 9.3588-38.235 20.904-38.235 20.904 17.118 20.904 38.235zm-20.014 38.594-1.8913-0.01084 0.19013-76.145 1.8152 0.019199zm38.204-38.511c0 21.397-17.503 38.742-39.094 38.742-21.591 0-39.094-17.346-39.094-38.742-3e-7 -21.397 17.503-38.742 39.094-38.742 21.591 0 39.094 17.346 39.094 38.742zm-0.57009-0.67658 0.10327 1.44-77.268-0.05764 0.13196-1.4687zm-5.2919 18.259-0.12962 1.4346-65.977-0.015-0.5393-1.5057zm0.22864-35.981 0.08965 1.4346-67.078-0.05743 0.11456-1.4633z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="4.5695"
-                />
-              </svg>
-            </button>
+                <svg
+                  class="semi-max-icon"
+                  viewBox="0 0 83.344 82.55"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m62.575 41.193c0 21.116-9.3588 38.235-20.904 38.235s-20.904-17.118-20.904-38.235 9.3588-38.235 20.904-38.235 20.904 17.118 20.904 38.235zm-20.014 38.594-1.8913-0.01084 0.19013-76.145 1.8152 0.019199zm38.204-38.511c0 21.397-17.503 38.742-39.094 38.742-21.591 0-39.094-17.346-39.094-38.742-3e-7 -21.397 17.503-38.742 39.094-38.742 21.591 0 39.094 17.346 39.094 38.742zm-0.57009-0.67658 0.10327 1.44-77.268-0.05764 0.13196-1.4687zm-5.2919 18.259-0.12962 1.4346-65.977-0.015-0.5393-1.5057zm0.22864-35.981 0.08965 1.4346-67.078-0.05743 0.11456-1.4633z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="4.5695"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -1144,68 +1148,70 @@
           </svg>
         </button>
         <article
-          class="max-width max-height absolute flex wrap justify-around align-center pastel-white-icon black-background"
+          class="settings-options-container max-width max-height absolute flex wrap justify-center align-center pastel-white-icon black-background"
           id="settings-options"
         >
-          <button
-            class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon"
-            id="upload-settings"
-          >
-            <input id="settings-input" class="hidden" type="file" />
-            <svg
-              class="huge-icon"
-              viewBox="0 0 82.021 82.021"
-              xmlns="http://www.w3.org/2000/svg"
+          <div class="settings-options flex wrap justify-center align-center">
+            <button
+              class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon"
+              id="upload-settings"
             >
-              <g transform="translate(0 -6.8792)">
-                <path
-                  d="m24.685 52.61h32.651c1.3652 0 2.4643 1.0991 2.4643 2.4643s-1.0991 2.4643-2.4643 2.4643h-32.651c-1.3652 0-2.4643-1.0991-2.4643-2.4643s1.0991-2.4643 2.4643-2.4643zm0 10.91h32.651c1.3652 0 2.4643 1.0991 2.4643 2.4643s-1.0991 2.4643-2.4643 2.4643h-32.651c-1.3652 0-2.4643-1.0991-2.4643-2.4643s1.0991-2.4643 2.4643-2.4643zm20.73-47.466h7.7514v14.794h-7.7514zm-38.628-7.5737c-2.8721 0-5.1852 2.3124-5.1852 5.1845v68.448c0 2.8721 2.313 5.1845 5.1852 5.1845h68.448c2.8722 0 5.1845-2.3124 5.1845-5.1845v-59.315l-13-14.318zm16.612 5.5141h32.435c0.96443 0 1.7407 0.77622 1.7407 1.7407v15.569c0 0.96443-0.77622 1.7413-1.7407 1.7413h-32.435c-0.96443 0-1.7407-0.77688-1.7407-1.7413v-15.569c0-0.96443 0.77622-1.7407 1.7407-1.7407zm-5.2009 32.679h45.625v34.704h-45.625z"
-                  stroke-width="28.541"
-                  fill="currentColor"
-                />
-              </g>
-            </svg>
-          </button>
-          <button
-            class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon"
-            id="download-settings"
-          >
-            <svg
-              class="huge-icon"
-              viewBox="0 0 68.792 82.021"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g transform="matrix(2.0858 0 0 2.0858 -58.042 -51.012)">
-                <g transform="translate(0 -.52917)">
+              <input id="settings-input" class="hidden" type="file" />
+              <svg
+                class="huge-icon"
+                viewBox="0 0 82.021 82.021"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="translate(0 -6.8792)">
                   <path
-                    d="m43.132 25.484h2.3715c1.0507 0 1.8965 0.84584 1.8965 1.8965v16.942c0 1.0507-0.84583 1.8965-1.8965 1.8965h-2.3715c-1.0507 0-1.8965-0.84584-1.8965-1.8965v-16.942c0-1.0507 0.84584-1.8965 1.8965-1.8965zm1.1858 31.63-9.6882-13.743 19.376-4e-6zm15.834 4.053v1.4189c0 0.67974-0.54723 1.227-1.227 1.227h-29.215c-0.67974 0-1.227-0.54723-1.227-1.227v-1.4189c0-0.67974 0.54723-1.227 1.227-1.227h29.215c0.67974 0 1.227 0.54723 1.227 1.227zm-3.0468-10.771h2.2208c0.45759 0 0.82597 0.36838 0.82597 0.82597v11.235c0 0.45759-0.36838 0.82597-0.82597 0.82597h-2.2208c-0.45759 0-0.82597-0.36838-0.82597-0.82597v-11.235c0-0.45759 0.36838-0.82597 0.82597-0.82597zm-27.796 0h2.2208c0.45759 0 0.82597 0.36838 0.82597 0.82597v11.235c0 0.45759-0.36838 0.82597-0.82597 0.82597h-2.2208c-0.45759 0-0.82597-0.36838-0.82597-0.82597v-11.235c0-0.45759 0.36838-0.82597 0.82597-0.82597z"
-                    stroke-width="14.865"
+                    d="m24.685 52.61h32.651c1.3652 0 2.4643 1.0991 2.4643 2.4643s-1.0991 2.4643-2.4643 2.4643h-32.651c-1.3652 0-2.4643-1.0991-2.4643-2.4643s1.0991-2.4643 2.4643-2.4643zm0 10.91h32.651c1.3652 0 2.4643 1.0991 2.4643 2.4643s-1.0991 2.4643-2.4643 2.4643h-32.651c-1.3652 0-2.4643-1.0991-2.4643-2.4643s1.0991-2.4643 2.4643-2.4643zm20.73-47.466h7.7514v14.794h-7.7514zm-38.628-7.5737c-2.8721 0-5.1852 2.3124-5.1852 5.1845v68.448c0 2.8721 2.313 5.1845 5.1852 5.1845h68.448c2.8722 0 5.1845-2.3124 5.1845-5.1845v-59.315l-13-14.318zm16.612 5.5141h32.435c0.96443 0 1.7407 0.77622 1.7407 1.7407v15.569c0 0.96443-0.77622 1.7413-1.7407 1.7413h-32.435c-0.96443 0-1.7407-0.77688-1.7407-1.7413v-15.569c0-0.96443 0.77622-1.7407 1.7407-1.7407zm-5.2009 32.679h45.625v34.704h-45.625z"
+                    stroke-width="28.541"
                     fill="currentColor"
                   />
                 </g>
-              </g>
-            </svg>
-          </button>
-          <button
-            class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon"
-            id="change-background"
-          >
-            <svg
-              class="huge-icon"
-              viewBox="0 0 71.437 71.438"
-              xmlns="http://www.w3.org/2000/svg"
+              </svg>
+            </button>
+            <button
+              class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon"
+              id="download-settings"
             >
-              <g transform="matrix(1.1762 0 0 1.1762 -18.741 -18.741)">
-                <path
-                  d="m50.554 26.673 15.659 28.73h-31.318zm-15.922 14.548 8.2358 14.182h-16.472zm-8.2358 14.182h39.817v1e-6zm8.2358-24.622a4.1179 4.1179 0 0 1-4.1179 4.1179 4.1179 4.1179 0 0 1-4.1179-4.1179 4.1179 4.1179 0 0 1 4.1179-4.1179 4.1179 4.1179 0 0 1 4.1179 4.1179zm-16.58-13.956c-0.67974 0-1.2268 0.54706-1.2268 1.2268v56.501c0 0.67974 0.54706 1.2268 1.2268 1.2268h56.501c0.67974 0 1.2268-0.54706 1.2268-1.2268v-56.501c0-0.67974-0.54706-1.2268-1.2268-1.2268zm5.1826 5.9108h46.136c0.42142 0 0.76068 0.33926 0.76068 0.76068v35.028c0 0.42142-0.33926 0.76068-0.76068 0.76068h-46.136c-0.42142 0-0.76068-0.33926-0.76068-0.76068v-35.028c0-0.42142 0.33926-0.76068 0.76068-0.76068z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="7.101"
-                  fill="currentColor"
-                />
-              </g>
-            </svg>
-          </button>
+              <svg
+                class="huge-icon"
+                viewBox="0 0 68.792 82.021"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(2.0858 0 0 2.0858 -58.042 -51.012)">
+                  <g transform="translate(0 -.52917)">
+                    <path
+                      d="m43.132 25.484h2.3715c1.0507 0 1.8965 0.84584 1.8965 1.8965v16.942c0 1.0507-0.84583 1.8965-1.8965 1.8965h-2.3715c-1.0507 0-1.8965-0.84584-1.8965-1.8965v-16.942c0-1.0507 0.84584-1.8965 1.8965-1.8965zm1.1858 31.63-9.6882-13.743 19.376-4e-6zm15.834 4.053v1.4189c0 0.67974-0.54723 1.227-1.227 1.227h-29.215c-0.67974 0-1.227-0.54723-1.227-1.227v-1.4189c0-0.67974 0.54723-1.227 1.227-1.227h29.215c0.67974 0 1.227 0.54723 1.227 1.227zm-3.0468-10.771h2.2208c0.45759 0 0.82597 0.36838 0.82597 0.82597v11.235c0 0.45759-0.36838 0.82597-0.82597 0.82597h-2.2208c-0.45759 0-0.82597-0.36838-0.82597-0.82597v-11.235c0-0.45759 0.36838-0.82597 0.82597-0.82597zm-27.796 0h2.2208c0.45759 0 0.82597 0.36838 0.82597 0.82597v11.235c0 0.45759-0.36838 0.82597-0.82597 0.82597h-2.2208c-0.45759 0-0.82597-0.36838-0.82597-0.82597v-11.235c0-0.45759 0.36838-0.82597 0.82597-0.82597z"
+                      stroke-width="14.865"
+                      fill="currentColor"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button
+              class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon hidden-m"
+              id="change-background"
+            >
+              <svg
+                class="huge-icon"
+                viewBox="0 0 71.437 71.438"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(1.1762 0 0 1.1762 -18.741 -18.741)">
+                  <path
+                    d="m50.554 26.673 15.659 28.73h-31.318zm-15.922 14.548 8.2358 14.182h-16.472zm-8.2358 14.182h39.817v1e-6zm8.2358-24.622a4.1179 4.1179 0 0 1-4.1179 4.1179 4.1179 4.1179 0 0 1-4.1179-4.1179 4.1179 4.1179 0 0 1 4.1179-4.1179 4.1179 4.1179 0 0 1 4.1179 4.1179zm-16.58-13.956c-0.67974 0-1.2268 0.54706-1.2268 1.2268v56.501c0 0.67974 0.54706 1.2268 1.2268 1.2268h56.501c0.67974 0 1.2268-0.54706 1.2268-1.2268v-56.501c0-0.67974-0.54706-1.2268-1.2268-1.2268zm5.1826 5.9108h46.136c0.42142 0 0.76068 0.33926 0.76068 0.76068v35.028c0 0.42142-0.33926 0.76068-0.76068 0.76068h-46.136c-0.42142 0-0.76068-0.33926-0.76068-0.76068v-35.028c0-0.42142 0.33926-0.76068 0.76068-0.76068z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="7.101"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
           <button
             class="reset absolute touch round-border-full light-opacity medium-text round-border full-red-background pastel-white-icon"
             id="reset-settings"
@@ -1259,7 +1265,7 @@
             </div>
           </div>
           <p class="credits semi-normal-text pastel-white-icon absolute">
-            Developed using
+            <span class="hidden-t">Developed</span> using
             <a
               class="light-red-icon light-opacity"
               href="https://www.exchangerate-api.com"
@@ -1274,89 +1280,91 @@
           </p>
         </article>
         <article
-          class="hidden max-width max-height absolute flex wrap justify-around align-center black-background"
+          class="hidden max-width max-height absolute flex wrap justify-center align-center black-background"
           id="background-menu"
         >
-          <button
-            class="background-icon touch round-border-full light-black-background pastel-white-icon"
-            id="original"
-          >
-            <svg
-              class="huge-icon"
-              viewBox="0 0 92.604 87.312"
-              xmlns="http://www.w3.org/2000/svg"
+          <div class="background-options flex wrap justify-center align-center">
+            <button
+              class="background-icon touch round-border-full light-black-background pastel-white-icon"
+              id="original"
             >
-              <g transform="matrix(1.1177 0 0 1.1177 1.2592 .8873)">
-                <path
-                  d="m80.602 21.182-34.224 18.091 17.579 37.26h16.646zm-53.066-21.182 53.066-1.6287e-6 3e-6 14.962-36.824 19.465zm-27.535 76.533v-76.533l22.031 2e-6 36.107 76.533z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="5.3106"
-                  fill="currentColor"
-                />
-              </g>
-            </svg>
-          </button>
-          <button
-            class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
-            id="original-reverse"
-          >
-            <svg
-              class="huge-icon rotate"
-              viewBox="0 0 92.604 87.312"
-              xmlns="http://www.w3.org/2000/svg"
+              <svg
+                class="huge-icon"
+                viewBox="0 0 92.604 87.312"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(1.1177 0 0 1.1177 1.2592 .8873)">
+                  <path
+                    d="m80.602 21.182-34.224 18.091 17.579 37.26h16.646zm-53.066-21.182 53.066-1.6287e-6 3e-6 14.962-36.824 19.465zm-27.535 76.533v-76.533l22.031 2e-6 36.107 76.533z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="5.3106"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button
+              class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
+              id="original-reverse"
             >
-              <g transform="matrix(1.1177 0 0 1.1177 1.2592 .8873)">
-                <path
-                  d="m80.602 21.182-34.224 18.091 17.579 37.26h16.646zm-53.066-21.182 53.066-1.6287e-6 3e-6 14.962-36.824 19.465zm-27.535 76.533v-76.533l22.031 2e-6 36.107 76.533z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="5.3106"
-                  fill="currentColor"
-                />
-              </g>
-            </svg>
-          </button>
-          <button
-            class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
-            id="split"
-          >
-            <svg
-              class="huge-icon arise"
-              viewBox="0 0 92.604 87.312"
-              xmlns="http://www.w3.org/2000/svg"
+              <svg
+                class="huge-icon rotate"
+                viewBox="0 0 92.604 87.312"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(1.1177 0 0 1.1177 1.2592 .8873)">
+                  <path
+                    d="m80.602 21.182-34.224 18.091 17.579 37.26h16.646zm-53.066-21.182 53.066-1.6287e-6 3e-6 14.962-36.824 19.465zm-27.535 76.533v-76.533l22.031 2e-6 36.107 76.533z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="5.3106"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button
+              class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
+              id="split"
             >
-              <g transform="matrix(.97705 0 0 .97705 1.0627 1.002)">
-                <path
-                  d="m2.0117e-6 -1.7e-6h92.604v40.732h-92.604zm1.803e-6 46.581h92.604v40.732h-92.604z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="6.6602"
-                  fill="currentColor"
-                />
-              </g>
-            </svg>
-          </button>
-          <button
-            class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
-            id="split-reverse"
-          >
-            <svg
-              class="huge-icon"
-              viewBox="0 0 92.604 87.312"
-              xmlns="http://www.w3.org/2000/svg"
+              <svg
+                class="huge-icon arise"
+                viewBox="0 0 92.604 87.312"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(.97705 0 0 .97705 1.0627 1.002)">
+                  <path
+                    d="m2.0117e-6 -1.7e-6h92.604v40.732h-92.604zm1.803e-6 46.581h92.604v40.732h-92.604z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="6.6602"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button
+              class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
+              id="split-reverse"
             >
-              <g transform="matrix(.97705 0 0 .97705 1.0627 1.002)">
-                <path
-                  d="m2.0117e-6 -1.7e-6h92.604v40.732h-92.604zm1.803e-6 46.581h92.604v40.732h-92.604z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="6.6602"
-                  fill="currentColor"
-                />
-              </g>
-            </svg>
-          </button>
+              <svg
+                class="huge-icon"
+                viewBox="0 0 92.604 87.312"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(.97705 0 0 .97705 1.0627 1.002)">
+                  <path
+                    d="m2.0117e-6 -1.7e-6h92.604v40.732h-92.604zm1.803e-6 46.581h92.604v40.732h-92.604z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="6.6602"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
         </article>
       </section>
       <p
