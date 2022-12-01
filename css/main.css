@@ -2786,11 +2786,10 @@
 
 .extra-data-container {
   height: 6vh;
-  margin: 0vh 0vh 2vh 2vh;
+  margin: 0vh 0vh 2.1vh 2vh;
 }
 
 .penguin-logo {
-  margin-top: 0.5vh;
   width: 5.5vh;
 }
 
@@ -2801,10 +2800,10 @@
 }
 
 .credits {
-  margin-bottom: 2vh;
+  margin-bottom: 2.3vh;
 }
 
 .reset {
   padding: 1.5vh;
-  margin: 0 2vh 2vh 0;
+  margin: 0 2vh 2.6vh 0;
 }
