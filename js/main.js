@@ -1271,10 +1271,15 @@ document.getElementById("settings").addEventListener("click", () => {
   }
 });
 
-// Close settings menu
+// Close settings menu and hide modal window
 document.getElementById("close-settings").addEventListener("click", () => {
-  addClass("hidden", document.getElementById("settings-menu"));
-  addClass("hidden", document.getElementById("background-menu"));
+  addClass(
+    "hidden",
+    document.getElementById("settings-menu"),
+    document.getElementById("background-menu"),
+    document.getElementById("opacity"),
+    document.getElementById("modal")
+  );
 });
 
 // Upload settings file
@@ -1328,8 +1333,26 @@ Array.from(backgroundOptions).forEach((e) => {
   });
 });
 
-// Reset all settings and refresh
+// Show modal window
 document.getElementById("reset-settings").addEventListener("click", () => {
+  removeClass(
+    "hidden",
+    document.getElementById("modal"),
+    document.getElementById("opacity")
+  );
+});
+
+// Reset all settings and refresh
+document.getElementById("delete").addEventListener("click", () => {
   localStorage.removeItem("settings");
   window.location.reload();
+});
+
+// Hide modal window
+document.getElementById("cancel").addEventListener("click", () => {
+  addClass(
+    "hidden",
+    document.getElementById("modal"),
+    document.getElementById("opacity")
+  );
 });

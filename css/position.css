@@ -17,11 +17,13 @@
 .customization,
 .arrow,
 #error,
-#close-settings {
+#close-settings,
+.opacity-container {
   z-index: 4;
 }
 
-.custom {
+.custom,
+.modal-window {
   z-index: 5;
 }
 

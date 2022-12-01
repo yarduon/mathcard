@@ -1118,6 +1118,10 @@
         class="options-container max-width max-height absolute hidden black-background"
         id="settings-menu"
       >
+        <div
+          class="opacity-container black-background absolute max-width max-height hidden"
+          id="opacity"
+        ></div>
         <button
           class="cross flex justify-center align-center pastel-white-icon absolute touch light-opacity"
           id="close-settings"
@@ -1208,6 +1212,30 @@
           >
             Wipe all data
           </button>
+          <div
+            class="modal-window round-border-full absolute normal-black-background hidden"
+            id="modal"
+          >
+            <p
+              class="modal-message flex justify-center align-center medium-text"
+            >
+              Are you sure you want to delete all data?
+            </p>
+            <div class="modal-buttons flex max-width">
+              <button
+                class="modal-cancel medium-text half-width touch light-opacity full-grey-background pastel-white-icon"
+                id="cancel"
+              >
+                Cancel
+              </button>
+              <button
+                class="modal-delete medium-text half-width touch light-opacity full-red-background pastel-white-icon"
+                id="delete"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
           <div
             class="extra-data-container flex justify-center align-center absolute"
           >

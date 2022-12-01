@@ -6,6 +6,11 @@
   display: none;
 }
 
+.top-calculator,
+.modal-window {
+  height: 22vh;
+}
+
 .color,
 .settings,
 .edit,
@@ -41,7 +46,10 @@
 }
 
 .calc,
-.line {
+.line,
+.modal-window,
+.qr-icon,
+.settings-icon {
   width: 40vh;
 }
 
@@ -297,15 +305,21 @@
 }
 
 .font-families,
+.palette,
+.cross,
+.vertical-line,
+.modal-buttons {
+  height: 5vh;
+}
+
+.font-families,
 .palette {
   width: 450vh;
   transition: right 0.2s;
-  height: 5vh;
 }
 
 .qr-icon,
 .settings-icon {
-  width: 40vh;
   height: 35vh;
   transition: background-color 0.3s;
 }
@@ -2549,10 +2563,6 @@
   font-family: Ubuntu;
 }
 
-.top-calculator {
-  height: 22vh;
-}
-
 .screw {
   width: 2.9vh;
   height: 2.9vh;
@@ -2649,10 +2659,6 @@
 
 .extra-symbols .button {
   height: 4.3vh;
-}
-
-.cross {
-  height: 5vh;
 }
 
 .qr {
@@ -2796,7 +2802,6 @@
 .vertical-line {
   margin: 0 1.2vh 0 1.2vh;
   width: 0.3vh;
-  height: 5vh;
 }
 
 .credits {
@@ -2806,4 +2811,16 @@
 .reset {
   padding: 1.5vh;
   margin: 0 2vh 2.6vh 0;
+}
+
+.modal-message {
+  height: 17vh;
+}
+
+.modal-cancel {
+  border-bottom-left-radius: 1vh;
+}
+
+.modal-delete {
+  border-bottom-right-radius: 1vh;
 }
