@@ -653,7 +653,12 @@ function closeWindowQR(parentWindow) {
 
 function hideShowOptionsQR(isCamera, hidden) {
   // Show camera
-  if (isCamera) removeClass("hidden", document.getElementById("reader"));
+  if (isCamera)
+    removeClass(
+      "hidden",
+      document.getElementById("reader"),
+      document.getElementById("loading")
+    );
 
   // Hide or show options of QR reader
   hidden
@@ -699,7 +704,11 @@ function stateResultQR(result, scanner, isCamera) {
 
   // Hide camera
   if (isCamera) {
-    addClass("hidden", document.getElementById("reader"));
+    addClass(
+      "hidden",
+      document.getElementById("reader"),
+      document.getElementById("loading")
+    );
     scanner.stop();
   }
 }
