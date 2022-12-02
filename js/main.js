@@ -27,6 +27,7 @@ import {
 // Need to import JSON as JS without backend
 import settings from "../json/settings.js";
 import currencies from "../json/currencies.js";
+import languages from "../json/languages.js";
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("topScreen"),
@@ -87,6 +88,28 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
 
 let totalResult = 0,
   slide = 0;
+
+// Translate all items with the class translate
+function translatePage(items) {
+  // Check user navigator language
+  let navigatorLanguage = navigator.language || navigator.userLanguage;
+  // Change text of application if language is registered
+  for (let p in languages) {
+    // We only use the first letters to match variants
+    if (navigatorLanguage.includes(p)) {
+      // Change language on html tag
+      document.getElementById("language").lang = p;
+      // Fill texts with detected language
+      items.forEach((e, i) => {
+        if (e.nodeName === "INPUT") {
+          e.value = languages[p][i];
+        } else {
+          e.innerText = languages[p][i];
+        }
+      });
+    }
+  }
+}
 
 function loadSettings(settingsFile) {
   // Get all buttons and elements
@@ -597,17 +620,18 @@ async function updateRates(json, currentDate) {
 // Fill select input by using JSON and external API
 function fillSelect(json, values, select, symbol) {
   // Previous selected element on second select
-  let previousSelected = getCurrentSelectValue(currenciesSelect[1]);
+  let previousSelected = getCurrentSelectValue(currenciesSelect[1]),
+    currentLanguageSelect = json[document.getElementById("language").lang];
 
   // Reset previously saved values
   select.innerText = "";
 
-  Object.keys(json).forEach((e) => {
+  Object.keys(currentLanguageSelect).forEach((e) => {
     // Only when the value is different from the first select or second select is empty
     if (select.id === "firstCurrency" || currenciesSelect[0].value != e) {
       // Create option
       let option = document.createElement("option");
-      option.innerText = e + symbol + json[e];
+      option.innerText = e + symbol + currentLanguageSelect[e];
       option.value = e;
       option.setAttribute("currency", values.rates[e]);
       select.append(option);
@@ -675,6 +699,7 @@ function hideShowOptionsQR(isCamera, hidden) {
 }
 
 async function showError(error) {
+  console.log(error);
   // Get name of error
   let errorName = String(error).substring(0, String(error).indexOf(":"));
 
@@ -901,6 +926,9 @@ window.onload = async () => {
     localStorage.setItem("settings", JSON.stringify(settings));
     localStorage.setItem("templateLayout", JSON.stringify(settings));
   }
+
+  // Translate all texts
+  translatePage(Array.from(document.getElementsByClassName("translate")));
 
   // Activate or deactivate edit mode and change settings layout
   editMode()

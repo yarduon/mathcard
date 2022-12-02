@@ -1,6 +1,6 @@
 <!-- https://yarduon.com -->
 <!DOCTYPE html>
-<html class="flex max-width max-height" lang="en" translate="no">
+<html class="flex max-width max-height" lang="en" translate="no" id="language">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -1213,7 +1213,7 @@
             </button>
           </div>
           <button
-            class="reset absolute touch round-border-full light-opacity medium-text round-border full-red-background pastel-white-icon"
+            class="reset absolute touch round-border-full light-opacity medium-text round-border full-red-background pastel-white-icon translate"
             id="reset-settings"
           >
             Wipe all data
@@ -1223,19 +1223,19 @@
             id="modal"
           >
             <p
-              class="modal-message flex justify-center align-center medium-text"
+              class="modal-message flex justify-center align-center medium-text translate"
             >
               Are you sure you want to delete all data?
             </p>
             <div class="modal-buttons flex max-width">
               <button
-                class="modal-cancel medium-text half-width touch light-opacity pastel-black-background pastel-white-icon"
+                class="modal-cancel medium-text half-width touch light-opacity pastel-black-background pastel-white-icon translate"
                 id="cancel"
               >
                 Cancel
               </button>
               <button
-                class="modal-delete medium-text half-width touch light-opacity full-red-background pastel-white-icon"
+                class="modal-delete medium-text half-width touch light-opacity full-red-background pastel-white-icon translate"
                 id="delete"
               >
                 Delete
@@ -1265,13 +1265,14 @@
             </div>
           </div>
           <p class="credits semi-normal-text pastel-white-icon absolute">
-            <span class="hidden-t">Developed</span> using
+            <span class="hidden-t translate">Developed</span>
+            <span class="translate">using</span>
             <a
               class="light-red-icon light-opacity"
               href="https://www.exchangerate-api.com"
               >Exchange Rate API</a
             >
-            and
+            <span class="translate">and</span>
             <a
               class="light-blue-icon light-opacity"
               href="https://blog.minhazav.dev/"
@@ -1368,7 +1369,7 @@
         </article>
       </section>
       <p
-        class="container-error small-text absolute full-red-background pastel-white-icon"
+        class="container-error semi-normal-text absolute full-red-background pastel-white-icon"
         id="error"
       ></p>
       <p class="hidden translate" id="qr-not-found">

@@ -2413,10 +2413,6 @@
   text-align: center;
 }
 
-.small-text {
-  font-size: 1vh;
-}
-
 .medium-text {
   font-size: var(--medium-text);
 }
@@ -2674,6 +2670,10 @@
   margin: 5vh 18vh 5vh 18vh;
 }
 
+#reader{
+  width: 30%;
+}
+
 .qr-result,
 .result-options-container {
   width: 55vh;
@@ -2691,10 +2691,6 @@
 #error {
   transition: left 1s;
   padding: 1.5vh;
-}
-
-#reader {
-  width: 500px;
 }
 
 .line {
