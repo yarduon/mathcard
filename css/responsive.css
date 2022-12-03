@@ -111,6 +111,9 @@
     top: 0;
     left: 0;
     margin: 1.5vh 0 0 1.5vh;
+  }
+
+  .credits span:nth-of-type(2) {
     text-transform: capitalize;
   }
 }
