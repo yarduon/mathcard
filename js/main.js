@@ -982,6 +982,9 @@ window.onload = async () => {
 
   // Show currencies panel if was previously selected
   switchModes.checked = stringToBoolean(localStorage.getItem("currencyMode"));
+
+  // Hide initial screen
+  addClass("hidden", document.getElementById("initial-screen"));
 };
 
 // Detect pressed buttons

@@ -23,7 +23,8 @@
 }
 
 .custom,
-.modal-window {
+.modal-window,
+.initial-screen {
   z-index: 5;
 }
 
