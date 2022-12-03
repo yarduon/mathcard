@@ -1290,7 +1290,19 @@ arrows.forEach((e, i) => {
         e.parentNode.children[1]
       );
     }, 100);
-    u;
+  });
+});
+
+// Start slider when the arrow is touched
+arrows.forEach((e, i) => {
+  e.addEventListener("pointerdown", () => {
+    slide = setInterval(() => {
+      useSlider(
+        localStorage.getItem("position-" + e.parentNode.children[1].id),
+        e.id.includes("right"),
+        e.parentNode.children[1]
+      );
+    }, 100);
   });
 });
 
@@ -1301,6 +1313,13 @@ arrows.forEach((e) => {
   });
   // Avoid infinite scroll when dragging mouse out of arrows area
   e.addEventListener("mouseleave", () => {
+    clearInterval(slide);
+  });
+});
+
+// Stop slider when mouse is not pressed
+arrows.forEach((e) => {
+  e.addEventListener("pointerup", () => {
     clearInterval(slide);
   });
 });
