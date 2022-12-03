@@ -87,6 +87,13 @@
   height: 24vh;
 }
 
+.tab-modify,
+.tab-confirm,
+.tab-minimize {
+  height: 7.8vh;
+  padding: 1.5vh 0.5vh 1vh 0.5vh;
+}
+
 .logo-container,
 .select,
 .element {
@@ -96,12 +103,6 @@
 .fonts-container,
 .colors-container {
   padding: 0.2vh 0 0.2vh 0;
-}
-
-.tab-confirm,
-.tab-modify,
-.tab-minimize {
-  padding: 1.5vh 0.5vh 1vh 0.5vh;
 }
 
 .fredoka-one .logo,
@@ -343,6 +344,16 @@
   box-shadow: 0 0 0.01vh 0.6vh rgba(255, 255, 255, 0.884);
 }
 
+.tab-confirm,
+.open-tabs {
+  border-top-left-radius: 1.5vh;
+}
+
+.light-opacity:hover,
+.arrow:hover .small-icon {
+  opacity: 0.7;
+}
+
 .half-width {
   width: 50%;
 }
@@ -426,10 +437,6 @@
 
 .touch:hover {
   cursor: pointer;
-}
-
-.light-opacity:hover {
-  opacity: 0.7;
 }
 
 .disabled:hover {
@@ -2768,7 +2775,6 @@
 
 .tab-confirm {
   width: 13vh;
-  border-top-left-radius: 1.5vh;
 }
 
 #confirm:hover {
@@ -2781,12 +2787,19 @@
 
 .tab-minimize {
   width: 6vh;
-  height: 8vh;
   padding-right: 1.3vh;
 }
 
+.open-tabs {
+  width: 6.5vh;
+  height: 6.5vh;
+}
+
+.open-tabs .medium-icon {
+  margin: 0.5vh 0 0 0;
+}
+
 .tab-modify {
-  height: 8vh;
   border-top-right-radius: 1.5vh;
 }
 
