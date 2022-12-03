@@ -11,12 +11,13 @@
     width: 37vh;
   }
 
-  .hidden-t {
-    display: none;
+  .palette,
+  .font-families {
+    height: 5.7vh;
   }
 
-  .semi-normal-text {
-    font-size: 1.6vh;
+  .hidden-t {
+    display: none;
   }
 
   .semi-max-icon {
@@ -25,6 +26,46 @@
 
   .huge-icon {
     width: 8vh;
+  }
+
+  .arrow {
+    width: 6.5vh;
+  }
+
+  .arrow .small-icon {
+    width: 2.4vh;
+  }
+
+  .tab-minimize {
+    z-index: 5;
+  }
+
+  .tab-modify {
+    left: initial;
+    margin-right: 6vh;
+    right: 0;
+    border-top-right-radius: 0;
+  }
+
+  .tab-modify .medium-icon {
+    margin-bottom: 0.3vh;
+  }
+
+  .tab-modify .semi-large-icon {
+    margin-bottom: 0.5vh;
+  }
+
+  .tab-confirm {
+    height: 8vh;
+    margin-right: 25vh;
+  }
+
+  .palette {
+    padding-left: 6vh;
+  }
+
+  .font-families {
+    padding-left: 4.5vh;
   }
 
   .qr-icon {

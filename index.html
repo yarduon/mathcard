@@ -36,6 +36,7 @@
       <div class="square3 absolute" id="square3"></div>
     </div>
     <main class="flex column justify-center align-center max-width max-height">
+      <input class="absolute invisible hidden" id="minimize" type="checkbox" />
       <aside
         class="custom fonts-container max-width overflow absolute black-background hidden customization"
       >
@@ -992,7 +993,7 @@
         <div class="flex column justify-center align-center">
           <button
             aria-label="Icon color"
-            class="element flex justify-center align-center medium-text touch light-opacity pastel-white-icon"
+            class="element flex justify-center align-center touch light-opacity pastel-white-icon"
             id="icon"
           >
             <svg
@@ -1016,7 +1017,7 @@
         <div class="flex column justify-center align-center">
           <button
             aria-label="Background color"
-            class="element flex justify-center align-center medium-text touch light-opacity pastel-white-icon"
+            class="element flex justify-center align-center touch light-opacity pastel-white-icon"
             id="background"
           >
             <svg
@@ -1043,7 +1044,7 @@
         <div class="flex column justify-center align-center">
           <button
             aria-label="Shadow color"
-            class="element flex justify-center align-center medium-text touch light-opacity pastel-white-icon"
+            class="element flex justify-center align-center touch light-opacity pastel-white-icon"
             id="shadow"
           >
             <svg
@@ -1071,7 +1072,7 @@
       >
         <button
           aria-label="Confirm changes"
-          class="medium-text light-opacity touch pastel-white-icon"
+          class="light-opacity touch pastel-white-icon"
           id="confirm"
         >
           <svg
@@ -1106,6 +1107,46 @@
             />
           </svg>
         </button>
+      </div>
+      <div
+        class="tab tab-minimize flex align-center justify-center black-background absolute hidden customization"
+      >
+        <button
+          arialabel="Minimize tabs"
+          class="flex justify-center align-center touch light-opacity pastel-white-icon"
+          id="minimize"
+        >
+          <label
+            class="minimize-label flex justify-center align-center"
+            for="minimize"
+          >
+            <svg
+              class="medium-icon"
+              viewBox="0 0 20.108 20.373"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)"
+              >
+                <path
+                  transform="rotate(224.73)"
+                  d="m-47.777-52.845h2.8147v15.456h-2.8147z"
+                  stroke-width=".48902"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </label>
+        </button>
+      </div>
+      <div
+        class="open-tabs flex justify-center align-center absolute black-background hidden customization"
+      >
+      <button aria-label="Open tabs">
+        <label for="minimize">
+          hola
+        </label>
+      </button>
       </div>
       <section
         class="qr-container max-width max-height flex justify-center align-center black-background absolute overflow hidden"

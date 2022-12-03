@@ -2,7 +2,10 @@
 .hidden,
 #switch-mode:checked ~ .buttons-container .function,
 #switch-mode:checked ~ .buttons-container .operator:not(.equal),
-#switch-mode:checked ~ .buttons-container .parenthesis {
+#switch-mode:checked ~ .buttons-container .parenthesis,
+#minimize:checked ~ .fonts-container,
+#minimize:checked ~ .colors-container,
+#minimize:checked ~ .tab {
   display: none;
 }
 
@@ -96,7 +99,8 @@
 }
 
 .tab-confirm,
-.tab-modify {
+.tab-modify,
+.tab-minimize {
   padding: 1.5vh 0.5vh 1vh 0.5vh;
 }
 
@@ -2670,7 +2674,7 @@
   margin: 5vh 18vh 5vh 18vh;
 }
 
-#reader{
+#reader {
   width: 30%;
 }
 
@@ -2775,6 +2779,12 @@
   color: #f33c3c;
 }
 
+.tab-minimize {
+  width: 6vh;
+  height: 8vh;
+  padding-right: 1.3vh;
+}
+
 .tab-modify {
   height: 8vh;
   border-top-right-radius: 1.5vh;
@@ -2822,7 +2832,7 @@
   margin-bottom: 2.3vh;
 }
 
-.background-icon{
+.background-icon {
   margin: 4vh 6vh 4vh 6vh;
 }
 

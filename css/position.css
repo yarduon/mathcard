@@ -16,6 +16,7 @@
 .logo-container,
 .customization,
 .arrow,
+.open-tabs,
 #error,
 #close-settings,
 .opacity-container {
@@ -26,6 +27,11 @@
 .modal-window,
 .initial-screen {
   z-index: 5;
+}
+
+.invisible,
+.tab-minimize {
+  z-index: -1;
 }
 
 .invisible,
@@ -42,6 +48,7 @@
 
 .colors-container,
 .tab,
+.open-tabs,
 .extra-data-container,
 .credits,
 .reset {
@@ -71,6 +78,8 @@
 
 .right-arrow,
 .tab-confirm,
+.tab-minimize,
+.open-tabs,
 .reset {
   right: 0;
 }
@@ -135,10 +144,6 @@
 
 .absolute {
   position: absolute;
-}
-
-.invisible {
-  z-index: -1;
 }
 
 .logo-container {
