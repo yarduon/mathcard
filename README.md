@@ -1,4 +1,4 @@
-<strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to calculate numbers. It has offline functionality so you are able to use it without an internet connection, but keep in mind that only works properly with Google Chrome.
+<strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to calculate operations with some extra features. It has offline functionality so you are able to use it without an internet connection, but keep in mind that only works properly with Google Chrome. Certain functions have been implemented using <a href="https://github.com/mebjas/html5-qrcode">HTML5-QRCode</a> and <a href="https://www.exchangerate-api.com/">Exchange Rate API</a> .
 
 <strong>Instructions:</strong> Maybe you are on a lazy day, or you are lost in this weird website because you don't know how to use it, don't worry, I understand.
 <ul>

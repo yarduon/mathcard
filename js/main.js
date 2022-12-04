@@ -1299,7 +1299,7 @@ arrows.forEach((e) => {
     clearInterval(slide);
   });
   // Avoid infinite scroll when dragging mouse out of arrows area
-  e.addEventListener("mouseleave", () => {
+  e.addEventListener("pointerout", () => {
     clearInterval(slide);
   });
 });
