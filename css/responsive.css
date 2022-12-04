@@ -138,7 +138,7 @@
 
   .screen,
   .logo-container {
-    width: 73%;
+    width: 77%;
   }
 
   .settings,
@@ -179,6 +179,70 @@
     bottom: 1.7%;
   }
 
+  .alatsi,
+  .chivo,
+  .comfortaa,
+  .fredoka-one,
+  .gugi,
+  .pt-mono,
+  .source-code-pro {
+    --normal-text: 2.2vh;
+  }
+
+  .chewy,
+  .lobster,
+  .open-sans,
+  .rubik {
+    --normal-text: 2.3vh;
+  }
+
+  .julee,
+  .lato,
+  .roboto,
+  .ubuntu {
+    --normal-text: 2.4vh;
+  }
+
+  .londrina-solid,
+  .oleo-script,
+  .permanent-marker,
+  .pt-sans,
+  .signika {
+    --normal-text: 2.6vh;
+  }
+
+  .pt-sans #result {
+    margin-top: 3.6vh;
+  }
+
+  .outfit #result,
+  .signika #result {
+    margin-top: 3.8vh;
+  }
+
+  .chewy #result,
+  .lobster #result,
+  .londrina-solid #result {
+    margin-top: 3.9vh;
+  }
+
+  .chivo #result,
+  .rubik #result,
+  .source-code-pro #result {
+    margin-top: 4.1vh;
+  }
+
+  .fredoka-one #result,
+  .merriweather #result {
+    margin-top: 4.2vh;
+  }
+
+  .comfortaa #result,
+  .libre-franklin #result,
+  .pt-mono #result {
+    margin-top: 4.3vh;
+  }
+
   .hidden-m {
     display: none;
   }
@@ -201,15 +265,16 @@
   }
 
   .screen {
-    height: 17vh;
+    height: 20vh;
   }
 
   #result {
-    margin-top: 6%;
+    margin-top: 17%;
   }
 
   .logo-container {
-    bottom: 17%;
+    height: 5vh;
+    bottom: 12.8%;
   }
 
   .middle-base {
