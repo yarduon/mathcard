@@ -343,7 +343,7 @@
   }
 
   .lower-buttons {
-    align-items: flex-end;
+    margin-bottom: 1.2vh;
   }
 
   .extra-symbols {
@@ -356,8 +356,8 @@
   }
 
   .qr {
-    width: 11vw;
-    height: 10.5vw;
+    width: 12vw;
+    height: 12vw;
   }
 
   .line {
