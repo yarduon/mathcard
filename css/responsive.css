@@ -1,5 +1,5 @@
 /* https://yarduon.com */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 132vh) {
   .qr-options,
   .settings-options,
   .qr-result-container {
@@ -118,7 +118,7 @@
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 59vh) {
   .top-calculator,
   .line {
     border-radius: 0;
@@ -304,9 +304,3 @@
   }
 }
 
-@media screen and (max-width: 320px) {
-  .main-button {
-    width: 17%;
-    height: 42%;
-  }
-}
