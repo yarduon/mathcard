@@ -2724,10 +2724,6 @@
   margin: 5vh 18vh 5vh 18vh;
 }
 
-#reader {
-  width: 30%;
-}
-
 .qr-result:hover .bar {
   height: 0.45vh;
 }
