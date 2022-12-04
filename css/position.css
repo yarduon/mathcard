@@ -55,11 +55,6 @@
   bottom: 0;
 }
 
-.extra-symbols,
-.qr {
-  bottom: 1.6vh;
-}
-
 #circle1,
 #circle2 {
   bottom: 5%;
@@ -81,11 +76,6 @@
 .tab-minimize,
 .reset {
   right: 0;
-}
-
-.power,
-.cross {
-  right: 1.5vh;
 }
 
 #circle1,
@@ -154,11 +144,17 @@
 }
 
 .power {
-  top: 1.7vh;
+  left: 16vh;
+  bottom: 0.9vh;
+}
+
+.extra-symbols {
+  bottom: 1.6vh;
 }
 
 .qr {
-  left: 1.5vh;
+  top: 1.6vh;
+  right: 15.3vh;
 }
 
 #switch-mode:checked ~ .buttons-container .dot {
@@ -179,6 +175,7 @@
 
 .cross {
   top: 1.5vh;
+  right: 1.5vh;
 }
 
 #error {
