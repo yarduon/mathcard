@@ -142,9 +142,12 @@
   }
 
   .settings,
-  .edit,
-  .large-icon {
+  .edit {
     width: 5vh;
+  }
+
+  .off-on-light {
+    width: 2.5vh;
   }
 
   .calc,
@@ -162,11 +165,6 @@
   .edit,
   .select {
     height: 5vh;
-  }
-
-  .off-on-light,
-  .small-icon {
-    width: 2.5vh;
   }
 
   #switch-mode:checked ~ .buttons-container .special-buttons-container,
@@ -242,8 +240,21 @@
     margin-top: 4.3vh;
   }
 
+  .upper-buttons,
+  .lower-buttons {
+    margin: 1% 0 1% 0;
+  }
+
   .hidden-m {
     display: none;
+  }
+
+  .small-icon {
+    width: 4.5vw;
+  }
+
+  .large-icon {
+    width: 8vw;
   }
 
   .medium-text {
@@ -290,10 +301,6 @@
     padding-bottom: 16vh;
   }
 
-  .upper-buttons {
-    margin: 4% 0 3% 0;
-  }
-
   .off-on-light {
     height: 3vw;
     border-top-right-radius: 0.2vh;
@@ -335,19 +342,17 @@
     left: 60%;
   }
 
+  .lower-buttons {
+    align-items: flex-end;
+  }
+
   .extra-symbols {
-    width: 37%;
-    height: 7.5%;
-    right: 1.6vh;
-    bottom: 1.7%;
+    width: 40vw;
+    height: 7.5vw;
   }
 
   .extra-symbols .additional {
     width: 47%;
-  }
-
-  .qr-reader-container{
-    margin: 1% 0 3% 0;
   }
 
   .qr {

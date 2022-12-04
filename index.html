@@ -327,7 +327,7 @@
           class="buttons-container max-width relative flex column huge-text"
           id="buttons"
         >
-          <div class="upper-buttons flex justify-end">
+          <div class="upper-buttons max-height flex justify-end align-center">
             <div class="flex column justify-around absolute lights-container">
               <div class="off-on-light relative" id="on-default"></div>
               <div class="off-on-light relative" id="on-light"></div>
@@ -605,26 +605,28 @@
               </button>
             </div>
           </div>
-          <div class="extra-symbols absolute flex justify-between">
-            <button
-              aria-label="DEL"
-              class="button calc-button additional secondary relative medium-text round-border touch"
-              id="Backspace"
+          <div class="lower-buttons relative max-height flex justify-start">
+            <div
+              class="extra-symbols max-height absolute flex justify-between align-end"
             >
-              DEL
-            </button>
-            <button
-              aria-label="AC"
-              class="button calc-button additional secondary relative medium-text round-border touch"
-              id="ac"
-            >
-              AC
-            </button>
-          </div>
-          <div class="qr-reader-container relative">
+              <button
+                aria-label="DEL"
+                class="button calc-button additional secondary relative medium-text round-border touch"
+                id="Backspace"
+              >
+                DEL
+              </button>
+              <button
+                aria-label="AC"
+                class="button calc-button additional secondary relative medium-text round-border touch"
+                id="ac"
+              >
+                AC
+              </button>
+            </div>
             <button
               aria-label="QR Reader"
-              class="qr flex justify-center align-center round-border touch"
+              class="qr flex justify-center align-center round-border touch relative"
               id="qr"
             >
               <svg

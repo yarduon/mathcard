@@ -31,6 +31,11 @@
   height: 3.8vh;
 }
 
+.upper-buttons,
+.lower-buttons {
+  width: 99%;
+}
+
 .main-button,
 .extra-symbols .button {
   width: 6.7vh;
@@ -2645,8 +2650,7 @@
 }
 
 .upper-buttons {
-  width: 98%;
-  margin: 1.4vh 0 1.1vh 0;
+  margin: 1.5vh 0 1.3vh 0;
 }
 
 .lights-container {
@@ -2699,19 +2703,17 @@
   opacity: 1;
 }
 
+.lower-buttons {
+  margin: 1.7vh 0 1.1vh 0;
+}
+
 .extra-symbols {
   width: 14.2vh;
-  margin: 0 0 0 22.5vh;
+  margin: 0 0 0 23vh;
 }
 
 .extra-symbols .button {
   height: 4.3vh;
-}
-
-.qr-reader-container {
-  width: 98%;
-  margin-top: 2vh;
-
 }
 
 .qr-options {
