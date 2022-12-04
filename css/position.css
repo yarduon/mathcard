@@ -62,6 +62,7 @@
 
 .invisible,
 .tab-modify,
+.lights-container,
 .extra-data-container {
   left: 0;
 }
@@ -139,22 +140,8 @@
   bottom: 3vh;
 }
 
-.lights-container {
-  bottom: 48.3vh;
-}
-
-.power {
-  left: 16vh;
-  bottom: 0.9vh;
-}
-
 .extra-symbols {
   bottom: 1.6vh;
-}
-
-.qr {
-  top: 1.6vh;
-  right: 15.3vh;
 }
 
 #switch-mode:checked ~ .buttons-container .dot {
