@@ -1298,7 +1298,7 @@ arrows.forEach((e) => {
   e.addEventListener("pointerup", () => {
     clearInterval(slide);
   });
-  // Avoid infinite scroll when dragging mouse out of arrows area
+  // Avoid infinite scroll when dragging mouse or finger out of arrows area
   e.addEventListener("pointerout", () => {
     clearInterval(slide);
   });
