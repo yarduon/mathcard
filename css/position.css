@@ -16,7 +16,7 @@
 .logo-container,
 .customization,
 .arrow,
-.open-tabs,
+.container-open-tabs,
 #error,
 #close-settings,
 .opacity-container {
@@ -48,7 +48,7 @@
 
 .colors-container,
 .tab,
-.open-tabs,
+.container-open-tabs,
 .extra-data-container,
 .credits,
 .reset {
@@ -79,7 +79,6 @@
 .right-arrow,
 .tab-confirm,
 .tab-minimize,
-.open-tabs,
 .reset {
   right: 0;
 }

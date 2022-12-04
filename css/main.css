@@ -14,6 +14,11 @@
   height: 22vh;
 }
 
+.container-open-tabs,
+.open-tabs {
+  height: 6.5vh;
+}
+
 .qr,
 .extra-data-container {
   height: 6vh;
@@ -2793,7 +2798,6 @@
 
 .open-tabs {
   width: 6.5vh;
-  height: 6.5vh;
 }
 
 .open-tabs .medium-icon {

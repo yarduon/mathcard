@@ -302,5 +302,12 @@
   #switch-mode:checked ~ .line .switch-circle {
     left: 5.8vh;
   }
-}
 
+  .container-open-tabs {
+    justify-content: center;
+  }
+
+  .open-tabs {
+    border-top-right-radius: 1.5vh;
+  }
+}
