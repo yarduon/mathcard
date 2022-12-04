@@ -1280,20 +1280,7 @@ confirmButtons.forEach((e) => {
   });
 });
 
-// Start slider when mouse is pressed
-arrows.forEach((e, i) => {
-  e.addEventListener("mousedown", () => {
-    slide = setInterval(() => {
-      useSlider(
-        localStorage.getItem("position-" + e.parentNode.children[1].id),
-        e.id.includes("right"),
-        e.parentNode.children[1]
-      );
-    }, 100);
-  });
-});
-
-// Start slider when the arrow is touched
+// Start slider when the arrow is pressed or touched
 arrows.forEach((e, i) => {
   e.addEventListener("pointerdown", () => {
     slide = setInterval(() => {
@@ -1306,20 +1293,13 @@ arrows.forEach((e, i) => {
   });
 });
 
-// Stop slider when mouse is not pressed
+// Stop slider when mouse is not pressed or touched
 arrows.forEach((e) => {
-  e.addEventListener("mouseup", () => {
+  e.addEventListener("pointerup", () => {
     clearInterval(slide);
   });
   // Avoid infinite scroll when dragging mouse out of arrows area
   e.addEventListener("mouseleave", () => {
-    clearInterval(slide);
-  });
-});
-
-// Stop slider when mouse is not pressed
-arrows.forEach((e) => {
-  e.addEventListener("pointerup", () => {
     clearInterval(slide);
   });
 });

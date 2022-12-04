@@ -118,7 +118,7 @@
   }
 }
 
-@media screen and (max-width: 59vh) {
+@media screen and (max-width: 52vh) {
   .top-calculator,
   .line {
     border-radius: 0;
@@ -184,6 +184,10 @@
   }
 
   .medium-text {
+    font-size: 4.2vw;
+  }
+
+  .semi-normal-text {
     font-size: 2vh;
   }
 
@@ -215,8 +219,7 @@
 
   .buttons-container {
     height: 63%;
-    padding: 0 1.2vh 15vh 1.2vh;
-    font-size: 2.7vh;
+    font-size: 5.5vw;
   }
 
   #switch-mode:checked ~ .buttons-container {
@@ -224,18 +227,18 @@
   }
 
   .lights-container {
-    bottom: 86.7%;
+    margin-bottom: 14vw;
   }
 
   .off-on-light {
-    height: 1.8vh;
+    height: 3.7vw;
     border-top-right-radius: 0.2vh;
     border-bottom-right-radius: 0.2vh;
   }
 
   .power {
     width: 6vh;
-    top: 3.6%;
+    margin-top: -1vw;
   }
 
   .special-buttons-container {
@@ -254,7 +257,7 @@
 
   .main-button {
     width: 18%;
-    height: 43%;
+    height: 16vw;
   }
 
   #switch-mode:checked ~ .buttons-container .main-button {
