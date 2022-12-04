@@ -118,7 +118,7 @@
   }
 }
 
-@media screen and (max-width: 52vh) {
+@media screen and (max-width: 60vh) {
   .top-calculator,
   .line {
     border-radius: 0;
@@ -288,7 +288,7 @@
   }
 
   #switch-mode:checked ~ .buttons-container {
-    padding-bottom: 16.5vh;
+    padding-bottom: 16vh;
   }
 
   .lights-container {
