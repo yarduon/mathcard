@@ -118,7 +118,7 @@
   }
 }
 
-@media screen and (max-width: 60vh) {
+@media screen and (max-width: 57vh) {
   .top-calculator,
   .line {
     border-radius: 0;
@@ -132,7 +132,8 @@
   }
 
   .calc,
-  .line {
+  .line,
+  .symbols {
     width: 100%;
   }
 
@@ -154,11 +155,6 @@
   #switch-mode:checked ~ .buttons-container .additional,
   .extra-symbols .additional {
     height: 100%;
-  }
-
-  .lights-container,
-  .power {
-    height: 6vh;
   }
 
   .settings,
@@ -250,11 +246,11 @@
   }
 
   .small-icon {
-    width: 4.5vw;
+    width: 5vw;
   }
 
   .large-icon {
-    width: 8vw;
+    width: 9vw;
   }
 
   .medium-text {
@@ -298,18 +294,22 @@
   }
 
   .upper-buttons {
-    height: 20%;
+    height: 12%;
+  }
+
+  .lights-container {
+    height: 7vh;
   }
 
   .off-on-light {
-    height: 3vw;
+    height: 4vw;
     border-top-right-radius: 0.2vh;
     border-bottom-right-radius: 0.2vh;
   }
 
   .power {
-    width: 10.5vw;
-    height: 10.5vw;
+    width: 11.5vw;
+    height: 11.5vw;
   }
 
   .special-buttons-container {
@@ -325,30 +325,27 @@
     margin-top: 0.4vh;
   }
 
-  .symbols {
-    width: 95vw;
-  }
-
   .main-button {
-    width: 17vw;
-    height: 13vw;
+    width: 17%;
+    height: 7.5vh;
   }
 
-  #switch-mode:checked ~ .buttons-container .main-button {
-    height: 59%;
+
+  #switch-mode:checked ~ .buttons-container .general-buttons {
+    margin-top: 1vh;
   }
 
   #switch-mode:checked ~ .buttons-container .dot {
-    left: 60%;
+    left: 61.2%;
   }
 
   .lower-buttons {
-    margin-bottom: 1.2vh;
+    margin-bottom: 1.8vh;
   }
 
   .extra-symbols {
-    width: 40vw;
-    height: 7.5vw;
+    width: 43vw;
+    height: 9vw;
   }
 
   .extra-symbols .additional {
@@ -356,8 +353,8 @@
   }
 
   .qr {
-    width: 12vw;
-    height: 12vw;
+    width: 13vw;
+    height: 13vw;
   }
 
   .line {
