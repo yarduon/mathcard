@@ -64,7 +64,8 @@
 }
 
 .operations-container,
-#result {
+#result,
+.general-buttons {
   width: 94%;
 }
 
@@ -2646,11 +2647,11 @@
 }
 
 #switch-mode:checked ~ .buttons-container {
-  padding-bottom: 3.1vh;
+  padding-bottom: 3.2vh;
 }
 
 .upper-buttons {
-  height: 19vw;
+  height: 10%;
   margin: 1.4vh 0 1vh 0;
 }
 
@@ -2669,6 +2670,7 @@
   width: 4.6vh;
   height: 4.6vh;
   padding: 0 0.1vh 0.3vh 0;
+  margin: 0 1.5vh 0.3vh 0;
 }
 
 .special-buttons-container {
@@ -2677,10 +2679,6 @@
 
 #switch-mode:checked ~ .buttons-container .special-buttons-container {
   height: 4.2vh;
-}
-
-.general-buttons {
-  margin-bottom: 8vh;
 }
 
 .additional {
