@@ -1,29 +1,32 @@
-<strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to calculate operations with some extra features. It has offline functionality so you are able to use it without an internet connection, but keep in mind that only works properly with Google Chrome. Certain functions have been implemented using <a href="https://github.com/mebjas/html5-qrcode">HTML5-QRCode</a> and <a href="https://www.exchangerate-api.com/">Exchange Rate API</a> .
+<strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to calculate operations with some extra features. It has offline functionality so you are able to use it without an internet connection, but keep in mind that only works properly with Google Chrome and it should be mentioned that there is a background functionality, but it is only available on PC and tablet, you can find the different layouts on the settings. Certain functions have been implemented using <a href="https://github.com/mebjas/html5-qrcode">HTML5-QRCode</a> and <a href="https://www.exchangerate-api.com/">Exchange Rate API</a>. 
 
 Get rid of your boring old calculator and enhance your math operations, through a fully customizable experience with a ton of extra utilities.
 
-Although this is not an entirely scientific calculator, you can make any operation you want and use some features and buttons that you expect on your daily life. <strong>They are divided into four broad categories:</strong>
+Unleash the real power of your own appearance to be fully creative without limitations. You can hide items or buttons you don't like by using the same colours, express yourself, and share your best themes with your friends.
+
+Although this is not an entirely scientific calculator, you can make any operation you want and use some features and buttons that you expect on your daily life. Most of them can be used with a keyboard, mouse or touching the screen and <strong>they are divided into four broad categories:</strong>
 
 <ul>
     <li>
         <strong>Memory:</strong>
         <ol>
+        </br>
             <table>
                 <tr>
                     <th>M+</th>
-                    <td>Sums current result to stored result.</td>
+                    <td>Adds the current result to stored result.</td>
                 </tr>
                 <tr>
                     <th>M-</th>
-                    <td>Substract current result to stored result.</td>
+                    <td>Subtract the current result from stored result.</td>
                 </tr>
                 <tr>
                     <th>MR</th>
-                    <td>Get stored result as an operation value.</td>
+                    <td>Get stored result as an operational value.</td>
                 </tr>
                 <tr>
                     <th>MS</th>
-                    <td>Storage current result in memory.</td>
+                    <td>Save the current result to memory.</td>
                 </tr>
                 <tr>
                     <th>MC</th>
@@ -39,14 +42,122 @@ Although this is not an entirely scientific calculator, you can make any operati
     </br>
     <li>
         <strong>Functions:</strong>
+        <ol>
+        </br>
+            <table>
+                <tr>
+                    <th>LOG</th>
+                    <td>Compute the logarithm of the specified number or operation.</td>
+                </tr>
+                <tr>
+                    <th>SIN</th>
+                     <td>Compute the sine for the radials of the specified number or operation.</td>
+                </tr>
+                <tr>
+                    <th>COS</th>
+                     <td>Compute the cosine for the radials of the specified number or operation.</td>
+                </tr>
+                <tr>
+                    <th>TAN</th>
+                    <td>Compute the tangent for the radials of the specified number or operation.</td>
+                </tr>
+                <tr>
+                    <th>PI</th>
+                    <td>Invoke an amount equal to PI.</td>
+                </tr>
+                <tr>
+                    <th>SQR</th>
+                    <td>Calculate the square root of the specified number or operation.</td>
+                </tr>
+            </table>
+        </ol>
     </li>
-      </br>
+    </br>
     <li>
         <strong>Regular:</strong>
+        <ol>
+        </br>
+            <table>
+                <tr>
+                    <th>Numbers (0-9)</th>
+                    <td>Choose any number from 0 to 9.</td>
+                </tr>
+                <tr>
+                    <th>Decimal point</th>
+                    <td>Convert all combinations of numbers to decimal.</td>
+                </tr>
+                <tr>
+                    <th>Parentheses</th>
+                    <td>Use open and closed brackets to segment operations.</td>
+                </tr>
+                <tr>
+                    <th>Percentage (%) </th>
+                    <td>Apply percentages or calculate leftovers from a division.</td>
+                </tr>
+                <tr>
+                    <th>Circumflex (^)</th>
+                    <td>Raise values to other numbers or operations.</td>
+                </tr>
+                <tr>
+                    <th>Asterik (*)</th>
+                    <td>Multiply any combined numbers or operations.</td>
+                </tr>
+                <tr>
+                    <th>Slash line (/)</th>
+                    <td>Divide any combined numbers or operations.</td>
+                </tr>
+                <tr>
+                    <th>Add (+)</th>
+                    <td>Sums any combined numbers or operations.</td>
+                </tr>
+                <tr>
+                    <th>Subtract (-)</th>
+                    <td>Convert values to negative or subtract any combined numbers or operations.</td>
+                </tr>
+                <tr>
+                    <th>Equal (=)</th>
+                    <td>Display the result.</td>
+                </tr>
+                <tr>
+                    <th>DEL</th>
+                    <td>Remove a character and display a new result.</td>
+                </tr>
+                <tr>
+                    <th>AC</th>
+                    <td>Reset all values.</td>
+                </tr>
+            </table>
+        </ol>
     </li>
     </br>
     <li>
         <strong>Special:</strong>
+         <ol>
+        </br>
+            <table>
+                <tr>
+                    <th>Power</th>
+                    <td>Turn on or off your calculator.</td>
+                </tr>
+                <tr>
+                    <th>QR Reader</th>
+                    <td>Read a QR code using a camera or supplying a file.</td>
+                </tr>
+                <tr>
+                    <th>Settings</th>
+                    <td>Switch backgrounds and save, download, or clear your appearance.</td>
+                </tr>
+                <tr>
+                    <th>Edit</th>
+                    <td>Change general font and customise any item without restrictions.</td>
+                </tr>
+                <tr>
+                    <th>Switch</th>
+                    <td>Change to currency mode and use all world exchanges updated every 24h.</td>
+                </tr>
+            </table>
+        </ol>
+        </br>
     </li>
 </ul>
 
