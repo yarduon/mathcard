@@ -144,7 +144,7 @@
 
   .settings,
   .edit {
-    width: 5vh;
+    width: 4.5vh;
   }
 
   .off-on-light {
@@ -160,7 +160,7 @@
   .settings,
   .edit,
   .select {
-    height: 5vh;
+    height: 4.5vh;
   }
 
   #switch-mode:checked ~ .buttons-container .special-buttons-container,
@@ -246,7 +246,7 @@
   }
 
   .small-icon {
-    width: 5vw;
+    width: 4.7vw;
   }
 
   .large-icon {
@@ -289,7 +289,7 @@
   }
 
   .buttons-container {
-    height: 63%;
+    height: 65%;
     font-size: 4.8vw;
   }
 
@@ -358,16 +358,16 @@
   }
 
   .line {
-    height: 8vh;
+    height: 6vh;
   }
 
   .footer-buttons {
-    width: 11.2vh;
+    width: 10.2vh;
   }
 
   .switch-line {
     width: 9vh;
-    height: 4.5vh;
+    height: 4vh;
   }
 
   .switch-circle {
