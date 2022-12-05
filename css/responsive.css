@@ -242,7 +242,7 @@
 
   .upper-buttons,
   .lower-buttons {
-    margin: 1% 0 1% 0;
+    margin: 2% 0 0 0;
   }
 
   .hidden-m {
@@ -297,8 +297,8 @@
     font-size: 4.8vw;
   }
 
-  #switch-mode:checked ~ .buttons-container {
-    padding-bottom: 16vh;
+  .upper-buttons {
+    height: 20%;
   }
 
   .off-on-light {

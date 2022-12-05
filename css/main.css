@@ -2646,15 +2646,16 @@
 }
 
 #switch-mode:checked ~ .buttons-container {
-  padding-bottom: 3.9vh;
+  padding-bottom: 3.1vh;
 }
 
 .upper-buttons {
-  margin: 1.5vh 0 1.3vh 0;
+  height: 19vw;
+  margin: 1.4vh 0 1vh 0;
 }
 
 .lights-container {
-  height: 5.2vh;
+  height: 5.5vh;
 }
 
 .off-on-light {
@@ -2667,7 +2668,7 @@
 .power {
   width: 4.6vh;
   height: 4.6vh;
-  padding: 0 0.1vh 0.2vh 0;
+  padding: 0 0.1vh 0.3vh 0;
 }
 
 .special-buttons-container {

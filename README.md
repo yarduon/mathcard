@@ -1,5 +1,45 @@
 <strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to calculate operations with some extra features. It has offline functionality so you are able to use it without an internet connection, but keep in mind that only works properly with Google Chrome. Certain functions have been implemented using <a href="https://github.com/mebjas/html5-qrcode">HTML5-QRCode</a> and <a href="https://www.exchangerate-api.com/">Exchange Rate API</a> .
 
+Get rid of your boring old calculator and enhance your math operations, through a fully customizable experience with a ton of extra utilities.
+
+Although this is not an entirely scientific calculator, you can make any operation you want and use some features and buttons that you expect on your daily life. <strong>They are divided into four broad categories:</strong>
+
+
+<table>
+    <tr>
+        <td>M+</td>
+        <td>Example text</ts>
+    </tr>
+     <tr>
+        <td>M-</td>
+        <td>Example text</td>
+    </tr>
+   
+</table>
+
+<ul>
+    <li>
+        <strong>Memory:</strong>
+        <ol>
+            <li>
+            <em>M+:</em>
+            </li>
+        </ol>
+    </li>
+    </br>
+    <li>
+        <strong>Functions:</strong>
+    </li>
+      </br>
+    <li>
+        <strong>Regular:</strong>
+    </li>
+    </br>
+    <li>
+        <strong>Special:</strong>
+    </li>
+</ul>
+
 <strong>Instructions:</strong> Maybe you are on a lazy day, or you are lost in this weird website because you don't know how to use it, don't worry, I understand.
 <ul>
     <li>
