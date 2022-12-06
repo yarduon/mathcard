@@ -68,7 +68,6 @@
   }
 
   .font-families {
-    height: 7.5vh;
     padding-left: 4.5vh;
   }
 
@@ -129,9 +128,7 @@
     border-radius: 0;
   }
 
-  #topScreen,
-  #result,
-  .logo {
+  #topScreen {
     font-size: 2.6vh;
   }
 
@@ -167,6 +164,11 @@
     height: 4.5vh;
   }
 
+  .upper-buttons,
+  .lower-buttons {
+    margin: 0 0 0 0;
+  }
+
   #switch-mode:checked ~ .buttons-container .special-buttons-container,
   .select {
     margin: 0.5vh 0 0.5vh 0;
@@ -176,6 +178,14 @@
     margin: 0.41vh;
   }
 
+  .comfortaa,
+  .fredoka-one,
+  .gugi,
+  .libre-franklin,
+  .permanent-marker {
+    --medium-text: 1.8vh;
+  }
+
   .alatsi,
   .chivo,
   .comfortaa,
@@ -183,21 +193,21 @@
   .gugi,
   .pt-mono,
   .source-code-pro {
-    --normal-text: 2.4vh;
+    --normal-text: 2.5vh;
   }
 
   .chewy,
   .lobster,
   .open-sans,
   .rubik {
-    --normal-text: 2.5vh;
+    --normal-text: 2.6vh;
   }
 
   .julee,
   .lato,
   .roboto,
   .ubuntu {
-    --normal-text: 2.6vh;
+    --normal-text: 2.7vh;
   }
 
   .londrina-solid,
@@ -206,43 +216,6 @@
   .pt-sans,
   .signika {
     --normal-text: 2.8vh;
-  }
-
-  .pt-sans #result {
-    margin-top: 3.6vh;
-  }
-
-  .outfit #result,
-  .signika #result {
-    margin-top: 3.8vh;
-  }
-
-  .chewy #result,
-  .lobster #result,
-  .londrina-solid #result {
-    margin-top: 3.9vh;
-  }
-
-  .chivo #result,
-  .rubik #result,
-  .source-code-pro #result {
-    margin-top: 4.1vh;
-  }
-
-  .fredoka-one #result,
-  .merriweather #result {
-    margin-top: 4.2vh;
-  }
-
-  .comfortaa #result,
-  .libre-franklin #result,
-  .pt-mono #result {
-    margin-top: 4.3vh;
-  }
-
-  .upper-buttons,
-  .lower-buttons {
-    margin: 0 0 0 0;
   }
 
   .hidden-m {
@@ -261,8 +234,32 @@
     width: 9vw;
   }
 
-  .medium-text {
-    font-size: 3.5vw;
+  .comfortaa {
+    --large-text: 2vh;
+  }
+
+  .libre-franklin {
+    --normal-text: 2.4vh;
+    --huge-text: 2.4vh;
+  }
+
+  .londrina-solid {
+    --medium-text: 2.1vh;
+  }
+
+  .merriweather {
+    --normal-text: 2.3vh;
+  }
+
+  .outfit {
+    --normal-text: 2.9vh;
+  }
+
+  .poor-story {
+    --medium-text: 2.2vh;
+    --normal-text: 3.1vh;
+    --large-text: 3vh;
+    --huge-text: 3.1vh;
   }
 
   .top-calculator {
@@ -278,8 +275,164 @@
     height: 20vh;
   }
 
-  #result {
+  .alatsi #result {
+    margin-top: 6.4vh;
+  }
+
+  .chewy #result {
+    margin-top: 6.1vh;
+  }
+
+  .chivo #result {
     margin-top: 6.5vh;
+  }
+
+  .comfortaa #result {
+    margin-top: 6.7vh;
+  }
+
+  .fredoka-one #result {
+    margin-top: 6.4vh;
+  }
+
+  .gugi #result {
+    margin-top: 6.4vh;
+  }
+
+  .julee #result {
+    margin-top: 6.3vh;
+  }
+
+  .lato #result {
+    margin-top: 6.3vh;
+  }
+
+  .libre-franklin #result {
+    margin-top: 6.5vh;
+  }
+
+  .lobster #result {
+    margin-top: 6.3vh;
+  }
+
+  .londrina-solid #result {
+    margin-top: 6.2vh;
+  }
+
+  .merriweather #result {
+    margin-top: 6.6vh;
+  }
+
+  .oleo-script #result {
+    margin-top: 5.8vh;
+  }
+
+  .open-sans #result {
+    margin-top: 6vh;
+  }
+
+  .outfit #result {
+    margin-top: 6.2vh;
+  }
+
+  .permanent-marker #result {
+    margin-top: 5.5vh;
+  }
+
+  .poor-story #result {
+    margin-top: 5.7vh;
+  }
+
+  .poor-story #result {
+    margin-top: 5.7vh;
+  }
+
+  .pt-mono #result {
+    margin-top: 6.7vh;
+  }
+
+  .pt-sans #result {
+    margin-top: 5.9vh;
+  }
+
+  .signika #result {
+    margin-top: 6vh;
+  }
+
+  .chewy .logo {
+    margin-bottom: 0.3vh;
+  }
+
+  .chivo {
+    --large-text: 2.4vh;
+  }
+
+  .comfortaa {
+    --large-text: 2.5vh;
+  }
+
+  .comfortaa .logo {
+    margin-bottom: 0.5vh;
+  }
+
+  .fredoka-one {
+    --large-text: 2.4vh;
+  }
+
+  .fredoka-one .logo {
+    margin-bottom: 0.2vh;
+  }
+
+  .gugi {
+    --large-text: 2.3vh;
+  }
+
+  .gugi .logo {
+    margin-bottom: 0.4vh;
+  }
+
+  .julee {
+    --large-text: 2.5vh;
+  }
+
+  .libre-franklin {
+    --large-text: 2.4vh;
+  }
+
+  .merriweather .logo {
+    margin-bottom: 0.2vh;
+  }
+
+  .pt-mono {
+    --large-text: 2.5vh;
+  }
+
+  .pt-mono .logo {
+    margin-bottom: 0.2vh;
+  }
+
+  .roboto .logo {
+    margin-bottom: 0.1vh;
+  }
+
+  .rubik {
+    --large-text: 2.4vh;
+  }
+
+  .rubik .logo {
+    margin-bottom: 0.1vh;
+  }
+
+  .source-code-pro {
+    --large-text: 2.2vh;
+  }
+
+  .ubuntu {
+    --large-text: 2.5vh;
+  }
+
+  .ubuntu .logo {
+    margin-bottom: 0.1vh;
   }
 
   .logo-container {
@@ -381,6 +534,10 @@
 
   #switch-mode:checked ~ .line .switch-circle {
     left: 5.8vh;
+  }
+
+  .font-families {
+    height: 7.5vh;
   }
 
   .open-tabs {
