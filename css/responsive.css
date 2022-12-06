@@ -297,7 +297,7 @@
   }
 
   .upper-buttons {
-    height: 15%;
+    height: 17vw;
   }
 
   .lights-container {
@@ -342,7 +342,7 @@
   }
 
   .lower-buttons {
-    margin-bottom: 1.2vh;
+    margin-bottom: 2.5vw;
   }
 
   .extra-symbols {
@@ -382,16 +382,9 @@
     left: 5.8vh;
   }
 
-  .container-open-tabs,
   .open-tabs {
+    right: initial;
     height: 5.2vh;
-  }
-
-  .container-open-tabs {
-    justify-content: center;
-  }
-
-  .open-tabs {
     border-top-right-radius: 1.5vh;
   }
 }
