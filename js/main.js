@@ -1001,6 +1001,9 @@ buttons.forEach((e) => {
 window.addEventListener("keydown", (e) => {
   // Prevent unassigned keys
   if (document.getElementById(e.key)) {
+    // Avoid opening the search in Firefox
+    if (e.key === "/") e.preventDefault();
+
     // Prevent functions, operators, and parenthesis behaviour when currency mode is active
     if (
       (!String(document.getElementById(e.key).classList).includes(

@@ -379,7 +379,7 @@
 .font-families,
 .palette {
   width: 450vh;
-  transition: right 0.2s linear;
+  transition: right 0.1s linear;
 }
 
 .qr-icon,
