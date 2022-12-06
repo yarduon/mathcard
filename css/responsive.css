@@ -182,21 +182,21 @@
   .gugi,
   .pt-mono,
   .source-code-pro {
-    --normal-text: 2.2vh;
+    --normal-text: 2.4vh;
   }
 
   .chewy,
   .lobster,
   .open-sans,
   .rubik {
-    --normal-text: 2.3vh;
+    --normal-text: 2.5vh;
   }
 
   .julee,
   .lato,
   .roboto,
   .ubuntu {
-    --normal-text: 2.4vh;
+    --normal-text: 2.6vh;
   }
 
   .londrina-solid,
@@ -204,7 +204,7 @@
   .permanent-marker,
   .pt-sans,
   .signika {
-    --normal-text: 2.6vh;
+    --normal-text: 2.8vh;
   }
 
   .pt-sans #result {
@@ -241,7 +241,7 @@
 
   .upper-buttons,
   .lower-buttons {
-    margin: 2% 0 2% 0;
+    margin: 2vw 0 2vw 0;
   }
 
   .hidden-m {
@@ -274,7 +274,7 @@
   }
 
   #result {
-    margin-top: 17%;
+    margin-top: 6.5vh;
   }
 
   .logo-container {
