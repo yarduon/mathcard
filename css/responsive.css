@@ -241,7 +241,7 @@
 
   .upper-buttons,
   .lower-buttons {
-    margin: 2vw 0 2vw 0;
+    margin: 0 0 0 0;
   }
 
   .hidden-m {
@@ -250,6 +250,10 @@
 
   .small-icon {
     width: 4.7vw;
+  }
+
+  .medium-icon {
+    width: 3vh;
   }
 
   .large-icon {
@@ -293,7 +297,7 @@
   }
 
   .upper-buttons {
-    height: 14%;
+    height: 15%;
   }
 
   .lights-container {
@@ -338,7 +342,7 @@
   }
 
   .lower-buttons {
-    margin-bottom: 1.8vh;
+    margin-bottom: 1.2vh;
   }
 
   .extra-symbols {
@@ -376,6 +380,11 @@
 
   #switch-mode:checked ~ .line .switch-circle {
     left: 5.8vh;
+  }
+
+  .container-open-tabs,
+  .open-tabs {
+    height: 5.2vh;
   }
 
   .container-open-tabs {
