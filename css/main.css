@@ -299,6 +299,11 @@
   --large-text: 2.5vh;
 }
 
+.oleo-script,
+.outfit {
+  --large-text: 2.6vh;
+}
+
 .alatsi,
 .chewy,
 .comfortaa,
@@ -308,11 +313,6 @@
 .open-sans,
 .pt-mono {
   --huge-text: 2.5vh;
-}
-
-.oleo-script,
-.outfit {
-  --large-text: 2.6vh;
 }
 
 .chivo,
@@ -2542,16 +2542,8 @@
   font-family: "Oleo Script";
 }
 
-.oleo-script #result {
-  margin-top: 3.3vh;
-}
-
 .open-sans {
   font-family: "Open Sans";
-}
-
-.open-sans #result {
-  margin-top: 3.7vh;
 }
 
 .outfit {
@@ -2563,20 +2555,12 @@
   font-family: "Permanent Marker";
 }
 
-.permanent-marker #result {
-  margin-top: 3.1vh;
-}
-
 .poor-story {
   font-family: "Poor Story";
   --medium-text: 2vh;
   --normal-text: 2.6vh;
   --large-text: 2.8vh;
   --huge-text: 3.1vh;
-}
-
-.poor-story #result {
-  margin-top: 3.2vh;
 }
 
 .pt-mono {
@@ -2634,6 +2618,22 @@
 
 #result {
   margin-top: 4vh;
+}
+
+.oleo-script #result {
+  margin-top: 3.3vh;
+}
+
+.open-sans #result {
+  margin-top: 3.7vh;
+}
+
+.permanent-marker #result {
+  margin-top: 3.1vh;
+}
+
+.poor-story #result {
+  margin-top: 3.2vh;
 }
 
 .middle-base {
