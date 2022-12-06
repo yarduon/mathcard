@@ -29,6 +29,13 @@ import settings from "../json/settings.js";
 import currencies from "../json/currencies.js";
 import languages from "../json/languages.js";
 
+// Register the service worker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
+}
+
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("topScreen"),
   fakeTopScreen = document.getElementById("fakeTopScreen"),
