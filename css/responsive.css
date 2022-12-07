@@ -413,7 +413,7 @@
   .special-buttons-container {
     height: 18vw;
   }
-  
+
   .additional {
     width: 15.5%;
     height: 42%;
@@ -428,7 +428,7 @@
   }
 
   #switch-mode:checked ~ .buttons-container .dot {
-    left: 61.2%;
+    left: 60.4%;
   }
 
   .lower-buttons {

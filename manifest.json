@@ -8,6 +8,232 @@
   },
   "version": "1.0",
   "categories": ["utilities", "personalization", "entertainment", "education"],
+  "screenshots": [
+    {
+      "src": "./img/pwa/screenshots/english/computer_basic_calculations_en.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/computer_basic_calculations_spa.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/computer_currencies_en.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/computer_currencies_spa.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/computer_customization_en.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/computer_customization_spa.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/computer_personalized_calculator_en.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/computer_personalized_calculator_spa.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/mobile_basic_calculations_en.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/mobile_basic_calculations_spa.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/mobile_currencies_en.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/mobile_currencies_spa.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/mobile_customization_en.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/mobile_customization_spa.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/mobile_personalized_calculator_en.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/mobile_personalized_calculator_spa.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_7inch_basic_calculations_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_7inch_basic_calculations_spa.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_7inch_currencies_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_7inch_currencies_spa.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_7inch_customization_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_7inch_customization_spa.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_7inch_personalized_calculator_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "E"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_7inch_personalized_calculator_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_10inch_basic_calculations_en.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_10inch_basic_calculations_spa.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_10inch_currencies_en.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_10inch_currencies_spa.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_10inch_customization_en.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_10inch_customization_spa.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_10inch_personalized_calculator_en.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_10inch_personalized_calculator_spa.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": ""
+    }
+  ],
   "lang": "en",
   "start_url": "./",
   "scope": "./",
