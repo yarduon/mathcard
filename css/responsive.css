@@ -28,6 +28,10 @@
     width: 8vh;
   }
 
+  .small-text {
+    font-size: 1.5vh;
+  }
+
   .semi-normal-text {
     font-size: 1.6vh;
   }
@@ -80,7 +84,7 @@
     width: 30vh;
     height: 28vh;
   }
-
+  
   .result-options-container {
     justify-content: flex-end;
   }

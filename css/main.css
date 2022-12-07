@@ -2465,7 +2465,7 @@
   text-align: center;
 }
 
-.small-text{
+.small-text {
   font-size: 1.7vh;
 }
 
@@ -2731,12 +2731,12 @@
   margin: 5vh 18vh 5vh 18vh;
 }
 
-.qr-result:hover .bar {
-  height: 0.45vh;
+#error {
+  transition: left 2s;
 }
 
-#error {
-  transition: left 1s;
+.qr-result:hover .bar {
+  height: 0.45vh;
 }
 
 .line {

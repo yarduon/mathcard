@@ -719,7 +719,7 @@ async function showError(error) {
   // Show error message
   document.getElementById("error").style.left = 0;
   // Wait four seconds before disappearing error
-  await new Promise((res) => setTimeout(res, 4000));
+  await new Promise((res) => setTimeout(res, 5000));
   // Hide error
   document.getElementById("error").style.left = "-100%";
 }
