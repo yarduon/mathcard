@@ -1050,7 +1050,7 @@ document.getElementById("m+").addEventListener("click", () => {
   if (localStorage.getItem("editMode") === "false") {
     localStorage.setItem(
       "memory",
-      +localStorage.getItem("memory") + +result.innerText
+      +localStorage.getItem("memory") + +cleanText(result.innerText)
     );
   }
 });
@@ -1061,7 +1061,7 @@ document.getElementById("m-").addEventListener("click", () => {
   if (localStorage.getItem("editMode") === "false") {
     localStorage.setItem(
       "memory",
-      +localStorage.getItem("memory") - +result.innerText
+      +localStorage.getItem("memory") - +cleanText(result.innerText)
     );
   }
 });
@@ -1081,9 +1081,7 @@ document.getElementById("ms").addEventListener("click", () => {
   // Prevent default button behaviour when edit mode is activated
   if (localStorage.getItem("editMode") === "false") {
     // Prevent currency names to be stored
-    isNaN(localStorage.getItem("memory"))
-      ? localStorage.setItem("memory", cleanText(result.innerText))
-      : localStorage.setItem("memory", result.innerText);
+    localStorage.setItem("memory", cleanText(result.innerText));
   }
 });
 
@@ -1091,7 +1089,7 @@ document.getElementById("ms").addEventListener("click", () => {
 document.getElementById("mc").addEventListener("click", () => {
   // Prevent default button behaviour when edit mode is activated
   if (localStorage.getItem("editMode") === "false") {
-    localStorage.removeItem("memory");
+    localStorage.setItem("memory", "");
   }
 });
 

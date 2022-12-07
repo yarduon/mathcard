@@ -120,7 +120,7 @@
 }
 
 .reset,
-.error {
+.container-error {
   padding: 1.5vh;
 }
 
@@ -2463,6 +2463,10 @@
 
 .center {
   text-align: center;
+}
+
+.small-text{
+  font-size: 1.7vh;
 }
 
 .medium-text {
