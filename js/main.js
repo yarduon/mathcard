@@ -764,25 +764,26 @@ function readFileQR() {
 }
 
 function useCameraQR() {
+  let reader = document.getElementById("reader");
   // Set the current camera to avoid multiple cameras at once
   addClass("activated", document.getElementById("camera"));
   // Reset reader
-  document.getElementById("reader").innerHTML = "";
+  reader.innerHTML = "";
   // Hide options of QR reader
   hideShowOptionsQR(true, true);
   // Show loading icon
   removeClass("hidden", document.getElementById("loading"));
   Html5Qrcode.getCameras()
-    .then((devices) => {
+    .then(async (devices) => {
       if (devices && devices.length) {
         const html5QrCode = new Html5Qrcode("reader"),
-          config = { fps: 20, qrbox: { width: 150, height: 150 } },
+          config = { fps: 20, qrbox: { width: 100, height: 100 } },
           // Callback if QR is detected
           qrCodeSuccessCallback = (decodedText) => {
             stateResultQR(decodedText, html5QrCode, true);
           };
-        // Start scanning
-        html5QrCode.start(
+        // Stop code until start scanning
+        await html5QrCode.start(
           { facingMode: "environment" },
           config,
           qrCodeSuccessCallback

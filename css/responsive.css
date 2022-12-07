@@ -84,7 +84,7 @@
     width: 30vh;
     height: 28vh;
   }
-  
+
   .result-options-container {
     justify-content: flex-end;
   }
@@ -480,5 +480,9 @@
     right: initial;
     height: 5.2vh;
     border-top-right-radius: 1.5vh;
+  }
+
+  .settings-options {
+    margin-bottom: 7vh;
   }
 }
