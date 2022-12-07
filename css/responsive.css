@@ -80,9 +80,9 @@
   }
 
   .qr-icon {
-    margin: 6vh 0 6vh 0;
-    width: 30vh;
-    height: 28vh;
+    margin: 5vh 0 5vh 0;
+    width: 25vh;
+    height: 24vh;
   }
 
   .result-options-container {
@@ -313,12 +313,6 @@
     --normal-text: 2.9vh;
   }
 
-  .poor-story {
-    --medium-text: 2.2vh;
-    --normal-text: 3.1vh;
-    --large-text: 3vh;
-  }
-
   .gugi {
     --large-text: 2.3vh;
   }
@@ -354,10 +348,6 @@
 
   .permanent-marker #result {
     margin-top: 5.5vh;
-  }
-
-  .poor-story #result {
-    margin-top: 5.7vh;
   }
 
   .pt-sans #result {

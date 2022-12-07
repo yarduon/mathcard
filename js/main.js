@@ -777,7 +777,7 @@ function useCameraQR() {
     .then(async (devices) => {
       if (devices && devices.length) {
         const html5QrCode = new Html5Qrcode("reader"),
-          config = { fps: 20, qrbox: { width: 100, height: 100 } },
+          config = { fps: 20, qrbox: { width: 120, height: 120 } },
           // Callback if QR is detected
           qrCodeSuccessCallback = (decodedText) => {
             stateResultQR(decodedText, html5QrCode, true);

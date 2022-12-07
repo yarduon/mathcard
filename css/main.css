@@ -149,8 +149,7 @@
 }
 
 .chewy .logo,
-.oleo-script .logo,
-.poor-story .logo,
+.oleo-script .logo
 .selected-font .bar,
 .qr-result:hover .bar {
   margin-top: 0.3vh;
@@ -2559,14 +2558,6 @@
   font-family: "Permanent Marker";
 }
 
-.poor-story {
-  font-family: "Poor Story";
-  --medium-text: 2vh;
-  --normal-text: 2.6vh;
-  --large-text: 2.8vh;
-  --huge-text: 3.1vh;
-}
-
 .pt-mono {
   font-family: PT Mono;
 }
@@ -2634,10 +2625,6 @@
 
 .permanent-marker #result {
   margin-top: 3.1vh;
-}
-
-.poor-story #result {
-  margin-top: 3.2vh;
 }
 
 .middle-base {

@@ -96,12 +96,6 @@
 }
 
 @font-face {
-  font-family: "Poor Story";
-  src: url("./../fonts/poor_story.ttf");
-  font-display: swap;
-}
-
-@font-face {
   font-family: "PT Mono";
   src: url("./../fonts/pt_mono.ttf");
   font-display: swap;
