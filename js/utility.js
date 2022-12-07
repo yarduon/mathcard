@@ -155,7 +155,7 @@ export function updateJSON(
 }
 
 export function validateJSON(json, structure) {
-/*   // Throw an error if the supplied file does not have the desired structure
+  /*   // Throw an error if the supplied file does not have the desired structure
   Object.keys(structure).forEach((e) => {
     Object.keys(structure[e]).forEach((p) => {
       if (
@@ -205,7 +205,7 @@ export function cleanText(n) {
     "x",
     "y",
     "z",
-    "",
+    " ",
   ];
   matches.forEach((e) => {
     n = n.replaceAll(e, "");

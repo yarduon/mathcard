@@ -706,7 +706,6 @@ function hideShowOptionsQR(isCamera, hidden) {
 }
 
 async function showError(error) {
-  console.log(error);
   // Get name of error
   let errorName = String(error).substring(0, String(error).indexOf(":"));
 
@@ -1071,8 +1070,9 @@ document.getElementById("m-").addEventListener("click", () => {
 document.getElementById("mr").addEventListener("click", () => {
   // Prevent default button behaviour when edit mode is activated
   if (localStorage.getItem("editMode") === "false") {
-    topScreen.innerText += localStorage.getItem("memory");
+    topScreen.innerText += cleanText(localStorage.getItem("memory"));
     localStorage.setItem("topScreen", topScreen.innerText);
+    formatOperations(fakeTopScreen, topScreen);
   }
 });
 
