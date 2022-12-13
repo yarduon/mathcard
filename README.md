@@ -2,7 +2,7 @@
 
 Get rid of your boring old calculator and enhance your math operations, through a fully customizable experience with a ton of extra utilities.
 
-Unlock your artistic side being completely creative without limitations. Hide items or buttons you don't like by using the same colours, express yourself, and share your best themes with your friends.
+Unlock your artistic side being completely creative without limitations. Hide items or buttons you don't like by using the same colours, express yourself, and share your themes with friends.
 
 Although this is not an entirely scientific calculator, you can make any operation you want and use some features and buttons that you expect on your daily life. Most of them can be used with a keyboard, mouse or touching the screen and <strong>they are divided into four broad categories:</strong>
 
