@@ -27,8 +27,8 @@
 .color,
 .settings,
 .edit,
-.arrow {
-  height: 3.8vh;
+.hidder {
+  height: 3.5vh;
 }
 
 .upper-buttons,
@@ -341,7 +341,7 @@
 .cross,
 .vertical-line,
 .modal-buttons {
-  height: 5vh;
+  height: 6vh;
 }
 
 .selected-font .bar,
@@ -367,11 +367,6 @@
 .tab-confirm,
 .open-tabs {
   border-top-left-radius: 1.5vh;
-}
-
-.light-opacity:hover,
-.arrow:hover .small-icon {
-  opacity: 0.7;
 }
 
 .font-families,
@@ -405,12 +400,20 @@
   width: 2.1vh;
 }
 
+.semi-medium-icon{
+  width: 3vh;
+}
+
 .medium-icon {
   width: 3.5vh;
 }
 
 .semi-large-icon {
-  width: 4vh;
+  width: 3.8vh;
+}
+
+.large-icon{
+  width: 4.5vh;
 }
 
 .huge-icon {
@@ -472,6 +475,14 @@
 
 .overflow {
   overflow: hidden;
+}
+
+.scroll {
+  overflow: scroll;
+}
+
+.light-opacity:hover {
+  opacity: 0.7;
 }
 
 .touch:hover {
@@ -2769,13 +2780,8 @@
   margin: 0 0 70vh 60vh;
 }
 
-.right-arrow {
-  /* Avoid blank space on full screen */
-  margin-right: -0.1vh;
-}
-
 .font-families {
-  padding-left: 3.2vh;
+  padding-left: 0.5vh;
 }
 
 .font {
@@ -2828,7 +2834,7 @@
 }
 
 .palette {
-  padding-left: 4.3vh;
+  padding-left: 1vh;
 }
 
 .color {

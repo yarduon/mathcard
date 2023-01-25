@@ -66,12 +66,6 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("qr-not-found"),
     document.getElementById("invalid-file"),
   ],
-  arrows = [
-    document.getElementById("left-arrow-fonts"),
-    document.getElementById("left-arrow-colors"),
-    document.getElementById("right-arrow-fonts"),
-    document.getElementById("right-arrow-colors"),
-  ],
   fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
   customizationContainers = [
     document.getElementById("font-families"),
@@ -93,8 +87,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("split-reverse"),
   ];
 
-let totalResult = 0,
-  slide = 0;
+let totalResult = 0;
 
 // Translate all items with the class translate
 function translatePage(items) {
@@ -847,28 +840,6 @@ function editMode(event) {
   return stringToBoolean(localStorage.getItem("editMode"));
 }
 
-function useSlider(currentPosition, isRight, parentContainer) {
-  // Convert received value to a number
-  currentPosition = +currentPosition;
-
-  if (isRight) {
-    // Move to the right until value is of upper max value
-    if (currentPosition < 230) {
-      parentContainer.style.right = (currentPosition += 0.5) + "vh";
-    }
-  } else {
-    // Move to the left until value is of below zero
-    if (currentPosition > 0) {
-      parentContainer.style.right = (currentPosition -= 0.5) + "vh";
-    }
-  }
-  // Save current position
-  localStorage.setItem(
-    "position-" + parentContainer.id,
-    cleanText(parentContainer.style.right)
-  );
-}
-
 function changeBackground(backgroundName) {
   switch (backgroundName) {
     case "original-reverse":
@@ -1286,30 +1257,6 @@ confirmButtons.forEach((e) => {
           null
         );
     window.location.reload();
-  });
-});
-
-// Start slider when the arrow is pressed or touched
-arrows.forEach((e, i) => {
-  e.addEventListener("pointerdown", () => {
-    slide = setInterval(() => {
-      useSlider(
-        localStorage.getItem("position-" + e.parentNode.children[1].id),
-        e.id.includes("right"),
-        e.parentNode.children[1]
-      );
-    }, 100);
-  });
-});
-
-// Stop slider when mouse is not pressed or touched
-arrows.forEach((e) => {
-  e.addEventListener("pointerup", () => {
-    clearInterval(slide);
-  });
-  // Avoid infinite scroll when dragging mouse or finger out of arrows area
-  e.addEventListener("pointerout", () => {
-    clearInterval(slide);
   });
 });
 
