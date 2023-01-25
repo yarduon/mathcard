@@ -149,8 +149,7 @@
 }
 
 .chewy .logo,
-.oleo-script .logo
-.selected-font .bar,
+.oleo-script .logo .selected-font .bar,
 .qr-result:hover .bar {
   margin-top: 0.3vh;
 }
