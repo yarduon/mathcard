@@ -465,7 +465,9 @@
   opacity: 0;
 }
 
-.hidden-webstyles {
+.hidden-webstyles,
+.fonts-container::-webkit-scrollbar,
+.colors-container::-webkit-scrollbar {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -2788,7 +2790,7 @@
 }
 
 .fonts-container::-webkit-scrollbar-thumb,
-.colors-container::-webkit-scrollbar-thumb  {
+.colors-container::-webkit-scrollbar-thumb {
   background: rgb(196, 192, 192);
   border-radius: 10vh;
   border: 0.35vh solid #0f0f0f;
