@@ -382,6 +382,14 @@
     border-bottom-right-radius: 0.2vh;
   }
 
+  .on-mark {
+    bottom: 4vh;
+  }
+
+  .off-mark {
+    top: 4vh;
+  }
+
   .power {
     width: 11vw;
     height: 11vw;
@@ -458,7 +466,7 @@
     height: 6.6vh;
   }
 
-  .palette{
+  .palette {
     height: 5vh;
   }
 

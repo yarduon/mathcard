@@ -149,6 +149,14 @@
   bottom: 3vh;
 }
 
+.on-mark {
+  bottom: 3.5vh;
+}
+
+.off-mark {
+  top: 3.5vh;
+}
+
 #switch-mode:checked ~ .buttons-container .dot {
   left: 22.6vh;
 }

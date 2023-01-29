@@ -2692,6 +2692,10 @@
   border-bottom-right-radius: 0.2vh;
 }
 
+#on-light {
+  animation: blink 2s steps(1) infinite;
+}
+
 .power {
   width: 4.6vh;
   height: 4.6vh;
