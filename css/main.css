@@ -128,7 +128,7 @@
 
 .fonts-container,
 .colors-container {
-  padding: 0.5vh 0 0.2vh 0;
+  padding: 0.5vh 0 0vh 0;
 }
 
 @-moz-document url-prefix() {
