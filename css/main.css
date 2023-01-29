@@ -134,7 +134,7 @@
 @-moz-document url-prefix() {
   .fonts-container,
   .colors-container {
-    padding: 0.6vh 0 0.6vh 0;
+    padding: 0.7vh 0 0.7vh 0;
     scrollbar-width: thin;
     scrollbar-color: rgb(196, 192, 192) #0f0f0f;
   }
@@ -393,7 +393,9 @@
 }
 
 .fonts-container:hover::-webkit-scrollbar-thumb,
-.colors-container:hover::-webkit-scrollbar-thumb {
+.colors-container:hover::-webkit-scrollbar-thumb,
+.fonts-container:active::-webkit-scrollbar-thumb,
+.colors-container:active::-webkit-scrollbar-thumb {
   background: rgb(196, 192, 192);
 }
 
