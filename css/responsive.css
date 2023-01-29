@@ -36,12 +36,8 @@
     font-size: 1.6vh;
   }
 
-  .arrow {
-    width: 6.5vh;
-  }
-
-  .arrow .small-icon {
-    width: 2.4vh;
+  .palette {
+    padding: 0.3vh 0 0.2vh 0.9vh;
   }
 
   .tab-minimize {
@@ -374,7 +370,7 @@
 
   .lights-container {
     height: 6.5vh;
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
   }
 
   .off-on-light {
@@ -394,7 +390,7 @@
   .power {
     width: 11vw;
     height: 11vw;
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
   }
 
   .main-button {
@@ -424,7 +420,7 @@
   }
 
   .lower-buttons {
-    margin-bottom: 1.5vh;
+    margin-bottom: 1.3vh;
   }
 
   .extra-symbols {
