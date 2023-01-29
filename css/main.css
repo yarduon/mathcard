@@ -395,7 +395,8 @@
 .fonts-container:hover::-webkit-scrollbar-thumb,
 .colors-container:hover::-webkit-scrollbar-thumb,
 .fonts-container:active::-webkit-scrollbar-thumb,
-.colors-container:active::-webkit-scrollbar-thumb {
+.colors-container:active::-webkit-scrollbar-thumb,
+.touched::-webkit-scrollbar-thumb {
   background: rgb(196, 192, 192);
 }
 
