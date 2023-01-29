@@ -374,6 +374,7 @@
 
   .lights-container {
     height: 6.5vh;
+    margin-bottom: 2vh;
   }
 
   .off-on-light {
@@ -393,6 +394,7 @@
   .power {
     width: 11vw;
     height: 11vw;
+    margin-bottom: 2vh;
   }
 
   .main-button {
@@ -422,7 +424,7 @@
   }
 
   .lower-buttons {
-    margin-bottom: 2vh;
+    margin-bottom: 1.5vh;
   }
 
   .extra-symbols {
