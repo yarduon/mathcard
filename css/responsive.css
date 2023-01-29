@@ -60,6 +60,7 @@
   }
 
   .tab-confirm {
+    padding-left: 0.5vh;
     margin-right: 25vh;
   }
 
@@ -472,6 +473,10 @@
     right: initial;
     height: 5.2vh;
     border-top-right-radius: 1.5vh;
+  }
+
+  .tab-confirm {
+    padding-left: 0.8vh;
   }
 
   .settings-options {
