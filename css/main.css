@@ -410,7 +410,7 @@
 .tab-modify,
 .tab-confirm,
 .tab-minimize {
-  height: 7.8vh;
+  height: 8.5vh;
   padding: 1.5vh 0.5vh 1vh 0.5vh;
 }
 
@@ -431,7 +431,7 @@
 }
 
 .medium-icon {
-  width: 3.5vh;
+  width: 3vh;
 }
 
 .semi-large-icon {
@@ -2829,7 +2829,7 @@
 }
 
 .tab {
-  margin-bottom: 5.41vh;
+  margin-bottom: 5.9vh;
 }
 
 .tab-minimize {
@@ -2845,7 +2845,7 @@
 }
 
 .tab-confirm {
-  width: 13vh;
+  width: 14vh;
 }
 
 #confirm:hover {
