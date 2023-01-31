@@ -1221,11 +1221,11 @@ Array.from(document.getElementsByClassName("font")).forEach((e) => {
 // Display or hide the scrollbar when you slide your finger
 customizationContainers.forEach((element) => {
   // Show scroll bar when container is pressed down
-  element.addEventListener("touchmove", (e) => {
+  element.addEventListener("focus", (e) => {
     addClass("touched", element);
   });
   // Hide the scroll bar when not holding down the container
-  element.addEventListener("touchend", (e) => {
+  element.addEventListener("blur", (e) => {
     removeClass("touched", element);
   });
 });
