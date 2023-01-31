@@ -2848,10 +2848,6 @@
   width: 13vh;
 }
 
-#confirm{
-  margin-bottom: .5vh;
-}
-
 #confirm:hover {
   color: #3cf36c;
 }
