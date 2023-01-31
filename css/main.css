@@ -24,6 +24,11 @@
   height: 6vh;
 }
 
+.settings,
+.edit {
+  height: 3.8vh;
+}
+
 .color,
 .hidder {
   height: 3.5vh;
@@ -2778,10 +2783,6 @@
 .footer-buttons {
   width: 8.5vh;
   margin-left: 0.8vh;
-}
-
-.settings, .edit{
-  height: 4vh;
 }
 
 .switch-mode-container {
