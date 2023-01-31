@@ -561,9 +561,8 @@ function powerOnOff(event) {
     if (event) {
       // Fill and show data values
       writeAndSave(result.id, "0", result);
-      document.getElementById("topScreen").classList.remove("invisible");
+      removeClass("invisible", topScreen, fakeTopScreen);
     }
-
     // Activate all buttons
     Array.from(document.getElementsByClassName("button")).forEach((e) => {
       e.disabled = false;
@@ -577,7 +576,7 @@ function powerOnOff(event) {
     fakeTopScreen.innerText = "";
     writeAndSave(topScreen.id, "", topScreen);
     writeAndSave(result.id, "", result);
-    document.getElementById("topScreen").classList.add("invisible");
+    addClass("invisible", topScreen, fakeTopScreen);
 
     // Deactivate all buttons
     Array.from(document.getElementsByClassName("button")).forEach((e) => {
