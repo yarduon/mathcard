@@ -111,8 +111,7 @@
 }
 
 .logo-container,
-.select,
-.element {
+.select {
   height: 4vh;
 }
 
@@ -2863,6 +2862,10 @@
 .selected-element + .bar {
   height: 0.43vh;
   transition: width 1s, height 0.1s, background-color 0.5s;
+}
+
+.element#icon {
+  height: 4vh;
 }
 
 .palette {
