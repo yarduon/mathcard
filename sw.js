@@ -1,8 +1,8 @@
 if (!self.define) {
   let e,
     s = {};
-  const i = (i, n) => (
-    (i = new URL(i + ".js", n).href),
+  const i = (i, c) => (
+    (i = new URL(i + ".js", c).href),
     s[i] ||
       new Promise((s) => {
         if ("document" in self) {
@@ -15,7 +15,7 @@ if (!self.define) {
         return e;
       })
   );
-  self.define = (n, c) => {
+  self.define = (c, n) => {
     const a =
       e ||
       ("document" in self ? document.currentScript.src : "") ||
@@ -24,7 +24,7 @@ if (!self.define) {
     let r = {};
     const o = (e) => i(e, a),
       f = { module: { uri: a }, exports: r, require: o };
-    s[a] = Promise.all(n.map((e) => f[e] || o(e))).then((e) => (c(...e), r));
+    s[a] = Promise.all(c.map((e) => f[e] || o(e))).then((e) => (n(...e), r));
   };
 }
 define(["./workbox-7e688afb"], function (e) {
@@ -36,18 +36,18 @@ define(["./workbox-7e688afb"], function (e) {
       [
         {
           url: "css/animation.css",
-          revision: "ff9c48d50e3093ef75a12fa8860a664d",
+          revision: "4f947abc2c7e4bfba25118edad286256",
         },
         { url: "css/fonts.css", revision: "122ffaf98be03a4ee40c3502f0211e40" },
-        { url: "css/main.css", revision: "7f2c45135dbfe3ad88268801264c904d" },
+        { url: "css/main.css", revision: "08f1254797d586cf69d5b573c52270b6" },
         {
           url: "css/position.css",
-          revision: "7baf65c375131ad6820f571f4ff7502a",
+          revision: "4e9a66945d59b5d8bc65cf8fbbb0dbc1",
         },
         { url: "css/reset.css", revision: "e56be516a87051ba3ae1ed36d9974306" },
         {
           url: "css/responsive.css",
-          revision: "29bd8ecb075ec4953a6df1b9b1001ffc",
+          revision: "063c8f05e8db22f9823a66c5767af728",
         },
         {
           url: "fonts/alatsi.ttf",
@@ -222,138 +222,138 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "img/pwa/screenshots/english/computer_calculations_en.png",
-          revision: "f026643a68070a9482e27204b39b2b7b",
+          revision: "b6b9126078296fa72462aa6e30c7b8a3",
         },
         {
           url: "img/pwa/screenshots/english/computer_currencies_en.png",
-          revision: "f7e2d95bd9d3fb5b7cbe43e4ae74e9fd",
+          revision: "820ffcc89571ea477f0edcc4204bdb27",
         },
         {
           url: "img/pwa/screenshots/english/computer_customization_en.png",
-          revision: "d1d7ff5d41d7cc6fed04b41a39047f71",
+          revision: "f87b41e149356c7e53352d7f061a9274",
         },
         {
           url: "img/pwa/screenshots/english/computer_personalized_calculator_en.png",
-          revision: "963050d0085dea4e2548434e07a0c6db",
+          revision: "f1893ea3783911b6031981825be2eb93",
         },
         {
           url: "img/pwa/screenshots/english/mobile_calculations_en.png",
-          revision: "1e7ea7d1b63e21319498909ff24d33c9",
+          revision: "0b44632ec3cbb3cf5d0ead054b1f38c2",
         },
         {
           url: "img/pwa/screenshots/english/mobile_currencies_en.png",
-          revision: "8733191d33ec260c107866218a0283b6",
+          revision: "2534ef25d00100f5441fb61821fe8df8",
         },
         {
           url: "img/pwa/screenshots/english/mobile_customization_en.png",
-          revision: "8198d4ce272c8b1d0f1a88e73e4f1330",
+          revision: "bf5a8f22a94a1fe3a38398568c4e27a1",
         },
         {
           url: "img/pwa/screenshots/english/mobile_personalized_calculator_en.png",
-          revision: "1234eb4489d58d49294b75411e654f8d",
+          revision: "65babc9f0b1b7b1452ff42666d9f6f0e",
         },
         {
           url: "img/pwa/screenshots/english/tablet_10inch_calculations_en.png",
-          revision: "5d2f0f4873492ce10b1f1d8d6ac5c0f4",
+          revision: "e5405cb0bfa9033af98632f9b51f8ee7",
         },
         {
           url: "img/pwa/screenshots/english/tablet_10inch_currencies_en.png",
-          revision: "09b8f439cdc05a998f10eb97f2aebffd",
+          revision: "96ce7c1c0ba1086c8d2ad5748f814a00",
         },
         {
           url: "img/pwa/screenshots/english/tablet_10inch_customization_en.png",
-          revision: "9d238f5bbd05d6af706dd8ab0e5f55a6",
+          revision: "50aaeb62fc1478482b60cd9aebef45c2",
         },
         {
           url: "img/pwa/screenshots/english/tablet_10inch_personalized_calculator_en.png",
-          revision: "62839454e085af797477c4765a0f9235",
+          revision: "f899093604fc4ab3e43ff5cde940c601",
         },
         {
           url: "img/pwa/screenshots/english/tablet_7inch_calculations_en.png",
-          revision: "1f40d0d5109a9e7f55270ad39bdc8a08",
+          revision: "b324bc7f45eb4860f7a42f105797ac94",
         },
         {
           url: "img/pwa/screenshots/english/tablet_7inch_currencies_en.png",
-          revision: "4983b0b05513dcd8b86d1d2e0a5583e9",
+          revision: "3833f31cd58d41c148b15068429410f7",
         },
         {
           url: "img/pwa/screenshots/english/tablet_7inch_customization_en.png",
-          revision: "76b17918b8ae9bcd9f5be4b42430be0e",
+          revision: "bcd5c29b448cc5fc542635b0b9b7ee6e",
         },
         {
           url: "img/pwa/screenshots/english/tablet_7inch_personalized_calculator_en.png",
-          revision: "8209d317a15cd7f5564aca3050373a5c",
+          revision: "87c6283808e40bcdc92f139eefe53f16",
         },
         {
           url: "img/pwa/screenshots/spanish/computer_calculations_spa.png",
-          revision: "f026643a68070a9482e27204b39b2b7b",
+          revision: "b6b9126078296fa72462aa6e30c7b8a3",
         },
         {
           url: "img/pwa/screenshots/spanish/computer_currencies_spa.png",
-          revision: "f9b96ddc1a8feb78ca57446b6c2f57fc",
+          revision: "25e20b24237a7320cf6664987551cc70",
         },
         {
           url: "img/pwa/screenshots/spanish/computer_customization_spa.png",
-          revision: "d1d7ff5d41d7cc6fed04b41a39047f71",
+          revision: "f87b41e149356c7e53352d7f061a9274",
         },
         {
           url: "img/pwa/screenshots/spanish/computer_personalized_calculator_spa.png",
-          revision: "963050d0085dea4e2548434e07a0c6db",
+          revision: "f1893ea3783911b6031981825be2eb93",
         },
         {
           url: "img/pwa/screenshots/spanish/mobile_calculations_spa.png",
-          revision: "1e7ea7d1b63e21319498909ff24d33c9",
+          revision: "0b44632ec3cbb3cf5d0ead054b1f38c2",
         },
         {
           url: "img/pwa/screenshots/spanish/mobile_currencies_spa.png",
-          revision: "74e2e0b99593d8bb48b100a27e420ef0",
+          revision: "902f571fed3363702e4016fdbc18ed04",
         },
         {
           url: "img/pwa/screenshots/spanish/mobile_customization_spa.png",
-          revision: "8198d4ce272c8b1d0f1a88e73e4f1330",
+          revision: "bf5a8f22a94a1fe3a38398568c4e27a1",
         },
         {
           url: "img/pwa/screenshots/spanish/mobile_personalized_calculator_spa.png",
-          revision: "1234eb4489d58d49294b75411e654f8d",
+          revision: "65babc9f0b1b7b1452ff42666d9f6f0e",
         },
         {
           url: "img/pwa/screenshots/spanish/tablet_10inch_calculations_spa.png",
-          revision: "5d2f0f4873492ce10b1f1d8d6ac5c0f4",
+          revision: "e5405cb0bfa9033af98632f9b51f8ee7",
         },
         {
           url: "img/pwa/screenshots/spanish/tablet_10inch_currencies_spa.png",
-          revision: "dfaf6991d8d33dcae89138f35ddfc226",
+          revision: "737eb85bd043c84b42917852261236ed",
         },
         {
           url: "img/pwa/screenshots/spanish/tablet_10inch_customization_spa.png",
-          revision: "9d238f5bbd05d6af706dd8ab0e5f55a6",
+          revision: "50aaeb62fc1478482b60cd9aebef45c2",
         },
         {
           url: "img/pwa/screenshots/spanish/tablet_10inch_personalized_calculator_spa.png",
-          revision: "62839454e085af797477c4765a0f9235",
+          revision: "f899093604fc4ab3e43ff5cde940c601",
         },
         {
           url: "img/pwa/screenshots/spanish/tablet_7inch_calculations_spa.png",
-          revision: "1f40d0d5109a9e7f55270ad39bdc8a08",
+          revision: "b324bc7f45eb4860f7a42f105797ac94",
         },
         {
           url: "img/pwa/screenshots/spanish/tablet_7inch_currencies_spa.png",
-          revision: "21ebe1a596f3d64f54b27ef159813757",
+          revision: "fde11fcc1e8e75f21a168118b15d637f",
         },
         {
           url: "img/pwa/screenshots/spanish/tablet_7inch_customization_spa.png",
-          revision: "76b17918b8ae9bcd9f5be4b42430be0e",
+          revision: "bcd5c29b448cc5fc542635b0b9b7ee6e",
         },
         {
           url: "img/pwa/screenshots/spanish/tablet_7inch_personalized_calculator_spa.png",
-          revision: "8209d317a15cd7f5564aca3050373a5c",
+          revision: "87c6283808e40bcdc92f139eefe53f16",
         },
-        { url: "index.html", revision: "57756682d7855305f83a44725c3297dd" },
+        { url: "index.html", revision: "17cf9adfbc3ff6639c6a9b444428093b" },
         {
           url: "js/html5_qrcode.js",
           revision: "8ee1a862df07ab20670775ac32c56da4",
         },
-        { url: "js/main.js", revision: "8dfb245483b1d0e08c3b33329f77c440" },
+        { url: "js/main.js", revision: "69402876accdde2fe564d2e53d789fe0" },
         { url: "js/utility.js", revision: "12525c02b3d704bd2209e7f68bfd9a8c" },
         {
           url: "json/currencies.js",
@@ -361,14 +361,14 @@ define(["./workbox-7e688afb"], function (e) {
         },
         {
           url: "json/languages.js",
-          revision: "8f067d815da5c1ec94ff0785443968bc",
+          revision: "ba9b08c076fc991d8a0a72d805e4c78f",
         },
         {
           url: "json/settings.js",
           revision: "6e17660d5eed88106191c21edfd52a99",
         },
-        { url: "manifest.json", revision: "6cb33cddf128cb5a1cf9c5142f7cce50" },
-        { url: "README.md", revision: "1c7f532f0f00bc6f55fd064dbd44c217" },
+        { url: "manifest.json", revision: "3fa0e87e064b8c3fdbf2903499d062ab" },
+        { url: "README.md", revision: "c1420683a733ab7cc59f8aee0771f6b4" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
     );
