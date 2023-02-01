@@ -36,6 +36,9 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+// Update only when new version is finished
+const currentVersion = 1.1;
+
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("topScreen"),
   fakeTopScreen = document.getElementById("fakeTopScreen"),
@@ -856,6 +859,21 @@ function changeBackground(backgroundName) {
 
 // When the page is refreshed or loaded for the first time
 window.onload = async () => {
+  // Only if load is first time
+  if (!sessionStorage.getItem("refresh")) {
+    // Reset local data when update is up
+    if (Number(localStorage.getItem("currentVersion")) < currentVersion) {
+      localStorage.setItem("currentVersion", currentVersion);
+      localStorage.clear();
+    }
+    sessionStorage.setItem("refresh", true);
+  }
+  // Prevent old local data to appear and save new version to future refresh
+  if (!localStorage.getItem("currentVersion")) {
+    localStorage.clear();
+    localStorage.setItem("currentVersion", currentVersion);
+  }
+
   // Load default values when the cache is deleted or first time
   if (!localStorage.getItem("topScreen")) localStorage.setItem("topScreen", "");
   if (!localStorage.getItem("result")) localStorage.setItem("result", 0);
