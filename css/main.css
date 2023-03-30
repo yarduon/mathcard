@@ -113,6 +113,12 @@
   height: 24vh;
 }
 
+.tab-modify,
+.tab-confirm,
+.tab-minimize {
+  height: 8.5vh;
+}
+
 .logo-container,
 .select {
   height: 4vh;
@@ -125,7 +131,7 @@
 
 .fonts-container,
 .colors-container {
-  padding: 1vh 0 0vh 0;
+  padding: 1vh 0 0 0;
 }
 
 @-moz-document url-prefix() {
@@ -399,7 +405,6 @@
 .font-families,
 .palette {
   width: 300vh;
-  transition: right 0.1s linear;
 }
 
 .qr-icon,
@@ -408,10 +413,8 @@
   transition: background-color 0.3s;
 }
 
-.tab-modify,
 .tab-confirm,
 .tab-minimize {
-  height: 8.5vh;
   padding: 1.5vh 0.5vh 1vh 0.5vh;
 }
 
@@ -2817,6 +2820,10 @@
   margin: 0 0 70vh 60vh;
 }
 
+.font-families {
+  padding-left: .7vh;
+}
+
 .font {
   margin: 0vh 2vh 0vh 2vh;
 }
@@ -2858,6 +2865,7 @@
 }
 
 .tab-modify {
+  padding: 1.5vh 0.7vh 1vh 0.5vh;
   border-top-right-radius: 1.5vh;
 }
 
@@ -2871,7 +2879,7 @@
 }
 
 .palette {
-  padding-left: 0.9vh;
+  padding-left: 0.7vh;
 }
 
 .color {
