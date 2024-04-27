@@ -423,11 +423,16 @@ function selectButton(name) {
           (nextToLastSelected !== "-" &&
             nextToLastSelected !== "" &&
             nextToLastSelected !== "(" &&
+            nextToLastSelected !== "." &&
+            lastSelected !== "." &&
             !isNaN(nextToLastSelected)) ||
           lastSelected === "(" ||
           !isNaN(lastSelected)
         ) {
           writeAndSave(topScreen.id, name, topScreen, true);
+
+          // Reset uses of dots
+          localStorage.setItem("usingFloat", false);
         }
         break;
       // Character value and key are different
