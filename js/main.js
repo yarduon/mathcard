@@ -31,11 +31,11 @@ import currencies from "../json/currencies.js";
 import languages from "../json/languages.js";
 
 // Register the service worker
-if ("serviceWorker" in navigator) {
+/* if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./sw.js");
   });
-}
+} */
 
 // Update only when new version is finished
 const currentVersion = 1.1;
@@ -649,7 +649,7 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
-function checkCameras() {
+/* function checkCameras() {
   // Check if there are cameras available but before activate icon
   removeClasses(document.getElementById("camera"), "disabled");
   // Request camera permissions from users
@@ -657,7 +657,7 @@ function checkCameras() {
     // Deactivate camera icon
     addClasses(document.getElementById("camera"), "disabled");
   });
-}
+} */
 
 function closeWindowQR(parentWindow) {
   // Identify which window closes
@@ -929,7 +929,7 @@ window.onload = async () => {
   formatOperations(fakeTopScreen, topScreen);
 
   // Check if there are cameras available
-  checkCameras();
+  /* checkCameras(); */
 
   // Update rates each 24h or when it's the first time
   if (
@@ -1105,7 +1105,7 @@ switchModes.addEventListener("click", () => {
 document.getElementById("qr").addEventListener("click", () => {
   if (localStorage.getItem("editMode") === "false") {
     removeClasses(document.getElementById("qr-menu"), "hidden");
-    checkCameras();
+    /* checkCameras(); */
   }
 });
 
