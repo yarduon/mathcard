@@ -1,4 +1,5 @@
 // https://yarduon.com
+import QrScanner from "./qr-scanner.min.js";
 import {
   increment,
   decrement,
@@ -728,7 +729,7 @@ function stateResultQR(result, scanner, isCamera) {
   }
 }
 
-function readFileQR() {
+/* function readFileQR() {
   const html5QrCode = new Html5Qrcode("reader");
   // Allow to re-scan even if the input is the same
   document.getElementById("qr-input-file").value = "";
@@ -745,7 +746,7 @@ function readFileQR() {
         showError(err);
       });
   });
-}
+} */
 
 function useCameraQR() {
   let reader = document.getElementById("reader");
@@ -757,37 +758,31 @@ function useCameraQR() {
   hideShowOptionsQR(true, true);
   // Show loading icon
   removeClass("hidden", document.getElementById("loading"));
-  Html5Qrcode.getCameras()
-    .then(async (devices) => {
-      if (devices && devices.length) {
-        const html5QrCode = new Html5Qrcode("reader"),
-          config = { fps: 20, qrbox: { width: 120, height: 120 } },
-          // Callback if QR is detected
-          qrCodeSuccessCallback = (decodedText) => {
-            stateResultQR(decodedText, html5QrCode, true);
-          };
-        // Stop code until start scanning
-        await html5QrCode.start(
-          { facingMode: "environment" },
-          config,
-          qrCodeSuccessCallback
-        );
 
-        // Allow user to stop scanning and exit QR menu
-        document.getElementById("close-qr").addEventListener("click", () => {
-          // Go back to the options menu
-          closeWindowQR(document.getElementById("reader"));
-          // Hide loading icon
-          addClass("hidden", document.getElementById("loading"));
-          // Stop and reset camera
-          removeClass("activated", document.getElementById("camera"));
-          html5QrCode.stop();
-        });
+  // Detect camera and ask for permission
+  QrScanner.hasCamera().then(() => {
+    const qrScanner = new QrScanner(
+      document.getElementById("reader"),
+      (result) => (document.getElementById("result").innerHTML = result.data),
+      {
+        highlightScanRegion: true,
+        highlightCodeOutline: true,
       }
-    })
-    .catch(async (err) => {
+    );
+    qrScanner.start().catch((err) => {
       showError(err);
     });
+    // Allow user to stop scanning and exit QR menu
+    document.getElementById("close-qr").addEventListener("click", () => {
+      // Go back to the options menu
+      closeWindowQR(document.getElementById("reader"));
+      // Hide loading icon
+      addClass("hidden", document.getElementById("loading"));
+      // Stop and reset camera
+      removeClass("activated", document.getElementById("camera"));
+      qrScanner.stop();
+    });
+  });
 }
 
 function editMode(event) {
