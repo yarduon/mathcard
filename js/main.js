@@ -726,6 +726,8 @@ function stateResultQR(result, scanner, isCamera) {
       document.getElementById("loading")
     );
     scanner.stop();
+    scanner.destroy();
+    scanner = null;
   }
 }
 
@@ -781,6 +783,8 @@ function useCameraQR() {
       // Stop and reset camera
       removeClass("activated", document.getElementById("camera"));
       qrScanner.stop();
+      qrScanner.destroy();
+      qrScanner = null;
     });
   });
 }
