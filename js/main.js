@@ -729,7 +729,7 @@ function stateResultQR(result, scanner, isCamera) {
   }
 }
 
-/* function readFileQR() {
+function readFileQR() {
   const html5QrCode = new Html5Qrcode("reader");
   // Allow to re-scan even if the input is the same
   document.getElementById("qr-input-file").value = "";
@@ -746,14 +746,14 @@ function stateResultQR(result, scanner, isCamera) {
         showError(err);
       });
   });
-} */
+}
 
 function useCameraQR() {
   let reader = document.getElementById("reader");
   // Set the current camera to avoid multiple cameras at once
   addClass("activated", document.getElementById("camera"));
   // Reset reader
-  reader.innerHTML = "";
+  /* reader.innerHTML = ""; */
   // Hide options of QR reader
   hideShowOptionsQR(true, true);
   // Show loading icon
@@ -763,14 +763,14 @@ function useCameraQR() {
   QrScanner.hasCamera().then(() => {
     const qrScanner = new QrScanner(
       document.getElementById("reader"),
-      (result) => (document.getElementById("result").innerHTML = result.data),
+      (result) => stateResultQR(result.data, qrScanner, true),
       {
         highlightScanRegion: true,
         highlightCodeOutline: true,
       }
     );
     qrScanner.start().catch((err) => {
-      showError(err);
+      /*  showError(err); */
     });
     // Allow user to stop scanning and exit QR menu
     document.getElementById("close-qr").addEventListener("click", () => {
