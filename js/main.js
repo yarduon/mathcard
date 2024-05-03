@@ -649,15 +649,15 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
-/* function checkCameras() {
+function checkCameras() {
   // Check if there are cameras available but before activate icon
   removeClasses(document.getElementById("camera"), "disabled");
   // Request camera permissions from users
-  Html5Qrcode.getCameras().catch(() => {
+  QrScanner.hasCamera(true).then((camera) => {
     // Deactivate camera icon
-    addClasses(document.getElementById("camera"), "disabled");
+    if (!camera) addClasses(document.getElementById("camera"), "disabled");
   });
-} */
+}
 
 function closeWindowQR(parentWindow) {
   // Identify which window closes
@@ -727,7 +727,6 @@ function stateResultQR(result, scanner, isCamera) {
     );
     scanner.stop();
     scanner.destroy();
-    scanner = null;
   }
 }
 
@@ -751,41 +750,41 @@ function readFileQR() {
 }
 
 function useCameraQR() {
-  let reader = document.getElementById("reader");
   // Set the current camera to avoid multiple cameras at once
   addClass("activated", document.getElementById("camera"));
-  // Reset reader
-  /* reader.innerHTML = ""; */
   // Hide options of QR reader
   hideShowOptionsQR(true, true);
   // Show loading icon
   removeClass("hidden", document.getElementById("loading"));
 
-  // Detect camera and ask for permission
-  QrScanner.hasCamera().then(() => {
-    const qrScanner = new QrScanner(
-      document.getElementById("reader"),
-      (result) => stateResultQR(result.data, qrScanner, true),
-      {
-        highlightScanRegion: true,
-        highlightCodeOutline: true,
-      }
-    );
-    qrScanner.start().catch((err) => {
-      /*  showError(err); */
-    });
-    // Allow user to stop scanning and exit QR menu
-    document.getElementById("close-qr").addEventListener("click", () => {
-      // Go back to the options menu
-      closeWindowQR(document.getElementById("reader"));
-      // Hide loading icon
-      addClass("hidden", document.getElementById("loading"));
-      // Stop and reset camera
-      removeClass("activated", document.getElementById("camera"));
-      qrScanner.stop();
-      qrScanner.destroy();
-      qrScanner = null;
-    });
+  // Create scanner
+  const qrScanner = new QrScanner(
+    document.getElementById("reader"),
+    (result) => stateResultQR(result.data, qrScanner, true),
+    {
+      highlightScanRegion: true,
+      highlightCodeOutline: true,
+    }
+  );
+  // Set the back camera as the default
+  qrScanner.setCamera("environment");
+
+  // Only activate the camera if it is available
+  qrScanner
+    .start()
+    .then(() => QrScanner.listCameras(true))
+    .catch(() => qrScanner.destroy());
+
+  // Allow user to stop scanning and exit QR menu
+  document.getElementById("close-qr").addEventListener("click", () => {
+    // Go back to the options menu
+    closeWindowQR(document.getElementById("reader"));
+    // Hide loading icon
+    addClass("hidden", document.getElementById("loading"));
+    // Stop and reset camera
+    removeClass("activated", document.getElementById("camera"));
+    qrScanner.stop();
+    qrScanner.destroy();
   });
 }
 
@@ -933,7 +932,7 @@ window.onload = async () => {
   formatOperations(fakeTopScreen, topScreen);
 
   // Check if there are cameras available
-  /* checkCameras(); */
+  checkCameras();
 
   // Update rates each 24h or when it's the first time
   if (
@@ -1109,7 +1108,7 @@ switchModes.addEventListener("click", () => {
 document.getElementById("qr").addEventListener("click", () => {
   if (localStorage.getItem("editMode") === "false") {
     removeClasses(document.getElementById("qr-menu"), "hidden");
-    /* checkCameras(); */
+    checkCameras();
   }
 });
 
