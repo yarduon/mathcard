@@ -167,7 +167,7 @@ Although this is not an entirely scientific calculator, you can make any operati
         <em>I want to see it right now:</em>
         <ol>
             <li>Just click on this link: <a href="https://yarduon.com/mathcard/">Mathcard</a>.</li>
-            <li>Or you can find the link in the environments category at your right by clicking view deployment inside it<strong>(You need a Github's account)</strong>.</li>
+            <li>Or you can find the link in the environments category at your right by clicking view deployment inside it<strong> (You need a Github's account)</strong>.</li>
         </ol>
     </li>
     </br>
