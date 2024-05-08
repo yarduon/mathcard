@@ -1,3 +1,4 @@
+<!-- https://yarduon.com -->
 <strong>This is a PWA developed with HTML, CSS and JavaScript</strong> to calculate operations with some extra features. It has offline functionality so you are able to use it without an internet connection, but keep in mind that only works properly with Google Chrome. Furthermore, it should be mentioned that there is a background functionality on settings, but it is only available on PC and tablet. Certain functions have been implemented using <a href="https://github.com/nimiq/qr-scanner">Qr-scanner</a> (Only available through HTTPS protocol) and <a href="https://www.exchangerate-api.com/">Exchange Rate API</a>. 
 
 Get rid of your boring old calculator and enhance your math operations, through a fully customizable experience with a ton of extra utilities.
