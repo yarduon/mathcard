@@ -2821,7 +2821,7 @@
 }
 
 .font-families {
-  padding-left: .7vh;
+  padding-left: 0.7vh;
 }
 
 .font {
@@ -2930,4 +2930,8 @@
 
 .modal-delete {
   border-bottom-right-radius: 1vh;
+}
+
+#reader {
+  width: 50vh;
 }
