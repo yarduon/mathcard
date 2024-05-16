@@ -766,6 +766,7 @@ function useCameraQR() {
       highlightCodeOutline: true,
     }
   );
+  
   // Set the back camera as the default
   qrScanner.setCamera("environment");
 
