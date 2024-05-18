@@ -672,7 +672,7 @@ function hideShowOptionsQR(isCamera, hidden) {
   if (isCamera)
     removeClass(
       "hidden",
-      document.getElementById("scanner"),
+      document.getElementById("reader"),
       document.getElementById("loading")
     );
 
@@ -722,7 +722,7 @@ function stateResultQR(result, scanner, isCamera) {
   if (isCamera) {
     addClass(
       "hidden",
-      document.getElementById("scanner"),
+      document.getElementById("reader"),
       document.getElementById("loading")
     );
     scanner.stop();
@@ -766,20 +766,29 @@ function useCameraQR() {
       highlightCodeOutline: true,
     }
   );
-  
+
   // Set the back camera as the default
   qrScanner.setCamera("environment");
 
   // Only activate the camera if it is available
   qrScanner
     .start()
-    .then(() => QrScanner.listCameras(true))
-    .catch(() => qrScanner.destroy());
+    .then(() => {
+      QrScanner.listCameras(true);
+    })
+    .catch(() => qrScanner.destroy())
+    .finally(() => {
+      // Enhance the scanning area by adding shadows
+      addClass(
+        "shadow-area",
+        ...Array.from(document.getElementsByClassName("scan-region-highlight"))
+      );
+    });
 
   // Allow user to stop scanning and exit QR menu
   document.getElementById("close-qr").addEventListener("click", () => {
     // Go back to the options menu
-    closeWindowQR(document.getElementById("scanner"));
+    closeWindowQR(document.getElementById("reader"));
     // Hide loading icon
     addClass("hidden", document.getElementById("loading"));
     // Stop and reset camera
