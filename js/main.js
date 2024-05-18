@@ -18,6 +18,7 @@ import {
   removeClass,
   removeClasses,
   checkClasses,
+  removeElements,
   getJSON,
   updateJSON,
   validateJSON,
@@ -795,6 +796,10 @@ function useCameraQR() {
     removeClass("activated", document.getElementById("camera"));
     qrScanner.stop();
     qrScanner.destroy();
+    // Delete scanning area
+    removeElements(
+      ...Array.from(document.getElementsByClassName("scan-region-highlight"))
+    );
   });
 }
 

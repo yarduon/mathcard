@@ -104,6 +104,13 @@ export function checkClasses(element, ...classes) {
   return classFound;
 }
 
+// Remove multiple elements from the document
+export function removeElements(...elements) {
+  elements.forEach((e) => {
+    e.remove();
+  });
+}
+
 export function changeFont(container, newFont, fonts) {
   removeClasses(container, ...fonts);
   addClass(newFont, container);
