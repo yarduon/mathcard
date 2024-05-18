@@ -672,7 +672,7 @@ function hideShowOptionsQR(isCamera, hidden) {
   if (isCamera)
     removeClass(
       "hidden",
-      document.getElementById("reader"),
+      document.getElementById("scanner"),
       document.getElementById("loading")
     );
 
@@ -722,7 +722,7 @@ function stateResultQR(result, scanner, isCamera) {
   if (isCamera) {
     addClass(
       "hidden",
-      document.getElementById("reader"),
+      document.getElementById("scanner"),
       document.getElementById("loading")
     );
     scanner.stop();
@@ -779,7 +779,7 @@ function useCameraQR() {
   // Allow user to stop scanning and exit QR menu
   document.getElementById("close-qr").addEventListener("click", () => {
     // Go back to the options menu
-    closeWindowQR(document.getElementById("reader"));
+    closeWindowQR(document.getElementById("scanner"));
     // Hide loading icon
     addClass("hidden", document.getElementById("loading"));
     // Stop and reset camera

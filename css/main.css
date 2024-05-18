@@ -2935,3 +2935,7 @@
 #reader {
   width: 50vh;
 }
+
+.scan-region-highlight {
+  box-shadow: 0 0 0 15vh rgba(0, 0, 0, 0.7);
+}
