@@ -716,9 +716,9 @@ async function showError(error) {
   document.getElementById("error").style.left = "-100%";
 }
 
-function stateResultQR(result, scanner, isCamera) {
+function stateResultQR(result, scanner) {
   // Hide QR reader options
-  hideShowOptionsQR(isCamera, true);
+  hideShowOptionsQR(scanner, true);
 
   // Fill and show result with generated link
   document.getElementById("qr-result").innerHTML = result;
@@ -726,7 +726,7 @@ function stateResultQR(result, scanner, isCamera) {
   removeClass("hidden", document.getElementById("qr-result-container"));
 
   // Hide camera
-  if (isCamera) {
+  if (scanner) {
     addClass(
       "hidden",
       document.getElementById("reader"),
@@ -738,22 +738,15 @@ function stateResultQR(result, scanner, isCamera) {
 }
 
 function readFileQR() {
-  /* const html5QrCode = new Html5Qrcode("reader");
   // Allow to re-scan even if the input is the same
   document.getElementById("qr-input-file").value = "";
   // The scan will start when the input value changes
   document.getElementById("qr-input-file").addEventListener("change", (e) => {
     // Find a QR in the selected file
-    html5QrCode
-      .scanFile(e.target.files[0], true)
-      // If a QR code is found
-      .then((decodedText) => {
-        stateResultQR(decodedText, html5QrCode, false);
-      })
-      .catch((err) => {
-        showError(err);
-      });
-  }); */
+    QrScanner.scanImage(e.target.files[0])
+      .then((decodedText) => stateResultQR(decodedText))
+      .catch((e) => showError(e));
+  });
 }
 
 function useCameraQR() {
@@ -767,7 +760,7 @@ function useCameraQR() {
   // Create scanner
   const qrScanner = new QrScanner(
     document.getElementById("reader"),
-    (result) => stateResultQR(result.data, qrScanner, true),
+    (result) => stateResultQR(result.data, qrScanner),
     {
       highlightScanRegion: true,
       highlightCodeOutline: true,
