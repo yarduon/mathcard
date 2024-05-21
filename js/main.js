@@ -650,14 +650,20 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
-function checkCameras() {
-  // Check if there are cameras available but before activate icon
-  removeClasses(document.getElementById("camera"), "disabled");
-  // Request camera permissions from users
-  QrScanner.hasCamera(true).then((camera) => {
-    // Deactivate camera icon
-    if (!camera) addClasses(document.getElementById("camera"), "disabled");
-  });
+async function checkCameras() {
+  try {
+    if (
+      // Request camera permissions from users and verify if there is one available
+      (await QrScanner.listCameras(true)).length >= 1 &&
+      (await navigator.mediaDevices.getUserMedia({ video: true }))
+    ) {
+      removeClasses(document.getElementById("camera"), "disabled");
+    } else {
+      addClasses(document.getElementById("camera"), "disabled");
+    }
+  } catch (e) {
+    showError();
+  }
 }
 
 function closeWindowQR(parentWindow) {
@@ -732,7 +738,7 @@ function stateResultQR(result, scanner, isCamera) {
 }
 
 function readFileQR() {
-  const html5QrCode = new Html5Qrcode("reader");
+  /* const html5QrCode = new Html5Qrcode("reader");
   // Allow to re-scan even if the input is the same
   document.getElementById("qr-input-file").value = "";
   // The scan will start when the input value changes
@@ -747,7 +753,7 @@ function readFileQR() {
       .catch((err) => {
         showError(err);
       });
-  });
+  }); */
 }
 
 function useCameraQR() {
@@ -1140,6 +1146,9 @@ document.getElementById("camera").addEventListener("click", () => {
     useCameraQR();
   }
 });
+
+// Check if cameras are available when devices are unplugged or plugged in
+navigator.mediaDevices.addEventListener("devicechange", () => checkCameras());
 
 // Copy the generated link to clipboard
 document.getElementById("clipboard").addEventListener("click", () => {
