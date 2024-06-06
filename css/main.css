@@ -2932,6 +2932,10 @@
   border-bottom-right-radius: 1vh;
 }
 
+#loading {
+  padding: 20vh;
+}
+
 #reader {
   width: 50vh;
 }
