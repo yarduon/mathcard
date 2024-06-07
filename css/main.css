@@ -2938,6 +2938,8 @@
 
 #reader {
   width: 50vh;
+  height: 40vh;
+  object-fit: cover;
 }
 
 .shadow-area {
