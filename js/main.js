@@ -761,7 +761,7 @@ function useCameraQR() {
   const qrScanner = new QrScanner(
     document.getElementById("reader"),
     (result) => {
-      // Display web address and avoid scanner to disconnect
+      // Display content and avoid scanner to disconnect
       if (result.data !== "") stateResultQR(result.data, qrScanner);
     },
     {
