@@ -760,7 +760,10 @@ function useCameraQR() {
   // Create scanner
   const qrScanner = new QrScanner(
     document.getElementById("reader"),
-    (result) => stateResultQR(result.data, qrScanner),
+    (result) => {
+      // Display web address and avoid scanner to disconnect
+      if (result.data !== "") stateResultQR(result.data, qrScanner);
+    },
     {
       highlightScanRegion: true,
       highlightCodeOutline: true,
