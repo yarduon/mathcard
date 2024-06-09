@@ -766,7 +766,6 @@ function useCameraQR() {
     },
     {
       highlightScanRegion: true,
-      highlightCodeOutline: true,
     }
   );
 
