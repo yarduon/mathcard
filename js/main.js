@@ -657,6 +657,7 @@ async function checkCameras() {
       (await QrScanner.listCameras(true)).length >= 1 &&
       (await navigator.mediaDevices.getUserMedia({
         video: {
+          // Set environment camera by default
           facingMode: "environment",
         },
       }))
