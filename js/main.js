@@ -655,7 +655,11 @@ async function checkCameras() {
     if (
       // Request camera permissions from users and verify if there is one available
       (await QrScanner.listCameras(true)).length >= 1 &&
-      (await navigator.mediaDevices.getUserMedia({ video: true }))
+      (await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "environment",
+        },
+      }))
     ) {
       removeClasses(document.getElementById("camera"), "disabled");
     } else {
@@ -768,9 +772,6 @@ function useCameraQR() {
       highlightScanRegion: true,
     }
   );
-
-  // Set the back camera as the default
-  qrScanner.setCamera("environment");
 
   // Only activate the camera if it is available
   qrScanner
