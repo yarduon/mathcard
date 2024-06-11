@@ -659,6 +659,9 @@ async function checkCameras() {
         video: {
           // Set environment camera by default
           facingMode: "environment",
+          // Set display resolution
+          width: 1920,
+          height: 1080
         },
       }))
     ) {

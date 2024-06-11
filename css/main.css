@@ -2942,6 +2942,10 @@
   object-fit: cover;
 }
 
+.scan-region-highlight-svg {
+  outline: .9vh solid #e2612d;
+}
+
 .shadow-area {
-  box-shadow: 0 0 0 15vh rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 15vh rgba(0, 0, 0, 0.6);
 }
