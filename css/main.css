@@ -2936,14 +2936,22 @@
   padding: 20vh;
 }
 
+#scanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #reader {
   width: 49vh;
   height: 43vh;
   object-fit: cover;
 }
 
+.scan-region-highlight {
+}
+
 .scan-region-highlight-svg {
-  outline: .9vh solid #e2612d;
 }
 
 .shadow-area {
