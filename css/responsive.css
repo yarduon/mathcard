@@ -481,3 +481,9 @@
     height: 34vh;
   }
 }
+
+@media screen and (orientation: landscape) {
+  .calc{
+    height: 85%;
+  }
+}
