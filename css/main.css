@@ -2636,6 +2636,10 @@
   font-family: Ubuntu;
 }
 
+.calc {
+  height: 84vh;
+}
+
 .screw {
   width: 2.9vh;
   height: 2.9vh;
@@ -2841,7 +2845,11 @@
 }
 
 .tab-minimize {
-  padding-right: 1.3vh;
+  left: 0;
+  z-index: 4;
+  padding-right: 2.2vh;
+  margin-left: 20vh;
+  border-top-right-radius: 1.5vh;
 }
 
 .open-tabs {
@@ -2866,7 +2874,6 @@
 
 .tab-modify {
   padding: 1.5vh 0.7vh 1vh 0.5vh;
-  border-top-right-radius: 1.5vh;
 }
 
 .selected-element + .bar {

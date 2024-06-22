@@ -45,7 +45,10 @@
   }
 
   .tab-minimize {
-    z-index: 5;
+    left: auto;
+    border-top-right-radius: 0;
+    margin-left: 0;
+    padding-right: 1.4vh;
   }
 
   .tab-modify {
@@ -479,11 +482,5 @@
   #reader {
     width: 39vh;
     height: 34vh;
-  }
-}
-
-@media screen and (orientation: landscape) {
-  .calc{
-    height: 85%;
   }
 }
