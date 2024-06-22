@@ -2847,8 +2847,8 @@
 .tab-minimize {
   left: 0;
   z-index: 4;
-  padding-right: 2.2vh;
-  margin-left: 20vh;
+  padding-right: 1.2vh;
+  margin-left: 19.5vh;
   border-top-right-radius: 1.5vh;
 }
 
@@ -2873,7 +2873,7 @@
 }
 
 .tab-modify {
-  padding: 1.5vh 0.7vh 1vh 0.5vh;
+  padding: 1.5vh 0.8vh 1vh 0.1vh;
 }
 
 .selected-element + .bar {

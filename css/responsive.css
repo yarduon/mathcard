@@ -53,7 +53,7 @@
 
   .tab-modify {
     left: initial;
-    margin-right: 6vh;
+    margin-right: 5.9vh;
     padding-bottom: 1.5vh;
     right: 0;
     border-top-right-radius: 0;
@@ -481,6 +481,6 @@
 
   #reader {
     width: 39vh;
-    height: 34vh;
+    height: 37vh;
   }
 }
