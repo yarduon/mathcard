@@ -1293,6 +1293,20 @@ confirmButtons.forEach((e) => {
   });
 });
 
+// Close edit menu without saving by pressing escape
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && localStorage.getItem("editMode") === "true") {
+    writeAndSave(
+      "templateLayout",
+      localStorage.getItem("settings"),
+      null,
+      null
+    );
+    editMode(e);
+    window.location.reload();
+  }
+});
+
 // Open settings menu
 document.getElementById("settings").addEventListener("click", () => {
   if (localStorage.getItem("editMode") === "false") {
