@@ -661,7 +661,7 @@ async function checkCameras() {
           facingMode: "environment",
           // Set display resolution
           width: 1920,
-          height: 1080
+          height: 1080,
         },
       }))
     ) {
@@ -670,7 +670,7 @@ async function checkCameras() {
       addClasses(document.getElementById("camera"), "disabled");
     }
   } catch (e) {
-    showError();
+    addClasses(document.getElementById("camera"), "disabled");
   }
 }
 
@@ -705,21 +705,14 @@ function hideShowOptionsQR(isCamera, hidden) {
       );
 }
 
-async function showError(error) {
-  // Get name of error
-  let errorName = String(error).substring(0, String(error).indexOf(":"));
-
+async function showError(errorNumber) {
   // Fill error message
-  if (errorName === "N") {
-    errorContainer.innerText = errorMessages[0].innerText.trim();
-  } else {
-    errorContainer.innerText = errorMessages[1].innerText.trim();
-  }
+  errorContainer.innerText = errorMessages[errorNumber].innerText.trim();
 
   // Show error message
   document.getElementById("error").style.left = 0;
   // Wait four seconds before disappearing error
-  await new Promise((res) => setTimeout(res, 5000));
+  await new Promise((res) => setTimeout(res, 6000));
   // Hide error
   document.getElementById("error").style.left = "-100%";
 }
@@ -753,7 +746,7 @@ function readFileQR() {
     // Find a QR in the selected file
     QrScanner.scanImage(e.target.files[0])
       .then((decodedText) => stateResultQR(decodedText))
-      .catch((e) => showError(e));
+      .catch(() => showError(0));
   });
 }
 
@@ -1340,7 +1333,7 @@ document.getElementById("upload-settings").addEventListener("click", () => {
         // Refresh only if the file is valid
         window.location.reload();
       } catch (e) {
-        showError();
+        showError(1);
       }
     });
   });
