@@ -1302,6 +1302,8 @@ window.addEventListener("keydown", (e) => {
       null,
       null
     );
+    // Reset and close edit mode
+    localStorage.setItem("closeEditMode", true);
     editMode(e);
     window.location.reload();
   }
