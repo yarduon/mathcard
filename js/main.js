@@ -669,12 +669,12 @@ async function checkCameras() {
       removeClasses(document.getElementById("camera"), "disabled");
     } else {
       addClasses(document.getElementById("camera"), "disabled");
-      hideShowOptionsQR(false, false);
+      hideShowOptionsQR(true, false);
       deleteCamera(camera);
     }
   } catch (e) {
     addClasses(document.getElementById("camera"), "disabled");
-    hideShowOptionsQR(false, false);
+    hideShowOptionsQR(true, false);
     deleteCamera(camera);
   }
 }
@@ -683,20 +683,20 @@ function closeWindowQR(parentWindow) {
   // Identify which window closes
   parentWindow.classList.add("hidden");
   // Reset options view
-  hideShowOptionsQR(false, false);
+  hideShowOptionsQR(true, false);
   document.getElementById("qr-result-container").classList.add("hidden");
 }
 
-function hideShowOptionsQR(isCamera, hidden) {
+function hideShowOptionsQR(camera, options) {
   // Show or hide camera
-  if (isCamera) {
-    removeClass(
+  if (camera) {
+    addClass(
       "hidden",
       document.getElementById("reader"),
       document.getElementById("loading")
     );
   } else {
-    addClass(
+    removeClass(
       "hidden",
       document.getElementById("reader"),
       document.getElementById("loading")
@@ -704,7 +704,7 @@ function hideShowOptionsQR(isCamera, hidden) {
   }
 
   // Hide or show options of QR reader
-  hidden
+  options
     ? addClass(
         "hidden",
         document.getElementById("camera"),
@@ -729,25 +729,15 @@ async function showError(errorNumber) {
   document.getElementById("error").style.left = "-100%";
 }
 
-function stateResultQR(result, scanner) {
-  // Hide QR reader options
-  hideShowOptionsQR(scanner, true);
-
+function stateResultQR(result) {
   // Fill and show result with generated link
   document.getElementById("qr-result").innerHTML = result;
   document.getElementById("qr-result").href = result;
   removeClass("hidden", document.getElementById("qr-result-container"));
 
-  // Hide camera
-  if (scanner) {
-    addClass(
-      "hidden",
-      document.getElementById("reader"),
-      document.getElementById("loading")
-    );
-    scanner.stop();
-    scanner.destroy();
-  }
+  // Hide camera and QR options
+  hideShowOptionsQR(true, true);
+  deleteCamera(camera);
 }
 
 function readFileQR() {
@@ -766,7 +756,7 @@ function useCameraQR() {
   // Set the current camera to avoid multiple cameras at once
   addClass("activated", document.getElementById("camera"));
   // Hide options of QR reader
-  hideShowOptionsQR(true, true);
+  hideShowOptionsQR(false, true);
   // Show loading icon
   removeClass("hidden", document.getElementById("loading"));
 
@@ -799,7 +789,7 @@ function useCameraQR() {
 
   // Allow user to stop scanning and exit QR menu
   document.getElementById("close-qr").addEventListener("click", () => {
-    hideShowOptionsQR(false, false);
+    hideShowOptionsQR(true, false);
     deleteCamera(camera);
   });
 }
