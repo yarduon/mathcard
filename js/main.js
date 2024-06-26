@@ -92,7 +92,8 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
     document.getElementById("split-reverse"),
   ];
 
-let totalResult = 0;
+let totalResult = 0,
+  camera = {};
 
 // Translate all items with the class translate
 function translatePage(items) {
@@ -668,9 +669,13 @@ async function checkCameras() {
       removeClasses(document.getElementById("camera"), "disabled");
     } else {
       addClasses(document.getElementById("camera"), "disabled");
+      hideShowOptionsQR(false, false);
+      deleteCamera(camera);
     }
   } catch (e) {
     addClasses(document.getElementById("camera"), "disabled");
+    hideShowOptionsQR(false, false);
+    deleteCamera(camera);
   }
 }
 
@@ -683,13 +688,20 @@ function closeWindowQR(parentWindow) {
 }
 
 function hideShowOptionsQR(isCamera, hidden) {
-  // Show camera
-  if (isCamera)
+  // Show or hide camera
+  if (isCamera) {
     removeClass(
       "hidden",
       document.getElementById("reader"),
       document.getElementById("loading")
     );
+  } else {
+    addClass(
+      "hidden",
+      document.getElementById("reader"),
+      document.getElementById("loading")
+    );
+  }
 
   // Hide or show options of QR reader
   hidden
@@ -759,11 +771,11 @@ function useCameraQR() {
   removeClass("hidden", document.getElementById("loading"));
 
   // Create scanner
-  const qrScanner = new QrScanner(
+  camera = new QrScanner(
     document.getElementById("reader"),
     (result) => {
       // Display content and avoid scanner to disconnect
-      if (result.data !== "") stateResultQR(result.data, qrScanner);
+      if (result.data !== "") stateResultQR(result.data, camera);
     },
     {
       highlightScanRegion: true,
@@ -771,12 +783,12 @@ function useCameraQR() {
   );
 
   // Only activate the camera if it is available
-  qrScanner
+  camera
     .start()
     .then(() => {
       QrScanner.listCameras(true);
     })
-    .catch(() => qrScanner.destroy())
+    .catch(() => camera.destroy())
     .finally(() => {
       // Enhance the scanning area by adding shadows
       addClass(
@@ -787,19 +799,20 @@ function useCameraQR() {
 
   // Allow user to stop scanning and exit QR menu
   document.getElementById("close-qr").addEventListener("click", () => {
-    // Go back to the options menu
-    closeWindowQR(document.getElementById("reader"));
-    // Hide loading icon
-    addClass("hidden", document.getElementById("loading"));
-    // Stop and reset camera
-    removeClass("activated", document.getElementById("camera"));
-    qrScanner.stop();
-    qrScanner.destroy();
-    // Delete scanning area
-    removeElements(
-      ...Array.from(document.getElementsByClassName("scan-region-highlight"))
-    );
+    hideShowOptionsQR(false, false);
+    deleteCamera(camera);
   });
+}
+
+function deleteCamera(camera) {
+  // Stop and reset camera
+  removeClass("activated", document.getElementById("camera"));
+  camera.stop();
+  camera.destroy();
+  // Delete scanning area
+  removeElements(
+    ...Array.from(document.getElementsByClassName("scan-region-highlight"))
+  );
 }
 
 function editMode(event) {
@@ -1141,14 +1154,16 @@ document.getElementById("camera").addEventListener("click", () => {
 });
 
 // Check if cameras are available when devices are unplugged or plugged in
-navigator.mediaDevices.addEventListener("devicechange", () => checkCameras());
+navigator.mediaDevices.addEventListener("devicechange", () => {
+  checkCameras();
+});
 
 // Copy the generated link to clipboard
 document.getElementById("clipboard").addEventListener("click", () => {
   navigator.clipboard.writeText(document.getElementById("qr-result").href);
 });
 
-// Go the generated link
+// Go to the link that was generated
 document.getElementById("link").addEventListener("click", () => {
   document.getElementById("qr-result").click();
 });
