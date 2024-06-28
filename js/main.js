@@ -668,18 +668,18 @@ async function checkCameras() {
       }))
     ) {
       removeClasses(document.getElementById("camera"), "disabled");
-      localStorage.setItem("cameraPermission", true);
+      localStorage.setItem("cameraPermissions", true);
     } else {
       addClasses(document.getElementById("camera"), "disabled");
       hideShowOptionsQR(true, false);
       deleteCamera(camera);
-      localStorage.setItem("cameraPermission", false);
+      localStorage.setItem("cameraPermissions", false);
     }
   } catch (e) {
     addClasses(document.getElementById("camera"), "disabled");
     hideShowOptionsQR(true, false);
     deleteCamera(camera);
-    localStorage.setItem("cameraPermission", false);
+    localStorage.setItem("cameraPermissions", false);
   }
 }
 
@@ -926,8 +926,8 @@ window.onload = async () => {
   if (!localStorage.getItem("position-palette")) {
     localStorage.setItem("position-palette", 0);
   }
-  if (!localStorage.getItem("cameraPermission")) {
-    localStorage.setItem("cameraPermission", false);
+  if (!localStorage.getItem("cameraPermissions")) {
+    localStorage.setItem("cameraPermissions", false);
   }
   // Set default appearances to calculator
   if (!localStorage.getItem("settings")) {
