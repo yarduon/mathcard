@@ -653,34 +653,27 @@ function calculateExchange(n1, n2, quantity, currencyName) {
 }
 
 async function checkCameras() {
-  try {
-    if (
-      !stringToBoolean(localStorage.getItem("cameraPermissions")) &&
-      // Request camera permissions
-      (await navigator.mediaDevices.getUserMedia({
-        video: {
-          // Set environment camera by default
-          facingMode: "environment",
-          // Set display resolution
-          width: 1920,
-          height: 1080,
-        },
-      }))
-    ) {
+  // Request camera permissions
+  navigator.mediaDevices
+    .getUserMedia({
+      video: {
+        // Set environment camera by default
+        facingMode: "environment",
+        // Set display resolution
+        width: 1920,
+        height: 1080,
+      },
+    })
+    .then(() => {
       removeClasses(document.getElementById("camera"), "disabled");
       localStorage.setItem("cameraPermissions", true);
-    } else {
+    })
+    .catch(() => {
       addClasses(document.getElementById("camera"), "disabled");
       hideShowOptionsQR(true, false);
       deleteCamera(camera);
       localStorage.setItem("cameraPermissions", false);
-    }
-  } catch (e) {
-    addClasses(document.getElementById("camera"), "disabled");
-    hideShowOptionsQR(true, false);
-    deleteCamera(camera);
-    localStorage.setItem("cameraPermissions", false);
-  }
+    });
 }
 
 function closeWindowQR(parentWindow) {
