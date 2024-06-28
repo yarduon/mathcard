@@ -653,9 +653,9 @@ function calculateExchange(n1, n2, quantity, currencyName) {
 }
 
 async function checkCameras() {
-  // Request camera permissions
-  navigator.mediaDevices
-    .getUserMedia({
+  try {
+    // Request camera permissions
+    await navigator.mediaDevices.getUserMedia({
       video: {
         // Set environment camera by default
         facingMode: "environment",
@@ -663,17 +663,11 @@ async function checkCameras() {
         width: 1920,
         height: 1080,
       },
-    })
-    .then(() => {
-      removeClasses(document.getElementById("camera"), "disabled");
-      localStorage.setItem("cameraPermissions", true);
-    })
-    .catch(() => {
-      addClasses(document.getElementById("camera"), "disabled");
-      hideShowOptionsQR(true, false);
-      deleteCamera(camera);
-      localStorage.setItem("cameraPermissions", false);
     });
+  } catch (e) {
+    hideShowOptionsQR(true, false);
+    deleteCamera(camera);
+  }
 }
 
 function closeWindowQR(parentWindow) {
@@ -950,9 +944,6 @@ window.onload = async () => {
   // Avoid cut numbers on screen
   formatOperations(fakeTopScreen, topScreen);
 
-  // Check if there are cameras available
-  checkCameras();
-
   // Update rates each 24h or when it's the first time
   if (
     !localStorage.getItem("updateTime") ||
@@ -1127,7 +1118,6 @@ switchModes.addEventListener("click", () => {
 document.getElementById("qr").addEventListener("click", () => {
   if (localStorage.getItem("editMode") === "false") {
     removeClasses(document.getElementById("qr-menu"), "hidden");
-    checkCameras();
   }
 });
 
@@ -1137,6 +1127,7 @@ document.getElementById("close-qr").addEventListener("click", () => {
 });
 
 document.getElementById("camera").addEventListener("click", () => {
+  checkCameras();
   // Only when a camera is available and there is only one activated
   if (
     !checkClasses(document.getElementById("camera"), "disabled", "activated")
