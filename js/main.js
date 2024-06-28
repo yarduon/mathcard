@@ -9,6 +9,7 @@ import {
   writeAndSave,
   countElements,
   isEqual,
+  isEmpty,
   getCurrentSelectValue,
   cleanText,
   changeFont,
@@ -654,8 +655,8 @@ function calculateExchange(n1, n2, quantity, currencyName) {
 async function checkCameras() {
   try {
     if (
-      // Request camera permissions from users and verify if there is one available
-      (await QrScanner.listCameras(true)).length >= 1 &&
+      !stringToBoolean(localStorage.getItem("cameraPermissions")) &&
+      // Request camera permissions
       (await navigator.mediaDevices.getUserMedia({
         video: {
           // Set environment camera by default
@@ -667,15 +668,18 @@ async function checkCameras() {
       }))
     ) {
       removeClasses(document.getElementById("camera"), "disabled");
+      localStorage.setItem("cameraPermission", true);
     } else {
       addClasses(document.getElementById("camera"), "disabled");
       hideShowOptionsQR(true, false);
       deleteCamera(camera);
+      localStorage.setItem("cameraPermission", false);
     }
   } catch (e) {
     addClasses(document.getElementById("camera"), "disabled");
     hideShowOptionsQR(true, false);
     deleteCamera(camera);
+    localStorage.setItem("cameraPermission", false);
   }
 }
 
@@ -797,8 +801,10 @@ function useCameraQR() {
 function deleteCamera(camera) {
   // Stop and reset camera
   removeClass("activated", document.getElementById("camera"));
-  camera.stop();
-  camera.destroy();
+  if (!isEmpty(camera)) {
+    camera.stop();
+    camera.destroy();
+  }
   // Delete scanning area
   removeElements(
     ...Array.from(document.getElementsByClassName("scan-region-highlight"))
@@ -919,6 +925,9 @@ window.onload = async () => {
   }
   if (!localStorage.getItem("position-palette")) {
     localStorage.setItem("position-palette", 0);
+  }
+  if (!localStorage.getItem("cameraPermission")) {
+    localStorage.setItem("cameraPermission", false);
   }
   // Set default appearances to calculator
   if (!localStorage.getItem("settings")) {

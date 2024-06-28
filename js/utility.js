@@ -51,6 +51,10 @@ export function isEqual(toCompare, ...elements) {
   return boolean;
 }
 
+export function isEmpty(object) {
+  return Object.keys(object).length === 0;
+}
+
 export function swapClasses(cAdd, cDelete, ...e) {
   removeClass(cDelete, ...e);
   addClass(cAdd, ...e);
