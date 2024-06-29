@@ -94,7 +94,8 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   ];
 
 let totalResult = 0,
-  camera = {};
+  camera = {},
+  permissionVerifier;
 
 // Translate all items with the class translate
 function translatePage(items) {
@@ -652,10 +653,11 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
-async function checkCameras() {
-  try {
-    // Request camera permissions
-    await navigator.mediaDevices.getUserMedia({
+let firstTime = true;
+async function checkCamera(currentCamera) {
+  // Request camera permissions
+  navigator.mediaDevices
+    .getUserMedia({
       video: {
         // Set environment camera by default
         facingMode: "environment",
@@ -663,11 +665,16 @@ async function checkCameras() {
         width: 1920,
         height: 1080,
       },
+    })
+    .then((e) => {})
+    .catch((e) => {
+      // When the user doesn't give camera permissions
+      if (e.name === "NotAllowedError") {
+        hideShowOptionsQR(true, false);
+      } else {
+      }
+      deleteCamera(currentCamera);
     });
-  } catch (e) {
-    hideShowOptionsQR(true, false);
-    deleteCamera(camera);
-  }
 }
 
 function closeWindowQR(parentWindow) {
@@ -743,13 +750,16 @@ function readFileQR() {
   });
 }
 
-function useCameraQR() {
+function useCameraQR(camera) {
   // Set the current camera to avoid multiple cameras at once
   addClass("activated", document.getElementById("camera"));
   // Hide options of QR reader
   hideShowOptionsQR(false, true);
   // Show loading icon
   removeClass("hidden", document.getElementById("loading"));
+
+  // Set timer to detect when permissions are modified
+  permissionVerifier = setInterval(checkCamera, 1000);
 
   // Create scanner
   camera = new QrScanner(
@@ -780,18 +790,20 @@ function useCameraQR() {
 
   // Allow user to stop scanning and exit QR menu
   document.getElementById("close-qr").addEventListener("click", () => {
-    hideShowOptionsQR(true, false);
     deleteCamera(camera);
+    hideShowOptionsQR(true, false);
   });
 }
 
-function deleteCamera(camera) {
+function deleteCamera(currentCamera) {
   // Stop and reset camera
   removeClass("activated", document.getElementById("camera"));
-  if (!isEmpty(camera)) {
-    camera.stop();
-    camera.destroy();
+  if (!isEmpty(currentCamera)) {
+    currentCamera.stop();
+    currentCamera.destroy();
+    currentCamera = {};
   }
+  clearInterval(permissionVerifier);
   // Delete scanning area
   removeElements(
     ...Array.from(document.getElementsByClassName("scan-region-highlight"))
@@ -912,9 +924,6 @@ window.onload = async () => {
   }
   if (!localStorage.getItem("position-palette")) {
     localStorage.setItem("position-palette", 0);
-  }
-  if (!localStorage.getItem("cameraPermissions")) {
-    localStorage.setItem("cameraPermissions", false);
   }
   // Set default appearances to calculator
   if (!localStorage.getItem("settings")) {
@@ -1127,18 +1136,18 @@ document.getElementById("close-qr").addEventListener("click", () => {
 });
 
 document.getElementById("camera").addEventListener("click", () => {
-  checkCameras();
+  checkCamera(camera);
   // Only when a camera is available and there is only one activated
   if (
     !checkClasses(document.getElementById("camera"), "disabled", "activated")
   ) {
-    useCameraQR();
+    useCameraQR(camera);
   }
 });
 
 // Check if cameras are available when devices are unplugged or plugged in
 navigator.mediaDevices.addEventListener("devicechange", () => {
-  checkCameras();
+  checkCamera(camera);
 });
 
 // Copy the generated link to clipboard
