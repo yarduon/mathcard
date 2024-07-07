@@ -2636,10 +2636,6 @@
   font-family: Ubuntu;
 }
 
-.calc {
-  height: 84vh;
-}
-
 .screw {
   width: 2.9vh;
   height: 2.9vh;
@@ -2678,12 +2674,12 @@
 }
 
 .middle-base {
-  height: 4.5vh;
+  height: 4.1vh;
   margin-top: -2vh;
 }
 
 .buttons-container {
-  height: 55vh;
+  height: 54.4vh;
   padding: 0 1.2vh 0.9vh 1.2vh;
 }
 
@@ -2781,7 +2777,7 @@
 }
 
 .line {
-  height: 5.8vh;
+  height: 5.5vh;
   padding: 0.7vh;
   border-bottom-left-radius: 1.3vh;
   border-bottom-right-radius: 1.3vh;
@@ -2941,12 +2937,6 @@
 
 #loading {
   padding: 20vh;
-}
-
-#scanner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #reader {

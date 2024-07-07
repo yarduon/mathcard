@@ -653,7 +653,6 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
-let firstTime = true;
 async function checkCamera(currentCamera) {
   // Request camera permissions
   navigator.mediaDevices
@@ -666,14 +665,25 @@ async function checkCamera(currentCamera) {
         height: 1080,
       },
     })
-    .then((e) => {})
+    .then(() => {})
     .catch((e) => {
+      console.log(e);
       // When the user doesn't give camera permissions
+      console.log(e.name);
+      // AbortError = Being used
       if (e.name === "NotAllowedError") {
         hideShowOptionsQR(true, false);
       } else {
       }
       deleteCamera(currentCamera);
+    });
+    navigator.mediaDevices.enumerateDevices().then((e) => {
+      console.log(e);
+      e.filter((e) => e.kind === "audioinput").forEach((x) => {
+        if (x.label === "") {
+          console.log("Está vacía");
+        }
+      });
     });
 }
 
