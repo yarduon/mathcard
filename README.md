@@ -142,7 +142,7 @@ Although this is not an entirely scientific calculator, you can make any operati
                 </tr>
                 <tr>
                     <th>QR Reader</th>
-                    <td>Read a QR code using a camera or supplying a file.</td>
+                    <td>Read QR code using a camera or supplying a file.</td>
                 </tr>
                 <tr>
                     <th>Settings</th>
@@ -182,4 +182,8 @@ Although this is not an entirely scientific calculator, you can make any operati
     </li>
 </ul>
 
+[<img alt="Windows badge" src="./img/pwa/badges/windows_en.png" width="190px" height="57px">](https://apps.microsoft.com/store/detail/mathcard/9P26TJJC8P3G?hl=en)&nbsp;
+[<img alt="Android badge" src="./img/pwa/badges/android_en.png" width="190px" height="57px">](https://play.google.com/store/apps/details?id=mathcard.twa&hl=en)&nbsp;
+
+</br>
 <strong>License:</strong> You are not allowed to modify, use my code or resources for your own projects without my consent, even if it's everything is public. If you do not follow the preceding, I might take legal actions against you.
