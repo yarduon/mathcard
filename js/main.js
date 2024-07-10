@@ -675,7 +675,6 @@ async function checkCamera(currentCamera) {
         hideShowOptionsQR(true, false);
       } else {
       }
-      deleteCamera(currentCamera);
     });
     navigator.mediaDevices.enumerateDevices().then((e) => {
       console.log(e);
