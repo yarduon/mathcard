@@ -15,7 +15,6 @@ import {
   changeFont,
   changeElement,
   addClass,
-  addClasses,
   removeClass,
   removeClasses,
   checkClasses,
@@ -43,8 +42,8 @@ import languages from "../json/languages.js";
 const currentVersion = 1.1;
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
-  topScreen = document.getElementById("topScreen"),
-  fakeTopScreen = document.getElementById("fakeTopScreen"),
+  topScreen = document.getElementById("top-screen"),
+  fakeTopScreen = document.getElementById("fake-top-screen"),
   result = document.getElementById("result"),
   operators = Array.from(document.getElementsByClassName("operator")),
   // The order of symbols determines preference when resolving operations
@@ -676,14 +675,14 @@ async function checkCamera(currentCamera) {
       } else {
       }
     });
-    navigator.mediaDevices.enumerateDevices().then((e) => {
-      console.log(e);
-      e.filter((e) => e.kind === "audioinput").forEach((x) => {
-        if (x.label === "") {
-          console.log("Está vacía");
-        }
-      });
+  navigator.mediaDevices.enumerateDevices().then((e) => {
+    console.log(e);
+    e.filter((e) => e.kind === "audioinput").forEach((x) => {
+      if (x.label === "") {
+        console.log("Está vacía");
+      }
     });
+  });
 }
 
 function closeWindowQR(parentWindow) {
@@ -737,9 +736,9 @@ async function showError(errorNumber) {
 }
 
 function stateResultQR(result) {
-  // Fill and show result with generated link
-  document.getElementById("qr-result").innerHTML = result;
-  document.getElementById("qr-result").href = result;
+  // Fill and show result with generated text
+  document.getElementById("qr-result").innerHTML = result.trim();
+  document.getElementById("fake-qr-result").href = result.trim();
   removeClass("hidden", document.getElementById("qr-result-container"));
 
   // Hide camera and QR options
@@ -1146,12 +1145,7 @@ document.getElementById("close-qr").addEventListener("click", () => {
 
 document.getElementById("camera").addEventListener("click", () => {
   checkCamera(camera);
-  // Only when a camera is available and there is only one activated
-  if (
-    !checkClasses(document.getElementById("camera"), "disabled", "activated")
-  ) {
-    useCameraQR(camera);
-  }
+  useCameraQR(camera);
 });
 
 // Check if cameras are available when devices are unplugged or plugged in
@@ -1161,12 +1155,12 @@ navigator.mediaDevices.addEventListener("devicechange", () => {
 
 // Copy the generated link to clipboard
 document.getElementById("clipboard").addEventListener("click", () => {
-  navigator.clipboard.writeText(document.getElementById("qr-result").href);
+  navigator.clipboard.writeText(document.getElementById("qr-result").innerText);
 });
 
 // Go to the link that was generated
 document.getElementById("link").addEventListener("click", () => {
-  document.getElementById("qr-result").click();
+  document.getElementById("fake-qr-result").click();
 });
 
 // Swap original input reader to personalized icon

@@ -270,9 +270,9 @@
             id="screen"
           >
             <div class="operations-container flex justify-start align-center">
-              <p id="topScreen" class="hidden"></p>
+              <p id="top-screen" class="hidden"></p>
               <p
-                id="fakeTopScreen"
+                id="fake-top-screen"
                 class="flex justify-end align-center overflow normal-text border-right"
               ></p>
             </div>
@@ -1196,7 +1196,10 @@
               alt="White loading icon"
             />
           </div>
-          <div class="flex justify-center align-center relative overflow" id="scanner">
+          <div
+            class="flex justify-center align-center relative overflow"
+            id="scanner"
+          >
             <video class="hidden" id="reader"></video>
           </div>
           <div
@@ -1204,16 +1207,14 @@
             id="qr-result-container"
           >
             <div
-              class="qr-result half-width flex column justify-center align-center touch round-border-full"
+              class="qr-result-subcontainer half-width flex column justify-center align-center round-border-full overflow"
+              id="qr-result-subcontainer"
             >
-              <button aria-label="Result link">
-                <a
-                  class="normal-black-icon black-text"
-                  id="qr-result"
-                  href="#"
-                ></a>
-                <div class="bar normal-black-background"></div>
-              </button>
+              <p
+                class="max-width normal-black-icon black-text"
+                id="qr-result"
+              ></p>
+              <a class="hidden" href="#" id="fake-qr-result"></a>
             </div>
             <div
               class="result-options-container flex justify-center align-center"

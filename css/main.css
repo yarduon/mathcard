@@ -57,7 +57,6 @@
 .max-width,
 .selected-font .bar,
 .selected-element + .bar,
-.qr-result:hover .bar,
 .fonts-container::-webkit-scrollbar,
 .colors-container::-webkit-scrollbar {
   width: 100%;
@@ -74,7 +73,7 @@
   width: 94%;
 }
 
-.qr-result,
+.qr-result-subcontainer,
 .result-options-container {
   width: 55vh;
 }
@@ -107,7 +106,7 @@
   height: 210vh;
 }
 
-.qr-result,
+.qr-result-subcontainer,
 .sub-qr-icon,
 .background-icon {
   height: 24vh;
@@ -135,16 +134,21 @@
 }
 
 @-moz-document url-prefix() {
+  .container,
+  .colors-container,
+  .qr-result-subcontainer {
+    scrollbar-width: thin;
+  }
+
   .fonts-container,
   .colors-container {
     padding: 0.7vh 0 0.7vh 0;
-    scrollbar-width: thin;
     scrollbar-color: rgb(196, 192, 192) #0f0f0f;
   }
 }
 
 .sub-qr-icon,
-.qr-result {
+.qr-result-subcontainer {
   margin: 2vh 2vh 2vh 2vh;
 }
 
@@ -163,8 +167,7 @@
 }
 
 .chewy .logo,
-.oleo-script .logo .selected-font .bar,
-.qr-result:hover .bar {
+.oleo-script .logo .selected-font .bar {
   margin-top: 0.3vh;
 }
 
@@ -357,13 +360,8 @@
   height: 4.5vh;
 }
 
-.selected-font .bar,
-.qr-result:hover .bar {
-  transition: width 1s, height 0.1s;
-}
-
 .light-touch:hover,
-.qr-result {
+.qr-result-subcontainer {
   background-color: rgba(255, 255, 255, 0.884);
 }
 
@@ -383,13 +381,19 @@
 }
 
 .fonts-container::-webkit-scrollbar,
-.colors-container::-webkit-scrollbar {
+.colors-container::-webkit-scrollbar,
+#qr-result:-webkit-scrollbar {
   scrollbar-width: none;
+}
+
+.fonts-container::-webkit-scrollbar,
+.colors-container::-webkit-scrollbar {
   height: 1vh;
 }
 
 .fonts-container::-webkit-scrollbar-thumb,
-.colors-container::-webkit-scrollbar-thumb {
+.colors-container::-webkit-scrollbar-thumb,
+#qr-result::-webkit-scrollbar-thumb{
   border-radius: 10vh;
   border: 0.35vh solid #0f0f0f;
 }
@@ -2650,7 +2654,7 @@
   margin: 0.8vh 0 0 0;
 }
 
-#fakeTopScreen {
+#fake-top-screen {
   background-color: transparent;
   height: 2.6vh;
   padding: 0 0.2vh 0 0;
@@ -2772,10 +2776,6 @@
   transition: left 2s;
 }
 
-.qr-result:hover .bar {
-  height: 0.45vh;
-}
-
 .line {
   height: 5.2vh;
   padding: 0.7vh;
@@ -2830,6 +2830,10 @@
 
 .selected-font {
   margin-bottom: 0.3vh;
+}
+
+.selected-font .bar {
+  transition: width 1s, height 0.1s;
 }
 
 .selected-font .bar {
@@ -2946,5 +2950,18 @@
 }
 
 .shadow-area {
-  box-shadow: 0 0 0 15vh rgba(0, 0, 0, .6);
+  box-shadow: 0 0 0 15vh rgba(0, 0, 0, 0.6);
+}
+
+.qr-result-subcontainer {
+  scrollbar-color: rgb(196, 192, 192) #e3e3e3;
+}
+
+#qr-result {
+  text-align: justify;
+  padding: 1.5vh 5vh 1.5vh 5vh;
+  line-height: 3vh;
+  overflow-x: scroll;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
