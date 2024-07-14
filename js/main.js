@@ -767,7 +767,7 @@ function useCameraQR(camera) {
   removeClass("hidden", document.getElementById("loading"));
 
   // Set timer to detect when permissions are modified
-  permissionVerifier = setInterval(checkCamera, 1000);
+  permissionVerifier = setInterval(checkCamera, 3000);
 
   // Create scanner
   camera = new QrScanner(
