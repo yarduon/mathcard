@@ -679,7 +679,6 @@ async function checkCamera(currentCamera) {
     console.log(e);
     e.filter((e) => e.kind === "audioinput").forEach((x) => {
       if (x.label === "") {
-        console.log("Está vacía");
       }
     });
   });

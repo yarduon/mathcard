@@ -9,6 +9,16 @@
   display: none;
 }
 
+.hidden-webstyles,
+.scrollbar::-webkit-scrollbar,
+.qr-result-subcontainer::-webkit-scrollbar {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
 .top-calculator,
 .modal-window {
   height: 22vh;
@@ -132,6 +142,11 @@
   padding: 1vh 0 0 0;
 }
 
+.sub-qr-icon,
+.qr-result-subcontainer {
+  margin: 2vh 2vh 2vh 2vh;
+}
+
 @-moz-document url-prefix() {
   .container,
   .fonts-container,
@@ -146,9 +161,9 @@
   }
 }
 
-.sub-qr-icon,
-.qr-result-subcontainer {
-  margin: 2vh 2vh 2vh 2vh;
+.scrollbar::-webkit-scrollbar,
+.qr-result-subcontainer::-webkit-scrollbar {
+  scrollbar-width: none;
 }
 
 .fredoka-one .logo,
@@ -379,14 +394,9 @@
   border-top-left-radius: 1.5vh;
 }
 
-.scrollbar::-webkit-scrollbar {
-  scrollbar-width: none;
-  height: 1vh;
-}
-
-.scrollbar::-webkit-scrollbar-thumb {
+.scrollbar::-webkit-scrollbar-thumb,
+.qr-result-subcontainer::-webkit-scrollbar-thumb {
   border-radius: 10vh;
-  border: 0.35vh solid #0f0f0f;
 }
 
 .scrollbar:hover::-webkit-scrollbar-thumb,
@@ -490,15 +500,6 @@
 
 .invisible {
   opacity: 0;
-}
-
-.hidden-webstyles,
-.scrollbar::-webkit-scrollbar {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
 }
 
 .overflow {
@@ -2502,6 +2503,10 @@
   text-align: center;
 }
 
+.justify {
+  text-align: justify;
+}
+
 .small-text {
   font-size: 1.7vh;
 }
@@ -2808,6 +2813,14 @@
   margin: 0 0 70vh 60vh;
 }
 
+.scrollbar::-webkit-scrollbar {
+  height: 1vh;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border: 0.35vh solid #0f0f0f;
+}
+
 .font-families {
   padding-left: 0.7vh;
 }
@@ -2941,14 +2954,25 @@
   box-shadow: 0 0 0 15vh rgba(0, 0, 0, 0.6);
 }
 
-.qr-result-subcontainer {
-  scrollbar-color: rgb(196, 192, 192) #e3e3e3;
+@-moz-document url-prefix() {
+  .qr-result-subcontainer {
+    scrollbar-color: #1d1c1c #e3e3e3;
+  }
+}
+
+.qr-result-subcontainer::-webkit-scrollbar {
+  width: 1.4vh;
+}
+
+.qr-result-subcontainer:hover::-webkit-scrollbar-thumb,
+.qr-result-subcontainer:active::-webkit-scrollbar-thumb {
+  background: #0f0f0f;
+  border: 0.35vh solid #e3e3e3;
 }
 
 #qr-result {
-  text-align: justify;
-  padding: 1.5vh 5vh 1.5vh 5vh;
+  padding: 1vh 2vh 1vh 2vh;
   line-height: 3vh;
   overflow-wrap: break-word;
-  overflow: auto;
+  overflow-x: hidden;
 }
