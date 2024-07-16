@@ -17,7 +17,6 @@ import {
   addClass,
   removeClass,
   removeClasses,
-  checkClasses,
   removeElements,
   getJSON,
   updateJSON,
@@ -653,9 +652,14 @@ function calculateExchange(n1, n2, quantity, currencyName) {
 }
 
 async function requestCamera(currentCamera) {
+  // Hide options of QR reader
+  hideShowOptionsQR(false, true);
+  // Show loading icon
+  removeClass("hidden", document.getElementById("loading"));
+
   // Request camera permissions
   try {
-    navigator.mediaDevices.getUserMedia({
+    await navigator.mediaDevices.getUserMedia({
       video: {
         // Set environment camera by default
         facingMode: "environment",
@@ -664,6 +668,7 @@ async function requestCamera(currentCamera) {
         height: 1080,
       },
     });
+    useCameraQR(currentCamera);
   } catch (e) {
     // When the user doesn't give camera permissions
     console.log(e);
@@ -680,6 +685,7 @@ function checkCamera(currentCamera) {
   navigator.mediaDevices.enumerateDevices().then((e) => {
     e.filter((e) => e.kind === "audioinput").forEach((x) => {
       if (x.label === "") {
+        deleteCamera(currentCamera);
         requestCamera(currentCamera);
       }
     });
@@ -760,13 +766,6 @@ function readFileQR() {
 }
 
 function useCameraQR(camera) {
-  // Set the current camera to avoid multiple cameras at once
-  addClass("activated", document.getElementById("camera"));
-  // Hide options of QR reader
-  hideShowOptionsQR(false, true);
-  // Show loading icon
-  removeClass("hidden", document.getElementById("loading"));
-
   // Set timer to detect when permissions are modified
   permissionVerifier = setInterval(checkCamera, 1000);
 
@@ -796,7 +795,6 @@ function useCameraQR(camera) {
         ...Array.from(document.getElementsByClassName("scan-region-highlight"))
       );
     });
-
   // Allow user to stop scanning and exit QR menu
   document.getElementById("close-qr").addEventListener("click", () => {
     deleteCamera(camera);
@@ -806,17 +804,17 @@ function useCameraQR(camera) {
 
 function deleteCamera(currentCamera) {
   // Stop and reset camera
-  removeClass("activated", document.getElementById("camera"));
   if (!isEmpty(currentCamera)) {
     currentCamera.stop();
     currentCamera.destroy();
-    currentCamera = {};
+    currentCamera = null;
   }
-  clearInterval(permissionVerifier);
+
   // Delete scanning area
   removeElements(
     ...Array.from(document.getElementsByClassName("scan-region-highlight"))
   );
+  clearInterval(permissionVerifier);
 }
 
 function editMode(event) {
@@ -1146,7 +1144,6 @@ document.getElementById("close-qr").addEventListener("click", () => {
 
 document.getElementById("camera").addEventListener("click", () => {
   requestCamera(camera);
-  useCameraQR(camera);
 });
 
 // Check if cameras are available when devices are unplugged or plugged in
