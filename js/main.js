@@ -652,10 +652,10 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
-async function checkCamera(currentCamera) {
+async function requestCamera(currentCamera) {
   // Request camera permissions
-  navigator.mediaDevices
-    .getUserMedia({
+  try {
+    navigator.mediaDevices.getUserMedia({
       video: {
         // Set environment camera by default
         facingMode: "environment",
@@ -663,22 +663,24 @@ async function checkCamera(currentCamera) {
         width: 1920,
         height: 1080,
       },
-    })
-    .then(() => {})
-    .catch((e) => {
-      console.log(e);
-      // When the user doesn't give camera permissions
-      console.log(e.name);
-      // AbortError = Being used
-      if (e.name === "NotAllowedError") {
-        hideShowOptionsQR(true, false);
-      } else {
-      }
     });
-  navigator.mediaDevices.enumerateDevices().then((e) => {
+  } catch (e) {
+    // When the user doesn't give camera permissions
     console.log(e);
+    console.log(e.name);
+    // AbortError = Being used
+    if (e.name === "NotAllowedError") {
+      hideShowOptionsQR(true, false);
+    } else {
+    }
+  }
+}
+
+function checkCamera(currentCamera) {
+  navigator.mediaDevices.enumerateDevices().then((e) => {
     e.filter((e) => e.kind === "audioinput").forEach((x) => {
       if (x.label === "") {
+        requestCamera(currentCamera);
       }
     });
   });
@@ -766,7 +768,7 @@ function useCameraQR(camera) {
   removeClass("hidden", document.getElementById("loading"));
 
   // Set timer to detect when permissions are modified
-  permissionVerifier = setInterval(checkCamera, 3000);
+  permissionVerifier = setInterval(checkCamera, 1000);
 
   // Create scanner
   camera = new QrScanner(
@@ -1143,13 +1145,13 @@ document.getElementById("close-qr").addEventListener("click", () => {
 });
 
 document.getElementById("camera").addEventListener("click", () => {
-  checkCamera(camera);
+  requestCamera(camera);
   useCameraQR(camera);
 });
 
 // Check if cameras are available when devices are unplugged or plugged in
 navigator.mediaDevices.addEventListener("devicechange", () => {
-  checkCamera(camera);
+  requestCamera(camera);
 });
 
 // Copy the generated link to clipboard
