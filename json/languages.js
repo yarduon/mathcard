@@ -11,6 +11,7 @@ export default {
     "y",
     "No se ha encontrado un código QR en el archivo proporcionado",
     "El archivo proporcionado no es válido o ha sido corrompido",
+    "La cámara no está disponible o los permisos han sido denegados",
   ],
   fr: [
     "Réinitialiser les paramètres",
@@ -23,6 +24,7 @@ export default {
     "et",
     "Aucun code QR n'a été trouvé dans le fichier fourni",
     "Le fichier fourni n'est pas valide ou a été corrompu",
+    "La caméra n'est pas accessible ou les autorisations ont été rejetées",
   ],
   de: [
     "Neu starten",
@@ -35,5 +37,6 @@ export default {
     "und",
     "Kein QR-Code in der angegebenen Datei gefunden",
     "Die zur Verfügung gestellte Datei ist ungültig oder wurde beschädigt",
+    "Die Kamera ist nicht verfügbar oder die Berechtigungen wurden verweigert",
   ],
 };

@@ -69,6 +69,7 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
   errorMessages = [
     document.getElementById("qr-not-found"),
     document.getElementById("invalid-file"),
+    document.getElementById("camera-unavailable"),
   ],
   fonts = Array.from(document.getElementsByClassName("font")).map((e) => e.id),
   customizationContainers = [
@@ -672,6 +673,7 @@ async function requestCamera(currentCamera) {
   } catch (e) {
     // When the user doesn't give camera permissions
     deleteCamera(currentCamera);
+    showError(2);
   }
 }
 
@@ -681,6 +683,7 @@ function checkCamera(currentCamera) {
       if (x.label === "") {
         // When the user disables the camera or restricts permissions
         deleteCamera(currentCamera);
+        showError(2);
       }
     });
   });
