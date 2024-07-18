@@ -656,7 +656,6 @@ async function requestCamera(currentCamera) {
   hideShowOptionsQR(false, true);
   // Show loading icon
   removeClass("hidden", document.getElementById("loading"));
-
   // Request camera permissions
   try {
     await navigator.mediaDevices.getUserMedia({
@@ -668,16 +667,11 @@ async function requestCamera(currentCamera) {
         height: 1080,
       },
     });
+    // Begin using the camera once permission has been granted
     useCameraQR(currentCamera);
   } catch (e) {
     // When the user doesn't give camera permissions
-    console.log(e);
-    console.log(e.name);
-    // AbortError = Being used
-    if (e.name === "NotAllowedError") {
-      hideShowOptionsQR(true, false);
-    } else {
-    }
+    deleteCamera(currentCamera);
   }
 }
 
@@ -685,8 +679,8 @@ function checkCamera(currentCamera) {
   navigator.mediaDevices.enumerateDevices().then((e) => {
     e.filter((e) => e.kind === "audioinput").forEach((x) => {
       if (x.label === "") {
+        // When the user disables the camera or restricts permissions
         deleteCamera(currentCamera);
-        requestCamera(currentCamera);
       }
     });
   });
@@ -794,6 +788,8 @@ function useCameraQR(camera) {
         "shadow-area",
         ...Array.from(document.getElementsByClassName("scan-region-highlight"))
       );
+      // Display camera
+      removeClass("hidden", document.getElementById("reader"));
     });
   // Allow user to stop scanning and exit QR menu
   document.getElementById("close-qr").addEventListener("click", () => {
@@ -804,6 +800,7 @@ function useCameraQR(camera) {
 
 function deleteCamera(currentCamera) {
   // Stop and reset camera
+  addClass("hidden", document.getElementById("reader"));
   if (!isEmpty(currentCamera)) {
     currentCamera.stop();
     currentCamera.destroy();
@@ -1148,7 +1145,7 @@ document.getElementById("camera").addEventListener("click", () => {
 
 // Check if cameras are available when devices are unplugged or plugged in
 navigator.mediaDevices.addEventListener("devicechange", () => {
-  requestCamera(camera);
+  checkCamera(camera);
 });
 
 // Copy the generated link to clipboard
