@@ -518,10 +518,6 @@
   cursor: pointer;
 }
 
-.disabled:hover {
-  cursor: initial;
-}
-
 .black-background {
   background-color: #0f0f0f;
 }
@@ -2484,15 +2480,6 @@
   .pastel-green-shadow:focus {
     box-shadow: 0 0 0 0.25vh #77dd77;
   }
-}
-
-.disabled,
-.disabled:hover {
-  background-color: #a7170d;
-}
-
-.disabled:hover .huge-icon {
-  color: rgba(255, 255, 255);
 }
 
 .bold {
