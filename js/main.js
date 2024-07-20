@@ -31,11 +31,11 @@ import currencies from "../json/currencies.js";
 import languages from "../json/languages.js";
 
 // Register the service worker
-/* if ("serviceWorker" in navigator) {
+if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./sw.js");
   });
-} */
+}
 
 // Update only when new version is finished
 const currentVersion = 1.1;
