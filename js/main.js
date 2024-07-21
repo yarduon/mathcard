@@ -652,34 +652,33 @@ function calculateExchange(n1, n2, quantity, currencyName) {
   );
 }
 
-async function requestCamera(currentCamera) {
+function requestCamera(currentCamera) {
   // Hide options of QR reader
   hideShowOptionsQR(false, true);
   // Show loading icon
   removeClass("hidden", document.getElementById("loading"));
   // Request camera permissions
-  try {
-    await navigator.mediaDevices.getUserMedia({
+  navigator.mediaDevices
+    .getUserMedia({
       video: {
         // Set environment camera by default
         facingMode: "environment",
-        // Set display resolution
-        width: 1920,
-        height: 1080,
       },
+    })
+    .then(() => {
+      // Begin using the camera once permission has been granted
+      useCameraQR(currentCamera);
+    })
+    .catch(() => {
+      // When the user doesn't give camera permissions
+      deleteCamera(currentCamera);
+      showError(2);
     });
-    // Begin using the camera once permission has been granted
-    useCameraQR(currentCamera);
-  } catch (e) {
-    // When the user doesn't give camera permissions
-    deleteCamera(currentCamera);
-    showError(2);
-  }
 }
 
 function checkCamera(currentCamera) {
   navigator.mediaDevices.enumerateDevices().then((e) => {
-    e.filter((e) => e.kind === "audioinput").forEach((x) => {
+    e.filter((e) => e.kind === "videoinput").forEach((x) => {
       if (x.label === "") {
         // When the user disables the camera or restricts permissions
         deleteCamera(currentCamera);
