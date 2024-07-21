@@ -121,10 +121,6 @@
     border-radius: 0;
   }
 
-  #top-screen {
-    font-size: 2.6vh;
-  }
-
   .calc,
   .line,
   .symbols {
@@ -305,6 +301,10 @@
     height: 27vh;
   }
 
+  #top-screen {
+    font-size: 2.6vh;
+  }
+
   .screw {
     width: 3.2vh;
     height: 3.2vh;
@@ -477,6 +477,10 @@
 
   .settings-options {
     margin-bottom: 7vh;
+  }
+
+  .container-error {
+    font-size: 1.5vh;
   }
 
   #reader {
