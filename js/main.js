@@ -906,7 +906,8 @@ window.onload = async () => {
   }
 
   // Load default values when the cache is deleted or first time
-  if (!localStorage.getItem("topScreen")) localStorage.setItem("topScreen", "");
+  if (!localStorage.getItem("top-screen"))
+    localStorage.setItem("top-screen", "");
   if (!localStorage.getItem("result")) localStorage.setItem("result", 0);
   if (!localStorage.getItem("usingFloat")) {
     localStorage.setItem("usingFloat", false);
@@ -952,7 +953,7 @@ window.onload = async () => {
 
   // Power on or off light of calculator according to previous actions
   if (powerOnOff()) {
-    topScreen.innerText = localStorage.getItem("topScreen");
+    topScreen.innerText = localStorage.getItem("top-screen");
     result.innerText = localStorage.getItem("result");
   }
 
@@ -1072,7 +1073,7 @@ document.getElementById("mr").addEventListener("click", () => {
   // Prevent default button behaviour when edit mode is activated
   if (localStorage.getItem("editMode") === "false") {
     topScreen.innerText += cleanText(localStorage.getItem("memory"));
-    localStorage.setItem("topScreen", topScreen.innerText);
+    localStorage.setItem("top-screen", topScreen.innerText);
     formatOperations(fakeTopScreen, topScreen);
   }
 });
