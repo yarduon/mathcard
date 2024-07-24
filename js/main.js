@@ -94,7 +94,8 @@ const buttons = Array.from(document.getElementsByClassName("calc-button")),
 
 let totalResult = 0,
   camera = {},
-  permissionVerifier;
+  permissionVerifier,
+  isCameraActive = false;
 
 // Translate all items with the class translate
 function translatePage(items) {
@@ -678,13 +679,17 @@ function requestCamera(currentCamera) {
 
 function checkCamera(currentCamera) {
   navigator.mediaDevices.enumerateDevices().then((e) => {
-    e.filter((e) => e.kind === "videoinput").forEach((x) => {
-      if (x.label === "") {
-        // When the user disables the camera or restricts permissions
-        deleteCamera(currentCamera);
-        showError(2);
-      }
-    });
+    // Identify all the cameras that are available
+    const videoDevices = e.filter(
+      (device) => device.kind === "videoinput" && device.label !== ""
+    );
+
+    // Avoid executing when camera is replugged
+    if (videoDevices.length <= 0 && isCameraActive) {
+      // When the user disables the camera or restricts permissions
+      deleteCamera(currentCamera);
+      showError(2);
+    }
   });
 }
 
@@ -792,6 +797,7 @@ function useCameraQR(camera) {
       );
       // Display camera
       removeClass("hidden", document.getElementById("reader"));
+      isCameraActive = true;
     });
   // Allow user to stop scanning and exit QR menu
   document.getElementById("close-qr").addEventListener("click", () => {
@@ -803,6 +809,8 @@ function useCameraQR(camera) {
 function deleteCamera(currentCamera) {
   // Stop and reset camera
   addClass("hidden", document.getElementById("reader"));
+  isCameraActive = false;
+  // Destroy the camera completely only when it has content
   if (!isEmpty(currentCamera)) {
     currentCamera.stop();
     currentCamera.destroy();
