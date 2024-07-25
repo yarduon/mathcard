@@ -144,10 +144,6 @@ define(["./workbox-168f09f0"], function (e) {
           revision: "846ad017921bac28ddb313763eb7c6ad",
         },
         {
-          url: "fonts/ubuntu.ttf",
-          revision: "84ea7c5c9d2fa40c070ccb901046117d",
-        },
-        {
           url: "fonts/vt323.ttf",
           revision: "034de38c65e202c1cc838e7d014385fd",
         },

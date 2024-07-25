@@ -170,8 +170,7 @@
 .julee .logo,
 .roboto .logo,
 .rubik .logo,
-.signika .logo,
-.ubuntu .logo {
+.signika .logo {
   margin-top: 0.1vh;
 }
 
@@ -240,8 +239,7 @@
 .merriweather,
 .open-sans,
 .roboto,
-.rubik,
-.ubuntu {
+.rubik {
   --medium-text: 1.7vh;
 }
 
@@ -280,8 +278,7 @@
 
 .julee,
 .lato,
-.roboto,
-.ubuntu {
+.roboto {
   --normal-text: 2.2vh;
 }
 
@@ -310,8 +307,7 @@
 
 .libre-franklin,
 .open-sans,
-.rubik,
-.ubuntu {
+.rubik {
   --large-text: 2.3vh;
 }
 
@@ -349,8 +345,7 @@
 .outfit,
 .roboto,
 .rubik,
-.source-code-pro,
-.ubuntu {
+.source-code-pro {
   --huge-text: 2.6vh;
 }
 
@@ -2614,10 +2609,6 @@
 
 .source-code-pro {
   font-family: "Source Code Pro";
-}
-
-.ubuntu {
-  font-family: Ubuntu;
 }
 
 .screw {

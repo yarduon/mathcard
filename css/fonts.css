@@ -130,9 +130,3 @@
   src: url("./../fonts/source_code_pro.ttf");
   font-display: swap;
 }
-
-@font-face {
-  font-family: "Ubuntu";
-  src: url("./../fonts/ubuntu.ttf");
-  font-display: swap;
-}

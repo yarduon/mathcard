@@ -239,14 +239,6 @@
             <span>Source Code Pro</span>
             <div class="bar pastel-white-background"></div>
           </button>
-          <button
-            aria-label="Ubuntu"
-            class="font semi-normal-text touch light-opacity pastel-white-icon"
-            id="ubuntu"
-          >
-            <span>Ubuntu</span>
-            <div class="bar pastel-white-background"></div>
-          </button>
         </div>
       </aside>
       <div class="calc round-border flex column" id="font">
@@ -1207,11 +1199,11 @@
             id="qr-result-container"
           >
             <div
-              class="qr-result-subcontainer half-width flex column justify-center align-center relative scroll"
+              class="qr-result-subcontainer half-width relative scroll"
               id="qr-result-subcontainer"
             >
               <p
-                class="max-width normal-black-icon black-text absolute"
+                class="max-width normal-black-icon black-text justify absolute flex justify-center align-center"
                 id="qr-result"
               ></p>
               <a class="hidden" href="#" id="fake-qr-result"></a>
@@ -1526,7 +1518,9 @@
       <p
         class="container-error small-text absolute full-red-background pastel-white-icon"
         id="error"
-      >QR code not found in the supplied file</p>
+      >
+        QR code not found in the supplied file
+      </p>
       <p class="hidden translate" id="qr-not-found">
         QR code not found in the supplied file
       </p>
