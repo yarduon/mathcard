@@ -14,6 +14,7 @@
 }
 
 .logo-container,
+.tab-minimize,
 .customization,
 .arrow,
 .open-tabs,
@@ -64,6 +65,7 @@
 }
 
 .invisible,
+.tab-minimize,
 .tab-modify,
 .lights-container,
 .extra-data-container {
@@ -111,6 +113,10 @@
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-end {
