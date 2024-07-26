@@ -40,18 +40,14 @@
 }
 
 .color,
-.hidder {
+.hidder,
+.extra-symbols .button {
   height: 3.5vh;
 }
 
 .upper-buttons,
 .lower-buttons {
   width: 99%;
-}
-
-.main-button,
-.extra-symbols .button {
-  width: 6.7vh;
 }
 
 .qr,
@@ -2703,7 +2699,8 @@
 }
 
 .main-button {
-  height: 6.7vh;
+  width: 6.7vh;
+  height: 6.5vh;
 }
 
 .symbols .button {
@@ -2824,6 +2821,8 @@
 }
 
 .tab-minimize {
+  left: 0;
+  z-index: 4;
   padding-right: 1.2vh;
   margin-left: 19.5vh;
   border-top-right-radius: 1.5vh;
