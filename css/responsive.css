@@ -137,7 +137,6 @@
     width: 4vh;
   }
 
-  .calc,
   #switch-mode:checked ~ .buttons-container .additional,
   .extra-symbols .additional {
     height: 100%;
@@ -266,11 +265,11 @@
   }
 
   .small-icon {
-    width: 4.3vw;
+    width: 4vw;
   }
 
   .large-icon {
-    width: 9vw;
+    width: 8vw;
   }
 
   .libre-franklin {
@@ -348,12 +347,12 @@
   }
 
   .middle-base {
-    height: 6.5%;
+    height: 6.46vh;
     margin-top: -3vh;
   }
 
   .buttons-container {
-    height: 66%;
+    height: 65.5vh;
     font-size: 4.8vw;
   }
 
@@ -362,7 +361,7 @@
   }
 
   .lights-container {
-    height: 6.5vh;
+    height: 6.7vh;
     margin-bottom: 3vh;
   }
 
@@ -382,8 +381,8 @@
   }
 
   .power {
-    width: 10vw;
-    height: 10vw;
+    width: 9.5vw;
+    height: 9.5vw;
     margin-bottom: 3vh;
   }
 
@@ -428,8 +427,8 @@
   }
 
   .qr {
-    width: 12.5vw;
-    height: 12.5vw;
+    width: 11.5vw;
+    height: 11.5vw;
   }
 
   .line {
