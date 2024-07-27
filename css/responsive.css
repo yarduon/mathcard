@@ -266,7 +266,7 @@
   }
 
   .small-icon {
-    width: 4.5vw;
+    width: 4.3vw;
   }
 
   .large-icon {
@@ -389,16 +389,17 @@
 
   .main-button {
     width: 18%;
-    height: 7vh;
+    height: 6.7vh;
   }
 
   .special-buttons-container {
-    height: 16vw;
+    height: 15vw;
   }
 
   .additional {
     width: 15.5%;
-    height: 40%;
+    height: 41%;
+    font-size: 1.6vh;
   }
 
   .currencies-container {
@@ -419,7 +420,7 @@
 
   .extra-symbols {
     width: 43vw;
-    height: 7.5vw;
+    height: 7vw;
   }
 
   .extra-symbols .additional {
