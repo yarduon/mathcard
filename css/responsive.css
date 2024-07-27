@@ -134,7 +134,7 @@
 
   .settings,
   .edit {
-    width: 4.2vh;
+    width: 4vh;
   }
 
   .calc,
@@ -266,7 +266,7 @@
   }
 
   .small-icon {
-    width: 4.7vw;
+    width: 4.5vw;
   }
 
   .large-icon {
@@ -398,7 +398,7 @@
 
   .additional {
     width: 15.5%;
-    height: 42%;
+    height: 40%;
   }
 
   .currencies-container {
@@ -419,11 +419,11 @@
 
   .extra-symbols {
     width: 43vw;
-    height: 9vw;
+    height: 7.5vw;
   }
 
   .extra-symbols .additional {
-    width: 47%;
+    width: 48%;
   }
 
   .qr {
@@ -436,7 +436,7 @@
   }
 
   .footer-buttons {
-    width: 9.4vh;
+    width: 8.8vh;
   }
 
   .switch-line {

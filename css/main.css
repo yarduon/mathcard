@@ -2695,7 +2695,7 @@
 
 .additional {
   width: 5.6vh;
-  height: 3.6vh;
+  height: 3.5vh;
 }
 
 .main-button {
@@ -2725,10 +2725,11 @@
 }
 
 .extra-symbols {
-  width: 14.2vh;
+  width: 14.3vh;
 }
 
 .extra-symbols .button {
+  width: 6.75vh;
   height: 4.3vh;
 }
 
