@@ -2932,7 +2932,7 @@
 
 @-moz-document url-prefix() {
   .qr-result-subcontainer {
-    scrollbar-color: #1d1c1c #e3e3e3;
+    scrollbar-color: #292929 #e3e3e3;
   }
 }
 
@@ -2942,13 +2942,13 @@
 
 .qr-result-subcontainer:hover::-webkit-scrollbar-thumb,
 .qr-result-subcontainer:active::-webkit-scrollbar-thumb {
-  background: #0f0f0f;
+  background: #292929;
   border: 0.35vh solid #e3e3e3;
 }
 
 #qr-result {
   padding: 1vh 2vh 1vh 2vh;
   line-height: 3vh;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
   overflow-x: hidden;
 }
