@@ -332,7 +332,7 @@
 
   .logo-container {
     height: 5vh;
-    bottom: 3.4vh;
+    margin-bottom: 0.45vh;
   }
 
   .chewy .logo {
