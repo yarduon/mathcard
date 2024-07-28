@@ -785,9 +785,6 @@ function useCameraQR(camera) {
   // Only activate the camera if it is available
   camera
     .start()
-    .then(() => {
-      QrScanner.listCameras(true);
-    })
     .catch(() => camera.destroy())
     .finally(() => {
       // Enhance the scanning area by adding shadows
