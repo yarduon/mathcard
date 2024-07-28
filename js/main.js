@@ -809,8 +809,8 @@ function useCameraQR(camera) {
 function deleteCamera(currentCamera) {
   // Stop and reset camera
   addClass("hidden", document.getElementById("reader"));
-  isCameraActive = false;
   document.getElementById("reader").pause();
+  isCameraActive = false;
   // Destroy the camera completely only when it has content
   if (!isEmpty(currentCamera)) {
     currentCamera.stop();
