@@ -810,6 +810,7 @@ function deleteCamera(currentCamera) {
   // Stop and reset camera
   addClass("hidden", document.getElementById("reader"));
   isCameraActive = false;
+  document.getElementById("reader").pause();
   // Destroy the camera completely only when it has content
   if (!isEmpty(currentCamera)) {
     currentCamera.stop();
