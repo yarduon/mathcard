@@ -658,23 +658,15 @@ function requestCamera(currentCamera) {
   hideShowOptionsQR(false, true);
   // Show loading icon
   removeClass("hidden", document.getElementById("loading"));
-  // Request camera permissions
-  navigator.mediaDevices
-    .getUserMedia({
-      video: {
-        // Set environment camera by default
-        facingMode: "environment",
-      },
-    })
-    .then(() => {
-      // Begin using the camera once permission has been granted
-      useCameraQR(currentCamera);
-    })
-    .catch(() => {
-      // When the user doesn't give camera permissions
-      deleteCamera(currentCamera);
-      showError(2);
-    });
+
+  try {
+    // Begin using the camera once permission has been granted
+    useCameraQR(currentCamera);
+  } catch (e) {
+    // When the user doesn't give camera permissions
+    deleteCamera(currentCamera);
+    showError(2);
+  }
 }
 
 function checkCamera(currentCamera) {
