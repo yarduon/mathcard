@@ -2477,6 +2477,10 @@
   text-align: center;
 }
 
+.center-last {
+  text-align-last: center;
+}
+
 .justify {
   text-align: justify;
 }
