@@ -122,14 +122,10 @@
   }
 
   .calc,
+  .logo-container,
   .line,
   .symbols {
     width: 100%;
-  }
-
-  .screen,
-  .logo-container {
-    width: 77%;
   }
 
   .settings,
@@ -307,6 +303,7 @@
   }
 
   .screen {
+    width: 77%;
     height: 20vh;
   }
 
@@ -332,7 +329,6 @@
 
   .logo-container {
     height: 5vh;
-    bottom: 3.4vh;
   }
 
   .chewy .logo {
