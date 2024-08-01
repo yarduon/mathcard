@@ -2,7 +2,7 @@
 @keyframes typing {
   0%,
   100% {
-    border-right-color: --icon-color;
+    border-right-color: var(--icon-color, rgb(29, 28, 28));
   }
 
   50% {
@@ -14,7 +14,7 @@
   0%,
   90%,
   100% {
-    background-color: --background-color;
+    background-color: var(--background-color, #3bd31d);
   }
 
   85%,
