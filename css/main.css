@@ -831,40 +831,40 @@
 
 .full-yellow-background,
 .selected-element.full-yellow-bar + .bar {
-  background-color: #f7cb07;
+  background-color: #ffd000;
 }
 
 .full-yellow-icon {
-  color: #f7cb07;
+  color: #ffd000;
 }
 
 .full-yellow-border-full {
-  border: 0.8vh solid #f7cb07;
+  border: 0.8vh solid #ffd000;
 }
 
 .full-yellow-icon .border-right {
-  --icon-color: #f7cb07;
+  --icon-color: #ffd000;
 }
 
 .full-border:has(.full-yellow-background) {
-  --border-color: #f7cb07;
+  --border-color: #ffd000;
 }
 
 .full-yellow-background + .background-color {
-  --background-color: #f7cb07;
+  --background-color: #ffd000;
 }
 
 .full-yellow-shadow.selected-color,
 .full-yellow-shadow:hover,
 .full-yellow-shadow:focus {
-  box-shadow: 0 0 0.01vh 0.25vh #f7cb07;
+  box-shadow: 0 0 0.01vh 0.25vh #ffd000;
 }
 
 @-moz-document url-prefix() {
   .full-yellow-shadow.selected-color,
   .full-yellow-shadow:hover,
   .full-yellow-shadow:focus {
-    box-shadow: 0 0 0 0.25vh #f7cb07;
+    box-shadow: 0 0 0 0.25vh #ffd000;
   }
 }
 
