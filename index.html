@@ -1084,14 +1084,17 @@
           </label>
         </button>
       </div>
-      <div
+      <button
+        aria-label="Open tabs"
         class="open-tabs flex justify-center align-center absolute black-background customization"
       >
-        <button
-          aria-label="Open tabs"
-          class="open-icon flex justify-center align-center light-opacity pastel-white-icon"
+        <label
+          class="medium-text touch max-width max-height flex justify-center align-center"
+          for="minimize"
         >
-          <label class="medium-text touch" for="minimize">
+          <div
+            class="open-icon flex justify-center align-center pastel-white-icon"
+          >
             <svg
               class="medium-icon medium"
               viewBox="0 0 20.108 20.373"
@@ -1110,9 +1113,9 @@
                 </g>
               </g>
             </svg>
-          </label>
-        </button>
-      </div>
+          </div>
+        </label>
+      </button>
       <section
         class="qr-container max-width max-height flex justify-center align-center black-background absolute overflow hidden"
         id="qr-menu"

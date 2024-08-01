@@ -19,52 +19,16 @@
   appearance: none;
 }
 
-.top-calculator,
-.modal-window {
-  height: 22vh;
-}
-
-.container-open-tabs,
-.open-tabs {
-  height: 6.2vh;
-}
-
-.qr,
-.extra-data-container {
-  height: 6vh;
-}
-
-.settings,
-.edit {
-  height: 3.7vh;
-}
-
-.color,
-.hidder,
-.extra-symbols .button {
-  height: 3.5vh;
-}
-
-.upper-buttons,
-.lower-buttons {
-  width: 99%;
-}
-
-.qr,
-.tab-minimize {
-  width: 6vh;
-}
-
-.settings,
-.edit {
-  width: 3.8vh;
-}
-
 .max-width,
 .selected-font .bar,
 .selected-element + .bar,
 .scrollbar::-webkit-scrollbar {
   width: 100%;
+}
+
+.upper-buttons,
+.lower-buttons {
+  width: 99%;
 }
 
 .special-buttons-container,
@@ -76,6 +40,11 @@
 #result,
 .general-buttons {
   width: 94%;
+}
+
+.font-families,
+.palette {
+  width: 300vh;
 }
 
 .qr-result-subcontainer,
@@ -106,6 +75,16 @@
   width: 24vh;
 }
 
+.qr,
+.tab-minimize {
+  width: 6vh;
+}
+
+.settings,
+.edit {
+  width: 3.8vh;
+}
+
 #square1,
 #square2 {
   height: 210vh;
@@ -117,15 +96,41 @@
   height: 24vh;
 }
 
+.top-calculator,
+.modal-window {
+  height: 22vh;
+}
+
 .tab-modify,
 .tab-confirm,
 .tab-minimize {
   height: 8.5vh;
 }
 
+.container-open-tabs,
+.open-tabs {
+  height: 6.2vh;
+}
+
+.qr,
+.extra-data-container {
+  height: 6vh;
+}
+
 .logo-container,
 .select {
   height: 4vh;
+}
+
+.settings,
+.edit {
+  height: 3.7vh;
+}
+
+.color,
+.hidder,
+.extra-symbols .button {
+  height: 3.5vh;
 }
 
 .reset,
@@ -392,11 +397,6 @@
   background: rgb(196, 192, 192);
 }
 
-.font-families,
-.palette {
-  width: 300vh;
-}
-
 .qr-icon,
 .settings-icon {
   height: 35vh;
@@ -406,6 +406,11 @@
 .tab-confirm,
 .tab-minimize {
   padding: 1.5vh 0.5vh 1vh 0.5vh;
+}
+
+.light-opacity:hover,
+.open-tabs:hover .open-icon {
+  opacity: 0.7;
 }
 
 .half-width {
@@ -495,10 +500,6 @@
 
 .scroll {
   overflow: scroll;
-}
-
-.light-opacity:hover {
-  opacity: 0.7;
 }
 
 .touch:hover {
@@ -2836,10 +2837,6 @@
 
 .open-tabs {
   width: 6.5vh;
-}
-
-.open-tabs .medium-icon {
-  margin: 0.5vh 0 0 0;
 }
 
 .tab-confirm {
