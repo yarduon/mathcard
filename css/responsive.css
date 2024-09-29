@@ -193,8 +193,7 @@
   }
 
   .roboto .logo,
-  .rubik .logo,
-  .ubuntu .logo {
+  .rubik .logo {
     margin-bottom: 0.1vh;
   }
 
@@ -230,8 +229,7 @@
 
   .julee,
   .lato,
-  .roboto,
-  .ubuntu {
+  .roboto {
     --normal-text: 2.7vh;
   }
 
@@ -252,8 +250,7 @@
 
   .comfortaa,
   .julee,
-  .pt-mono,
-  .ubuntu {
+  .pt-mono {
     --large-text: 2.5vh;
   }
 
