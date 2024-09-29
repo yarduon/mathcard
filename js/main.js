@@ -38,7 +38,7 @@ if ("serviceWorker" in navigator) {
 }
 
 // Update only when new version is finished
-const currentVersion = 1.1;
+const currentVersion = 1.2;
 
 const buttons = Array.from(document.getElementsByClassName("calc-button")),
   topScreen = document.getElementById("top-screen"),

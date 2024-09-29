@@ -36,18 +36,18 @@ define(["./workbox-168f09f0"], function (e) {
       [
         {
           url: "css/animation.css",
-          revision: "4f947abc2c7e4bfba25118edad286256",
+          revision: "07a3e59aee8ea5e7b009a19f4df40583",
         },
-        { url: "css/fonts.css", revision: "122ffaf98be03a4ee40c3502f0211e40" },
-        { url: "css/main.css", revision: "68e9ef7d99cb6989c923f6e0d4c1e71e" },
+        { url: "css/fonts.css", revision: "51d16cf627cfae9677f8c74787b6e405" },
+        { url: "css/main.css", revision: "e7471edee62f289c5bd35f88ca9114ba" },
         {
           url: "css/position.css",
-          revision: "4e9a66945d59b5d8bc65cf8fbbb0dbc1",
+          revision: "5acacdd39515062930bdae8847993d50",
         },
         { url: "css/reset.css", revision: "e56be516a87051ba3ae1ed36d9974306" },
         {
           url: "css/responsive.css",
-          revision: "e90d6b341517b62a28557ff5ae90d8fb",
+          revision: "1bece0f2d63f85d346acd2416b531d82",
         },
         {
           url: "fonts/alatsi.ttf",
@@ -344,15 +344,15 @@ define(["./workbox-168f09f0"], function (e) {
           url: "img/pwa/screenshots/spanish/tablet_7inch_personalized_calculator_spa.png",
           revision: "87c6283808e40bcdc92f139eefe53f16",
         },
-        { url: "index.html", revision: "1e73c4c21faa9bb3f02eaa105dda9384" },
-        { url: "js/main.js", revision: "851da225f288c7b36caab3f07480cb1f" },
+        { url: "index.html", revision: "34148919abe44c48ccde0cc47daf7f69" },
+        { url: "js/main.js", revision: "54c10b28903afd347b57b9e7a50f7be2" },
         {
           url: "js/qr-scanner-worker.min.js",
           revision: "28f5cc01d4e18e99a0d2abe39b8b5159",
         },
         {
           url: "js/qr-scanner.min.js",
-          revision: "848256f9ad8d61ceb831ddbb54ac5998",
+          revision: "d30f5b924f148c75e3c29d7aa80d17d0",
         },
         { url: "js/utility.js", revision: "b25901e60eafbd21c4602daa712f339d" },
         {
@@ -361,13 +361,13 @@ define(["./workbox-168f09f0"], function (e) {
         },
         {
           url: "json/languages.js",
-          revision: "d0bc90ce200734f0126f729a0599546c",
+          revision: "9efbe28fa18a3cf05ee68d1b5fedc6e4",
         },
         {
           url: "json/settings.js",
           revision: "6e17660d5eed88106191c21edfd52a99",
         },
-        { url: "manifest.json", revision: "3fa0e87e064b8c3fdbf2903499d062ab" },
+        { url: "manifest.json", revision: "56b8244155179d8d00825a01282d3f7c" },
         { url: "README.md", revision: "fe125e50d1ff9ba39b67a493b8b8f32d" },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
