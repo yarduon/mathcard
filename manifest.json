@@ -1,0 +1,320 @@
+{
+  "name": "Mathcard",
+  "short_name": "Mathcard",
+  "description": "Beautiful pseudo-scientific calculator totally customizable",
+  "developer": {
+    "name": "Yarduon",
+    "url": "https://yarduon.com"
+  },
+  "version": "1.2",
+  "iarc_rating_id": "37a5f913-d21e-495d-aacc-a3af1024061c",
+  "categories": ["utilities", "personalization", "entertainment", "education"],
+  "screenshots": [
+    {
+      "src": "./img/pwa/screenshots/english/computer_calculations_en.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Computation of complex mathematical operations"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/computer_calculations_spa.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Cálculo de operaciones matemáticas complejas"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/computer_currencies_en.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Conversion of euros into Canadian dollars"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/computer_currencies_spa.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Conversión de euros a dólares canadienses"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/computer_customization_en.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Use of edit mode to customise the calculator."
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/computer_customization_spa.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Uso del modo edición para personalizar la calculadora"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/computer_personalized_calculator_en.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Personalised calculator computing the rest of a division"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/computer_personalized_calculator_spa.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Calculadora personalizada hallando el resto de una división"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/mobile_calculations_en.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Computation of complex mathematical operations"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/mobile_calculations_spa.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Cálculo de operaciones matemáticas complejas"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/mobile_currencies_en.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Conversion of euros into Canadian dollars"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/mobile_currencies_spa.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Conversión de euros a dólares canadienses"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/mobile_customization_en.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Use of edit mode to customise the calculator."
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/mobile_customization_spa.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Uso del modo edición para personalizar la calculadora"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/mobile_personalized_calculator_en.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Personalised calculator computing the rest of a division"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/mobile_personalized_calculator_spa.png",
+      "sizes": "1440x2960",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Calculadora personalizada hallando el resto de una división"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_7inch_calculations_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Computation of complex mathematical operations"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_7inch_calculations_spa.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Cálculo de operaciones matemáticas complejas"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_7inch_currencies_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Conversion of euros into Canadian dollars"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_7inch_currencies_spa.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Conversión de euros a dólares canadienses"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_7inch_customization_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Use of edit mode to customise the calculator."
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_7inch_customization_spa.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Uso del modo edición para personalizar la calculadora"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_7inch_personalized_calculator_en.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Personalised calculator computing the rest of a division"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_7inch_personalized_calculator_spa.png",
+      "sizes": "1200x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Calculadora personalizada hallando el resto de una división"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_10inch_calculations_en.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Computation of complex mathematical operations"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_10inch_calculations_spa.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Cálculo de operaciones matemáticas complejas"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_10inch_currencies_en.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Conversion of euros into Canadian dollars"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_10inch_currencies_spa.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Conversión de euros a dólares canadienses"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_10inch_customization_en.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Use of edit mode to customise the calculator."
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_10inch_customization_spa.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Uso del modo edición para personalizar la calculadora"
+    },
+    {
+      "src": "./img/pwa/screenshots/english/tablet_10inch_personalized_calculator_en.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Personalised calculator computing the rest of a division"
+    },
+    {
+      "src": "./img/pwa/screenshots/spanish/tablet_10inch_personalized_calculator_spa.png",
+      "sizes": "1600x2560",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Calculadora personalizada hallando el resto de una división"
+    }
+  ],
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "theme_color": "#161618",
+  "background_color": "#FFFFFF",
+  "display_override": ["standalone", "minimal-ui"],
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./img/pwa/icons/mathcard_icon_32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_64x64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./img/pwa/icons/mathcard_icon_1024x1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

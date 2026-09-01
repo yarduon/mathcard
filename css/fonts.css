@@ -1,0 +1,132 @@
+/* https://yarduon.com */
+@font-face {
+  font-family: "Alatsi";
+  src: url("./../fonts/alatsi.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chewi";
+  src: url("./../fonts/chewy.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chivo";
+  src: url("./../fonts/chivo.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("./../fonts/comfortaa.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fredoka One";
+  src: url("./../fonts/fredoka_one.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gugi";
+  src: url("./../fonts/gugi.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Julee";
+  src: url("./../fonts/julee.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("./../fonts/lato.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libre Franklin";
+  src: url("./../fonts/libre_franklin.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url("./../fonts/lobster.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Londrina Solid";
+  src: url("./../fonts/londrina_solid.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("./../fonts/merriweather.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oleo Script";
+  src: url("./../fonts/oleo_script.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./../fonts/open_sans.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("./../fonts/outfit.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Permanent Marker";
+  src: url("./../fonts/permanent_marker.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Mono";
+  src: url("./../fonts/pt_mono.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("./../fonts/pt_sans.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./../fonts/roboto.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./../fonts/rubik.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Signika";
+  src: url("./../fonts/signika.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("./../fonts/source_code_pro.ttf");
+  font-display: swap;
+}

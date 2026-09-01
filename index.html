@@ -1,0 +1,1538 @@
+<!-- https://yarduon.com -->
+<!DOCTYPE html>
+<html class="flex max-width max-height" lang="en" translate="no" id="language">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Beautiful pseudo-scientific calculator totally customizable"
+    />
+    <meta name="google" content="notranslate" />
+    <meta name="theme-color" content="#161618" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link
+      rel="apple-touch-icon"
+      href="./img/pwa/icons/mathcard_icon_1024x1024.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="./img/pwa/icons/mathcard_icon_1024x1024.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="./img/pwa/icons/mathcard_icon_1024x1024.png"
+    />
+    <link rel="manifest" href="./manifest.json" />
+    <title>Mathcard</title>
+    <link rel="shortcut icon" href="./img/favicon.png" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/position.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/animation.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <script type="module" defer src="./js/main.js"></script>
+  </head>
+  <body
+    class="flex justify-center align-center max-width max-height overflow alatsi"
+  >
+    <div
+      class="initial-screen max-width max-height absolute light-black-background"
+      id="initial-screen"
+    ></div>
+    <div
+      class="max-width max-height flex justify-center align-center absolute overflow"
+      id="background-calc"
+    >
+      <div class="square1 absolute" id="square1"></div>
+      <div class="max-height half-width background-color" id="extra-bg1"></div>
+      <div class="square2 absolute" id="square2"></div>
+      <div class="max-height half-width background-color" id="extra-bg2"></div>
+      <div class="square3 absolute" id="square3"></div>
+    </div>
+    <main class="flex column justify-center align-center max-width max-height">
+      <input class="absolute invisible hidden" id="minimize" type="checkbox" />
+      <aside
+        class="custom fonts-container max-width scroll scrollbar absolute black-background hidden customization"
+      >
+        <div
+          class="font-families flex align-center pastel-white-icon relative"
+          id="font-families"
+        >
+          <button
+            aria-label="Alatsi"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="alatsi"
+          >
+            <span>Alatsi</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Chewy"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="chewy"
+          >
+            <span>Chewy</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Chivo"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="chivo"
+          >
+            <span>Chivo</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Comfortaa"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="comfortaa"
+          >
+            <span>Comfortaa</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Fredoka One"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="fredoka-one"
+          >
+            <span>Fredoka One</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Gugi"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="gugi"
+          >
+            <span>Gugi</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Julee"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="julee"
+          >
+            <span>Julee</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Lato"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="lato"
+          >
+            <span>Lato</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Libre Franklin"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="libre-franklin"
+          >
+            <span>Libre Franklin</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Lobster"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="lobster"
+          >
+            <span>Lobster</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Londrina Solid"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="londrina-solid"
+          >
+            <span>Londrina Solid</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Merriweather"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="merriweather"
+          >
+            <span>Merriweather</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Oleo Script"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="oleo-script"
+          >
+            <span>Oleo Script</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Open Sans"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="open-sans"
+          >
+            <span>Open Sans</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Outfit"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="outfit"
+          >
+            <span>Outfit</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Permanent Marker"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="permanent-marker"
+          >
+            <span>Permanent Marker</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="PT Mono"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="pt-mono"
+          >
+            <span>PT Mono</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="PT Sans"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="pt-sans"
+          >
+            <span>PT Sans</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Roboto"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="roboto"
+          >
+            <span>Roboto</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Rubik"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="rubik"
+          >
+            <span>Rubik</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Signika"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="signika"
+          >
+            <span>Signika</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+          <button
+            aria-label="Source Code Pro"
+            class="font semi-normal-text touch light-opacity pastel-white-icon"
+            id="source-code-pro"
+          >
+            <span>Source Code Pro</span>
+            <div class="bar pastel-white-background"></div>
+          </button>
+        </div>
+      </aside>
+      <div class="calc round-border flex column" id="font">
+        <input
+          class="absolute invisible hidden"
+          id="switch-mode"
+          type="checkbox"
+        />
+        <div
+          class="top-calculator round-border-full max-width flex justify-center align-center relative"
+          id="top"
+        >
+          <div
+            class="screen overflow flex column align-center relative full-border border-bottom-hidden"
+            id="screen"
+          >
+            <div class="operations-container flex justify-start align-center">
+              <p id="top-screen" class="hidden"></p>
+              <p
+                id="fake-top-screen"
+                class="flex justify-end align-center overflow normal-text border-right"
+              ></p>
+            </div>
+            <p id="result" class="relative flex justify-end normal-text">0</p>
+            <div
+              class="logo-container flex justify-center align-center max-width absolute"
+              id="logo"
+            >
+              <p class="logo absolute large-text">Mathcard</p>
+            </div>
+          </div>
+          <div class="container-screw max-width max-height absolute">
+            <div
+              class="circle-shape screw flex justify-center align-center absolute"
+              id="circle1"
+            ></div>
+            <div
+              class="circle-shape screw flex justify-center align-center absolute"
+              id="circle2"
+            ></div>
+            <div
+              class="circle-shape screw flex justify-center align-center absolute"
+              id="circle3"
+            ></div>
+            <div
+              class="circle-shape screw flex justify-center align-center absolute"
+              id="circle4"
+            ></div>
+          </div>
+        </div>
+        <div class="middle-base relative max-width" id="middle"></div>
+        <div
+          class="buttons-container max-width max-height relative flex align-center justify-center column huge-text"
+          id="buttons"
+        >
+          <div
+            class="upper-buttons max-width flex justify-end align-center absolute"
+          >
+            <div class="flex column justify-around absolute lights-container">
+              <div class="off-on-light on-mark absolute" id="on-default"></div>
+              <div class="off-on-light on-mark absolute" id="on-light"></div>
+              <div
+                class="off-on-light off-mark absolute"
+                id="off-default"
+              ></div>
+              <div class="off-on-light off-mark absolute" id="off-light"></div>
+            </div>
+            <button
+              aria-label="Power"
+              class="power flex justify-center relative align-center circle-shape touch"
+              id="power"
+            >
+              <svg
+                class="small-icon"
+                viewBox="0 0 91.8 103.5"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m39.402 4.749c4e-3 -2.1482 3.262-4.4543 6.4831-4.4671 3.2598-0.01296 6.483 2.2932 6.4831 4.4671 7.5e-4 17.968 4.7e-4 27.482 0 39.451-8e-5 2.0985-3.3453 3.9897-6.4831 4.0504-3.3249 0.0643-6.4542-1.827-6.4831-4.0504-0.18803-14.426-0.0395-18.093 0-39.451zm-7.2328 9.0119c-19.116 5.9934-32.126 23.704-32.13 43.737 1e-5 25.32 20.526 45.846 45.846 45.846 25.32-1e-5 45.846-20.526 45.846-45.846-4e-3 -20.033-13.015-37.744-32.13-43.737v9.8314c13.816 5.5889 22.86 19.002 22.86 33.906 9e-5 20.2-16.376 36.576-36.576 36.576-20.2 9e-5 -36.576-16.376-36.576-36.576 2e-3 -14.902 9.0452-28.313 22.86-33.902v-4.782z"
+                  fill="currentColor"
+                  stroke-width="1.9933"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="general-buttons flex column justify-start align-center absolute"
+          >
+            <div
+              class="max-width hidden currencies-container flex column justify-around"
+            >
+              <label class="max-width flex justify-center" for="firstCurrency">
+                <select
+                  class="select hidden-webstyles medium-text round-border touch center center-last"
+                  name="firstCurrency"
+                  id="firstCurrency"
+                ></select>
+              </label>
+              <label class="max-width flex justify-center" for="secondCurrency">
+                <select
+                  class="select hidden-webstyles medium-text round-border touch center center-last"
+                  name="secondCurrency"
+                  id="secondCurrency"
+                ></select>
+              </label>
+            </div>
+            <div
+              class="special-buttons-container flex wrap justify-between align-around"
+            >
+              <button
+                aria-label="M+"
+                class="button additional medium-text round-border touch"
+                id="m+"
+              >
+                M+
+              </button>
+              <button
+                aria-label="M-"
+                class="button additional medium-text round-border touch"
+                id="m-"
+              >
+                M-
+              </button>
+              <button
+                aria-label="MR"
+                class="button additional medium-text round-border touch"
+                id="mr"
+              >
+                MR
+              </button>
+              <button
+                aria-label="MS"
+                class="button additional medium-text round-border touch"
+                id="ms"
+              >
+                MS
+              </button>
+              <button
+                aria-label="MC"
+                class="button additional medium-text round-border touch"
+                id="mc"
+              >
+                MC
+              </button>
+              <button
+                aria-label="CE"
+                class="button additional medium-text round-border touch"
+                id="ce"
+              >
+                CE
+              </button>
+              <button
+                aria-label="LOG"
+                class="button calc-button function additional hidden-currency medium-text round-border touch"
+                id="LOG("
+              >
+                LOG
+              </button>
+              <button
+                class="button calc-button function additional hidden-currency medium-text round-border touch"
+                id="SIN("
+              >
+                SIN
+              </button>
+              <button
+                aria-label="COS"
+                class="button calc-button function additional hidden-currency medium-text round-border touch"
+                id="COS("
+              >
+                COS
+              </button>
+              <button
+                aria-label="TAN"
+                class="button calc-button function additional hidden-currency medium-text round-border touch"
+                id="TAN("
+              >
+                TAN
+              </button>
+              <button
+                aria-label="PI"
+                class="button calc-button function additional hidden-currency medium-text round-border touch"
+                id="PI"
+              >
+                PI
+              </button>
+              <button
+                aria-label="SQR"
+                class="button calc-button function additional hidden-currency medium-text round-border touch"
+                id="SQR("
+              >
+                SQR
+              </button>
+            </div>
+            <div
+              class="symbols max-width flex wrap justify-between align-center"
+            >
+              <button
+                aria-label="7"
+                class="button calc-button main-button round-border touch"
+                id="7"
+              >
+                7
+              </button>
+              <button
+                aria-label="8"
+                class="button calc-button main-button round-border touch"
+                id="8"
+              >
+                8
+              </button>
+              <button
+                aria-label="9"
+                class="button calc-button main-button round-border touch"
+                id="9"
+              >
+                9
+              </button>
+              <button
+                aria-label="%"
+                class="button calc-button operator main-button hidden-currency round-border touch"
+                id="%"
+              >
+                %
+              </button>
+              <button
+                aria-label="^"
+                class="button calc-button operator main-button hidden-currency round-border touch"
+                id="Dead"
+              >
+                ^
+              </button>
+              <button
+                aria-label="4"
+                class="button calc-button main-button round-border touch"
+                id="4"
+              >
+                4
+              </button>
+              <button
+                aria-label="5"
+                class="button calc-button main-button round-border touch"
+                id="5"
+              >
+                5
+              </button>
+              <button
+                aria-label="6"
+                class="button calc-button main-button round-border touch"
+                id="6"
+              >
+                6
+              </button>
+              <button
+                aria-label="*"
+                class="button calc-button operator main-button hidden-currency round-border touch"
+                id="*"
+              >
+                *
+              </button>
+              <button
+                aria-label="/"
+                class="button calc-button operator main-button hidden-currency round-border touch"
+                id="/"
+              >
+                /
+              </button>
+              <button
+                aria-label="1"
+                class="button calc-button main-button round-border touch"
+                id="1"
+              >
+                1
+              </button>
+              <button
+                aria-label="2"
+                class="button calc-button main-button round-border touch"
+                id="2"
+              >
+                2
+              </button>
+              <button
+                aria-label="3"
+                class="button calc-button main-button round-border touch"
+                id="3"
+              >
+                3
+              </button>
+              <button
+                aria-label="+"
+                class="button calc-button operator main-button hidden-currency round-border touch"
+                id="+"
+              >
+                +
+              </button>
+              <button
+                aria-label="-"
+                class="button calc-button operator main-button hidden-currency round-border touch"
+                id="-"
+              >
+                -
+              </button>
+              <button
+                aria-label="0"
+                class="button calc-button main-button round-border touch"
+                id="0"
+              >
+                0
+              </button>
+              <button
+                aria-label="."
+                class="button dot calc-button main-button relative round-border touch"
+                id="."
+              >
+                .
+              </button>
+              <button
+                aria-label="("
+                class="button calc-button parenthesis main-button hidden-currency round-border touch"
+                id="("
+              >
+                (
+              </button>
+              <button
+                aria-label=")"
+                class="button calc-button parenthesis main-button hidden-currency round-border touch"
+                id=")"
+              >
+                )
+              </button>
+              <button
+                aria-label="="
+                class="button equal calc-button operator main-button round-border touch"
+                id="="
+              >
+                =
+              </button>
+            </div>
+          </div>
+          <div class="lower-buttons flex justify-between align-end absolute">
+            <button
+              aria-label="QR Reader"
+              class="qr flex justify-center align-center round-border touch"
+              id="qr"
+            >
+              <svg
+                class="large-icon"
+                viewBox="0 0 79.375 75.406"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  transform="rotate(90)"
+                  d="m56.66-78.636h8.9562c8.64e-4 0 0.0016 0.0012 0.0016 0.0026v12.009c0 0.0015-6.95e-4 0.0026-0.0016 0.0026h-8.9562c-8.63e-4 0-0.0016-0.0012-0.0016-0.0026v-12.009c0-0.0015 6.96e-4 -0.0026 0.0016-0.0026zm8.9377 12.014h8.9562c8.64e-4 0 0.0016 8.74e-4 0.0016 2e-3v8.9554c0 0.0011-6.95e-4 2e-3 -0.0016 2e-3h-8.9562c-8.63e-4 0-0.0016-8.74e-4 -0.0016-2e-3v-8.9554c0-0.0011 6.95e-4 -2e-3 0.0016-2e-3zm-36.547 40.249h8.9562c8.63e-4 0 0.0016 8.74e-4 0.0016 2e-3v16.668c0 0.00109-6.95e-4 0.00196-0.0016 0.00196h-8.9562c-8.64e-4 0-0.0016-8.74e-4 -0.0016-0.00196v-16.668c0-0.0011 6.95e-4 -2e-3 0.0016-2e-3zm8.9594 16.672h8.9562c8.63e-4 0 0.0016 8.739e-4 0.0016 0.00196v8.9554c0 0.001086-6.95e-4 0.00196-0.0016 0.00196h-8.9562c-8.64e-4 0-0.0016-8.7394e-4 -0.0016-0.00196v-8.9554c0-0.00109 6.95e-4 -0.00196 0.0016-0.00196zm-28.2-21.085v-8.9562c0-8.63e-4 8.739e-4 -0.0016 0.00196-0.0016h16.668c0.0011 0 2e-3 6.95e-4 2e-3 0.0016v8.9562c0 8.64e-4 -8.74e-4 0.0016-2e-3 0.0016h-16.668c-0.00109 0-0.00196-6.95e-4 -0.00196-0.0016zm37.158-17.919v-8.9562c0-8.63e-4 0.0018-0.0016 0.0041-0.0016h18.62c0.0023 0 0.0041 6.96e-4 0.0041 0.0016v8.9562c0 8.64e-4 -0.0018 0.0016-0.0041 0.0016h-18.62c-0.0023 0-0.0041-6.95e-4 -0.0041-0.0016zm-46.117 8.9594v-8.9562c0-8.63e-4 8.7394e-4 -0.0016 0.00196-0.0016h8.9554c0.00109 0 0.00196 6.95e-4 0.00196 0.0016v8.9562c0 8.64e-4 -8.739e-4 0.0016-0.00196 0.0016h-8.9554c-0.001086 0-0.00196-6.95e-4 -0.00196-0.0016zm7.3263 31.681v-10.505c0-1e-3 0.00103-0.0018 0.0023-0.0018h10.504c0.0013 0 0.0023 8.16e-4 0.0023 0.0018v10.505c0 0.00101-1e-3 0.00183-0.0023 0.00183h-10.504c-0.00127 0-0.0023-8.154e-4 -0.0023-0.00183zm-7.3235 7.3231c0 0.00103 0.00148 0.00222 0.00275 0.00222h25.15c0.0013 0 0.0028-0.00116 0.0028-0.00222v-25.152c0-1e-3 -0.0015-0.0022-0.0028-0.0022h-25.15c-0.00127 0-0.00275 0.0012-0.00275 0.0022zm3.6326-3.6315v-17.889c0-7.34e-4 7.197e-4 -0.0011 0.00169-0.0011h17.887c9.21e-4 0 0.0016 3.61e-4 0.0016 0.0011v17.889c0 7.324e-4 -7.2e-4 0.00106-0.0016 0.00106h-17.887c-9.218e-4 0-0.00169-3.62e-4 -0.00169-0.00106zm3.6882-56.433v-10.505c0-1e-3 0.00103-0.0018 0.0023-0.0018h10.504c0.0013 0 0.0023 8.16e-4 0.0023 0.0018v10.505c0 1e-3 -1e-3 0.0018-0.0023 0.0018h-10.504c-0.00127 0-0.0023-8.15e-4 -0.0023-0.0018zm-7.3235 7.3231c0 1e-3 0.001482 0.0022 0.002752 0.0022h25.15c0.0013 0 0.0028-0.0012 0.0028-0.0022v-25.152c0-1e-3 -0.0015-0.0022-0.0028-0.0022h-25.15c-0.00127 0-0.002752 0.0012-0.002752 0.0022zm3.6326-3.6315v-17.889c0-7.34e-4 7.197e-4 -0.0011 0.00169-0.0011h17.887c9.21e-4 0 0.0016 3.61e-4 0.0016 0.0011v17.889c0 7.32e-4 -7.2e-4 0.0011-0.0016 0.0011h-17.887c-9.218e-4 0-0.00169-3.62e-4 -0.00169-0.0011zm52.242 49.05v-10.504c0-1e-3 1e-3 -0.0018 0.0023-0.0018h10.503c0.0013 0 0.0023 8.16e-4 0.0023 0.0018v10.504c0 0.00101-1e-3 0.00183-0.0023 0.00183h-10.503c-0.0013 0-0.0023-8.153e-4 -0.0023-0.00183zm-7.3226 7.3222c0 0.00103 0.0015 0.00222 0.0028 0.00222h25.147c0.0013 0 0.0028-0.00116 0.0028-0.00222v-25.148c0-1e-3 -0.0015-0.0022-0.0028-0.0022h-25.147c-0.0013 0-0.0028 0.0012-0.0028 0.0022zm3.6321-3.6311v-17.886c0-7.34e-4 7.2e-4 -0.0011 0.0017-0.0011h17.885c9.21e-4 0 0.0016 3.61e-4 0.0016 0.0011v17.886c0 7.323e-4 -7.19e-4 0.00106-0.0016 0.00106h-17.885c-9.21e-4 0-0.0017-3.619e-4 -0.0017-0.00106zm1.5778-26.412h19.943v-17.919h-8.9594v8.9594l-10.983 3e-6zm-25.564-26.878v-8.9594l8.9594-2e-6v-12.014h8.9594l-0.0019 20.974zm8.9594 31.29v-13.315l-11.527-0.05603v-8.9594l20.486-3e-6v22.331z"
+                  fill="currentColor"
+                  stroke-width=".12857"
+                />
+              </svg>
+            </button>
+            <div
+              class="extra-symbols max-height relative flex justify-between align-end"
+            >
+              <button
+                aria-label="DEL"
+                class="button calc-button additional secondary relative medium-text round-border touch"
+                id="Backspace"
+              >
+                DEL
+              </button>
+              <button
+                aria-label="AC"
+                class="button calc-button additional secondary relative medium-text round-border touch"
+                id="ac"
+              >
+                AC
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="line max-width relative flex justify-between align-center"
+          id="bottom"
+        >
+          <div class="footer-buttons flex justify-between">
+            <button
+              aria-label="Settings"
+              class="settings flex justify-center align-center round-border touch"
+              id="settings"
+            >
+              <svg
+                class="small-icon"
+                viewBox="0 0 60.854 62.177"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  transform="matrix(-.45301 .89151 .89203 .45197 0 0)"
+                  d="m-10.275 22.043c0.27994-0.55218 0.94978-0.77072 1.5023-0.49014l5.339 2.7113a24.187 24.159 45 0 1 8.0162-5.3719l-0.79808-5.8919c-0.083146-0.61386 0.34394-1.1744 0.9577-1.2568l12.826-1.7225c0.61377-0.082432 1.1748 0.3453 1.2579 0.95916l0.84367 6.2285c0.02811 0.2075-0.0022 0.40875-0.07824 0.58766a24.187 24.159 45 0 1 5.1177 1.898 24.187 24.159 45 0 1 3.2492 1.9947l4.847-3.5454c0.49964-0.36546 1.1964-0.25698 1.5624 0.24309l7.6491 10.45c0.36604 0.50006 0.25883 1.1969-0.24081 1.5623l-4.9518 3.6219a24.187 24.159 45 0 1 0.81518 11.102c0.0063 3e-3 0.01245 0.0057 0.01867 0.0089l5.6063 2.8471c0.5525 0.28058 0.77182 0.95067 0.49189 1.5028l-5.8503 11.54c-0.27994 0.55218-0.94977 0.77072-1.5023 0.49014l-5.6063-2.8471c-0.05115-0.02598-0.09936-0.05511-0.14467-0.08737a24.187 24.159 45 0 1-9.105 5.5483l9.5e-5 5.7989c0 0.61929-0.49876 1.118-1.118 1.118l-12.929-4.22e-4c-0.61929 0-1.1179-0.4982-1.1179-1.1175l2.124e-4 -5.6829a24.187 24.159 45 0 1-3.5253-1.4456 24.187 24.159 45 0 1-4.5583-3.0072c-0.089206 0.1096-0.20026 0.20422-0.33242 0.2761l-5.4992 2.9911c-0.54194 0.29477-1.2151 0.09481-1.5095-0.44797l-6.1493-11.335c-0.29448-0.54278-0.09548-1.217 0.44646-1.5118l5.0741-2.7598a24.187 24.159 45 0 1-0.46748-9.1258l-5.4957-2.7909c-0.5525-0.28058-0.77182-0.95067-0.49189-1.5028zm10.72 12.314a14.324 14.308 45 0 0 6.3002 19.247 14.324 14.308 45 0 0 19.24-6.2771 14.324 14.308 45 0 0-6.2999-19.248 14.324 14.308 45 0 0-19.241 6.2776z"
+                  fill="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width=".18882"
+                />
+              </svg>
+            </button>
+            <button
+              aria-label="Edit"
+              class="edit flex justify-center align-center round-border touch"
+              id="edit"
+            >
+              <svg
+                class="small-icon"
+                viewBox="0 0 93.927 89.958"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m1.6854 88.625s21.32-2.479 26.653-7.6405c4.0539-3.9236 5.2653-7.877 4.57-11.549l0.0028-0.0027-10.793-11.236-4.68e-4 4.5e-4c-4.2713-1.0135-8.9498 0.095564-12.398 3.4045-5.3547 5.1389-8.0348 27.023-8.0348 27.023zm34.582-22.416 43.666-41.944-10.793-11.236-43.666 41.944zm47.023-45.167 6.5508-6.2923c3.1124-2.9896 3.2112-7.9021 0.22167-11.014-2.9896-3.1124-7.9021-3.2112-11.014-0.22167l-6.5508 6.2923z"
+                  fill="currentColor"
+                  stroke-width=".25049"
+                />
+              </svg>
+            </button>
+          </div>
+          <label
+            class="switch-mode-container flex justify-center relative align-center"
+            for="switch-mode"
+          >
+            <div
+              class="switch-icon touch round-border-full flex justify-center align-center"
+              id="switch-line"
+            >
+              <div
+                class="absolute switch-circle circle-shape"
+                id="switch-circle"
+              ></div>
+              <div class="switch-line max-width"></div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <aside
+        class="custom colors-container max-width relative absolute black-background scroll scrollbar hidden customization"
+      >
+        <div class="palette relative flex align-center" id="palette">
+          <button
+            aria-label="Normal black"
+            class="color semi-large-icon touch normal-black-shadow normal-black-background"
+            id="normal-black"
+          ></button>
+          <button
+            aria-label="Light black"
+            class="color semi-large-icon touch light-black-shadow light-black-background"
+            id="light-black"
+          ></button>
+          <button
+            aria-label="Pastel black"
+            class="color semi-large-icon touch pastel-black-shadow pastel-black-background"
+            id="pastel-black"
+          ></button>
+          <button
+            aria-label="Full grey"
+            class="color semi-large-icon touch full-grey-shadow full-grey-background"
+            id="full-grey"
+          ></button>
+          <button
+            aria-label="Darker grey"
+            class="color semi-large-icon touch darker-grey-shadow darker-grey-background"
+            id="darker-grey"
+          ></button>
+          <button
+            aria-label="Normal grey"
+            class="color semi-large-icon touch normal-grey-shadow normal-grey-background"
+            id="normal-grey"
+          ></button>
+          <button
+            aria-label="Light grey"
+            class="color semi-large-icon touch light-grey-shadow light-grey-background"
+            id="light-grey"
+          ></button>
+          <button
+            aria-label="Pastel grey"
+            class="color semi-large-icon touch pastel-grey-shadow pastel-grey-background"
+            id="pastel-grey"
+          ></button>
+          <button
+            aria-label="Full white"
+            class="color semi-large-icon touch full-white-shadow full-white-background"
+            id="full-white"
+          ></button>
+          <button
+            aria-label="Pastel white"
+            class="color semi-large-icon touch pastel-white-shadow pastel-white-background"
+            id="pastel-white"
+          ></button>
+          <button
+            aria-label="Full orange"
+            class="color semi-large-icon touch full-orange-shadow full-orange-background"
+            id="full-orange"
+          ></button>
+          <button
+            aria-label="Darker orange"
+            class="color semi-large-icon touch darker-orange-shadow darker-orange-background"
+            id="darker-orange"
+          ></button>
+          <button
+            aria-label="Normal orange"
+            class="color semi-large-icon touch normal-orange-shadow normal-orange-background"
+            id="normal-orange"
+          ></button>
+          <button
+            aria-label="Light orange"
+            class="color semi-large-icon touch light-orange-shadow light-orange-background"
+            id="light-orange"
+          ></button>
+          <button
+            aria-label="Pastel orange"
+            class="color semi-large-icon touch pastel-orange-shadow pastel-orange-background"
+            id="pastel-orange"
+          ></button>
+          <button
+            aria-label="Full red"
+            class="color semi-large-icon touch full-red-shadow full-red-background"
+            id="full-red"
+          ></button>
+          <button
+            aria-label="Darker red"
+            class="color semi-large-icon touch darker-red-shadow darker-red-background"
+            id="darker-red"
+          ></button>
+          <button
+            aria-label="Normal red"
+            class="color semi-large-icon touch normal-red-shadow normal-red-background"
+            id="normal-red"
+          ></button>
+          <button
+            aria-label="Light red"
+            class="color semi-large-icon touch light-red-shadow light-red-background"
+            id="light-red"
+          ></button>
+          <button
+            aria-label="Pastel red"
+            class="color semi-large-icon touch pastel-red-shadow pastel-red-background"
+            id="pastel-red"
+          ></button>
+          <button
+            aria-label="Full blue"
+            class="color semi-large-icon touch full-blue-shadow full-blue-background"
+            id="full-blue"
+          ></button>
+          <button
+            aria-label="Darker blue"
+            class="color semi-large-icon touch darker-blue-shadow darker-blue-background"
+            id="darker-blue"
+          ></button>
+          <button
+            aria-label="Normal blue"
+            class="color semi-large-icon touch normal-blue-shadow normal-blue-background"
+            id="normal-blue"
+          ></button>
+          <button
+            aria-label="Light blue"
+            class="color semi-large-icon touch light-blue-shadow light-blue-background"
+            id="light-blue"
+          ></button>
+          <button
+            aria-label="Pastel blue"
+            class="color semi-large-icon touch pastel-blue-shadow pastel-blue-background"
+            id="pastel-blue"
+          ></button>
+          <button
+            aria-label="Full brown"
+            class="color semi-large-icon touch full-brown-shadow full-brown-background"
+            id="full-brown"
+          ></button>
+          <button
+            aria-label="Darker brown"
+            class="color semi-large-icon touch darker-brown-shadow darker-brown-background"
+            id="darker-brown"
+          ></button>
+          <button
+            aria-label="Normal brown"
+            class="color semi-large-icon touch normal-brown-shadow normal-brown-background"
+            id="normal-brown"
+          ></button>
+          <button
+            aria-label="Light brown"
+            class="color semi-large-icon touch light-brown-shadow light-brown-background"
+            id="light-brown"
+          ></button>
+          <button
+            aria-label="Pastel brown"
+            class="color semi-large-icon touch pastel-brown-shadow pastel-brown-background"
+            id="pastel-brown"
+          ></button>
+          <button
+            aria-label="Full purple"
+            class="color semi-large-icon touch full-purple-shadow full-purple-background"
+            id="full-purple"
+          ></button>
+          <button
+            aria-label="Darker purple"
+            class="color semi-large-icon touch darker-purple-shadow darker-purple-background"
+            id="darker-purple"
+          ></button>
+          <button
+            aria-label="Normal purple"
+            class="color semi-large-icon touch normal-purple-shadow normal-purple-background"
+            id="normal-purple"
+          ></button>
+          <button
+            aria-label="Light purple"
+            class="color semi-large-icon touch light-purple-shadow light-purple-background"
+            id="light-purple"
+          ></button>
+          <button
+            aria-label="Pastel purple"
+            class="color semi-large-icon touch pastel-purple-shadow pastel-purple-background"
+            id="pastel-purple"
+          ></button>
+          <button
+            aria-label="Full pink"
+            class="color semi-large-icon touch full-pink-shadow full-pink-background"
+            id="full-pink"
+          ></button>
+          <button
+            aria-label="Darker pink"
+            class="color semi-large-icon touch darker-pink-shadow darker-pink-background"
+            id="darker-pink"
+          ></button>
+          <button
+            aria-label="Normal pink"
+            class="color semi-large-icon touch normal-pink-shadow normal-pink-background"
+            id="normal-pink"
+          ></button>
+          <button
+            aria-label="Light pink"
+            class="color semi-large-icon touch light-pink-shadow light-pink-background"
+            id="light-pink"
+          ></button>
+          <button
+            aria-label="Pastel pink"
+            class="color semi-large-icon touch pastel-pink-shadow pastel-pink-background"
+            id="pastel-pink"
+          ></button>
+          <button
+            aria-label="Full yellow"
+            class="color semi-large-icon touch full-yellow-shadow full-yellow-background"
+            id="full-yellow"
+          ></button>
+          <button
+            aria-label="Darker yellow"
+            class="color semi-large-icon touch darker-yellow-shadow darker-yellow-background"
+            id="darker-yellow"
+          ></button>
+          <button
+            aria-label="Normal yellow"
+            class="color semi-large-icon touch normal-yellow-shadow normal-yellow-background"
+            id="normal-yellow"
+          ></button>
+          <button
+            aria-label="Light yellow"
+            class="color semi-large-icon touch light-yellow-shadow light-yellow-background"
+            id="light-yellow"
+          ></button>
+          <button
+            aria-label="Pastel yellow"
+            class="color semi-large-icon touch pastel-yellow-shadow pastel-yellow-background"
+            id="pastel-yellow"
+          ></button>
+          <button
+            aria-label="Full green"
+            class="color semi-large-icon touch full-green-shadow full-green-background"
+            id="full-green"
+          ></button>
+          <button
+            aria-label="Darker green"
+            class="color semi-large-icon touch darker-green-shadow darker-green-background"
+            id="darker-green"
+          ></button>
+          <button
+            aria-label="Normal green"
+            class="color semi-large-icon touch normal-green-shadow normal-green-background"
+            id="normal-green"
+          ></button>
+          <button
+            aria-label="Light green"
+            class="color semi-large-icon touch light-green-shadow light-green-background"
+            id="light-green"
+          ></button>
+          <button
+            aria-label="Pastel green"
+            class="color semi-large-icon touch pastel-green-shadow pastel-green-background"
+            id="pastel-green"
+          ></button>
+        </div>
+      </aside>
+      <div
+        class="tab tab-modify flex align-center justify-around absolute black-background hidden customization"
+        id="element"
+      >
+        <div class="flex column justify-center align-center">
+          <button
+            aria-label="Icon color"
+            class="element flex justify-center align-center touch light-opacity pastel-white-icon"
+            id="icon"
+          >
+            <svg
+              class="semi-large-icon"
+              viewBox="0 0 84.667 59.531"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="matrix(.82763 0 0 .82763 -36.095 -71.195)"
+                stroke-width="59.161"
+              >
+                <path
+                  d="m118.52 157.33q-4.272 0-7.2-1.92t-4.416-5.184q-1.44-3.264-1.44-7.296 0-3.504 2.304-6.96 2.352-3.504 8.304-5.952t16.08-2.448v-2.208q0-3.936-1.92-6.096-1.872-2.16-6.624-2.16-3.744 0-7.344 1.296-3.552 1.248-5.232 3.12l-3.84-9.216q3.264-2.208 8.112-3.744t10.32-1.536q6.864 0 10.848 2.112 4.032 2.112 5.664 5.952t1.632 9.504v31.392h-10.272l-0.864-6.816q-2.544 4.128-6.048 6.144-3.456 2.016-8.064 2.016zm5.088-9.216q2.208 0 4.656-1.776t3.888-4.464v-6.816q-0.672-0.096-2.304-0.096-4.848 0-8.688 1.632-3.792 1.584-3.792 5.184 0 3.408 1.488 4.896 1.536 1.44 4.752 1.44zm-36.96-1.824h-23.904l-3.552 9.696h-13.44l28.32-68.064h0.96l28.416 68.064h-13.056zm-3.552-9.312-7.008-18.24-1.632-5.376-1.536 5.376-6.72 18.24z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </button>
+          <div class="bar pastel-white-icon"></div>
+        </div>
+        <div class="flex column justify-center align-center">
+          <button
+            aria-label="Background color"
+            class="element flex justify-center align-center touch light-opacity pastel-white-icon"
+            id="background"
+          >
+            <svg
+              class="medium-icon"
+              viewBox="0 0 20.108 20.373"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)"
+              >
+                <g transform="translate(-2.3766 .072222)">
+                  <path
+                    transform="rotate(44.732)"
+                    d="m53.044 35.818h2.6659v15.117h-2.6659zm-12.74 0h2.6659v15.117h-2.6659zm0 2.6659v-2.6659h15.406v2.6659zm0 12.451v-2.6659h15.117v2.6659z"
+                    fill="currentColor"
+                    stroke-width="10.791"
+                  />
+                </g>
+              </g>
+            </svg>
+          </button>
+          <div class="bar pastel-white-icon"></div>
+        </div>
+        <div class="flex column justify-center align-center">
+          <button
+            aria-label="Shadow color"
+            class="element flex justify-center align-center touch light-opacity pastel-white-icon"
+            id="shadow"
+          >
+            <svg
+              class="medium-icon"
+              viewBox="0 0 20.108 20.373"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)"
+              >
+                <path
+                  transform="rotate(-45.268)"
+                  d="m-40.208 38.667h2.6659v15.406h-2.6659zm2.6659 12.74v2.6659h-15.117v-2.6659z"
+                  stroke-width="10.894"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </button>
+          <div class="bar pastel-white-icon"></div>
+        </div>
+      </div>
+      <div
+        class="tab tab-confirm flex align-center justify-around absolute black-background hidden customization"
+      >
+        <button
+          aria-label="Confirm changes"
+          class="medium-text light-opacity touch pastel-white-icon"
+          id="confirm"
+        >
+          <svg
+            class="semi-huge-icon"
+            viewBox="0 0 88.635 77.523"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g transform="matrix(1.6296 .15104 -.15104 1.6296 -11.385 -43.685)">
+              <path
+                transform="rotate(31.246)"
+                d="m58.946-9.9238h9.3147v50.984h-9.3147zm-18.609 52.058-0.35818-9.3078 27.923-1.0745 0.35818 9.3078z"
+                fill="currentColor"
+                stroke-width="21.143"
+              />
+            </g>
+          </svg>
+        </button>
+        <button
+          aria-label="Cancel and close"
+          class="medium-text light-opacity touch pastel-white-icon"
+          id="reject"
+        >
+          <svg
+            class="medium-icon"
+            viewBox="0 0 24.871 24.871"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m3.0432 0.13229-2.9109 2.8484 9.4278 9.4552-9.4237 9.4516 2.9099 2.8479 9.3886-9.4165 9.3927 9.4196 2.9109-2.8484-9.4278-9.4552 9.4237-9.4516-2.9099-2.8479-9.3886 9.4165z"
+              fill="currentColor"
+              stroke-width="10.853"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="tab tab-minimize flex align-center justify-center black-background absolute hidden customization"
+      >
+        <button
+          arialabel="Minimize tabs"
+          class="flex justify-center align-center touch light-opacity pastel-white-icon"
+        >
+          <label
+            class="minimize-label flex justify-center align-center touch"
+            for="minimize"
+          >
+            <svg
+              class="medium-icon"
+              viewBox="0 0 20.108 20.373"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)"
+              >
+                <path
+                  transform="rotate(224.73)"
+                  d="m-47.777-52.845h2.8147v15.456h-2.8147z"
+                  stroke-width=".48902"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </label>
+        </button>
+      </div>
+      <button
+        aria-label="Open tabs"
+        class="open-tabs flex justify-center align-center absolute black-background customization"
+      >
+        <label
+          class="medium-text touch max-width max-height flex justify-center align-center"
+          for="minimize"
+        >
+          <div
+            class="open-icon flex justify-center align-center pastel-white-icon"
+          >
+            <svg
+              class="medium-icon medium"
+              viewBox="0 0 20.108 20.373"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)"
+              >
+                <g transform="translate(-2.3766 .072222)">
+                  <path
+                    transform="rotate(44.732)"
+                    d="m53.044 35.818h2.6659v15.117h-2.6659zm-12.74 0h2.6659v15.117h-2.6659zm0 2.6659v-2.6659h15.406v2.6659zm0 12.451v-2.6659h15.117v2.6659z"
+                    fill="currentColor"
+                    stroke-width="10.791"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </label>
+      </button>
+      <section
+        class="qr-container max-width max-height flex justify-center align-center black-background absolute overflow hidden"
+        id="qr-menu"
+      >
+        <button
+          aria-label="Close window"
+          class="cross flex justify-center align-center pastel-white-icon absolute touch light-opacity"
+          id="close-qr"
+        >
+          <svg
+            class="large-icon"
+            viewBox="0 0 24.606 24.606"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)">
+              <g transform="translate(-1.0131 .0047441)">
+                <path
+                  transform="matrix(.99999 .0038313 .0038316 .99999 0 0)"
+                  d="m-7.5248 63.595-0.016842 2.1356 10.828-0.08483-1.366e-4 10.811 2.1355-8.8e-5 1.227e-4 -10.827 10.811-0.08468 0.01684-2.1356-10.828 0.08483 1.367e-4 -10.811-2.1355 8.7e-5 -1.227e-4 10.827z"
+                  fill="currentColor"
+                  stroke-width="2.008"
+                />
+              </g>
+            </g>
+          </svg>
+        </button>
+        <div class="qr-options max-width flex justify-center align-center wrap">
+          <button
+            aria-label="Camera"
+            class="qr-icon flex justify-center align-center round-border-full touch light-touch pastel-white-icon light-black-background"
+            id="camera"
+          >
+            <svg
+              class="huge-icon"
+              viewBox="0 0 91.281 71.438"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m34.033 0.61185c-1.568 6.07e-6 -2.2985 1.3552-2.8303 2.8303l-1.6288 4.5181h-8.0321c0.0042-0.036434 0.0062-0.073515 0.0062-0.1111v-2.1539c0-0.52957-0.42644-0.95601-0.95601-0.95601h-7.6114c-0.52957 0-0.95601 0.42644-0.95601 0.95601v2.1539c0 0.03759 0.0025 0.074671 0.0067 0.1111h-7.4734c-0.025491 0-0.049957-6.373e-4 -0.075448 0-1.5976 0.040057-2.8727 1.3405-2.8727 2.9481v4.6793h88.063v-4.6793c0-1.6332-1.315-2.9481-2.9481-2.9481h-24.92l-1.7244-4.5181c-0.55907-1.465-1.2623-2.8303-2.8303-2.8303h-11.347zm-32.423 19.953v47.312c0 1.6332 1.315 2.9481 2.9481 2.9481h82.167c1.6332 0 2.9481-1.315 2.9481-2.9481v-47.312zm80.423 3.6287a3.4306 3.4306 0 0 1 3.4277 3.4313 3.4306 3.4306 0 0 1-3.4277 3.4313 3.4306 3.4306 0 0 1-3.4313-3.4313 3.4306 3.4306 0 0 1 3.4313-3.4313zm-36.392 2.914a18.585 18.585 0 0 1 18.583 18.586 18.585 18.585 0 0 1-18.583 18.586 18.585 18.585 0 0 1-18.586-18.586 18.585 18.585 0 0 1 18.586-18.586zm0 4.5067a14.08 14.08 0 0 0-14.079 14.079 14.08 14.08 0 0 0 14.079 14.079 14.08 14.08 0 0 0 14.079-14.079 14.08 14.08 0 0 0-14.079-14.079zm0 6.5459a7.5352 7.5352 0 0 1 7.5334 7.5334 7.5352 7.5352 0 0 1-7.5334 7.537 7.5352 7.5352 0 0 1-7.5365-7.537 7.5352 7.5352 0 0 1 7.5365-7.5334z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Local file"
+            class="qr-icon round-border-full touch light-touch pastel-white-icon light-black-background flex justify-center align-center"
+            id="folder"
+          >
+            <svg
+              class="huge-icon"
+              viewBox="0 0 84.667 66.146"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="matrix(1.0657 0 0 1.0657 -4.895 -8.4499)">
+                <path
+                  d="m10.802 8.253c-3.1334 0-5.6561 2.5222-5.6561 5.6556v15.816h77.783c0.19296 0 0.38016 0.0219 0.56105 0.0611v-7.7393c0-3.1013-2.4966-5.5979-5.5979-5.5979h-44.102l-8.3871-8.1951zm72.688 26.654c-0.18088 0.03919-0.36809 0.0611-0.56105 0.0611h-77.783v29.109c0 3.1013 2.4966 5.5979 5.5979 5.5979h67.148c3.1013 0 5.5979-2.4966 5.5979-5.5979z"
+                  fill="currentColor"
+                  stroke-width="23.576"
+                />
+              </g>
+            </svg>
+            <input
+              class="absolute hidden"
+              type="file"
+              id="qr-input-file"
+              accept="image/*"
+            />
+          </button>
+          <div class="hidden absolute black-background" id="loading">
+            <img
+              class="max-icon"
+              src="./img/icons/loading.svg"
+              alt="White loading icon"
+            />
+          </div>
+          <div
+            class="flex justify-center align-center relative overflow"
+            id="scanner"
+          >
+            <video class="hidden" id="reader"></video>
+          </div>
+          <div
+            class="qr-result-container max-width max-height large-text hidden flex justify-center align-center"
+            id="qr-result-container"
+          >
+            <div
+              class="qr-result-subcontainer half-width relative scroll"
+              id="qr-result-subcontainer"
+            >
+              <p
+                class="max-width normal-black-icon black-text justify absolute"
+                id="qr-result"
+              ></p>
+              <a class="hidden" href="#" id="fake-qr-result"></a>
+            </div>
+            <div
+              class="result-options-container flex justify-center align-center"
+            >
+              <button
+                aria-label="Copy link"
+                class="sub-qr-icon flex justify-center align-center round-border-full touch pastel-white-icon light-black-background"
+                id="clipboard"
+              >
+                <svg
+                  class="semi-max-icon"
+                  viewBox="0 0 88.635 83.344"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g transform="translate(-1.9844 -4.6302)">
+                    <g transform="matrix(.70863 0 0 .70863 -54.999 -33)"></g>
+                    <g transform="matrix(.70863 0 0 .70863 -30.093 -52.6)">
+                      <path
+                        d="m90.951 83.105c-4.5444 0-8.2035 3.6591-8.2035 8.2035l0.11568 24.036 7.3708-9e-3v-17.982c0-3.7464 3.0161-6.7625 6.7625-6.7625h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625l-21.872-3.8e-4v7.4865l27.918 3.8e-4c4.5444 6e-5 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm-35.146 27.659c-4.5444 0-8.2035 3.6591-8.2035 8.2035v68.857c0 4.5444 3.6591 8.2035 8.2035 8.2035h68.857c4.5444 0 8.2035-3.6591 8.2035-8.2035v-68.857c0-4.5444-3.6591-8.2035-8.2035-8.2035zm6.0455 7.4865h56.766c3.7464 0 6.7625 3.0162 6.7625 6.7625v56.766c0 3.7464-3.0162 6.7625-6.7625 6.7625h-56.766c-3.7464 0-6.7625-3.0161-6.7625-6.7625v-56.766c0-3.7464 3.0161-6.7625 6.7625-6.7625z"
+                        fill="currentColor"
+                        stroke-width="49.63"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </button>
+              <button
+                aria-label="Open link"
+                class="sub-qr-icon flex justify-center align-center round-border-full touch pastel-white-icon light-black-background"
+                id="link"
+              >
+                <svg
+                  class="semi-max-icon"
+                  viewBox="0 0 83.344 82.55"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m62.575 41.193c0 21.116-9.3588 38.235-20.904 38.235s-20.904-17.118-20.904-38.235 9.3588-38.235 20.904-38.235 20.904 17.118 20.904 38.235zm-20.014 38.594-1.8913-0.01084 0.19013-76.145 1.8152 0.019199zm38.204-38.511c0 21.397-17.503 38.742-39.094 38.742-21.591 0-39.094-17.346-39.094-38.742-3e-7 -21.397 17.503-38.742 39.094-38.742 21.591 0 39.094 17.346 39.094 38.742zm-0.57009-0.67658 0.10327 1.44-77.268-0.05764 0.13196-1.4687zm-5.2919 18.259-0.12962 1.4346-65.977-0.015-0.5393-1.5057zm0.22864-35.981 0.08965 1.4346-67.078-0.05743 0.11456-1.4633z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="4.5695"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="options-container max-width max-height absolute hidden black-background"
+        id="settings-menu"
+      >
+        <div
+          class="opacity-container black-background absolute max-width max-height hidden"
+          id="opacity"
+        ></div>
+        <button
+          aria-label="Close window"
+          class="cross flex justify-center align-center pastel-white-icon absolute touch light-opacity"
+          id="close-settings"
+        >
+          <svg
+            class="large-icon"
+            viewBox="0 0 24.606 24.606"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g transform="matrix(.90973 .91829 -.91829 .90973 68.351 -49.752)">
+              <g transform="translate(-1.0131 .0047441)">
+                <path
+                  transform="matrix(.99999 .0038313 .0038316 .99999 0 0)"
+                  d="m-7.5248 63.595-0.016842 2.1356 10.828-0.08483-1.366e-4 10.811 2.1355-8.8e-5 1.227e-4 -10.827 10.811-0.08468 0.01684-2.1356-10.828 0.08483 1.367e-4 -10.811-2.1355 8.7e-5 -1.227e-4 10.827z"
+                  fill="currentColor"
+                  stroke-width="2.008"
+                />
+              </g>
+            </g>
+          </svg>
+        </button>
+        <article
+          class="settings-options-container max-width max-height absolute flex wrap justify-center align-center pastel-white-icon black-background"
+          id="settings-options"
+        >
+          <div class="settings-options flex wrap justify-center align-center">
+            <button
+              aria-label="Upload settings"
+              class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon"
+              id="upload-settings"
+            >
+              <input id="settings-input" class="hidden" type="file" />
+              <svg
+                class="huge-icon"
+                viewBox="0 0 82.021 82.021"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="translate(0 -6.8792)">
+                  <path
+                    d="m24.685 52.61h32.651c1.3652 0 2.4643 1.0991 2.4643 2.4643s-1.0991 2.4643-2.4643 2.4643h-32.651c-1.3652 0-2.4643-1.0991-2.4643-2.4643s1.0991-2.4643 2.4643-2.4643zm0 10.91h32.651c1.3652 0 2.4643 1.0991 2.4643 2.4643s-1.0991 2.4643-2.4643 2.4643h-32.651c-1.3652 0-2.4643-1.0991-2.4643-2.4643s1.0991-2.4643 2.4643-2.4643zm20.73-47.466h7.7514v14.794h-7.7514zm-38.628-7.5737c-2.8721 0-5.1852 2.3124-5.1852 5.1845v68.448c0 2.8721 2.313 5.1845 5.1852 5.1845h68.448c2.8722 0 5.1845-2.3124 5.1845-5.1845v-59.315l-13-14.318zm16.612 5.5141h32.435c0.96443 0 1.7407 0.77622 1.7407 1.7407v15.569c0 0.96443-0.77622 1.7413-1.7407 1.7413h-32.435c-0.96443 0-1.7407-0.77688-1.7407-1.7413v-15.569c0-0.96443 0.77622-1.7407 1.7407-1.7407zm-5.2009 32.679h45.625v34.704h-45.625z"
+                    stroke-width="28.541"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button
+              aria-label="Download settings"
+              class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon"
+              id="download-settings"
+            >
+              <svg
+                class="huge-icon"
+                viewBox="0 0 68.792 82.021"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(2.0858 0 0 2.0858 -58.042 -51.012)">
+                  <g transform="translate(0 -.52917)">
+                    <path
+                      d="m43.132 25.484h2.3715c1.0507 0 1.8965 0.84584 1.8965 1.8965v16.942c0 1.0507-0.84583 1.8965-1.8965 1.8965h-2.3715c-1.0507 0-1.8965-0.84584-1.8965-1.8965v-16.942c0-1.0507 0.84584-1.8965 1.8965-1.8965zm1.1858 31.63-9.6882-13.743 19.376-4e-6zm15.834 4.053v1.4189c0 0.67974-0.54723 1.227-1.227 1.227h-29.215c-0.67974 0-1.227-0.54723-1.227-1.227v-1.4189c0-0.67974 0.54723-1.227 1.227-1.227h29.215c0.67974 0 1.227 0.54723 1.227 1.227zm-3.0468-10.771h2.2208c0.45759 0 0.82597 0.36838 0.82597 0.82597v11.235c0 0.45759-0.36838 0.82597-0.82597 0.82597h-2.2208c-0.45759 0-0.82597-0.36838-0.82597-0.82597v-11.235c0-0.45759 0.36838-0.82597 0.82597-0.82597zm-27.796 0h2.2208c0.45759 0 0.82597 0.36838 0.82597 0.82597v11.235c0 0.45759-0.36838 0.82597-0.82597 0.82597h-2.2208c-0.45759 0-0.82597-0.36838-0.82597-0.82597v-11.235c0-0.45759 0.36838-0.82597 0.82597-0.82597z"
+                      stroke-width="14.865"
+                      fill="currentColor"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button
+              aria-label="Change background"
+              class="settings-icon flex justify-center align-center touch light-touch round-border-full light-black-background pastel-white-icon hidden-m"
+              id="change-background"
+            >
+              <svg
+                class="huge-icon"
+                viewBox="0 0 71.437 71.438"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(1.1762 0 0 1.1762 -18.741 -18.741)">
+                  <path
+                    d="m50.554 26.673 15.659 28.73h-31.318zm-15.922 14.548 8.2358 14.182h-16.472zm-8.2358 14.182h39.817v1e-6zm8.2358-24.622a4.1179 4.1179 0 0 1-4.1179 4.1179 4.1179 4.1179 0 0 1-4.1179-4.1179 4.1179 4.1179 0 0 1 4.1179-4.1179 4.1179 4.1179 0 0 1 4.1179 4.1179zm-16.58-13.956c-0.67974 0-1.2268 0.54706-1.2268 1.2268v56.501c0 0.67974 0.54706 1.2268 1.2268 1.2268h56.501c0.67974 0 1.2268-0.54706 1.2268-1.2268v-56.501c0-0.67974-0.54706-1.2268-1.2268-1.2268zm5.1826 5.9108h46.136c0.42142 0 0.76068 0.33926 0.76068 0.76068v35.028c0 0.42142-0.33926 0.76068-0.76068 0.76068h-46.136c-0.42142 0-0.76068-0.33926-0.76068-0.76068v-35.028c0-0.42142 0.33926-0.76068 0.76068-0.76068z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="7.101"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+          <button
+            aria-label="Reset settings"
+            class="reset absolute touch round-border-full light-opacity semi-normal-text round-border full-red-background pastel-white-icon translate"
+            id="reset-settings"
+          >
+            Wipe all data
+          </button>
+          <div
+            class="modal-window round-border-full absolute light-black-background hidden"
+            id="modal"
+          >
+            <p
+              class="modal-message flex justify-center align-center medium-text translate"
+            >
+              Are you sure you want to delete all data?
+            </p>
+            <div class="modal-buttons flex max-width">
+              <button
+                aria-label="Cancel"
+                class="modal-cancel medium-text half-width touch light-opacity pastel-black-background pastel-white-icon translate"
+                id="cancel"
+              >
+                Cancel
+              </button>
+              <button
+                aria-label="Delete"
+                class="modal-delete medium-text half-width touch light-opacity full-red-background pastel-white-icon translate"
+                id="delete"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+          <div
+            class="extra-data-container flex justify-center align-center absolute"
+          >
+            <a
+              class="flex justify-center align-center"
+              href="https://yarduon.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                class="penguin-logo touch light-opacity"
+                srcset="./img/logos/white_penguin.png"
+                sizes="128px"
+                alt="White penguin in a suit"
+              />
+            </a>
+            <hr class="vertical-line pastel-white-background" />
+            <div class="text-data-container semi-normal-text">
+              <p class="translate">Version 1.2</p>
+              <p class="translate">09/29/2024</p>
+            </div>
+          </div>
+          <p class="credits semi-normal-text pastel-white-icon absolute">
+            <span class="translate">Developed using</span>
+            <a
+              class="light-red-icon light-opacity"
+              href="https://www.exchangerate-api.com"
+              >Exchange Rate API</a
+            >
+            <span class="translate">and</span>
+            <a
+              class="light-blue-icon light-opacity"
+              href="https://github.com/nimiq/qr-scanner"
+              >QR Scanner</a
+            >
+          </p>
+        </article>
+        <article
+          class="hidden max-width max-height absolute flex wrap justify-center align-center black-background"
+          id="background-menu"
+        >
+          <div class="background-options flex wrap justify-center align-center">
+            <button
+              aria-label="Original background"
+              class="background-icon touch round-border-full light-black-background pastel-white-icon"
+              id="original"
+            >
+              <svg
+                class="huge-icon"
+                viewBox="0 0 92.604 87.312"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(1.1177 0 0 1.1177 1.2592 .8873)">
+                  <path
+                    d="m80.602 21.182-34.224 18.091 17.579 37.26h16.646zm-53.066-21.182 53.066-1.6287e-6 3e-6 14.962-36.824 19.465zm-27.535 76.533v-76.533l22.031 2e-6 36.107 76.533z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="5.3106"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button
+              aria-label="Original reverse background"
+              class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
+              id="original-reverse"
+            >
+              <svg
+                class="huge-icon rotate"
+                viewBox="0 0 92.604 87.312"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(1.1177 0 0 1.1177 1.2592 .8873)">
+                  <path
+                    d="m80.602 21.182-34.224 18.091 17.579 37.26h16.646zm-53.066-21.182 53.066-1.6287e-6 3e-6 14.962-36.824 19.465zm-27.535 76.533v-76.533l22.031 2e-6 36.107 76.533z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="5.3106"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button
+              aria-label="Split background"
+              class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
+              id="split"
+            >
+              <svg
+                class="huge-icon arise"
+                viewBox="0 0 92.604 87.312"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(.97705 0 0 .97705 1.0627 1.002)">
+                  <path
+                    d="m2.0117e-6 -1.7e-6h92.604v40.732h-92.604zm1.803e-6 46.581h92.604v40.732h-92.604z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="6.6602"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+            <button
+              aria-label="Split reverse background"
+              class="background-icon flex justify-center align-center touch round-border-full light-black-background pastel-white-icon"
+              id="split-reverse"
+            >
+              <svg
+                class="huge-icon"
+                viewBox="0 0 92.604 87.312"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform="matrix(.97705 0 0 .97705 1.0627 1.002)">
+                  <path
+                    d="m2.0117e-6 -1.7e-6h92.604v40.732h-92.604zm1.803e-6 46.581h92.604v40.732h-92.604z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="6.6602"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </article>
+      </section>
+      <p
+        class="container-error small-text absolute full-red-background pastel-white-icon"
+        id="error"
+      >
+        QR code not found in the supplied file
+      </p>
+      <p class="hidden translate" id="qr-not-found">
+        QR code not found in the supplied file
+      </p>
+      <p class="hidden translate" id="invalid-file">
+        File provided is not valid or is corrupted
+      </p>
+      <p class="hidden translate" id="camera-unavailable">
+        Camera unavailable or permissions denied
+      </p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,184 @@
+/* https://yarduon.com */
+.top-calculator,
+#square2 {
+  z-index: 1;
+}
+
+.calc,
+#reader,
+.qr-container,
+.options-container,
+.screen,
+.tab {
+  z-index: 3;
+}
+
+.logo-container,
+.customization,
+.arrow,
+.open-tabs,
+#error,
+#close-settings,
+.opacity-container {
+  z-index: 4;
+}
+
+.custom,
+.modal-window,
+.initial-screen {
+  z-index: 5;
+}
+
+.invisible,
+.tab-minimize {
+  z-index: -1;
+}
+
+.upper-buttons,
+.invisible,
+#error,
+.fonts-container,
+.arrow {
+  top: 0;
+}
+
+#circle3,
+#circle4 {
+  top: 5%;
+}
+
+.logo-container,
+.lower-buttons,
+.extra-symbols,
+.colors-container,
+.tab,
+.open-tabs,
+.extra-data-container,
+.credits,
+.reset {
+  bottom: 0;
+}
+
+#circle1,
+#circle2 {
+  bottom: 5%;
+}
+
+.invisible,
+.tab-modify,
+.lights-container,
+.extra-data-container {
+  left: 0;
+}
+
+#circle2,
+#circle3 {
+  left: 2%;
+}
+
+.extra-symbols,
+.right-arrow,
+.open-tabs,
+.tab-confirm,
+.tab-minimize,
+.reset {
+  right: 0;
+}
+
+#circle1,
+#circle4 {
+  right: 2%;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-around {
+  align-content: space-around;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.self-flex-start {
+  align-self: flex-start;
+}
+
+.self-flex-end {
+  align-self: flex-end;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.on-mark {
+  bottom: 3.5vh;
+}
+
+.off-mark {
+  top: 3.5vh;
+}
+
+#switch-mode:checked ~ .buttons-container .dot {
+  left: 22.6vh;
+}
+
+.switch-circle {
+  left: 0.7vh;
+}
+
+#switch-mode:checked ~ .line .switch-circle {
+  left: 4.4vh;
+}
+
+.qr {
+  left: 0.4vh;
+}
+
+#square1 {
+  z-index: 2;
+}
+
+.cross {
+  top: 1.5vh;
+  right: 1.5vh;
+}
+
+#error {
+  left: -100%;
+}
